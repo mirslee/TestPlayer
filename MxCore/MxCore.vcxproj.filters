@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="mempool">
+      <UniqueIdentifier>{03dc44d2-e829-4ecc-aa46-a48be06765f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{f102f6c5-39db-474d-bc0e-479b71eaab35}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ncx_mempool\ncx_core.h">
+      <Filter>mempool</Filter>
+    </ClInclude>
+    <ClInclude Include="ncx_mempool\ncx_log.h">
+      <Filter>mempool</Filter>
+    </ClInclude>
+    <ClInclude Include="ncx_mempool\ncx_slab.h">
+      <Filter>mempool</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\MxAtomic.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\MxCharSet.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\MxCommon.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\MxConfig.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\MxCpu.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\MxError.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\MxFileSystem.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\MxFixups.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\MxInterface.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\MxInterrupt.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\MxNetwork.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\MxPointer.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\MxSystem.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\MxThread.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\MxTypes.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\MxConfig_win.h">
+      <Filter>include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ncx_mempool\ncx_slab.cpp">
+      <Filter>mempool</Filter>
+    </ClCompile>
+    <ClCompile Include="MxCharSet.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MxCpu.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MxFileSystem.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MxFileSystem_mac.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MxFileSystem_win.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MxFixups.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MxInterrupt.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MxNetwork.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MxThread.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MxThread_mac.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MxThread_win.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
