@@ -1,6 +1,7 @@
 #ifndef MXFIXUPS_H
 #define MXFIXUPS_H
 
+#include "MxConfig.h"
 
 /* needed to detect uClibc */
 #ifdef HAVE_FEATURES_H

@@ -17,7 +17,7 @@
 * \retval 1 (non-null) ASCII character
 * \retval 2-4 non-ASCII character
 */
-MX_API size_t vlc_towc(const char *str, uint32_t *restrict pwc);
+MXCORE_API size_t mxTowc(const char *str, uint32_t */*restrict*/ pwc);
 
 /**
 * Checks UTF-8 validity.
@@ -34,7 +34,7 @@ MX_USED static inline const char *IsUTF8(const char *str)
 	size_t n;
 	uint32_t cp;
 
-	while ((n = vlc_towc(str, &cp)) != 0)
+	while ((n = mxTowc(str, &cp)) != 0)
 		if (likely(n != (size_t)-1))
 			str += n;
 		else
@@ -66,7 +66,7 @@ static inline char *EnsureUTF8(char *str)
 	size_t n;
 	uint32_t cp;
 
-	while ((n = vlc_towc(str, &cp)) != 0)
+	while ((n = mxTowc(str, &cp)) != 0)
 		if (likely(n != (size_t)-1))
 			str += n;
 		else
@@ -78,20 +78,20 @@ static inline char *EnsureUTF8(char *str)
 }
 
 /* iconv wrappers (defined in src/extras/libc.c) */
-#define VLC_ICONV_ERR ((size_t) -1)
-typedef void *vlc_iconv_t;
-MX_API vlc_iconv_t vlc_iconv_open(const char *, const char *) MX_USED;
-MX_API size_t vlc_iconv(vlc_iconv_t, const char **, size_t *, char **, size_t *) MX_USED;
-MX_API int vlc_iconv_close(vlc_iconv_t);
+#define MX_ICONV_ERR ((size_t) -1)
+typedef void * MxIconv;
+MXCORE_API MxIconv mxIconvOpen(const char *, const char *) MX_USED;
+MXCORE_API size_t mxIconv(MxIconv, const char **, size_t *, char **, size_t *) MX_USED;
+MXCORE_API int mxIconvClose(MxIconv);
 
 #include <stdarg.h>
 
-MX_API int utf8_vfprintf(FILE *stream, const char *fmt, va_list ap);
-MX_API int utf8_fprintf(FILE *, const char *, ...) MX_FORMAT(2, 3);
-MX_API char * vlc_strcasestr(const char *, const char *) MX_USED;
+MXCORE_API int utf8_vfprintf(FILE *stream, const char *fmt, va_list ap);
+MXCORE_API int utf8_fprintf(FILE *, const char *, ...) MX_FORMAT(2, 3);
+MXCORE_API char * mxStrcasestr(const char *, const char *) MX_USED;
 
-MX_API char * FromCharset(const char *charset, const void *data, size_t data_size) MX_USED;
-MX_API void * ToCharset(const char *charset, const char *in, size_t *outsize) MX_USED;
+MXCORE_API char * FromCharset(const char *charset, const void *data, size_t data_size) MX_USED;
+MXCORE_API void * ToCharset(const char *charset, const char *in, size_t *outsize) MX_USED;
 
 #ifdef _WIN32
 MX_USED
@@ -251,10 +251,10 @@ static inline char *FromLatin1(const char *latin)
 
 /** @} */
 
-MX_API double us_strtod(const char *, char **) MX_USED;
-MX_API float us_strtof(const char *, char **) MX_USED;
-MX_API double us_atof(const char *) MX_USED;
-MX_API int us_vasprintf(char **, const char *, va_list);
-MX_API int us_asprintf(char **, const char *, ...) MX_USED;
+MXCORE_API double us_strtod(const char *, char **) MX_USED;
+MXCORE_API float us_strtof(const char *, char **) MX_USED;
+MXCORE_API double us_atof(const char *) MX_USED;
+MXCORE_API int us_vasprintf(char **, const char *, va_list);
+MXCORE_API int us_asprintf(char **, const char *, ...) MX_USED;
 
 #endif

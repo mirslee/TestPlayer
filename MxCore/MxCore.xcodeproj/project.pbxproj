@@ -7,66 +7,80 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		54216FAD214B5E2B006A208E /* MxFileSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54216FAB214B5E2B006A208E /* MxFileSystem.cpp */; };
-		5431D1D4214B8FD80083FAD1 /* MxFileSystem_mac.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5431D1D3214B8FD80083FAD1 /* MxFileSystem_mac.cpp */; };
 		5431D1DD214BA4B10083FAD1 /* MxInterrupt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5431D1DB214BA4B10083FAD1 /* MxInterrupt.cpp */; };
 		5431D1E5214C9D9E0083FAD1 /* MxFixups.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5431D1E3214C9D9E0083FAD1 /* MxFixups.cpp */; };
-		5431D1E9214CA6BC0083FAD1 /* MxThread_mac.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5431D1E8214CA6BC0083FAD1 /* MxThread_mac.cpp */; };
 		5431D1EC214CAA670083FAD1 /* MxNetwork.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5431D1EA214CAA670083FAD1 /* MxNetwork.cpp */; };
 		5431D205214CD7CA0083FAD1 /* MxCpu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5431D204214CD7CA0083FAD1 /* MxCpu.cpp */; };
-		5434155F21414004009FBC13 /* CMxString.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5434155E21414004009FBC13 /* CMxString.cpp */; };
-		54638AE4212FAD8A004EB5E4 /* MxSynchronize.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54638AE2212FAD8A004EB5E4 /* MxSynchronize.cpp */; };
-		546DA94B2145FE4800DF99E3 /* MxGlobal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 546DA9482145FE4700DF99E3 /* MxGlobal.cpp */; };
-		546DA94C2145FE4800DF99E3 /* MxFileHash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 546DA9492145FE4700DF99E3 /* MxFileHash.cpp */; };
-		546DA94D2145FE4800DF99E3 /* MxSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 546DA94A2145FE4800DF99E3 /* MxSystem.cpp */; };
 		546DA9532146003300DF99E3 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 546DA9522146003200DF99E3 /* CoreFoundation.framework */; };
+		54A0A5C5214F99F700B9A0C5 /* thread_darwin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54A0A5C4214F99F700B9A0C5 /* thread_darwin.cpp */; };
+		54A0A5C8214FB1DF00B9A0C5 /* MxMessages.h in Headers */ = {isa = PBXBuildFile; fileRef = 54A0A5C7214FB1DF00B9A0C5 /* MxMessages.h */; };
+		54A0A5CA214FB1ED00B9A0C5 /* MxMessages.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54A0A5C9214FB1ED00B9A0C5 /* MxMessages.cpp */; };
+		54AA19D5214F41D900D4C7FC /* MxCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 54AA19C3214F41D800D4C7FC /* MxCommon.h */; };
+		54AA19D6214F41D900D4C7FC /* MxInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = 54AA19C4214F41D800D4C7FC /* MxInterface.h */; };
+		54AA19D7214F41D900D4C7FC /* MxError.h in Headers */ = {isa = PBXBuildFile; fileRef = 54AA19C5214F41D800D4C7FC /* MxError.h */; };
+		54AA19D8214F41D900D4C7FC /* MxSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = 54AA19C6214F41D800D4C7FC /* MxSystem.h */; };
+		54AA19D9214F41D900D4C7FC /* MxConfig_mac.h in Headers */ = {isa = PBXBuildFile; fileRef = 54AA19C7214F41D800D4C7FC /* MxConfig_mac.h */; };
+		54AA19DA214F41D900D4C7FC /* MxInterrupt.h in Headers */ = {isa = PBXBuildFile; fileRef = 54AA19C8214F41D800D4C7FC /* MxInterrupt.h */; };
+		54AA19DB214F41D900D4C7FC /* MxFixups.h in Headers */ = {isa = PBXBuildFile; fileRef = 54AA19C9214F41D800D4C7FC /* MxFixups.h */; };
+		54AA19DC214F41D900D4C7FC /* MxCharSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 54AA19CA214F41D800D4C7FC /* MxCharSet.h */; };
+		54AA19DD214F41D900D4C7FC /* MxCpu.h in Headers */ = {isa = PBXBuildFile; fileRef = 54AA19CB214F41D800D4C7FC /* MxCpu.h */; };
+		54AA19DE214F41D900D4C7FC /* MxPointer.h in Headers */ = {isa = PBXBuildFile; fileRef = 54AA19CC214F41D800D4C7FC /* MxPointer.h */; };
+		54AA19DF214F41D900D4C7FC /* MxAtomic.h in Headers */ = {isa = PBXBuildFile; fileRef = 54AA19CD214F41D800D4C7FC /* MxAtomic.h */; };
+		54AA19E0214F41D900D4C7FC /* MxNetwork.h in Headers */ = {isa = PBXBuildFile; fileRef = 54AA19CE214F41D800D4C7FC /* MxNetwork.h */; };
+		54AA19E1214F41D900D4C7FC /* MxConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 54AA19CF214F41D800D4C7FC /* MxConfig.h */; };
+		54AA19E2214F41D900D4C7FC /* MxTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 54AA19D0214F41D800D4C7FC /* MxTypes.h */; };
+		54AA19E3214F41D900D4C7FC /* CMxLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 54AA19D1214F41D800D4C7FC /* CMxLog.h */; };
+		54AA19E5214F41D900D4C7FC /* MxFileSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = 54AA19D3214F41D900D4C7FC /* MxFileSystem.h */; };
+		54AA19E6214F41D900D4C7FC /* MxThread.h in Headers */ = {isa = PBXBuildFile; fileRef = 54AA19D4214F41D900D4C7FC /* MxThread.h */; };
+		54AA19EA214F45E300D4C7FC /* MxExport.h in Headers */ = {isa = PBXBuildFile; fileRef = 54AA19E9214F45E300D4C7FC /* MxExport.h */; };
+		54AA19EF214F591A00D4C7FC /* charset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54AA19EC214F591A00D4C7FC /* charset.cpp */; };
+		54AA19F0214F591A00D4C7FC /* unicode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54AA19ED214F591A00D4C7FC /* unicode.cpp */; };
+		54AA19F1214F591A00D4C7FC /* libc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54AA19EE214F591A00D4C7FC /* libc.cpp */; };
+		54AA19F5214F77DA00D4C7FC /* filesystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54AA19F3214F77DA00D4C7FC /* filesystem.cpp */; };
+		54AA19F6214F77DA00D4C7FC /* filesystem_posix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54AA19F4214F77DA00D4C7FC /* filesystem_posix.cpp */; };
 		54C3C5DC212A69A9009736A1 /* MxThread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54C3C5D9212A69A9009736A1 /* MxThread.cpp */; };
 		54C3C5E8212A6D90009736A1 /* stdafx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54C3C5E6212A6D90009736A1 /* stdafx.cpp */; };
 		54C3C5E9212A6D90009736A1 /* stdafx.h in Headers */ = {isa = PBXBuildFile; fileRef = 54C3C5E7212A6D90009736A1 /* stdafx.h */; };
-		54C3C5F7212AC11A009736A1 /* MxThreadCond.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54C3C5F5212AC11A009736A1 /* MxThreadCond.cpp */; };
-		54C3C5F8212AC11A009736A1 /* MxThreadCond.h in Headers */ = {isa = PBXBuildFile; fileRef = 54C3C5F6212AC11A009736A1 /* MxThreadCond.h */; };
-		54C3C5FB212AC1E3009736A1 /* MxThreadMutex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54C3C5F9212AC1E2009736A1 /* MxThreadMutex.cpp */; };
-		54C3C5FC212AC1E3009736A1 /* MxThreadMutex.h in Headers */ = {isa = PBXBuildFile; fileRef = 54C3C5FA212AC1E3009736A1 /* MxThreadMutex.h */; };
 		54D6AB3E2131079900B78108 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54D6AB3D2131079900B78108 /* CoreServices.framework */; };
-		54D6AB6C2133E57B00B78108 /* MxLog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54D6AB6B2133E57B00B78108 /* MxLog.cpp */; };
-		54D6AB6E2133EA2400B78108 /* MxObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54D6AB6D2133EA2400B78108 /* MxObject.cpp */; };
-		54D6AB782134E02500B78108 /* MxMemory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54D6AB762134E02500B78108 /* MxMemory.cpp */; };
-		54D6AB7F2134E07600B78108 /* ncx_slab.h in Headers */ = {isa = PBXBuildFile; fileRef = 54D6AB7B2134E07600B78108 /* ncx_slab.h */; };
-		54D6AB802134E07600B78108 /* ncx_slab.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54D6AB7C2134E07600B78108 /* ncx_slab.cpp */; };
-		54D6AB812134E07600B78108 /* ncx_log.h in Headers */ = {isa = PBXBuildFile; fileRef = 54D6AB7D2134E07600B78108 /* ncx_log.h */; };
-		54D6AB822134E07600B78108 /* ncx_core.h in Headers */ = {isa = PBXBuildFile; fileRef = 54D6AB7E2134E07600B78108 /* ncx_core.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		54216FAB214B5E2B006A208E /* MxFileSystem.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MxFileSystem.cpp; sourceTree = "<group>"; };
-		5431D1D3214B8FD80083FAD1 /* MxFileSystem_mac.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MxFileSystem_mac.cpp; sourceTree = "<group>"; };
 		5431D1DB214BA4B10083FAD1 /* MxInterrupt.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MxInterrupt.cpp; sourceTree = "<group>"; };
 		5431D1E3214C9D9E0083FAD1 /* MxFixups.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MxFixups.cpp; sourceTree = "<group>"; };
-		5431D1E8214CA6BC0083FAD1 /* MxThread_mac.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MxThread_mac.cpp; sourceTree = "<group>"; };
 		5431D1EA214CAA670083FAD1 /* MxNetwork.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MxNetwork.cpp; sourceTree = "<group>"; };
 		5431D204214CD7CA0083FAD1 /* MxCpu.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MxCpu.cpp; sourceTree = "<group>"; };
-		5434155E21414004009FBC13 /* CMxString.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CMxString.cpp; sourceTree = "<group>"; };
-		54638AE2212FAD8A004EB5E4 /* MxSynchronize.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MxSynchronize.cpp; sourceTree = "<group>"; };
-		546DA9482145FE4700DF99E3 /* MxGlobal.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MxGlobal.cpp; sourceTree = "<group>"; };
-		546DA9492145FE4700DF99E3 /* MxFileHash.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MxFileHash.cpp; sourceTree = "<group>"; };
-		546DA94A2145FE4800DF99E3 /* MxSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MxSystem.cpp; sourceTree = "<group>"; };
 		546DA9522146003200DF99E3 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		54A0A5C4214F99F700B9A0C5 /* thread_darwin.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = thread_darwin.cpp; path = MxThread/thread_darwin.cpp; sourceTree = "<group>"; };
+		54A0A5C7214FB1DF00B9A0C5 /* MxMessages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MxMessages.h; path = ../include/MxMessages.h; sourceTree = "<group>"; };
+		54A0A5C9214FB1ED00B9A0C5 /* MxMessages.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MxMessages.cpp; sourceTree = "<group>"; };
+		54AA19C3214F41D800D4C7FC /* MxCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MxCommon.h; path = ../include/MxCommon.h; sourceTree = "<group>"; };
+		54AA19C4214F41D800D4C7FC /* MxInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MxInterface.h; path = ../include/MxInterface.h; sourceTree = "<group>"; };
+		54AA19C5214F41D800D4C7FC /* MxError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MxError.h; path = ../include/MxError.h; sourceTree = "<group>"; };
+		54AA19C6214F41D800D4C7FC /* MxSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MxSystem.h; path = ../include/MxSystem.h; sourceTree = "<group>"; };
+		54AA19C7214F41D800D4C7FC /* MxConfig_mac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MxConfig_mac.h; path = ../include/MxConfig_mac.h; sourceTree = "<group>"; };
+		54AA19C8214F41D800D4C7FC /* MxInterrupt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MxInterrupt.h; path = ../include/MxInterrupt.h; sourceTree = "<group>"; };
+		54AA19C9214F41D800D4C7FC /* MxFixups.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MxFixups.h; path = ../include/MxFixups.h; sourceTree = "<group>"; };
+		54AA19CA214F41D800D4C7FC /* MxCharSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MxCharSet.h; path = ../include/MxCharSet.h; sourceTree = "<group>"; };
+		54AA19CB214F41D800D4C7FC /* MxCpu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MxCpu.h; path = ../include/MxCpu.h; sourceTree = "<group>"; };
+		54AA19CC214F41D800D4C7FC /* MxPointer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MxPointer.h; path = ../include/MxPointer.h; sourceTree = "<group>"; };
+		54AA19CD214F41D800D4C7FC /* MxAtomic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MxAtomic.h; path = ../include/MxAtomic.h; sourceTree = "<group>"; };
+		54AA19CE214F41D800D4C7FC /* MxNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MxNetwork.h; path = ../include/MxNetwork.h; sourceTree = "<group>"; };
+		54AA19CF214F41D800D4C7FC /* MxConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MxConfig.h; path = ../include/MxConfig.h; sourceTree = "<group>"; };
+		54AA19D0214F41D800D4C7FC /* MxTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MxTypes.h; path = ../include/MxTypes.h; sourceTree = "<group>"; };
+		54AA19D1214F41D800D4C7FC /* CMxLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMxLog.h; path = ../include/CMxLog.h; sourceTree = "<group>"; };
+		54AA19D3214F41D900D4C7FC /* MxFileSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MxFileSystem.h; path = ../include/MxFileSystem.h; sourceTree = "<group>"; };
+		54AA19D4214F41D900D4C7FC /* MxThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MxThread.h; path = ../include/MxThread.h; sourceTree = "<group>"; };
+		54AA19E9214F45E300D4C7FC /* MxExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MxExport.h; path = ../include/MxExport.h; sourceTree = "<group>"; };
+		54AA19EC214F591A00D4C7FC /* charset.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = charset.cpp; path = MxCharSet/charset.cpp; sourceTree = "<group>"; };
+		54AA19ED214F591A00D4C7FC /* unicode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = unicode.cpp; path = MxCharSet/unicode.cpp; sourceTree = "<group>"; };
+		54AA19EE214F591A00D4C7FC /* libc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = libc.cpp; path = MxCharSet/libc.cpp; sourceTree = "<group>"; };
+		54AA19F3214F77DA00D4C7FC /* filesystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = filesystem.cpp; path = MxFileSystem/filesystem.cpp; sourceTree = "<group>"; };
+		54AA19F4214F77DA00D4C7FC /* filesystem_posix.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = filesystem_posix.cpp; path = MxFileSystem/filesystem_posix.cpp; sourceTree = "<group>"; };
 		54C3C5A1212A5C62009736A1 /* MxCoreD.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = MxCoreD.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		54C3C5D9212A69A9009736A1 /* MxThread.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MxThread.cpp; sourceTree = SOURCE_ROOT; };
 		54C3C5E6212A6D90009736A1 /* stdafx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stdafx.cpp; sourceTree = "<group>"; };
 		54C3C5E7212A6D90009736A1 /* stdafx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stdafx.h; sourceTree = "<group>"; };
-		54C3C5F5212AC11A009736A1 /* MxThreadCond.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MxThreadCond.cpp; sourceTree = "<group>"; };
-		54C3C5F6212AC11A009736A1 /* MxThreadCond.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MxThreadCond.h; sourceTree = "<group>"; };
-		54C3C5F9212AC1E2009736A1 /* MxThreadMutex.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MxThreadMutex.cpp; sourceTree = "<group>"; };
-		54C3C5FA212AC1E3009736A1 /* MxThreadMutex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MxThreadMutex.h; sourceTree = "<group>"; };
 		54D6AB3D2131079900B78108 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
-		54D6AB6B2133E57B00B78108 /* MxLog.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MxLog.cpp; sourceTree = "<group>"; };
-		54D6AB6D2133EA2400B78108 /* MxObject.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MxObject.cpp; sourceTree = "<group>"; };
-		54D6AB762134E02500B78108 /* MxMemory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MxMemory.cpp; sourceTree = "<group>"; };
-		54D6AB7B2134E07600B78108 /* ncx_slab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ncx_slab.h; path = ncx_mempool/ncx_slab.h; sourceTree = "<group>"; };
-		54D6AB7C2134E07600B78108 /* ncx_slab.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ncx_slab.cpp; path = ncx_mempool/ncx_slab.cpp; sourceTree = "<group>"; };
-		54D6AB7D2134E07600B78108 /* ncx_log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ncx_log.h; path = ncx_mempool/ncx_log.h; sourceTree = "<group>"; };
-		54D6AB7E2134E07600B78108 /* ncx_core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ncx_core.h; path = ncx_mempool/ncx_core.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,32 +96,98 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		54C3C598212A5C62009736A1 = {
+		54A0A5C3214F99E400B9A0C5 /* MxThread */ = {
 			isa = PBXGroup;
 			children = (
+				54A0A5C4214F99F700B9A0C5 /* thread_darwin.cpp */,
+			);
+			name = MxThread;
+			sourceTree = "<group>";
+		};
+		54A0A5C6214FACE600B9A0C5 /* MxNetwork */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = MxNetwork;
+			sourceTree = "<group>";
+		};
+		54AA19C0214F3DA400D4C7FC /* header */ = {
+			isa = PBXGroup;
+			children = (
+				54C3C5E7212A6D90009736A1 /* stdafx.h */,
+			);
+			name = header;
+			sourceTree = "<group>";
+		};
+		54AA19C1214F3DB900D4C7FC /* include */ = {
+			isa = PBXGroup;
+			children = (
+				54A0A5C7214FB1DF00B9A0C5 /* MxMessages.h */,
+				54AA19E9214F45E300D4C7FC /* MxExport.h */,
+				54AA19D1214F41D800D4C7FC /* CMxLog.h */,
+				54AA19CD214F41D800D4C7FC /* MxAtomic.h */,
+				54AA19CA214F41D800D4C7FC /* MxCharSet.h */,
+				54AA19C3214F41D800D4C7FC /* MxCommon.h */,
+				54AA19C7214F41D800D4C7FC /* MxConfig_mac.h */,
+				54AA19CF214F41D800D4C7FC /* MxConfig.h */,
+				54AA19CB214F41D800D4C7FC /* MxCpu.h */,
+				54AA19C5214F41D800D4C7FC /* MxError.h */,
+				54AA19D3214F41D900D4C7FC /* MxFileSystem.h */,
+				54AA19C9214F41D800D4C7FC /* MxFixups.h */,
+				54AA19C4214F41D800D4C7FC /* MxInterface.h */,
+				54AA19C8214F41D800D4C7FC /* MxInterrupt.h */,
+				54AA19CE214F41D800D4C7FC /* MxNetwork.h */,
+				54AA19CC214F41D800D4C7FC /* MxPointer.h */,
+				54AA19C6214F41D800D4C7FC /* MxSystem.h */,
+				54AA19D4214F41D900D4C7FC /* MxThread.h */,
+				54AA19D0214F41D800D4C7FC /* MxTypes.h */,
+			);
+			name = include;
+			sourceTree = "<group>";
+		};
+		54AA19C2214F3DBF00D4C7FC /* sources */ = {
+			isa = PBXGroup;
+			children = (
+				54A0A5C6214FACE600B9A0C5 /* MxNetwork */,
+				54A0A5C3214F99E400B9A0C5 /* MxThread */,
+				54AA19F2214F77BD00D4C7FC /* MxFileSystem */,
+				54AA19EB214F56A100D4C7FC /* MxCharSet */,
 				5431D204214CD7CA0083FAD1 /* MxCpu.cpp */,
 				5431D1EA214CAA670083FAD1 /* MxNetwork.cpp */,
-				5431D1E8214CA6BC0083FAD1 /* MxThread_mac.cpp */,
 				5431D1E3214C9D9E0083FAD1 /* MxFixups.cpp */,
 				54C3C5D9212A69A9009736A1 /* MxThread.cpp */,
 				5431D1DB214BA4B10083FAD1 /* MxInterrupt.cpp */,
-				5431D1D3214B8FD80083FAD1 /* MxFileSystem_mac.cpp */,
-				54216FAB214B5E2B006A208E /* MxFileSystem.cpp */,
-				546DA9492145FE4700DF99E3 /* MxFileHash.cpp */,
-				546DA9482145FE4700DF99E3 /* MxGlobal.cpp */,
-				546DA94A2145FE4800DF99E3 /* MxSystem.cpp */,
-				5434155E21414004009FBC13 /* CMxString.cpp */,
-				54D6AB7A2134E05500B78108 /* mempool */,
-				54D6AB762134E02500B78108 /* MxMemory.cpp */,
-				54D6AB6D2133EA2400B78108 /* MxObject.cpp */,
-				54D6AB6B2133E57B00B78108 /* MxLog.cpp */,
-				54638AE2212FAD8A004EB5E4 /* MxSynchronize.cpp */,
-				54C3C5F9212AC1E2009736A1 /* MxThreadMutex.cpp */,
-				54C3C5FA212AC1E3009736A1 /* MxThreadMutex.h */,
-				54C3C5F5212AC11A009736A1 /* MxThreadCond.cpp */,
-				54C3C5F6212AC11A009736A1 /* MxThreadCond.h */,
+				54A0A5C9214FB1ED00B9A0C5 /* MxMessages.cpp */,
 				54C3C5E6212A6D90009736A1 /* stdafx.cpp */,
-				54C3C5E7212A6D90009736A1 /* stdafx.h */,
+			);
+			name = sources;
+			sourceTree = "<group>";
+		};
+		54AA19EB214F56A100D4C7FC /* MxCharSet */ = {
+			isa = PBXGroup;
+			children = (
+				54AA19EC214F591A00D4C7FC /* charset.cpp */,
+				54AA19EE214F591A00D4C7FC /* libc.cpp */,
+				54AA19ED214F591A00D4C7FC /* unicode.cpp */,
+			);
+			name = MxCharSet;
+			sourceTree = "<group>";
+		};
+		54AA19F2214F77BD00D4C7FC /* MxFileSystem */ = {
+			isa = PBXGroup;
+			children = (
+				54AA19F4214F77DA00D4C7FC /* filesystem_posix.cpp */,
+				54AA19F3214F77DA00D4C7FC /* filesystem.cpp */,
+			);
+			name = MxFileSystem;
+			sourceTree = "<group>";
+		};
+		54C3C598212A5C62009736A1 = {
+			isa = PBXGroup;
+			children = (
+				54AA19C1214F3DB900D4C7FC /* include */,
+				54AA19C0214F3DA400D4C7FC /* header */,
+				54AA19C2214F3DBF00D4C7FC /* sources */,
 				54C3C5A2212A5C62009736A1 /* Products */,
 				54D6AB3A213106DB00B78108 /* Frameworks */,
 			);
@@ -130,17 +210,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		54D6AB7A2134E05500B78108 /* mempool */ = {
-			isa = PBXGroup;
-			children = (
-				54D6AB7E2134E07600B78108 /* ncx_core.h */,
-				54D6AB7D2134E07600B78108 /* ncx_log.h */,
-				54D6AB7C2134E07600B78108 /* ncx_slab.cpp */,
-				54D6AB7B2134E07600B78108 /* ncx_slab.h */,
-			);
-			name = mempool;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -148,12 +217,26 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				54D6AB812134E07600B78108 /* ncx_log.h in Headers */,
+				54AA19DD214F41D900D4C7FC /* MxCpu.h in Headers */,
+				54AA19DE214F41D900D4C7FC /* MxPointer.h in Headers */,
+				54AA19E6214F41D900D4C7FC /* MxThread.h in Headers */,
+				54AA19DF214F41D900D4C7FC /* MxAtomic.h in Headers */,
+				54AA19EA214F45E300D4C7FC /* MxExport.h in Headers */,
+				54AA19E0214F41D900D4C7FC /* MxNetwork.h in Headers */,
+				54AA19DA214F41D900D4C7FC /* MxInterrupt.h in Headers */,
+				54AA19D8214F41D900D4C7FC /* MxSystem.h in Headers */,
+				54AA19E2214F41D900D4C7FC /* MxTypes.h in Headers */,
+				54AA19D9214F41D900D4C7FC /* MxConfig_mac.h in Headers */,
+				54AA19E3214F41D900D4C7FC /* CMxLog.h in Headers */,
+				54A0A5C8214FB1DF00B9A0C5 /* MxMessages.h in Headers */,
+				54AA19E1214F41D900D4C7FC /* MxConfig.h in Headers */,
+				54AA19D5214F41D900D4C7FC /* MxCommon.h in Headers */,
+				54AA19E5214F41D900D4C7FC /* MxFileSystem.h in Headers */,
+				54AA19DB214F41D900D4C7FC /* MxFixups.h in Headers */,
+				54AA19DC214F41D900D4C7FC /* MxCharSet.h in Headers */,
+				54AA19D6214F41D900D4C7FC /* MxInterface.h in Headers */,
+				54AA19D7214F41D900D4C7FC /* MxError.h in Headers */,
 				54C3C5E9212A6D90009736A1 /* stdafx.h in Headers */,
-				54D6AB7F2134E07600B78108 /* ncx_slab.h in Headers */,
-				54D6AB822134E07600B78108 /* ncx_core.h in Headers */,
-				54C3C5F8212AC11A009736A1 /* MxThreadCond.h in Headers */,
-				54C3C5FC212AC1E3009736A1 /* MxThreadMutex.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,25 +297,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				546DA94C2145FE4800DF99E3 /* MxFileHash.cpp in Sources */,
 				5431D1EC214CAA670083FAD1 /* MxNetwork.cpp in Sources */,
-				54638AE4212FAD8A004EB5E4 /* MxSynchronize.cpp in Sources */,
 				5431D1DD214BA4B10083FAD1 /* MxInterrupt.cpp in Sources */,
-				54D6AB802134E07600B78108 /* ncx_slab.cpp in Sources */,
+				54AA19EF214F591A00D4C7FC /* charset.cpp in Sources */,
 				54C3C5DC212A69A9009736A1 /* MxThread.cpp in Sources */,
-				5431D1D4214B8FD80083FAD1 /* MxFileSystem_mac.cpp in Sources */,
-				5434155F21414004009FBC13 /* CMxString.cpp in Sources */,
-				54C3C5F7212AC11A009736A1 /* MxThreadCond.cpp in Sources */,
-				546DA94B2145FE4800DF99E3 /* MxGlobal.cpp in Sources */,
-				54216FAD214B5E2B006A208E /* MxFileSystem.cpp in Sources */,
-				5431D1E9214CA6BC0083FAD1 /* MxThread_mac.cpp in Sources */,
-				54D6AB782134E02500B78108 /* MxMemory.cpp in Sources */,
-				54D6AB6C2133E57B00B78108 /* MxLog.cpp in Sources */,
-				54D6AB6E2133EA2400B78108 /* MxObject.cpp in Sources */,
-				54C3C5FB212AC1E3009736A1 /* MxThreadMutex.cpp in Sources */,
+				54AA19F0214F591A00D4C7FC /* unicode.cpp in Sources */,
+				54AA19F5214F77DA00D4C7FC /* filesystem.cpp in Sources */,
+				54A0A5C5214F99F700B9A0C5 /* thread_darwin.cpp in Sources */,
+				54A0A5CA214FB1ED00B9A0C5 /* MxMessages.cpp in Sources */,
 				5431D1E5214C9D9E0083FAD1 /* MxFixups.cpp in Sources */,
-				546DA94D2145FE4800DF99E3 /* MxSystem.cpp in Sources */,
+				54AA19F1214F591A00D4C7FC /* libc.cpp in Sources */,
 				54C3C5E8212A6D90009736A1 /* stdafx.cpp in Sources */,
+				54AA19F6214F77DA00D4C7FC /* filesystem_posix.cpp in Sources */,
 				5431D205214CD7CA0083FAD1 /* MxCpu.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -347,7 +423,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)";
+				CONFIGURATION_BUILD_DIR = "$SRCROOT/../../MxPlayer-build/bin";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				EXECUTABLE_PREFIX = "";
@@ -356,9 +432,9 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				HEADER_SEARCH_PATHS = ../include;
 				INSTALL_PATH = "@rpath";
-				OBJROOT = build;
+				OBJROOT = "$SRCROOT/../../MxPlayer-build/$PROJECT_NAME/build";
 				PRODUCT_NAME = "$(TARGET_NAME)D";
-				SYMROOT = ../bin/mac/$CONFIGURATION;
+				SYMROOT = "$SRCROOT/../../MxPlayer-build/bin/$CONFIGURATION";
 			};
 			name = Debug;
 		};
@@ -366,7 +442,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)";
+				CONFIGURATION_BUILD_DIR = "$SRCROOT/../../MxPlayer-build/bin";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				EXECUTABLE_PREFIX = "";
@@ -375,9 +451,9 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				HEADER_SEARCH_PATHS = ../include;
 				INSTALL_PATH = "@rpath";
-				OBJROOT = build;
+				OBJROOT = "$SRCROOT/../../MxPlayer-build/$PROJECT_NAME/build";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SYMROOT = ../bin/mac/$CONFIGURATION;
+				SYMROOT = "$SRCROOT/../../MxPlayer-build/bin/$CONFIGURATION";
 			};
 			name = Release;
 		};

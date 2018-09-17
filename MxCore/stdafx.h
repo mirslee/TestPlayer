@@ -2,8 +2,10 @@
 #define stdafx_h
 
 #ifdef _WIN32
-#define MXCORE_API
+#define MXCORE_EXPORT_DLL
 #endif
+
+#include "MxExport.h"
 
 #ifdef _WIN32
 #define WIN32_LEAN_AND_MEAN

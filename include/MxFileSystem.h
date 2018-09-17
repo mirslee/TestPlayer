@@ -28,45 +28,45 @@ struct iovec;
 #endif
 
 
-MX_API int mxOpen(const char *filename, int flags, ...) MX_USED;
+MXCORE_API int mxOpen(const char *filename, int flags, ...) MX_USED;
 
-MX_API int mxOpenat(int fd, const char *filename, int flags, ...) MX_USED;
+MXCORE_API int mxOpenat(int fd, const char *filename, int flags, ...) MX_USED;
 
-MX_API int mxMkstemp( char * );
+MXCORE_API int mxMkstemp( char * );
 
-MX_API int mxDup(int) MX_USED;
+MXCORE_API int mxDup(int) MX_USED;
 
-MX_API int mxPipe(int [2]) MX_USED;
+MXCORE_API int mxPipe(int [2]) MX_USED;
 
-MX_API int mxMemfd(void) MX_USED;
+MXCORE_API int mxMemfd(void) MX_USED;
 
-MX_API ssize_t mxWrite(int, const void *, size_t);
+MXCORE_API ssize_t mxWrite(int, const void *, size_t);
 
-MX_API ssize_t mxWritev(int, const struct iovec *, int);
+MXCORE_API ssize_t mxWritev(int, const struct iovec *, int);
 
-MX_API int mxClose(int fd);
+MXCORE_API int mxClose(int fd);
 
-MX_API int mxStat(const char *filename, struct stat *) MX_USED;
+MXCORE_API int mxStat(const char *filename, struct stat *) MX_USED;
 
-MX_API int mxLstat(const char *filename, struct stat *) MX_USED;
+MXCORE_API int mxLstat(const char *filename, struct stat *) MX_USED;
 
-MX_API int mxUnlink(const char *filename);
+MXCORE_API int mxUnlink(const char *filename);
 
-MX_API int mxRename(const char *oldpath, const char *newpath);
+MXCORE_API int mxRename(const char *oldpath, const char *newpath);
 
-MX_API FILE * mxFopen( const char *filename, const char *mode ) MX_USED;
+MXCORE_API FILE * mxFopen( const char *filename, const char *mode ) MX_USED;
 
-MX_API DIR *mxOpendir(const char *dirname) MX_USED;
+MXCORE_API DIR *mxOpendir(const char *dirname) MX_USED;
 
-MX_API const char *mxReaddir(DIR *dir) MX_USED;
+MXCORE_API const char *mxReaddir(DIR *dir) MX_USED;
 
-MX_API int mxLoaddir( DIR *dir, char ***namelist, int (*select)( const char * ), int (*compar)( const char **, const char ** ) );
+MXCORE_API int mxLoaddir( DIR *dir, char ***namelist, int (*select)( const char * ), int (*compar)( const char **, const char ** ) );
 
-MX_API int mxScandir( const char *dirname, char ***namelist, int (*select)( const char * ), int (*compar)( const char **, const char ** ) );
+MXCORE_API int mxScandir( const char *dirname, char ***namelist, int (*select)( const char * ), int (*compar)( const char **, const char ** ) );
 
-MX_API int mxMkdir(const char *dirname, mode_t mode);
+MXCORE_API int mxMkdir(const char *dirname, mode_t mode);
 
-MX_API char *mxGetcwd(void) MX_USED;
+MXCORE_API char *mxGetcwd(void) MX_USED;
 
 #if defined( _WIN32 )
 typedef struct _DIR

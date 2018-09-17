@@ -86,21 +86,21 @@
 #define MX_assert_unreachable() (assert(!"unreachable"), unreachable())
 
 /* Linkage */
-#ifdef __cplusplus
-    # define MX_EXTERN extern "C"
-#else
-    # define MX_EXTERN
-#endif
-
-#if defined (_WIN32) && defined (DLL_EXPORT)
-    # define MX_EXPORT __declspec(dllexport)
-#elif defined (__GNUC__)
-    # define MX_EXPORT __attribute__((visibility("default")))
-#else
-    # define MX_EXPORT
-#endif
-
-#define MX_API MX_EXTERN MX_EXPORT
+//#ifdef __cplusplus
+//    # define MX_EXTERN extern "C"
+//#else
+//    # define MX_EXTERN
+//#endif
+//
+//#if defined (_WIN32) && defined (DLL_EXPORT)
+//    # define MX_EXPORT __declspec(dllexport)
+//#elif defined (__GNUC__)
+//    # define MX_EXPORT __attribute__((visibility("default")))
+//#else
+//    # define MX_EXPORT
+//#endif
+//
+//#define MX_API MX_EXTERN MX_EXPORT
 
 /*****************************************************************************
  * Basic types definitions
@@ -207,7 +207,7 @@ static inline void *vlc_alloc(size_t count, size_t size)
 struct libvlc_int_t
 {
     //VLC_COMMON_MEMBERS
-	libvlc_int_t* obj;
+	struct libvlc_int_t* obj;
 };
 
 /*****************************************************************************
@@ -254,5 +254,41 @@ static inline char *xstrdup(const char *str)
 #else
 # define VLC_OBJECT( x ) ((vlc_object_t *)&(x)->obj)
 #endif
+
+MX_USED /*最大公约数*/
+static inline int64_t GCD ( int64_t a, int64_t b )
+{
+    while( b )
+    {
+        int64_t c = a % b;
+        a = b;
+        b = c;
+    }
+    return a;
+}
+
+/** Count leading zeroes */
+MX_USED
+static inline unsigned (clz)(unsigned x)
+{
+#ifdef __GNUC__
+    return __builtin_clz (x);
+#else
+    unsigned i = sizeof (x) * 8;
+    
+    while (x)
+    {
+        x >>= 1;
+        i--;
+    }
+    return i;
+#endif
+}
+
+#define clz8( x ) (clz(x) - ((sizeof(unsigned) - sizeof (uint8_t)) * 8))
+#define clz16( x ) (clz(x) - ((sizeof(unsigned) - sizeof (uint16_t)) * 8))
+/* XXX: this assumes that int is 32-bits or more */
+#define clz32( x ) (clz(x) - ((sizeof(unsigned) - sizeof (uint32_t)) * 8))
+
 
 #endif //MXCOMMON_H

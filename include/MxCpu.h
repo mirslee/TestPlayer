@@ -3,8 +3,8 @@
 
 #include "MxCommon.h"
 
-MX_API unsigned mxCpu();
-MX_API void mxCpuInit();
+MXCORE_API unsigned mxCpu();
+MXCORE_API void mxCpuInit();
 
 # if defined (__i386__) || defined (__x86_64__)
 #  define HAVE_FPU 1
