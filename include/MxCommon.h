@@ -115,6 +115,11 @@
  * epoch). Note that date and time intervals can be manipulated using regular
  * arithmetic operators, and that no special functions are required.
  */
+
+#ifdef _WIN32
+typedef int     ssize_t;
+#endif
+
 typedef int64_t mtime_t;
 
 typedef uint32_t MxFourcc;

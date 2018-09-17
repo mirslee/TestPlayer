@@ -25,9 +25,7 @@
  * Preamble
  *****************************************************************************/
 #include "stdafx.h"
-#ifdef HAVE_CONFIG_H
 # include "MxConfig.h"
-#endif
 
 #include "MxCommon.h"
 

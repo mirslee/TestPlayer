@@ -19,6 +19,18 @@
     <Filter Include="include">
       <UniqueIdentifier>{f102f6c5-39db-474d-bc0e-479b71eaab35}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MxCharSet">
+      <UniqueIdentifier>{3457a10b-4d1d-47c7-be61-a6157d8341b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MxFileSystem">
+      <UniqueIdentifier>{92d33611-978e-439c-b5d5-c70c0d389aa9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NewFilter2">
+      <UniqueIdentifier>{86acde65-706a-4606-bbbf-2f0a6a61972b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MxThread">
+      <UniqueIdentifier>{f182e06c-0abc-4360-b58f-5546a297187f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -36,6 +48,9 @@
     <ClInclude Include="ncx_mempool\ncx_slab.h">
       <Filter>mempool</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\CMxLog.h">
+      <Filter>include</Filter>
+    </ClInclude>
     <ClInclude Include="..\include\MxAtomic.h">
       <Filter>include</Filter>
     </ClInclude>
@@ -48,10 +63,19 @@
     <ClInclude Include="..\include\MxConfig.h">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\MxConfig_mac.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\MxConfig_win.h">
+      <Filter>include</Filter>
+    </ClInclude>
     <ClInclude Include="..\include\MxCpu.h">
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\MxError.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\MxExport.h">
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\MxFileSystem.h">
@@ -64,6 +88,9 @@
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\MxInterrupt.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\MxMessages.h">
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\MxNetwork.h">
@@ -81,9 +108,6 @@
     <ClInclude Include="..\include\MxTypes.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\MxConfig_win.h">
-      <Filter>include</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -92,38 +116,23 @@
     <ClCompile Include="ncx_mempool\ncx_slab.cpp">
       <Filter>mempool</Filter>
     </ClCompile>
-    <ClCompile Include="MxCharSet.cpp">
-      <Filter>源文件</Filter>
+    <ClCompile Include="MxCharSet\charset.cpp">
+      <Filter>MxCharSet</Filter>
     </ClCompile>
-    <ClCompile Include="MxCpu.cpp">
-      <Filter>源文件</Filter>
+    <ClCompile Include="MxCharSet\libc.cpp">
+      <Filter>MxCharSet</Filter>
     </ClCompile>
-    <ClCompile Include="MxFileSystem.cpp">
-      <Filter>源文件</Filter>
+    <ClCompile Include="MxCharSet\unicode.cpp">
+      <Filter>MxCharSet</Filter>
     </ClCompile>
-    <ClCompile Include="MxFileSystem_mac.cpp">
-      <Filter>源文件</Filter>
+    <ClCompile Include="MxFileSystem\filesystem.cpp">
+      <Filter>MxFileSystem</Filter>
     </ClCompile>
-    <ClCompile Include="MxFileSystem_win.cpp">
-      <Filter>源文件</Filter>
+    <ClCompile Include="MxFileSystem\filesystem_win32.cpp">
+      <Filter>MxFileSystem</Filter>
     </ClCompile>
-    <ClCompile Include="MxFixups.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="MxInterrupt.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="MxNetwork.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="MxThread.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="MxThread_mac.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="MxThread_win.cpp">
-      <Filter>源文件</Filter>
+    <ClCompile Include="MxThread\thread_win32.cpp">
+      <Filter>MxThread</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

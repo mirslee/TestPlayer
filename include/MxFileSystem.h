@@ -69,7 +69,7 @@ MXCORE_API int mxMkdir(const char *dirname, mode_t mode);
 MXCORE_API char *mxGetcwd(void) MX_USED;
 
 #if defined( _WIN32 )
-typedef struct _DIR
+typedef struct MX_DIR
 {
     _WDIR *wdir;
     char *entry;
@@ -78,11 +78,11 @@ typedef struct _DIR
         DWORD drives;
         bool insert_dot_dot;
     } u;
-} MXDIR;
+} MX_DIR;
 
 static inline int mxClosedir( DIR *dir )
 {
-    MXDIR *vdir = (MXDIR *)dir;
+    MX_DIR *vdir = (MX_DIR *)dir;
     _WDIR *wdir = vdir->wdir;
     
     free( vdir->entry );

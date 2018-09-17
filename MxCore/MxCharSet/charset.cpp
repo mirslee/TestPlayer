@@ -23,15 +23,14 @@
  * Inc., 51 Franklin Street, Fifth Floor, Boston MA 02110-1301, USA.
  *****************************************************************************/
 #include "stdafx.h"
-#ifdef HAVE_CONFIG_H
 # include "MxConfig.h"
-#endif
 
 #include "MxCommon.h"
 
 #if !defined _WIN32
 # include <locale.h>
 #else
+#include "MxFixups.h"
 # include <windows.h>
 #endif
 

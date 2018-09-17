@@ -146,17 +146,21 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\include\CMxLog.h" />
     <ClInclude Include="..\include\MxAtomic.h" />
     <ClInclude Include="..\include\MxCharSet.h" />
     <ClInclude Include="..\include\MxCommon.h" />
     <ClInclude Include="..\include\MxConfig.h" />
+    <ClInclude Include="..\include\MxConfig_mac.h" />
     <ClInclude Include="..\include\MxConfig_win.h" />
     <ClInclude Include="..\include\MxCpu.h" />
     <ClInclude Include="..\include\MxError.h" />
+    <ClInclude Include="..\include\MxExport.h" />
     <ClInclude Include="..\include\MxFileSystem.h" />
     <ClInclude Include="..\include\MxFixups.h" />
     <ClInclude Include="..\include\MxInterface.h" />
     <ClInclude Include="..\include\MxInterrupt.h" />
+    <ClInclude Include="..\include\MxMessages.h" />
     <ClInclude Include="..\include\MxNetwork.h" />
     <ClInclude Include="..\include\MxPointer.h" />
     <ClInclude Include="..\include\MxSystem.h" />
@@ -168,17 +172,12 @@
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="MxCharSet.cpp" />
-    <ClCompile Include="MxCpu.cpp" />
-    <ClCompile Include="MxFileSystem.cpp" />
-    <ClCompile Include="MxFileSystem_mac.cpp" />
-    <ClCompile Include="MxFileSystem_win.cpp" />
-    <ClCompile Include="MxFixups.cpp" />
-    <ClCompile Include="MxInterrupt.cpp" />
-    <ClCompile Include="MxNetwork.cpp" />
-    <ClCompile Include="MxThread.cpp" />
-    <ClCompile Include="MxThread_mac.cpp" />
-    <ClCompile Include="MxThread_win.cpp" />
+    <ClCompile Include="MxCharSet\charset.cpp" />
+    <ClCompile Include="MxCharSet\libc.cpp" />
+    <ClCompile Include="MxCharSet\unicode.cpp" />
+    <ClCompile Include="MxFileSystem\filesystem.cpp" />
+    <ClCompile Include="MxFileSystem\filesystem_win32.cpp" />
+    <ClCompile Include="MxThread\thread_win32.cpp" />
     <ClCompile Include="ncx_mempool\ncx_slab.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>

@@ -24,9 +24,8 @@
 /*****************************************************************************
  * Preamble
  *****************************************************************************/
-#ifdef HAVE_CONFIG_H
-# include "config.h"
-#endif
+#include "stdafx.h"
+#include "MxConfig.h"
 
 #include <assert.h>
 
@@ -39,10 +38,9 @@
 #include <winsock2.h>
 #include <direct.h>
 
-#include <vlc_common.h>
-#include <vlc_charset.h>
-#include <vlc_fs.h>
-#include "libvlc.h" /* vlc_mkdir */
+#include "MxCommon.h"
+#include "MxCharSet.h"
+#include "MxFileSystem.h"
 
 #ifdef _MSC_VER
 # define __STDC__ 1
@@ -69,7 +67,7 @@ static wchar_t *widen_path (const char *path)
     if (wpath == NULL) return (err)
 
 
-int vlc_open (const char *filename, int flags, ...)
+int mxOpen (const char *filename, int flags, ...)
 {
     int mode = 0;
     va_list ap;
@@ -103,14 +101,14 @@ int vlc_open (const char *filename, int flags, ...)
     return fd;
 }
 
-int vlc_openat (int dir, const char *filename, int flags, ...)
+int mxOpenat (int dir, const char *filename, int flags, ...)
 {
     (void) dir; (void) filename; (void) flags;
     errno = ENOSYS;
     return -1;
 }
 
-int vlc_memfd (void)
+int mxMemfd (void)
 {
 #if 0
     int fd, err;
@@ -130,12 +128,12 @@ int vlc_memfd (void)
 #endif
 }
 
-int vlc_close (int fd)
+int mxClose (int fd)
 {
     return close (fd);
 }
 
-int vlc_mkdir( const char *dirname, mode_t mode )
+int mxMkdir( const char *dirname, mode_t mode )
 {
     wchar_t *wpath = widen_path (dirname);
     if (wpath == NULL)
@@ -147,7 +145,7 @@ int vlc_mkdir( const char *dirname, mode_t mode )
     return ret;
 }
 
-char *vlc_getcwd (void)
+char *mxGetcwd (void)
 {
 #if VLC_WINSTORE_APP
     return NULL;
@@ -164,20 +162,20 @@ char *vlc_getcwd (void)
 
 /* Under Windows, these wrappers return the list of drive letters
  * when called with an empty argument or just '\'. */
-DIR *vlc_opendir (const char *dirname)
+DIR *mxOpendir (const char *dirname)
 {
     wchar_t *wpath = widen_path (dirname);
     if (wpath == NULL)
         return NULL;
 
-    vlc_DIR *p_dir = malloc (sizeof (*p_dir));
+    MX_DIR *p_dir = malloc (sizeof (*p_dir));
     if (unlikely(p_dir == NULL))
     {
         free(wpath);
         return NULL;
     }
 
-#if !VLC_WINSTORE_APP
+#if !MX_WINSTORE_APP
     /* Special mode to list drive letters */
     if (wpath[0] == L'\0' || (wcscmp (wpath, L"\\") == 0))
     {
@@ -204,13 +202,13 @@ DIR *vlc_opendir (const char *dirname)
     return (void *)p_dir;
 }
 
-const char *vlc_readdir (DIR *dir)
+const char *mxReaddir (DIR *dir)
 {
     vlc_DIR *p_dir = (vlc_DIR *)dir;
 
     free(p_dir->entry);
 
-#if !VLC_WINSTORE_APP
+#if !MX_WINSTORE_APP
     /* Drive letters mode */
     if (p_dir->wdir == NULL)
     {
@@ -246,7 +244,7 @@ const char *vlc_readdir (DIR *dir)
     return p_dir->entry;
 }
 
-int vlc_stat (const char *filename, struct stat *buf)
+int mxStat (const char *filename, struct stat *buf)
 {
     wchar_t *wpath = widen_path (filename);
     if (wpath == NULL)
@@ -260,12 +258,12 @@ int vlc_stat (const char *filename, struct stat *buf)
     return ret;
 }
 
-int vlc_lstat (const char *filename, struct stat *buf)
+int mxLstat (const char *filename, struct stat *buf)
 {
-    return vlc_stat (filename, buf);
+    return mxStat (filename, buf);
 }
 
-int vlc_unlink (const char *filename)
+int mxUnlink (const char *filename)
 {
     wchar_t *wpath = widen_path (filename);
     if (wpath == NULL)
@@ -276,7 +274,7 @@ int vlc_unlink (const char *filename)
     return ret;
 }
 
-int vlc_rename (const char *oldpath, const char *newpath)
+int mxRename (const char *oldpath, const char *newpath)
 {
     int ret = -1;
 
@@ -301,7 +299,7 @@ out:
     return ret;
 }
 
-int vlc_dup (int oldfd)
+int mxDup (int oldfd)
 {
     int fd = dup (oldfd);
     if (fd != -1)
@@ -309,7 +307,7 @@ int vlc_dup (int oldfd)
     return fd;
 }
 
-int vlc_pipe (int fds[2])
+int mxPipe (int fds[2])
 {
 #if VLC_WINSTORE_APP
     _set_errno(EPERM);
@@ -319,19 +317,19 @@ int vlc_pipe (int fds[2])
 #endif
 }
 
-ssize_t vlc_write(int fd, const void *buf, size_t len)
+ssize_t mxWrite(int fd, const void *buf, size_t len)
 {
     return write(fd, buf, len);
 }
 
-ssize_t vlc_writev(int fd, const struct iovec *iov, int count)
+ssize_t mxWritev(int fd, const struct iovec *iov, int count)
 {
-    vlc_assert_unreachable();
+    MX_assert_unreachable();
 }
 
-#include <vlc_network.h>
+#include "MxNetwork.h"
 
-int vlc_socket (int pf, int type, int proto, bool nonblock)
+int mxSocket (int pf, int type, int proto, bool nonblock)
 {
     int fd = socket (pf, type, proto);
     if (fd == -1)
@@ -342,14 +340,14 @@ int vlc_socket (int pf, int type, int proto, bool nonblock)
     return fd;
 }
 
-int vlc_socketpair(int pf, int type, int proto, int fds[2], bool nonblock)
+int mxSocketpair(int pf, int type, int proto, int fds[2], bool nonblock)
 {
     (void) pf; (void) type; (void) proto; (void) fds; (void) nonblock;
     errno = ENOSYS;
     return -1;
 }
 
-int vlc_accept (int lfd, struct sockaddr *addr, socklen_t *alen, bool nonblock)
+int mxAccept (int lfd, struct sockaddr *addr, socklen_t *alen, bool nonblock)
 {
     int fd = accept (lfd, addr, alen);
     if (fd != -1 && nonblock)
@@ -357,8 +355,8 @@ int vlc_accept (int lfd, struct sockaddr *addr, socklen_t *alen, bool nonblock)
     return fd;
 }
 
-#if !VLC_WINSTORE_APP
-FILE *vlc_win32_tmpfile(void)
+#if !MX_WINSTORE_APP
+FILE *mxWin32Tmpfile(void)
 {
     TCHAR tmp_path[MAX_PATH-14];
     int i_ret = GetTempPath (MAX_PATH-14, tmp_path);
@@ -390,7 +388,7 @@ FILE *vlc_win32_tmpfile(void)
     return stream;
 }
 #else
-FILE *vlc_win32_tmpfile(void)
+FILE *mxWin32Tmpfile(void)
 {
     return NULL;
 }
