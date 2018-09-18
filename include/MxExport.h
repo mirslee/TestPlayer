@@ -26,5 +26,10 @@
 #define MXCORE_API MX_IMPORT
 #endif
 
+#ifdef MXCODEC_EXPORT_DLL
+#define MXCODEC_API MX_EXPORT
+#else
+#define MXCODEC_API MX_IMPORT
+#endif
 
 #endif //MXEXPORT_H

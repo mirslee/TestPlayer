@@ -43,8 +43,8 @@
 
 struct vlc_logger_t
 {
-    VLC_COMMON_MEMBERS
-    vlc_rwlock_t lock;
+    //VLC_COMMON_MEMBERS
+    MxRWLock lock;
     vlc_log_cb log;
     void *sys;
     module_t *module;

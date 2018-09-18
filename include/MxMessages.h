@@ -24,8 +24,8 @@
  * Inc., 51 Franklin Street, Fifth Floor, Boston MA 02110-1301, USA.
  *****************************************************************************/
 
-#ifndef VLC_MESSAGES_H_
-#define VLC_MESSAGES_H_
+#ifndef MXMESSAGES_H
+#define MXMESSAGES_H
 
 #include <stdarg.h>
 
@@ -105,4 +105,4 @@ typedef void (*vlc_log_cb) (void *data, int type, const vlc_log_t *item,
 /**
  * @}
  */
-#endif
+#endif /*MXMESSAGES_H*/
