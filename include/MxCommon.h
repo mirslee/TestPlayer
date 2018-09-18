@@ -86,23 +86,6 @@
 
 #define MX_assert_unreachable() (assert(!"unreachable"), unreachable())
 
-/* Linkage */
-//#ifdef __cplusplus
-//    # define MX_EXTERN extern "C"
-//#else
-//    # define MX_EXTERN
-//#endif
-//
-//#if defined (_WIN32) && defined (DLL_EXPORT)
-//    # define MX_EXPORT __declspec(dllexport)
-//#elif defined (__GNUC__)
-//    # define MX_EXPORT __attribute__((visibility("default")))
-//#else
-//    # define MX_EXPORT
-//#endif
-//
-//#define MX_API MX_EXTERN MX_EXPORT
-
 /*****************************************************************************
  * Basic types definitions
  *****************************************************************************/
@@ -120,6 +103,13 @@
 #ifdef _WIN32
 typedef int     ssize_t;
 #endif
+
+#ifdef _MSC_VER
+#define mxinline __forceinline
+#else
+#define mxinline inline
+#endif
+#define mxinline_s static mxinline
 
 typedef int64_t mtime_t;
 
