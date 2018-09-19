@@ -43,8 +43,8 @@ struct pollfd
 
 
 
-#define LC_MESSAGES_MASK 0
-typedef void *locale_t;
+//#define LC_MESSAGES_MASK 0
+//typedef void *locale_t;
 
 int vlc_close (int fd)
 {
@@ -140,17 +140,18 @@ void DirClose(CMxStream *obj)
     closedir(sys->dir);
 }
 
-static inline locale_t newlocale(int mask, const char * locale, locale_t base)
+inline locale_t newlocale(int mask, const char * locale, locale_t base)
 {
     (void)mask; (void)locale; (void)base;
     return NULL;
 }
+
 static inline void freelocale(locale_t loc)
 {
     (void)loc;
 }
 
-static const char *vlc_strerror_l(int errnum, const char *lname)
+const char *vlc_strerror_l(int errnum, const char *lname)
 {
     int saved_errno = errno;
     locale_t loc = newlocale(LC_MESSAGES_MASK, lname, (locale_t)0);

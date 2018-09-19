@@ -16,6 +16,7 @@ public:
 	int pos();
 	int remain();
 	int eof();
+    uint32_t read(int i_count );
 	void forward(int i_count);
 	uint32_t read1();
 	uint32_t show(int i_count );

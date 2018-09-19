@@ -12,8 +12,7 @@ MainWidget::MainWidget(QWidget* parent)
     
     m_pBtnStop = new QPushButton("停止", this);
     connect(m_pBtnStop,SIGNAL(clicked()),this,SLOT(btnStopClicked()));
-    
-    player = creatMxPlayer();
+
 }
 
 

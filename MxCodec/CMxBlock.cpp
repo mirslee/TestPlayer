@@ -203,10 +203,10 @@ CMxBlock* CMxBlock::heapAlloc(void *addr, size_t length){
     return block;
 }
 CMxBlock* CMxBlock::mmapAlloc(void *addr, size_t length){
-    
+    return NULL;
 }
 CMxBlock* CMxBlock::shmAlloc(void *addr, size_t length){
-    
+    return NULL;
 }
 CMxBlock* CMxBlock::file(int fd, bool write){
     return NULL;
@@ -221,7 +221,7 @@ CMxBlock* CMxBlock::filePath(const char * path, bool write){
     return block;
 }
 CMxBlock* CMxBlock::fifoNew(void){
-    
+    return NULL;
 }
 void CMxBlock::fifoRelease(MxBlockFifo *){
     
@@ -233,16 +233,15 @@ void CMxBlock::fifoPut(MxBlockFifo *fifo, CMxBlock *block){
     
 }
 CMxBlock* CMxBlock::fifoGet(MxBlockFifo *){
-    
+    return NULL;
 }
 CMxBlock* CMxBlock::fifoShow(MxBlockFifo *){
-    
+    return NULL;
 }
 size_t CMxBlock::fifoCount(MxBlockFifo *){
-    
+    return 0;
 }
 void CMxBlock::fifoLock(MxBlockFifo *){
-    
 }
 void CMxBlock::fifoUnlock(MxBlockFifo *){
     
@@ -260,16 +259,16 @@ void CMxBlock::fifoQueueUnlocked(MxBlockFifo *, CMxBlock *){
     
 }
 CMxBlock* CMxBlock::fifoDequeueUnlocked(MxBlockFifo *){
-    
+    return NULL;
 }
 CMxBlock* CMxBlock::fifoDequeueAllUnlocked(MxBlockFifo *){
-    
+    return NULL;
 }
 size_t CMxBlock::fifoGetCount(const MxBlockFifo *){
-    
+    return 0;
 }
 size_t CMxBlock::fifoGetBytes(const MxBlockFifo *){
-    
+    return 0;
 }
 
 

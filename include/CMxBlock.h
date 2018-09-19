@@ -1,43 +1,7 @@
 #ifndef CMXBLOCK_H
 #define CMXBLOCK_H 1
 
-/**
- * \defgroup block Data blocks
- * \ingroup input
- *
- * Blocks of binary data.
- *
- * @ref block_t is a generic structure to represent a binary blob within VLC.
- * The primary goal of the structure is to avoid memory copying as data is
- * passed around. It is notably used between the \ref demux, the packetizer
- * (if present) and the \ref decoder, and for audio, between the \ref decoder,
- * the audio filters, and the \ref audio_output.
- *
- * @{
- * \file
- * Data block definition and functions
- */
-
 #include <sys/types.h>  /* for ssize_t */
-
-/****************************************************************************
- * block:
- ****************************************************************************
- * - i_flags may not always be set (ie could be 0, even for a key frame
- *      it depends where you receive the buffer (before/after a packetizer
- *      and the demux/packetizer implementations.
- * - i_dts/i_pts could be VLC_TS_INVALID, it means no pts/dts
- * - i_length: length in microseond of the packet, can be null except in the
- *      sout where it is mandatory.
- *
- * - i_buffer number of valid data pointed by p_buffer
- *      you can freely decrease it but never increase it yourself
- *      (use block_Realloc)
- * - p_buffer: pointer over datas. You should never overwrite it, you can
- *   only incremment it to skip datas, in others cases use block_Realloc
- *   (don't duplicate yourself in a bigger buffer, block_Realloc is
- *   optimised for preheader/postdatas increase)
- ****************************************************************************/
 
 /** The content doesn't follow the last block, possible some blocks in between
  *  have been lost */

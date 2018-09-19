@@ -60,5 +60,42 @@ class CMxObject {
     MX_COMMON_MEMBERS
 };
 
+/* __MAX and __MIN: self explanatory */
+#ifndef __MAX
+#   define __MAX(a, b)   ( ((a) > (b)) ? (a) : (b) )
+#endif
+#ifndef __MIN
+#   define __MIN(a, b)   ( ((a) < (b)) ? (a) : (b) )
+#endif
+
+/* clip v in [min, max] */
+#define MX_CLIP(v, min, max)    __MIN(__MAX((v), (min)), (max))
+
+#define FIELD_OF_VIEW_DEGREES_DEFAULT  80.f
+#define FIELD_OF_VIEW_DEGREES_MAX 150.f
+#define FIELD_OF_VIEW_DEGREES_MIN 20.f
+
+/**
+ * Viewpoints
+ */
+#include <math.h>
+struct MxViewpoint {
+    float yaw;   /* yaw in degrees */
+    float pitch; /* pitch in degrees */
+    float roll;  /* roll in degrees */
+    float fov;   /* field of view in degrees */
+    MxViewpoint() {
+        this->yaw = this->pitch = this->roll = 0.0f;
+        this->fov = FIELD_OF_VIEW_DEGREES_DEFAULT;
+    }
+    void clip() {
+        this->yaw = fmodf( this->yaw, 360.f );
+        this->pitch = fmodf( this->pitch, 360.f );
+        this->roll = fmodf( this->roll, 360.f );
+        this->fov = MX_CLIP( this->fov, FIELD_OF_VIEW_DEGREES_MIN,
+                             FIELD_OF_VIEW_DEGREES_MAX );
+    }
+};
+
 
 #endif

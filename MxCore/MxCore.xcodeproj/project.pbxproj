@@ -11,8 +11,15 @@
 		5431D1E5214C9D9E0083FAD1 /* MxFixups.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5431D1E3214C9D9E0083FAD1 /* MxFixups.cpp */; };
 		5431D1EC214CAA670083FAD1 /* MxNetwork.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5431D1EA214CAA670083FAD1 /* MxNetwork.cpp */; };
 		5431D205214CD7CA0083FAD1 /* MxCpu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5431D204214CD7CA0083FAD1 /* MxCpu.cpp */; };
-		54464FAE2151196B00C41A3F /* MxInputItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 54464FAD2151196B00C41A3F /* MxInputItem.h */; };
+		54464FAE2151196B00C41A3F /* CMxInputItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 54464FAD2151196B00C41A3F /* CMxInputItem.h */; };
 		54464FB021511DC000C41A3F /* CMxObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 54464FAF21511DC000C41A3F /* CMxObject.h */; };
+		54464FB42151DE0600C41A3F /* CMxBits.h in Headers */ = {isa = PBXBuildFile; fileRef = 54464FB32151DE0600C41A3F /* CMxBits.h */; };
+		54464FB62151DE1400C41A3F /* CMxBits.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54464FB52151DE1400C41A3F /* CMxBits.cpp */; };
+		54464FEF2151F8AA00C41A3F /* vlc_input_item.h in Headers */ = {isa = PBXBuildFile; fileRef = 54464FEE2151F8AA00C41A3F /* vlc_input_item.h */; };
+		54464FF12151F8C400C41A3F /* MxMessages.h in Headers */ = {isa = PBXBuildFile; fileRef = 54464FF02151F8C400C41A3F /* MxMessages.h */; };
+		54464FF42151F94800C41A3F /* item.h in Headers */ = {isa = PBXBuildFile; fileRef = 54464FF22151F94800C41A3F /* item.h */; };
+		54464FF52151F94800C41A3F /* item.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54464FF32151F94800C41A3F /* item.cpp */; };
+		5446510621524A7500C41A3F /* libc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5446510521524A7500C41A3F /* libc.cpp */; };
 		546DA9532146003300DF99E3 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 546DA9522146003200DF99E3 /* CoreFoundation.framework */; };
 		54A0A5C5214F99F700B9A0C5 /* thread_darwin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54A0A5C4214F99F700B9A0C5 /* thread_darwin.cpp */; };
 		54AA19D5214F41D900D4C7FC /* MxCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 54AA19C3214F41D800D4C7FC /* MxCommon.h */; };
@@ -49,8 +56,15 @@
 		5431D1E3214C9D9E0083FAD1 /* MxFixups.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MxFixups.cpp; sourceTree = "<group>"; };
 		5431D1EA214CAA670083FAD1 /* MxNetwork.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MxNetwork.cpp; sourceTree = "<group>"; };
 		5431D204214CD7CA0083FAD1 /* MxCpu.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MxCpu.cpp; sourceTree = "<group>"; };
-		54464FAD2151196B00C41A3F /* MxInputItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MxInputItem.h; path = ../include/MxInputItem.h; sourceTree = "<group>"; };
+		54464FAD2151196B00C41A3F /* CMxInputItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMxInputItem.h; path = ../include/CMxInputItem.h; sourceTree = "<group>"; };
 		54464FAF21511DC000C41A3F /* CMxObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMxObject.h; path = ../include/CMxObject.h; sourceTree = "<group>"; };
+		54464FB32151DE0600C41A3F /* CMxBits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMxBits.h; path = ../include/CMxBits.h; sourceTree = "<group>"; };
+		54464FB52151DE1400C41A3F /* CMxBits.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CMxBits.cpp; sourceTree = "<group>"; };
+		54464FEE2151F8AA00C41A3F /* vlc_input_item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = vlc_input_item.h; path = ../include/vlc_input_item.h; sourceTree = "<group>"; };
+		54464FF02151F8C400C41A3F /* MxMessages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MxMessages.h; path = ../include/MxMessages.h; sourceTree = "<group>"; };
+		54464FF22151F94800C41A3F /* item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = item.h; sourceTree = "<group>"; };
+		54464FF32151F94800C41A3F /* item.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = item.cpp; sourceTree = "<group>"; };
+		5446510521524A7500C41A3F /* libc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = libc.cpp; sourceTree = "<group>"; };
 		546DA9522146003200DF99E3 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		54A0A5C4214F99F700B9A0C5 /* thread_darwin.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = thread_darwin.cpp; path = MxThread/thread_darwin.cpp; sourceTree = "<group>"; };
 		54AA19C3214F41D800D4C7FC /* MxCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MxCommon.h; path = ../include/MxCommon.h; sourceTree = "<group>"; };
@@ -122,8 +136,11 @@
 		54AA19C1214F3DB900D4C7FC /* include */ = {
 			isa = PBXGroup;
 			children = (
+				54464FF02151F8C400C41A3F /* MxMessages.h */,
+				54464FEE2151F8AA00C41A3F /* vlc_input_item.h */,
+				54464FB32151DE0600C41A3F /* CMxBits.h */,
 				54464FAF21511DC000C41A3F /* CMxObject.h */,
-				54464FAD2151196B00C41A3F /* MxInputItem.h */,
+				54464FAD2151196B00C41A3F /* CMxInputItem.h */,
 				54AA19E9214F45E300D4C7FC /* MxExport.h */,
 				54AA19D1214F41D800D4C7FC /* CMxLog.h */,
 				54AA19CD214F41D800D4C7FC /* MxAtomic.h */,
@@ -149,10 +166,14 @@
 		54AA19C2214F3DBF00D4C7FC /* sources */ = {
 			isa = PBXGroup;
 			children = (
+				5446510521524A7500C41A3F /* libc.cpp */,
+				54464FF32151F94800C41A3F /* item.cpp */,
+				54464FF22151F94800C41A3F /* item.h */,
 				54A0A5C6214FACE600B9A0C5 /* MxNetwork */,
 				54A0A5C3214F99E400B9A0C5 /* MxThread */,
 				54AA19F2214F77BD00D4C7FC /* MxFileSystem */,
 				54AA19EB214F56A100D4C7FC /* MxCharSet */,
+				54464FB52151DE1400C41A3F /* CMxBits.cpp */,
 				5431D204214CD7CA0083FAD1 /* MxCpu.cpp */,
 				5431D1EA214CAA670083FAD1 /* MxNetwork.cpp */,
 				5431D1E3214C9D9E0083FAD1 /* MxFixups.cpp */,
@@ -232,12 +253,16 @@
 				54AA19D5214F41D900D4C7FC /* MxCommon.h in Headers */,
 				54AA19E5214F41D900D4C7FC /* MxFileSystem.h in Headers */,
 				54AA19DB214F41D900D4C7FC /* MxFixups.h in Headers */,
-				54464FAE2151196B00C41A3F /* MxInputItem.h in Headers */,
+				54464FF42151F94800C41A3F /* item.h in Headers */,
+				54464FEF2151F8AA00C41A3F /* vlc_input_item.h in Headers */,
+				54464FAE2151196B00C41A3F /* CMxInputItem.h in Headers */,
 				54AA19DC214F41D900D4C7FC /* MxCharSet.h in Headers */,
+				54464FB42151DE0600C41A3F /* CMxBits.h in Headers */,
 				54464FB021511DC000C41A3F /* CMxObject.h in Headers */,
 				54AA19D6214F41D900D4C7FC /* MxInterface.h in Headers */,
 				54AA19D7214F41D900D4C7FC /* MxError.h in Headers */,
 				54C3C5E9212A6D90009736A1 /* stdafx.h in Headers */,
+				54464FF12151F8C400C41A3F /* MxMessages.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,11 +324,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				5431D1EC214CAA670083FAD1 /* MxNetwork.cpp in Sources */,
+				54464FB62151DE1400C41A3F /* CMxBits.cpp in Sources */,
+				54464FF52151F94800C41A3F /* item.cpp in Sources */,
 				5431D1DD214BA4B10083FAD1 /* MxInterrupt.cpp in Sources */,
 				54AA19EF214F591A00D4C7FC /* charset.cpp in Sources */,
 				54C3C5DC212A69A9009736A1 /* MxThread.cpp in Sources */,
 				54AA19F0214F591A00D4C7FC /* unicode.cpp in Sources */,
 				54AA19F5214F77DA00D4C7FC /* filesystem.cpp in Sources */,
+				5446510621524A7500C41A3F /* libc.cpp in Sources */,
 				54A0A5C5214F99F700B9A0C5 /* thread_darwin.cpp in Sources */,
 				5431D1E5214C9D9E0083FAD1 /* MxFixups.cpp in Sources */,
 				54AA19F1214F591A00D4C7FC /* libc.cpp in Sources */,
@@ -346,6 +374,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
+				CONFIGURATION_BUILD_DIR = "$SRCROOT/../../MxPlayer-build/bin/$CONFIGURATION";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -366,8 +395,10 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = YES;
+				OBJROOT = "$SRCROOT/../../MxPlayer-build/$PROJECT_NAME/build";
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				SYMROOT = "$SRCROOT/../../MxPlayer-build/bin/$CONFIGURATION";
 			};
 			name = Debug;
 		};
@@ -401,6 +432,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
+				CONFIGURATION_BUILD_DIR = "$SRCROOT/../../MxPlayer-build/bin/$CONFIGURATION";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -415,7 +447,9 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OBJROOT = "$SRCROOT/../../MxPlayer-build/$PROJECT_NAME/build";
 				SDKROOT = macosx;
+				SYMROOT = "$SRCROOT/../../MxPlayer-build/bin/$CONFIGURATION";
 			};
 			name = Release;
 		};
@@ -423,7 +457,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CONFIGURATION_BUILD_DIR = "$SRCROOT/../../MxPlayer-build/bin";
+				CONFIGURATION_BUILD_DIR = "$SRCROOT/../../MxPlayer-build/bin/$CONFIGURATION";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				EXECUTABLE_PREFIX = "";
@@ -444,7 +478,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CONFIGURATION_BUILD_DIR = "$SRCROOT/../../MxPlayer-build/bin";
+				CONFIGURATION_BUILD_DIR = "$SRCROOT/../../MxPlayer-build/bin/$CONFIGURATION";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				EXECUTABLE_PREFIX = "";

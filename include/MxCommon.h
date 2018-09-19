@@ -287,4 +287,14 @@ static inline unsigned (clz)(unsigned x)
 #define clz32( x ) (clz(x) - ((sizeof(unsigned) - sizeof (uint32_t)) * 8))
 
 
+//libc.cpp
+typedef void * MxIconv;
+MXCORE_API MxIconv mxIconvOpen( const char *tocode, const char *fromcode );
+MXCORE_API size_t mxIconv( MxIconv cd, const char **inbuf, size_t *inbytesleft,
+               char **outbuf, size_t *outbytesleft );
+MXCORE_API int mxIconvClose( MxIconv cd );
+MXCORE_API bool mxUreduce( unsigned *pi_dst_nom, unsigned *pi_dst_den,
+               uint64_t i_nom, uint64_t i_den, uint64_t i_max );
+
+
 #endif //MXCOMMON_H

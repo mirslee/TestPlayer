@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXAggregateTarget section */
-		6F57EF0397459C12A69B54F6 /* Qt Preprocess */ = {
+		065C81C962DD59A47C963405 /* Qt Preprocess */ = {
 			isa = PBXAggregateTarget;
 			buildConfigurationList = 6CC3B5D2136C7CD6A5CF5A59 /* Build configuration list for PBXNativeTarget "MxPlayer" */;
 			buildPhases = (
@@ -22,49 +22,50 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		546950912122E1230055ED67 /* QtWidgets.framework in Link Binary With Libraries */ = {isa = PBXBuildFile; fileRef = 546950902122E1230055ED67 /* QtWidgets.framework */; };
-		54AA19BD214F3CD500D4C7FC /* MainWidget.cpp in Compile Sources */ = {isa = PBXBuildFile; fileRef = 54AA19B8214F3CD500D4C7FC /* MainWidget.cpp */; };
-		54AA19BE214F3CD500D4C7FC /* moc_MainWidget.cpp in Compile Sources */ = {isa = PBXBuildFile; fileRef = 54AA19BB214F3CD500D4C7FC /* moc_MainWidget.cpp */; };
-		54AA19BF214F3CD500D4C7FC /* stdafx.cpp in Compile Sources */ = {isa = PBXBuildFile; fileRef = 54AA19BC214F3CD500D4C7FC /* stdafx.cpp */; };
-		54C3C54A2125A0C9009736A1 /* Cocoa.framework in Link Binary With Libraries */ = {isa = PBXBuildFile; fileRef = 54C3C5492125A0C9009736A1 /* Cocoa.framework */; };
-		54D6AB672133C95200B78108 /* MxCoreD.dylib in Link Binary With Libraries */ = {isa = PBXBuildFile; fileRef = 54C3C5B4212A5C64009736A1 /* MxCoreD.dylib */; };
+		46277AFBBE64D3ED05B09536 /* stdafx.cpp in Compile Sources */ = {isa = PBXBuildFile; fileRef = 1EE15236BE8D23B0112BEE19 /* stdafx.cpp */; settings = {ATTRIBUTES = (); }; };
+		54464FE52151EB7000C41A3F /* QtWidgets.framework in Link Binary With Libraries */ = {isa = PBXBuildFile; fileRef = 54464FE42151EB7000C41A3F /* QtWidgets.framework */; };
+		54464FE72151EBDB00C41A3F /* main.cpp in Compile Sources */ = {isa = PBXBuildFile; fileRef = 54464FE62151EBDB00C41A3F /* main.cpp */; };
+		54464FEB2151F1C600C41A3F /* MxCoreD.dylib in Link Binary With Libraries */ = {isa = PBXBuildFile; fileRef = 54464FE22151E9B200C41A3F /* MxCoreD.dylib */; };
+		54464FED2151F30700C41A3F /* MxCoreD.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 54464FE22151E9B200C41A3F /* MxCoreD.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		8771A8C96E9C391044035D99 /* OpenGL.framework in Link Binary With Libraries */ = {isa = PBXBuildFile; fileRef = D4B32C2222F82AC56BADEB21 /* OpenGL.framework */; };
 		8D267F2E4776F0ECA2F49DC8 /* IOKit.framework in Link Binary With Libraries */ = {isa = PBXBuildFile; fileRef = A1A67BEAA744704B29168D39 /* IOKit.framework */; };
 		994A1BD1E426A09088330BE9 /* QtCore.framework in Link Binary With Libraries */ = {isa = PBXBuildFile; fileRef = 53A1666EF2EC8D8B83CC35FC /* QtCore.framework */; };
 		A99B2AA0F9CBBDD12BA126A4 /* DiskArbitration.framework in Link Binary With Libraries */ = {isa = PBXBuildFile; fileRef = 2B774D8E4178765CE52EAAF5 /* DiskArbitration.framework */; };
 		B07889C7F41764965C901BA2 /* dummy.cpp in Compile Sources */ = {isa = PBXBuildFile; fileRef = 12A9559A7F50D57FB891AC7C /* dummy.cpp */; settings = {ATTRIBUTES = (); }; };
 		C21018B3553C3BF64ECA6651 /* QtGui.framework in Link Binary With Libraries */ = {isa = PBXBuildFile; fileRef = 34C3CC745F9A46849F0F12A2 /* QtGui.framework */; };
+		CBA03B06DA687D2722E48FF7 /* MainWidget.cpp in Compile Sources */ = {isa = PBXBuildFile; fileRef = E03EB9FCB4B63F9A950E4B13 /* MainWidget.cpp */; settings = {ATTRIBUTES = (); }; };
 		E45E51A644D5FC9F942ECE55 /* AGL.framework in Link Binary With Libraries */ = {isa = PBXBuildFile; fileRef = 8D9815BDB5BD9F90D2BC05C5 /* AGL.framework */; };
+		E8B75271FDF0EED99DB62565 /* moc_MainWidget.cpp in Compile Sources */ = {isa = PBXBuildFile; fileRef = C7A453180C054E030C959F7A /* moc_MainWidget.cpp */; settings = {ATTRIBUTES = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		5469508F2122E0530055ED67 /* PBXContainerItemProxy */ = {
+		54464FD62151E98800C41A3F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6DB9C3763D02B1415CD9D565 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 6F57EF0397459C12A69B54F6;
+			remoteGlobalIDString = 065C81C962DD59A47C963405;
 			remoteInfo = "Qt Preprocess";
 		};
-		54A0A5ED2150996700B9A0C5 /* PBXContainerItemProxy */ = {
+		54464FDB2151E9A700C41A3F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 54A0A5E92150996700B9A0C5 /* MxCodec.xcodeproj */;
+			containerPortal = 54464FD72151E9A600C41A3F /* MxCodec.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 54A0A5D52150993C00B9A0C5;
 			remoteInfo = MxCodec;
 		};
-		54C3C5B3212A5C64009736A1 /* PBXContainerItemProxy */ = {
+		54464FE12151E9B200C41A3F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 54C3C5AF212A5C62009736A1 /* MxCore.xcodeproj */;
+			containerPortal = 54464FDD2151E9B200C41A3F /* MxCore.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 54C3C5A1212A5C62009736A1;
 			remoteInfo = MxCore;
 		};
-		54D6AB652133C71200B78108 /* PBXContainerItemProxy */ = {
+		544650982152326000C41A3F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 54C3C5AF212A5C62009736A1 /* MxCore.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 54C3C5A0212A5C62009736A1;
-			remoteInfo = MxCore;
+			containerPortal = 544650942152326000C41A3F /* MxFileAccess.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 544650802152322D00C41A3F;
+			remoteInfo = MxFileAccess;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -75,6 +76,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				54464FED2151F30700C41A3F /* MxCoreD.dylib in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -83,24 +85,25 @@
 
 /* Begin PBXFileReference section */
 		12A9559A7F50D57FB891AC7C /* dummy.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = dummy.cpp; path = /usr/local/Cellar/qt/5.11.1/mkspecs/features/data/dummy.cpp; sourceTree = "<absolute>"; };
+		1EE15236BE8D23B0112BEE19 /* stdafx.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = stdafx.cpp; path = /Users/ws/work/TestPlayer/MxPlayer/stdafx.cpp; sourceTree = "<absolute>"; };
 		2B774D8E4178765CE52EAAF5 /* DiskArbitration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DiskArbitration.framework; path = /System/Library/Frameworks/DiskArbitration.framework; sourceTree = "<absolute>"; };
 		34C3CC745F9A46849F0F12A2 /* QtGui.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QtGui.framework; path = /usr/local/Cellar/qt/5.11.1/lib/QtGui.framework; sourceTree = "<absolute>"; };
+		517C67A6EA328F641FFC21CA /* stdafx.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = stdafx.h; path = /Users/ws/work/TestPlayer/MxPlayer/stdafx.h; sourceTree = "<absolute>"; };
 		53A1666EF2EC8D8B83CC35FC /* QtCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QtCore.framework; path = /usr/local/Cellar/qt/5.11.1/lib/QtCore.framework; sourceTree = "<absolute>"; };
-		546950902122E1230055ED67 /* QtWidgets.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QtWidgets.framework; path = ../../../../usr/local/Cellar/qt/5.11.1/lib/QtWidgets.framework; sourceTree = "<group>"; };
-		54A0A5E92150996700B9A0C5 /* MxCodec.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MxCodec.xcodeproj; path = MxCodec/MxCodec.xcodeproj; sourceTree = "<group>"; };
-		54AA19B7214F3CD500D4C7FC /* MainWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainWidget.h; path = MxPlayer/MainWidget.h; sourceTree = "<group>"; };
-		54AA19B8214F3CD500D4C7FC /* MainWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MainWidget.cpp; path = MxPlayer/MainWidget.cpp; sourceTree = "<group>"; };
-		54AA19B9214F3CD500D4C7FC /* stdafx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = stdafx.h; path = MxPlayer/stdafx.h; sourceTree = "<group>"; };
-		54AA19BB214F3CD500D4C7FC /* moc_MainWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = moc_MainWidget.cpp; sourceTree = "<group>"; };
-		54AA19BC214F3CD500D4C7FC /* stdafx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = stdafx.cpp; path = MxPlayer/stdafx.cpp; sourceTree = "<group>"; };
-		54C3C5492125A0C9009736A1 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		54C3C5AF212A5C62009736A1 /* MxCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MxCore.xcodeproj; path = MxCore/MxCore.xcodeproj; sourceTree = "<group>"; };
+		54464FD72151E9A600C41A3F /* MxCodec.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MxCodec.xcodeproj; path = ../MxCodec/MxCodec.xcodeproj; sourceTree = "<group>"; };
+		54464FDD2151E9B200C41A3F /* MxCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MxCore.xcodeproj; path = ../MxCore/MxCore.xcodeproj; sourceTree = "<group>"; };
+		54464FE42151EB7000C41A3F /* QtWidgets.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QtWidgets.framework; path = ../../../../../usr/local/Cellar/qt/5.11.1/Frameworks/QtWidgets.framework; sourceTree = "<group>"; };
+		54464FE62151EBDB00C41A3F /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		544650942152326000C41A3F /* MxFileAccess.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MxFileAccess.xcodeproj; path = ../plugin/access/MxFileAccess/MxFileAccess.xcodeproj; sourceTree = "<group>"; };
+		87CD42F8CACCA8EA3AE0BB18 /* MxPlayerD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MxPlayerD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D9815BDB5BD9F90D2BC05C5 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
 		A1A67BEAA744704B29168D39 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
-		CD5906B4E993324963496C03 /* .qmake.stash */ = {isa = PBXFileReference; lastKnownFileType = text; name = .qmake.stash; path = /Users/ws/work/MxPlayer/.qmake.stash; sourceTree = "<absolute>"; };
+		C09F0A46160E3DA8FE0C7628 /* MxPlayer.pro */ = {isa = PBXFileReference; lastKnownFileType = text; name = MxPlayer.pro; path = /Users/ws/work/TestPlayer/MxPlayer/MxPlayer.pro; sourceTree = "<absolute>"; };
+		C7A453180C054E030C959F7A /* moc_MainWidget.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = moc_MainWidget.cpp; path = /Users/ws/work/TestPlayer/MxPlayer/moc_MainWidget.cpp; sourceTree = "<absolute>"; };
 		D4B32C2222F82AC56BADEB21 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = /System/Library/Frameworks/OpenGL.framework; sourceTree = "<absolute>"; };
-		D9DE3BE41ED31C43574B88B8 /* MxPlayer.pro */ = {isa = PBXFileReference; lastKnownFileType = text; name = MxPlayer.pro; path = /Users/ws/work/TestPlayer/MxPlayer.pro; sourceTree = "<absolute>"; };
-		DF2F3FF4409563AF002FEA60 /* MxPlayerD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MxPlayerD.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E03EB9FCB4B63F9A950E4B13 /* MainWidget.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = MainWidget.cpp; path = /Users/ws/work/TestPlayer/MxPlayer/MainWidget.cpp; sourceTree = "<absolute>"; };
+		E6FB7C6C2BAA289AE4F9261F /* .qmake.stash */ = {isa = PBXFileReference; lastKnownFileType = text; name = .qmake.stash; path = /Users/ws/work/TestPlayer/.qmake.stash; sourceTree = "<absolute>"; };
+		F06E2C5D675850ED510BBA26 /* MainWidget.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MainWidget.h; path = /Users/ws/work/TestPlayer/MxPlayer/MainWidget.h; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,15 +111,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				54C3C54A2125A0C9009736A1 /* Cocoa.framework in Link Binary With Libraries */,
+				54464FE52151EB7000C41A3F /* QtWidgets.framework in Link Binary With Libraries */,
 				C21018B3553C3BF64ECA6651 /* QtGui.framework in Link Binary With Libraries */,
 				994A1BD1E426A09088330BE9 /* QtCore.framework in Link Binary With Libraries */,
 				A99B2AA0F9CBBDD12BA126A4 /* DiskArbitration.framework in Link Binary With Libraries */,
 				8D267F2E4776F0ECA2F49DC8 /* IOKit.framework in Link Binary With Libraries */,
 				8771A8C96E9C391044035D99 /* OpenGL.framework in Link Binary With Libraries */,
 				E45E51A644D5FC9F942ECE55 /* AGL.framework in Link Binary With Libraries */,
-				546950912122E1230055ED67 /* QtWidgets.framework in Link Binary With Libraries */,
-				54D6AB672133C95200B78108 /* MxCoreD.dylib in Link Binary With Libraries */,
+				54464FEB2151F1C600C41A3F /* MxCoreD.dylib in Link Binary With Libraries */,
 			);
 			name = "Link Binary With Libraries";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -124,39 +126,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		25B08E2869634E9BCBA333A2 /* Generated Sources */ = {
+			isa = PBXGroup;
+			children = (
+				C7A453180C054E030C959F7A /* moc_MainWidget.cpp */,
+			);
+			name = "Generated Sources";
+			sourceTree = "<group>";
+		};
 		2EB56BE3C2D93CDAB0C52E67 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				54AA19B8214F3CD500D4C7FC /* MainWidget.cpp */,
-				54AA19B7214F3CD500D4C7FC /* MainWidget.h */,
-				54AA19BA214F3CD500D4C7FC /* moc */,
-				54AA19BC214F3CD500D4C7FC /* stdafx.cpp */,
-				54AA19B9214F3CD500D4C7FC /* stdafx.h */,
+				54464FE62151EBDB00C41A3F /* main.cpp */,
+				E03EB9FCB4B63F9A950E4B13 /* MainWidget.cpp */,
+				1EE15236BE8D23B0112BEE19 /* stdafx.cpp */,
+				F06E2C5D675850ED510BBA26 /* MainWidget.h */,
+				517C67A6EA328F641FFC21CA /* stdafx.h */,
 			);
 			name = Sources;
 			sourceTree = "<group>";
 		};
-		54A0A5EA2150996700B9A0C5 /* Products */ = {
+		54464FD82151E9A600C41A3F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				54A0A5EE2150996700B9A0C5 /* libMxCodec.dylib */,
+				54464FDC2151E9A700C41A3F /* MxCodecD.dylib */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		54AA19BA214F3CD500D4C7FC /* moc */ = {
+		54464FDE2151E9B200C41A3F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				54AA19BB214F3CD500D4C7FC /* moc_MainWidget.cpp */,
+				54464FE22151E9B200C41A3F /* MxCoreD.dylib */,
 			);
-			name = moc;
-			path = MxPlayer/moc;
+			name = Products;
 			sourceTree = "<group>";
 		};
-		54C3C5B0212A5C62009736A1 /* Products */ = {
+		544650952152326000C41A3F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				54C3C5B4212A5C64009736A1 /* MxCoreD.dylib */,
+				544650992152326000C41A3F /* libMxFileAccess.dylib */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -164,8 +173,8 @@
 		74B182DB50CB5611B5C1C297 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				D9DE3BE41ED31C43574B88B8 /* MxPlayer.pro */,
-				CD5906B4E993324963496C03 /* .qmake.stash */,
+				C09F0A46160E3DA8FE0C7628 /* MxPlayer.pro */,
+				E6FB7C6C2BAA289AE4F9261F /* .qmake.stash */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -173,8 +182,7 @@
 		AF39DD055C3EF8226FBE929D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				54C3C5492125A0C9009736A1 /* Cocoa.framework */,
-				546950902122E1230055ED67 /* QtWidgets.framework */,
+				54464FE42151EB7000C41A3F /* QtWidgets.framework */,
 				34C3CC745F9A46849F0F12A2 /* QtGui.framework */,
 				53A1666EF2EC8D8B83CC35FC /* QtCore.framework */,
 				2B774D8E4178765CE52EAAF5 /* DiskArbitration.framework */,
@@ -196,9 +204,11 @@
 		E8C543AB96796ECAA2E65C57 /* MxPlayer */ = {
 			isa = PBXGroup;
 			children = (
-				54A0A5E92150996700B9A0C5 /* MxCodec.xcodeproj */,
-				54C3C5AF212A5C62009736A1 /* MxCore.xcodeproj */,
+				544650942152326000C41A3F /* MxFileAccess.xcodeproj */,
+				54464FDD2151E9B200C41A3F /* MxCore.xcodeproj */,
+				54464FD72151E9A600C41A3F /* MxCodec.xcodeproj */,
 				2EB56BE3C2D93CDAB0C52E67 /* Sources */,
+				25B08E2869634E9BCBA333A2 /* Generated Sources */,
 				B8254625CFD509ED2A24A166 /* Sources [moc_predefs] */,
 				74B182DB50CB5611B5C1C297 /* Supporting Files */,
 				AF39DD055C3EF8226FBE929D /* Frameworks */,
@@ -210,7 +220,7 @@
 		FE0A091FDBFB3E9C31B7A1BD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DF2F3FF4409563AF002FEA60 /* MxPlayerD.app */,
+				87CD42F8CACCA8EA3AE0BB18 /* MxPlayerD.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -218,11 +228,11 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D5B309DC32DB313016BF57C1 /* MxPlayer */ = {
+		51592C202B46188A935DE2E9 /* MxPlayer */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6CC3B5D2136C7CD6A5CF5A59 /* Build configuration list for PBXNativeTarget "MxPlayer" */;
 			buildPhases = (
-				54E2FAC72137ED8600574698 /* ShellScript */,
+				54464FE32151EAFB00C41A3F /* ShellScript */,
 				F7E50F631C51CD5B5DC0BC43 /* Compile Sources */,
 				D1C883685E82D5676953459A /* Link Binary With Libraries */,
 				30414803F31797EB689AE508 /* Copy Bundle Resources */,
@@ -231,12 +241,11 @@
 			buildRules = (
 			);
 			dependencies = (
-				E849EE40900CD72C66791377 /* PBXTargetDependency */,
-				54D6AB662133C71200B78108 /* PBXTargetDependency */,
+				CDCDBC2463096EBEC43DDBD7 /* PBXTargetDependency */,
 			);
 			name = MxPlayer;
 			productName = MxPlayer;
-			productReference = DF2F3FF4409563AF002FEA60 /* MxPlayerD.app */;
+			productReference = 87CD42F8CACCA8EA3AE0BB18 /* MxPlayerD.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -258,35 +267,46 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 54A0A5EA2150996700B9A0C5 /* Products */;
-					ProjectRef = 54A0A5E92150996700B9A0C5 /* MxCodec.xcodeproj */;
+					ProductGroup = 54464FD82151E9A600C41A3F /* Products */;
+					ProjectRef = 54464FD72151E9A600C41A3F /* MxCodec.xcodeproj */;
 				},
 				{
-					ProductGroup = 54C3C5B0212A5C62009736A1 /* Products */;
-					ProjectRef = 54C3C5AF212A5C62009736A1 /* MxCore.xcodeproj */;
+					ProductGroup = 54464FDE2151E9B200C41A3F /* Products */;
+					ProjectRef = 54464FDD2151E9B200C41A3F /* MxCore.xcodeproj */;
+				},
+				{
+					ProductGroup = 544650952152326000C41A3F /* Products */;
+					ProjectRef = 544650942152326000C41A3F /* MxFileAccess.xcodeproj */;
 				},
 			);
 			projectRoot = "";
 			targets = (
-				D5B309DC32DB313016BF57C1 /* MxPlayer */,
-				6F57EF0397459C12A69B54F6 /* Qt Preprocess */,
+				51592C202B46188A935DE2E9 /* MxPlayer */,
+				065C81C962DD59A47C963405 /* Qt Preprocess */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		54A0A5EE2150996700B9A0C5 /* libMxCodec.dylib */ = {
+		54464FDC2151E9A700C41A3F /* MxCodecD.dylib */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
-			path = libMxCodec.dylib;
-			remoteRef = 54A0A5ED2150996700B9A0C5 /* PBXContainerItemProxy */;
+			path = MxCodecD.dylib;
+			remoteRef = 54464FDB2151E9A700C41A3F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		54C3C5B4212A5C64009736A1 /* MxCoreD.dylib */ = {
+		54464FE22151E9B200C41A3F /* MxCoreD.dylib */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
 			path = MxCoreD.dylib;
-			remoteRef = 54C3C5B3212A5C64009736A1 /* PBXContainerItemProxy */;
+			remoteRef = 54464FE12151E9B200C41A3F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		544650992152326000C41A3F /* libMxFileAccess.dylib */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.dylib";
+			path = libMxFileAccess.dylib;
+			remoteRef = 544650982152326000C41A3F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -303,7 +323,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		54E2FAC72137ED8600574698 /* ShellScript */ = {
+		54464FE32151EAFB00C41A3F /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -314,7 +334,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/Cellar/qt/5.11.1/bin/moc ./MainWidget.h -o ./moc/moc_MainWidget.cpp";
+			shellScript = "";
 		};
 		5E618435888B9D49F8540165 /* Qt Qmake */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -324,7 +344,7 @@
 			name = "Qt Qmake";
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "make -C /Users/ws/work/TestPlayer/ -f MxPlayer.xcodeproj/qt_makeqmake.mak";
+			shellScript = "make -C /Users/ws/work/TestPlayer/MxPlayer/ -f MxPlayer.xcodeproj/qt_makeqmake.mak";
 			showEnvVarsInLog = 0;
 		};
 		7EF0942E79C014DCEC8976BC /* Qt Preprocessors */ = {
@@ -335,7 +355,7 @@
 			name = "Qt Preprocessors";
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "make -C /Users/ws/work/TestPlayer/ -f MxPlayer.xcodeproj/qt_preprocess.mak";
+			shellScript = "make -C /Users/ws/work/TestPlayer/MxPlayer/ -f MxPlayer.xcodeproj/qt_preprocess.mak";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -345,9 +365,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				54AA19BD214F3CD500D4C7FC /* MainWidget.cpp in Compile Sources */,
-				54AA19BF214F3CD500D4C7FC /* stdafx.cpp in Compile Sources */,
-				54AA19BE214F3CD500D4C7FC /* moc_MainWidget.cpp in Compile Sources */,
+				CBA03B06DA687D2722E48FF7 /* MainWidget.cpp in Compile Sources */,
+				46277AFBBE64D3ED05B09536 /* stdafx.cpp in Compile Sources */,
+				E8B75271FDF0EED99DB62565 /* moc_MainWidget.cpp in Compile Sources */,
+				54464FE72151EBDB00C41A3F /* main.cpp in Compile Sources */,
 				B07889C7F41764965C901BA2 /* dummy.cpp in Compile Sources */,
 			);
 			name = "Compile Sources";
@@ -356,15 +377,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		54D6AB662133C71200B78108 /* PBXTargetDependency */ = {
+		CDCDBC2463096EBEC43DDBD7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = MxCore;
-			targetProxy = 54D6AB652133C71200B78108 /* PBXContainerItemProxy */;
-		};
-		E849EE40900CD72C66791377 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 6F57EF0397459C12A69B54F6 /* Qt Preprocess */;
-			targetProxy = 5469508F2122E0530055ED67 /* PBXContainerItemProxy */;
+			target = 065C81C962DD59A47C963405 /* Qt Preprocess */;
+			targetProxy = 54464FD62151E98800C41A3F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -375,8 +391,8 @@
 				APPLICATION_EXTENSION_API_ONLY = NO;
 				ARCHS = x86_64;
 				"ARCHS[sdk=macosx*]" = x86_64;
-				CC = /Library/Developer/CommandLineTools/usr/bin/clang;
-				CONFIGURATION_BUILD_DIR = "/Users/ws/work/TestPlayer//$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				CC = /Applications/Xcode9.0.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang;
+				CONFIGURATION_BUILD_DIR = "/Users/ws/work/TestPlayer/MxPlayer//$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				COPY_PHASE_STRIP = NO;
 				DYLIB_COMPATIBILITY_VERSION = 1.0;
 				DYLIB_CURRENT_VERSION = 1.0.0;
@@ -392,13 +408,12 @@
 					/usr/local/Cellar/qt/5.11.1/lib/QtGui.framework/Headers,
 					/usr/local/Cellar/qt/5.11.1/lib/QtCore.framework/Headers,
 					.,
-					/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/OpenGL.framework/Headers,
-					/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/AGL.framework/Headers,
+					/Applications/Xcode9.0.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/OpenGL.framework/Headers,
+					/Applications/Xcode9.0.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/AGL.framework/Headers,
 					"/usr/local/Cellar/qt/5.11.1/mkspecs/macx-clang",
-					/usr/local/Cellar/qt/5.11.1/include,
 				);
 				INFOPLIST_FILE = Info.plist;
-				LDPLUSPLUS = "/Library/Developer/CommandLineTools/usr/bin/clang++";
+				LDPLUSPLUS = "/Applications/Xcode9.0.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++";
 				LIBRARY_SEARCH_PATHS = (
 					/usr/local/Cellar/qt/5.11.1/lib,
 					/System/Library/Frameworks/,
@@ -434,12 +449,12 @@
 					"-Wl,-rpath,@executable_path/Frameworks",
 					"-F/usr/local/Cellar/qt/5.11.1/lib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Wondershare.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = "lixiaopeng.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = MxPlayer;
 				QMAKE_PKGINFO_TYPEINFO = "????";
 				QT_LIBRARY_SUFFIX = "";
 				SDKROOT = macosx;
-				SYMROOT = "/Users/ws/work/TestPlayer//.xcode";
+				SYMROOT = "/Users/ws/work/TestPlayer/MxPlayer//.xcode";
 			};
 			name = Release;
 		};
@@ -449,8 +464,8 @@
 				APPLICATION_EXTENSION_API_ONLY = NO;
 				ARCHS = x86_64;
 				"ARCHS[sdk=macosx*]" = x86_64;
-				CC = /Library/Developer/CommandLineTools/usr/bin/clang;
-				CONFIGURATION_BUILD_DIR = "/Users/ws/work/TestPlayer//$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				CC = /Applications/Xcode9.0.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang;
+				CONFIGURATION_BUILD_DIR = "/Users/ws/work/TestPlayer/MxPlayer//$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				COPY_PHASE_STRIP = NO;
 				DYLIB_COMPATIBILITY_VERSION = 1.0;
 				DYLIB_CURRENT_VERSION = 1.0.0;
@@ -467,13 +482,12 @@
 					/usr/local/Cellar/qt/5.11.1/lib/QtGui.framework/Headers,
 					/usr/local/Cellar/qt/5.11.1/lib/QtCore.framework/Headers,
 					.,
-					/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/OpenGL.framework/Headers,
-					/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/AGL.framework/Headers,
+					/Applications/Xcode9.0.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/OpenGL.framework/Headers,
+					/Applications/Xcode9.0.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/AGL.framework/Headers,
 					"/usr/local/Cellar/qt/5.11.1/mkspecs/macx-clang",
-					/usr/local/Cellar/qt/5.11.1/include,
 				);
 				INFOPLIST_FILE = Info.plist;
-				LDPLUSPLUS = "/Library/Developer/CommandLineTools/usr/bin/clang++";
+				LDPLUSPLUS = "/Applications/Xcode9.0.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++";
 				LIBRARY_SEARCH_PATHS = (
 					/usr/local/Cellar/qt/5.11.1/lib,
 					/System/Library/Frameworks/,
@@ -510,12 +524,12 @@
 					"-Wl,-rpath,@executable_path/Frameworks",
 					"-F/usr/local/Cellar/qt/5.11.1/lib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Wondershare.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = "lixiaopeng.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = MxPlayer;
 				QMAKE_PKGINFO_TYPEINFO = "????";
 				QT_LIBRARY_SUFFIX = "";
 				SDKROOT = macosx;
-				SYMROOT = "/Users/ws/work/TestPlayer//.xcode";
+				SYMROOT = "/Users/ws/work/TestPlayer/MxPlayer//.xcode";
 			};
 			name = Debug;
 		};
@@ -524,36 +538,34 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = NO;
 				"ARCHS[sdk=macosx*]" = x86_64;
-				CONFIGURATION_BUILD_DIR = "$SRCROOT/../MxPlayer-build/bin";
+				CONFIGURATION_BUILD_DIR = "$SRCROOT/../../MxPlayer-build/bin";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = /usr/local/Cellar/qt/5.11.1/lib;
-				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/qt/5.11.1/Frameworks,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = stdafx.h;
 				HEADER_SEARCH_PATHS = (
+					.,
+					.,
 					/usr/local/Cellar/qt/5.11.1/lib/QtGui.framework/Headers,
 					/usr/local/Cellar/qt/5.11.1/lib/QtCore.framework/Headers,
 					.,
-					/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/OpenGL.framework/Headers,
-					/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/AGL.framework/Headers,
+					/Applications/Xcode9.0.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/OpenGL.framework/Headers,
+					/Applications/Xcode9.0.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/AGL.framework/Headers,
 					"/usr/local/Cellar/qt/5.11.1/mkspecs/macx-clang",
-					./include/ffmpeg/include,
-					./include,
+					../include,
 				);
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path @loader_path";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					./lib,
-					bin/mac/$CONFIGURATION,
-				);
-				OBJROOT = "$SRCROOT/../MxPlayer-build/$PROJECT_NAME/build";
-				PRODUCT_BUNDLE_IDENTIFIER = "Wondershare.${PRODUCT_NAME:rfc1034identifier}";
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
+				OBJROOT = "$SRCROOT/../../MxPlayer-build/$PROJECT_NAME/build";
+				PRODUCT_BUNDLE_IDENTIFIER = "${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = MxPlayer;
 				QMAKE_PKGINFO_TYPEINFO = "????";
 				QT_LIBRARY_SUFFIX = "";
 				SDKROOT = macosx;
-				SYMROOT = "$SRCROOT/../MxPlayer-build/bin";
+				SYMROOT = "$SRCROOT/../../MxPlayer-build/bin";
 			};
 			name = Release;
 		};
@@ -562,50 +574,36 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = NO;
 				"ARCHS[sdk=macosx*]" = x86_64;
-				CONFIGURATION_BUILD_DIR = "$SRCROOT/../MxPlayer-build/bin";
+				CONFIGURATION_BUILD_DIR = "$SRCROOT/../../MxPlayer-build/bin";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = /usr/local/Cellar/qt/5.11.1/lib;
-				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/qt/5.11.1/Frameworks,
+				);
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = stdafx.h;
 				HEADER_SEARCH_PATHS = (
+					.,
+					.,
 					/usr/local/Cellar/qt/5.11.1/lib/QtGui.framework/Headers,
 					/usr/local/Cellar/qt/5.11.1/lib/QtCore.framework/Headers,
 					.,
-					/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/OpenGL.framework/Headers,
-					/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/AGL.framework/Headers,
+					/Applications/Xcode9.0.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/OpenGL.framework/Headers,
+					/Applications/Xcode9.0.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/AGL.framework/Headers,
 					"/usr/local/Cellar/qt/5.11.1/mkspecs/macx-clang",
-					./include/ffmpeg/include,
-					./include,
+					../include,
 				);
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path @loader_path";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					./lib,
-					bin/mac/$CONFIGURATION,
-				);
-				OBJROOT = "$SRCROOT/../MxPlayer-build/$PROJECT_NAME/build";
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
+				OBJROOT = "$SRCROOT/../../MxPlayer-build/$PROJECT_NAME/build";
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_CPLUSPLUSFLAGS = (
-					"-pipe",
-					"-stdlib=libc++",
-					"-std=gnu++11",
-					"-Wall",
-					"-W",
-					"-fPIC",
-					"-DQT_DEPRECATED_WARNINGS",
-					"-DQT_NO_DEBUG",
-					"-DQT_GUI_LIB",
-					"-DQT_CORE_LIB",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Wondershare.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = "${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = MxPlayerD;
 				QMAKE_PKGINFO_TYPEINFO = "????";
 				QT_LIBRARY_SUFFIX = "";
 				SDKROOT = macosx;
-				SYMROOT = "$SRCROOT/../MxPlayer-build/bin";
+				SYMROOT = "$SRCROOT/../../MxPlayer-build/bin";
 			};
 			name = Debug;
 		};

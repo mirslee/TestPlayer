@@ -13,6 +13,7 @@
 		54464FA82150F13A00C41A3F /* CMxStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54464FA72150F13A00C41A3F /* CMxStream.cpp */; };
 		54464FAA2150F1F000C41A3F /* CMxBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 54464FA92150F1F000C41A3F /* CMxBlock.h */; };
 		54464FAC2150F91B00C41A3F /* CMxBlock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54464FAB2150F91B00C41A3F /* CMxBlock.cpp */; };
+		544650A4215247EB00C41A3F /* es_format.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 544650A3215247EB00C41A3F /* es_format.cpp */; };
 		54A0A5F32150A4E600B9A0C5 /* MxFourcc.h in Headers */ = {isa = PBXBuildFile; fileRef = 54A0A5F22150A4E600B9A0C5 /* MxFourcc.h */; };
 		54A0A5F62150A69800B9A0C5 /* stdafx.h in Headers */ = {isa = PBXBuildFile; fileRef = 54A0A5F42150A69800B9A0C5 /* stdafx.h */; };
 		54A0A5F72150A69800B9A0C5 /* stdafx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54A0A5F52150A69800B9A0C5 /* stdafx.cpp */; };
@@ -26,6 +27,7 @@
 		54464FA72150F13A00C41A3F /* CMxStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CMxStream.cpp; sourceTree = "<group>"; };
 		54464FA92150F1F000C41A3F /* CMxBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMxBlock.h; path = ../include/CMxBlock.h; sourceTree = "<group>"; };
 		54464FAB2150F91B00C41A3F /* CMxBlock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CMxBlock.cpp; sourceTree = "<group>"; };
+		544650A3215247EB00C41A3F /* es_format.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = es_format.cpp; sourceTree = "<group>"; };
 		54A0A5D52150993C00B9A0C5 /* MxCodecD.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = MxCodecD.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		54A0A5F22150A4E600B9A0C5 /* MxFourcc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MxFourcc.h; path = ../include/MxFourcc.h; sourceTree = "<group>"; };
 		54A0A5F42150A69800B9A0C5 /* stdafx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stdafx.h; sourceTree = "<group>"; };
@@ -44,6 +46,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		544650A2215247BF00C41A3F /* MxEs */ = {
+			isa = PBXGroup;
+			children = (
+				544650A3215247EB00C41A3F /* es_format.cpp */,
+			);
+			path = MxEs;
+			sourceTree = "<group>";
+		};
 		54A0A5CC2150993C00B9A0C5 = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +94,7 @@
 		54A0A5F121509DD200B9A0C5 /* sources */ = {
 			isa = PBXGroup;
 			children = (
+				544650A2215247BF00C41A3F /* MxEs */,
 				54464FAB2150F91B00C41A3F /* CMxBlock.cpp */,
 				54464FA72150F13A00C41A3F /* CMxStream.cpp */,
 				54A0A5F52150A69800B9A0C5 /* stdafx.cpp */,
@@ -176,6 +187,7 @@
 			files = (
 				54464FAC2150F91B00C41A3F /* CMxBlock.cpp in Sources */,
 				54464FA82150F13A00C41A3F /* CMxStream.cpp in Sources */,
+				544650A4215247EB00C41A3F /* es_format.cpp in Sources */,
 				54A0A5F72150A69800B9A0C5 /* stdafx.cpp in Sources */,
 				54A0A6082150CABD00B9A0C5 /* fourcc.cpp in Sources */,
 			);
@@ -214,6 +226,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
+				CONFIGURATION_BUILD_DIR = "$SRCROOT/../../MxPlayer-build/bin";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -234,8 +247,10 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = YES;
+				OBJROOT = "$SRCROOT/../../MxPlayer-build/$PROJECT_NAME/build";
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				SYMROOT = "$SRCROOT/../../MxPlayer-build/bin/$CONFIGURATION";
 			};
 			name = Debug;
 		};
@@ -269,6 +284,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
+				CONFIGURATION_BUILD_DIR = "$SRCROOT/../../MxPlayer-build/bin";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -283,7 +299,9 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OBJROOT = "$SRCROOT/../../MxPlayer-build/$PROJECT_NAME/build";
 				SDKROOT = macosx;
+				SYMROOT = "$SRCROOT/../../MxPlayer-build/bin/$CONFIGURATION";
 			};
 			name = Release;
 		};
