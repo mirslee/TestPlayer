@@ -8,6 +8,7 @@
 
 #ifdef _WIN32
 #include "MxConfig_win.h"
+#define HAVE_SWAB 1
 #elif defined(__APPLE__)
 #include "MxConfig_mac.h"
 #endif

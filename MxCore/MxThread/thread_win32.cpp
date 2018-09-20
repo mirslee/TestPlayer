@@ -15,6 +15,7 @@
 #endif
 
 #include "MxCpu.h"
+#include "MxFixups.h"
 
 struct vlc_object_t {
 };
@@ -978,7 +979,7 @@ void mxThreadsSetup(libvlc_int_t *vlc)
 		return;
 	}
 
-	if (!SelectClockSource((vlc != NULL) ? VLC_OBJECT(vlc) : NULL))
+	if (!SelectClockSource((vlc != NULL) ? MX_OBJECT(vlc) : NULL))
 		abort();
 	assert(mdate_selected != mdate_default);
 
