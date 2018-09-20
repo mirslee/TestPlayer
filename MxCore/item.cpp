@@ -20,20 +20,18 @@
  * along with this program; if not, write to the Free Software Foundation,
  * Inc., 51 Franklin Street, Fifth Floor, Boston MA 02110-1301, USA.
  *****************************************************************************/
-
-#ifdef HAVE_CONFIG_H
-# include "config.h"
-#endif
+#include "stdafx.h"
+#include "MxConfig.h"
 #include <assert.h>
 #include <time.h>
 #include <limits.h>
 #include <ctype.h>
 
 #include "MxCommon.h"
-#include <vlc_url.h>
-#include <vlc_interface.h>
+#include "MxUrl.h"
+//#include <vlc_interface.h>
 #include "MxCharSet.h"
-#include <vlc_strings.h>
+//#include <vlc_strings.h>
 
 #include "item.h"
 #include "info.h"
@@ -1144,8 +1142,8 @@ struct item_type_entry
 
 static int typecmp( const void *key, const void *entry )
 {
-    const struct item_type_entry *type = entry;
-    const char *uri = key, *scheme = type->psz_scheme;
+    const struct item_type_entry *type = (const struct item_type_entry*)entry;
+    const char *uri = (const char *)key, *scheme = (const char *)type->psz_scheme;
 
     return strncmp( uri, scheme, strlen( scheme ) );
 }

@@ -296,5 +296,32 @@ MXCORE_API int mxIconvClose( MxIconv cd );
 MXCORE_API bool mxUreduce( unsigned *pi_dst_nom, unsigned *pi_dst_den,
                uint64_t i_nom, uint64_t i_den, uint64_t i_max );
 
+#if defined( _WIN32 ) || defined( __OS2__ )
+#   define DIR_SEP_CHAR '\\'
+#   define DIR_SEP "\\"
+#   define PATH_SEP_CHAR ';'
+#   define PATH_SEP ";"
+#else
+#   define DIR_SEP_CHAR '/'
+#   define DIR_SEP "/"
+#   define PATH_SEP_CHAR ':'
+#   define PATH_SEP ":"
+#endif
+
+/*****************************************************************************
+ * I18n stuff
+ *****************************************************************************/
+MXCORE_API char *mxGettext( const char *msgid ) MX_FORMAT_ARG(1);
+MXCORE_API char *mxNgettext( const char *s, const char *p, unsigned long n ) MX_FORMAT_ARG(1) MX_FORMAT_ARG(2);
+
+#define mx_pgettext( ctx, id ) \
+mx_pgettext( ctx "\004" id, id )
+
+MX_FORMAT_ARG(2)
+static inline const char *mx_pgettext_aux( const char *ctx, const char *id )
+{
+    const char *tr = mxGettext( ctx );
+    return (tr == ctx) ? id : tr;
+}
 
 #endif //MXCOMMON_H

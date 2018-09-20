@@ -331,8 +331,8 @@ static inline locale_t uselocale(locale_t loc)
 
 /* libintl support */
 #define _(str)            vlc_gettext (str)
-#define N_(str)           gettext_noop (str)
 #define gettext_noop(str) (str)
+#define N_(str)           gettext_noop (str)
 
 #ifdef __cplusplus
 extern "C" {

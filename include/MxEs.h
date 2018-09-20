@@ -1,5 +1,5 @@
 /*****************************************************************************
- * vlc_es.h: Elementary stream formats descriptions
+ * es.h: Elementary stream formats descriptions
  *****************************************************************************
 
  *****************************************************************************/
@@ -301,22 +301,8 @@ enum video_chroma_location_t
 /**
  * video format description
  */
-struct MxVideoFormat
+struct MXCODEC_API MxVideoFormat
 {
-    struct {
-        /* similar to SMPTE ST 2086 mastering display color volume */
-        uint16_t primaries[3*2]; /* G,B,R / x,y */
-        uint16_t white_point[2]; /* x,y */
-        uint32_t max_luminance;
-        uint32_t min_luminance;
-    } mastering;
-    struct {
-        /* similar to CTA-861.3 content light level */
-        uint16_t MaxCLL;  /* max content light level */
-        uint16_t MaxFALL; /* max frame average light level */
-    } lighting;
-    
-    
     struct Data {
         MxFourcc i_chroma;                               /**< picture chroma */
         
@@ -352,6 +338,19 @@ struct MxVideoFormat
         video_projection_mode_t projection_mode;            /**< projection mode */
         MxViewpoint pose;
         uint32_t i_cubemap_padding; /**< padding in pixels of the cube map faces */
+        
+        struct {
+            /* similar to SMPTE ST 2086 mastering display color volume */
+            uint16_t primaries[3*2]; /* G,B,R / x,y */
+            uint16_t white_point[2]; /* x,y */
+            uint32_t max_luminance;
+            uint32_t min_luminance;
+        } mastering;
+        struct {
+            /* similar to CTA-861.3 content light level */
+            uint16_t MaxCLL;  /* max content light level */
+            uint16_t MaxFALL; /* max frame average light level */
+        } lighting;
     };
     
     Data data;
@@ -410,76 +409,68 @@ public:
         memset( &data, 0, sizeof( Data ) );
     }
     
-    //接口
     /**
-     * It will fill up a video_format_t using the given arguments.
-     * Note that the video_format_t must already be initialized.
+     * It will fill up a MxVideoFormat using the given arguments.
+     * Note that the MxVideoFormat must already be initialized.
      */
-    void video_format_Setup(MxFourcc i_chroma,
+    void setup(MxFourcc i_chroma,
                                     int i_width, int i_height, int i_visible_width, int i_visible_height,
                                     int i_sar_num, int i_sar_den );
     
     /**
-     * It will copy the crop properties from a video_format_t to another.
+     * It will copy the crop properties from a MxVideoFormat to another.
      */
-    void video_format_CopyCrop(const video_format_t * );
+    void copyCrop(const MxVideoFormat * );
     
     /**
      * It will compute the crop/ar properties when scaling.
      */
-    void video_format_ScaleCropAr(const video_format_t * );
+    void scaleCropAr(const MxVideoFormat * );
     
     /**
      * This function "normalizes" the formats orientation, by switching the a/r according to the orientation,
      * producing a format whose orientation is ORIENT_NORMAL. It makes a shallow copy (pallette is not alloc'ed).
      */
-    void video_format_ApplyRotation(video_format_t * /*restrict*/ out,
-                                            const video_format_t *in);
+    void applyRotation(MxVideoFormat * /*restrict*/ out,
+                                            const MxVideoFormat *in);
     
     /**
      * This function applies the transform operation to fmt.
      */
-    void video_format_TransformBy(video_transform_t transform);
+    void transformBy(video_transform_t transform);
     
     /**
      * This function applies the transforms necessary to fmt so that the resulting fmt
      * has the dst_orientation.
      */
-    void video_format_TransformTo(video_orientation_t dst_orientation);
+    void transformTo(video_orientation_t dst_orientation);
     
     /**
      * Returns the operation required to transform src into dst.
      */
-    video_transform_t video_format_GetTransform(video_orientation_t src, video_orientation_t dst);
+    video_transform_t getTransform(video_orientation_t src, video_orientation_t dst);
     
     /**
      * This function will check if the first video format is similar
      * to the second one.
      */
-    bool video_format_IsSimilar( const MxVideoFormat * );
+    bool isSimilar( const MxVideoFormat * );
     
     /**
-     * It prints details about the given video_format_t
+     * It prints details about the given MxVideoFormat
      */
-    void video_format_Print( CMxObject *, const char *);
+    void print( CMxObject *, const char *);
+    
+    /**
+     * This function will fill all RGB shift from RGB masks.
+     */
+    void fixRgb();
 };
-
-static inline video_transform_t transform_Inverse( video_transform_t transform )
-{
-    switch ( transform ) {
-        case TRANSFORM_R90:
-            return TRANSFORM_R270;
-        case TRANSFORM_R270:
-            return TRANSFORM_R90;
-        default:
-            return transform;
-    }
-}
 
 /**
  * subtitles format description
  */
-struct subs_format_t
+struct MxSubsFormat
 {
     /* the character encoding of the text of the subtitle.
      * all gettext recognized shorts can be used */
@@ -548,21 +539,12 @@ enum es_format_category_e
 #define ES_PRIORITY_NOT_DEFAULTABLE -1
 #define ES_PRIORITY_SELECTABLE_MIN   0
 #define ES_PRIORITY_MIN ES_PRIORITY_NOT_SELECTABLE
-struct es_format_t
+struct MXCODEC_API MxEsFormat
 {
-    union {
-        struct {
-            audio_format_t  audio;    /**< description of audio format */
-            audio_replay_gain_t audio_replay_gain; /*< audio replay gain information */
-        };
-        video_format_t video;     /**< description of video format */
-        subs_format_t  subs;      /**< description of subtitle format */
-    };
-    
     struct Data {
         enum es_format_category_e i_cat;    /**< ES category */
-        vlc_fourcc_t    i_codec;            /**< FOURCC value as used in vlc */
-        vlc_fourcc_t    i_original_fourcc;  /**< original FOURCC from the container */
+        MxFourcc    i_codec;            /**< FOURCC */
+        MxFourcc    i_original_fourcc;  /**< original FOURCC from the container */
         
         int             i_id;       /**< es identifier, where means
                                      -1: let the core mark the right id
@@ -581,6 +563,16 @@ struct es_format_t
         char            *psz_description;     /**< human-readable description of language */
         unsigned        i_extra_languages;    /**< length in bytes of extra language data pointer */
         extra_languages_t *p_extra_languages; /**< extra language data needed by some decoders */
+        
+        union {
+            struct {
+                MxAudioFormat  audio;    /**< description of audio format */
+                audio_replay_gain_t audio_replay_gain; /*< audio replay gain information */
+            };
+            MxVideoFormat video;     /**< description of video format */
+            MxSubsFormat  subs;      /**< description of subtitle format */
+        };
+        
         unsigned int   i_bitrate; /**< bitrate of this ES */
         int      i_profile;       /**< codec specific information (like real audio flavor, mpeg audio layer, h264 profile ...) */
         int      i_level;         /**< codec specific information: indicates maximum restrictions on the stream (resolution, bitrate, codec features ...) */
@@ -590,52 +582,44 @@ struct es_format_t
         void    *p_extra;       /**< extra data needed by some decoders or muxers */
     };
     
+    Data data;
     
+    /**
+     * This function will initialize a MxEsFormat structure.
+     */
+    void init(int i_cat, MxFourcc i_codec );
     
+    /**
+     * This function will initialize a MxEsFormat structure from a MxVideoFormat.
+     */
+    void initFromVideo(const MxVideoFormat * );
     
+    /**
+     * This functions will copy a MxEsFormat.
+     */
+    int copy(const MxEsFormat *p_src );
     
+    /**
+     * This function will clean up a MxEsFormat and release all associated
+     * resources.
+     * You can call it multiple times on the same structure.
+     */
+    void clean();
+    
+    /**
+     * This function will check if the first ES format is similar
+     * to the second one.
+     *
+     * All descriptive fields are ignored.
+     */
+    bool isSimilar(const MxEsFormat * );
 };
-
-/**
- * This function will fill all RGB shift from RGB masks.
- */
-VLC_API void video_format_FixRgb( video_format_t * );
-
-/**
- * This function will initialize a es_format_t structure.
- */
-VLC_API void es_format_Init( es_format_t *, int i_cat, vlc_fourcc_t i_codec );
-
-/**
- * This function will initialize a es_format_t structure from a video_format_t.
- */
-VLC_API void es_format_InitFromVideo( es_format_t *, const video_format_t * );
-
-/**
- * This functions will copy a es_format_t.
- */
-VLC_API int es_format_Copy( es_format_t *p_dst, const es_format_t *p_src );
-
-/**
- * This function will clean up a es_format_t and release all associated
- * resources.
- * You can call it multiple times on the same structure.
- */
-VLC_API void es_format_Clean( es_format_t *fmt );
-
-/**
- * This function will check if the first ES format is similar
- * to the second one.
- *
- * All descriptive fields are ignored.
- */
-VLC_API bool es_format_IsSimilar( const es_format_t *, const es_format_t * );
 
 /**
  * Changes ES format to another category
  * Format must have been properly initialized
  */
-static inline void es_format_Change( es_format_t *fmt, int i_cat, vlc_fourcc_t i_codec )
+static inline void es_format_Change( MxEsFormat *fmt, int i_cat, MxFourcc i_codec )
 {
     es_format_Clean( fmt );
     es_format_Init( fmt, i_cat, i_codec );

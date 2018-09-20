@@ -14,6 +14,7 @@
 		54464FAA2150F1F000C41A3F /* CMxBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 54464FA92150F1F000C41A3F /* CMxBlock.h */; };
 		54464FAC2150F91B00C41A3F /* CMxBlock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54464FAB2150F91B00C41A3F /* CMxBlock.cpp */; };
 		544650A4215247EB00C41A3F /* es_format.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 544650A3215247EB00C41A3F /* es_format.cpp */; };
+		5446510B2153395200C41A3F /* video_format.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5446510A2153395200C41A3F /* video_format.cpp */; };
 		54A0A5F32150A4E600B9A0C5 /* MxFourcc.h in Headers */ = {isa = PBXBuildFile; fileRef = 54A0A5F22150A4E600B9A0C5 /* MxFourcc.h */; };
 		54A0A5F62150A69800B9A0C5 /* stdafx.h in Headers */ = {isa = PBXBuildFile; fileRef = 54A0A5F42150A69800B9A0C5 /* stdafx.h */; };
 		54A0A5F72150A69800B9A0C5 /* stdafx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54A0A5F52150A69800B9A0C5 /* stdafx.cpp */; };
@@ -28,6 +29,7 @@
 		54464FA92150F1F000C41A3F /* CMxBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMxBlock.h; path = ../include/CMxBlock.h; sourceTree = "<group>"; };
 		54464FAB2150F91B00C41A3F /* CMxBlock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CMxBlock.cpp; sourceTree = "<group>"; };
 		544650A3215247EB00C41A3F /* es_format.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = es_format.cpp; sourceTree = "<group>"; };
+		5446510A2153395200C41A3F /* video_format.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = video_format.cpp; sourceTree = "<group>"; };
 		54A0A5D52150993C00B9A0C5 /* MxCodecD.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = MxCodecD.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		54A0A5F22150A4E600B9A0C5 /* MxFourcc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MxFourcc.h; path = ../include/MxFourcc.h; sourceTree = "<group>"; };
 		54A0A5F42150A69800B9A0C5 /* stdafx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stdafx.h; sourceTree = "<group>"; };
@@ -49,6 +51,7 @@
 		544650A2215247BF00C41A3F /* MxEs */ = {
 			isa = PBXGroup;
 			children = (
+				5446510A2153395200C41A3F /* video_format.cpp */,
 				544650A3215247EB00C41A3F /* es_format.cpp */,
 			);
 			path = MxEs;
@@ -185,6 +188,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5446510B2153395200C41A3F /* video_format.cpp in Sources */,
 				54464FAC2150F91B00C41A3F /* CMxBlock.cpp in Sources */,
 				54464FA82150F13A00C41A3F /* CMxStream.cpp in Sources */,
 				544650A4215247EB00C41A3F /* es_format.cpp in Sources */,

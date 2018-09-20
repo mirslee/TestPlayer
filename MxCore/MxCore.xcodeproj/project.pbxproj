@@ -20,6 +20,15 @@
 		54464FF42151F94800C41A3F /* item.h in Headers */ = {isa = PBXBuildFile; fileRef = 54464FF22151F94800C41A3F /* item.h */; };
 		54464FF52151F94800C41A3F /* item.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54464FF32151F94800C41A3F /* item.cpp */; };
 		5446510621524A7500C41A3F /* libc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5446510521524A7500C41A3F /* libc.cpp */; };
+		5446510D2153475E00C41A3F /* MxTextStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 5446510C2153475E00C41A3F /* MxTextStyle.h */; };
+		5446510F2153476C00C41A3F /* MxTextStyle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5446510E2153476C00C41A3F /* MxTextStyle.cpp */; };
+		5446511121534C1A00C41A3F /* MxUrl.h in Headers */ = {isa = PBXBuildFile; fileRef = 5446511021534C1A00C41A3F /* MxUrl.h */; };
+		5446511321534C2400C41A3F /* MxUrl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5446511221534C2400C41A3F /* MxUrl.cpp */; };
+		54465115215350D600C41A3F /* MxMemStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 54465114215350D600C41A3F /* MxMemStream.h */; };
+		54465117215350E100C41A3F /* MxMemStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54465116215350E100C41A3F /* MxMemStream.cpp */; };
+		5446511A21537DAE00C41A3F /* memrchr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5446511921537DAE00C41A3F /* memrchr.cpp */; };
+		5446511C215394F600C41A3F /* CMxMeta.h in Headers */ = {isa = PBXBuildFile; fileRef = 5446511B215394F500C41A3F /* CMxMeta.h */; };
+		5446511E2153982200C41A3F /* CMxMeta.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5446511D2153982200C41A3F /* CMxMeta.cpp */; };
 		546DA9532146003300DF99E3 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 546DA9522146003200DF99E3 /* CoreFoundation.framework */; };
 		54A0A5C5214F99F700B9A0C5 /* thread_darwin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54A0A5C4214F99F700B9A0C5 /* thread_darwin.cpp */; };
 		54AA19D5214F41D900D4C7FC /* MxCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 54AA19C3214F41D800D4C7FC /* MxCommon.h */; };
@@ -65,6 +74,15 @@
 		54464FF22151F94800C41A3F /* item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = item.h; sourceTree = "<group>"; };
 		54464FF32151F94800C41A3F /* item.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = item.cpp; sourceTree = "<group>"; };
 		5446510521524A7500C41A3F /* libc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = libc.cpp; sourceTree = "<group>"; };
+		5446510C2153475E00C41A3F /* MxTextStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MxTextStyle.h; path = ../include/MxTextStyle.h; sourceTree = "<group>"; };
+		5446510E2153476C00C41A3F /* MxTextStyle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MxTextStyle.cpp; sourceTree = "<group>"; };
+		5446511021534C1A00C41A3F /* MxUrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MxUrl.h; path = ../include/MxUrl.h; sourceTree = "<group>"; };
+		5446511221534C2400C41A3F /* MxUrl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MxUrl.cpp; sourceTree = "<group>"; };
+		54465114215350D600C41A3F /* MxMemStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MxMemStream.h; path = ../include/MxMemStream.h; sourceTree = "<group>"; };
+		54465116215350E100C41A3F /* MxMemStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MxMemStream.cpp; sourceTree = "<group>"; };
+		5446511921537DAE00C41A3F /* memrchr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = memrchr.cpp; sourceTree = "<group>"; };
+		5446511B215394F500C41A3F /* CMxMeta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMxMeta.h; path = ../include/CMxMeta.h; sourceTree = "<group>"; };
+		5446511D2153982200C41A3F /* CMxMeta.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CMxMeta.cpp; sourceTree = "<group>"; };
 		546DA9522146003200DF99E3 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		54A0A5C4214F99F700B9A0C5 /* thread_darwin.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = thread_darwin.cpp; path = MxThread/thread_darwin.cpp; sourceTree = "<group>"; };
 		54AA19C3214F41D800D4C7FC /* MxCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MxCommon.h; path = ../include/MxCommon.h; sourceTree = "<group>"; };
@@ -110,6 +128,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5446511821537D7D00C41A3F /* MxCompat */ = {
+			isa = PBXGroup;
+			children = (
+				5446511921537DAE00C41A3F /* memrchr.cpp */,
+			);
+			path = MxCompat;
+			sourceTree = "<group>";
+		};
 		54A0A5C3214F99E400B9A0C5 /* MxThread */ = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +162,10 @@
 		54AA19C1214F3DB900D4C7FC /* include */ = {
 			isa = PBXGroup;
 			children = (
+				5446511B215394F500C41A3F /* CMxMeta.h */,
+				54465114215350D600C41A3F /* MxMemStream.h */,
+				5446511021534C1A00C41A3F /* MxUrl.h */,
+				5446510C2153475E00C41A3F /* MxTextStyle.h */,
 				54464FF02151F8C400C41A3F /* MxMessages.h */,
 				54464FEE2151F8AA00C41A3F /* vlc_input_item.h */,
 				54464FB32151DE0600C41A3F /* CMxBits.h */,
@@ -166,13 +196,18 @@
 		54AA19C2214F3DBF00D4C7FC /* sources */ = {
 			isa = PBXGroup;
 			children = (
-				5446510521524A7500C41A3F /* libc.cpp */,
-				54464FF32151F94800C41A3F /* item.cpp */,
-				54464FF22151F94800C41A3F /* item.h */,
+				5446511821537D7D00C41A3F /* MxCompat */,
 				54A0A5C6214FACE600B9A0C5 /* MxNetwork */,
 				54A0A5C3214F99E400B9A0C5 /* MxThread */,
 				54AA19F2214F77BD00D4C7FC /* MxFileSystem */,
 				54AA19EB214F56A100D4C7FC /* MxCharSet */,
+				5446511D2153982200C41A3F /* CMxMeta.cpp */,
+				54465116215350E100C41A3F /* MxMemStream.cpp */,
+				5446511221534C2400C41A3F /* MxUrl.cpp */,
+				5446510E2153476C00C41A3F /* MxTextStyle.cpp */,
+				5446510521524A7500C41A3F /* libc.cpp */,
+				54464FF32151F94800C41A3F /* item.cpp */,
+				54464FF22151F94800C41A3F /* item.h */,
 				54464FB52151DE1400C41A3F /* CMxBits.cpp */,
 				5431D204214CD7CA0083FAD1 /* MxCpu.cpp */,
 				5431D1EA214CAA670083FAD1 /* MxNetwork.cpp */,
@@ -241,12 +276,15 @@
 				54AA19DD214F41D900D4C7FC /* MxCpu.h in Headers */,
 				54AA19DE214F41D900D4C7FC /* MxPointer.h in Headers */,
 				54AA19E6214F41D900D4C7FC /* MxThread.h in Headers */,
+				5446511121534C1A00C41A3F /* MxUrl.h in Headers */,
 				54AA19DF214F41D900D4C7FC /* MxAtomic.h in Headers */,
+				5446510D2153475E00C41A3F /* MxTextStyle.h in Headers */,
 				54AA19EA214F45E300D4C7FC /* MxExport.h in Headers */,
 				54AA19E0214F41D900D4C7FC /* MxNetwork.h in Headers */,
 				54AA19DA214F41D900D4C7FC /* MxInterrupt.h in Headers */,
 				54AA19D8214F41D900D4C7FC /* MxSystem.h in Headers */,
 				54AA19E2214F41D900D4C7FC /* MxTypes.h in Headers */,
+				54465115215350D600C41A3F /* MxMemStream.h in Headers */,
 				54AA19D9214F41D900D4C7FC /* MxConfig_mac.h in Headers */,
 				54AA19E3214F41D900D4C7FC /* CMxLog.h in Headers */,
 				54AA19E1214F41D900D4C7FC /* MxConfig.h in Headers */,
@@ -262,6 +300,7 @@
 				54AA19D6214F41D900D4C7FC /* MxInterface.h in Headers */,
 				54AA19D7214F41D900D4C7FC /* MxError.h in Headers */,
 				54C3C5E9212A6D90009736A1 /* stdafx.h in Headers */,
+				5446511C215394F600C41A3F /* CMxMeta.h in Headers */,
 				54464FF12151F8C400C41A3F /* MxMessages.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -324,16 +363,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				5431D1EC214CAA670083FAD1 /* MxNetwork.cpp in Sources */,
+				5446511A21537DAE00C41A3F /* memrchr.cpp in Sources */,
 				54464FB62151DE1400C41A3F /* CMxBits.cpp in Sources */,
+				5446511321534C2400C41A3F /* MxUrl.cpp in Sources */,
 				54464FF52151F94800C41A3F /* item.cpp in Sources */,
 				5431D1DD214BA4B10083FAD1 /* MxInterrupt.cpp in Sources */,
 				54AA19EF214F591A00D4C7FC /* charset.cpp in Sources */,
 				54C3C5DC212A69A9009736A1 /* MxThread.cpp in Sources */,
 				54AA19F0214F591A00D4C7FC /* unicode.cpp in Sources */,
+				54465117215350E100C41A3F /* MxMemStream.cpp in Sources */,
 				54AA19F5214F77DA00D4C7FC /* filesystem.cpp in Sources */,
 				5446510621524A7500C41A3F /* libc.cpp in Sources */,
 				54A0A5C5214F99F700B9A0C5 /* thread_darwin.cpp in Sources */,
 				5431D1E5214C9D9E0083FAD1 /* MxFixups.cpp in Sources */,
+				5446510F2153476C00C41A3F /* MxTextStyle.cpp in Sources */,
+				5446511E2153982200C41A3F /* CMxMeta.cpp in Sources */,
 				54AA19F1214F591A00D4C7FC /* libc.cpp in Sources */,
 				54C3C5E8212A6D90009736A1 /* stdafx.cpp in Sources */,
 				54AA19F6214F77DA00D4C7FC /* filesystem_posix.cpp in Sources */,
