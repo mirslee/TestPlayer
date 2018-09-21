@@ -60,8 +60,8 @@ static void MaskToShift( int *pi_left, int *pi_right, uint32_t i_mask )
 
 //Simplify transforms to have something more manageable. Order: angle, hflip.
 static void transform_GetBasicOps( video_transform_t transform,
-                                  unsigned *restrict angle,
-                                  bool *restrict hflip )
+                                  unsigned *angle,
+                                  bool *hflip )
 {
     *hflip = ORIENT_IS_MIRROR(transform);
     
@@ -84,7 +84,7 @@ static void transform_GetBasicOps( video_transform_t transform,
             *angle = 0;
             break;
         default:
-            vlc_assert_unreachable ();
+            MX_assert_unreachable ();
     }
 }
 
@@ -256,8 +256,8 @@ void MxVideoFormat::scaleCropAr(const MxVideoFormat *p_src )
     this->data.i_visible_width  = (uint64_t)p_src->data.i_visible_width  * this->data.i_width  / this->data.i_width;
     this->data.i_visible_height = (uint64_t)p_src->data.i_visible_height * this->data.i_height / this->data.i_height;
 
-    this->data.i_sar_num *= p_src->i_width;
-    this->data.i_sar_den *= p_dst->i_width;
+    this->data.i_sar_num *= p_src->data.i_width;
+    this->data.i_sar_den *= p_src->data.i_width;
     mxUreduce(&this->data.i_sar_num, &this->data.i_sar_den,
                 this->data.i_sar_num, this->data.i_sar_den, 65536);
 
@@ -338,15 +338,15 @@ void MxVideoFormat::transformBy(video_transform_t transform )
 
 void MxVideoFormat::transformTo(video_orientation_t dst_orientation )
 {
-    video_transform_t transform = video_format_GetTransform(this->data.orientation, dst_orientation);
-    video_format_TransformBy(transform);
+    video_transform_t transform = getTransform(this->data.orientation, dst_orientation);
+    transformBy(transform);
 }
 
-void MxVideoFormat::applyRotation(const video_format_t * in )
+void MxVideoFormat::applyRotation(const MxVideoFormat * in )
 {
-    out->data = in->data;
+    this->data = in->data;
 
-    video_format_TransformTo(ORIENT_NORMAL);
+    transformTo(ORIENT_NORMAL);
 }
 
 bool MxVideoFormat::isSimilar( const MxVideoFormat *other)
@@ -374,15 +374,15 @@ bool MxVideoFormat::isSimilar( const MxVideoFormat *other)
         this->data.i_chroma == MX_CODEC_RGB24 ||
         this->data.i_chroma == MX_CODEC_RGB32 )
     {
-        video_format_t v1 = *f1;
-        video_format_t v2 = *f2;
+        MxVideoFormat v1 = *this;
+        MxVideoFormat v2 = *other;
 
-        video_format_FixRgb( &v1 );
-        video_format_FixRgb( &v2 );
+        v1.fixRgb();
+        v2.fixRgb();
 
-        if( v1.i_rmask != v2.i_rmask ||
-            v1.i_gmask != v2.i_gmask ||
-            v1.i_bmask != v2.i_bmask )
+        if( v1.data.i_rmask != v2.data.i_rmask ||
+            v1.data.i_gmask != v2.data.i_gmask ||
+            v1.data.i_bmask != v2.data.i_bmask )
             return false;
     }
     return true;
@@ -390,13 +390,13 @@ bool MxVideoFormat::isSimilar( const MxVideoFormat *other)
 
 void MxVideoFormat::print( CMxObject *p_this, const char *psz_text)
 {
-    msg_Dbg( p_this,
+    /*msg_Dbg( p_this,
              "%s sz %ix%i, of (%i,%i), vsz %ix%i, 4cc %4.4s, sar %i:%i, msk r0x%x g0x%x b0x%x",
              psz_text,
              this->data.i_width, this->data.i_height, this->data.i_x_offset, this->data.i_y_offset,
              this->data.i_visible_width, this->data.i_visible_height,
              (char*)&this->data.i_chroma,
-             this->data.i_sar_num, fmt->i_sar_den,
-             this->data.i_rmask, this->data.i_gmask, this->data.i_bmask );
+             this->data.i_sar_num, this->data.i_sar_den,
+             this->data.i_rmask, this->data.i_gmask, this->data.i_bmask );*/
 }
 

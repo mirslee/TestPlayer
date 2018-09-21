@@ -805,7 +805,7 @@ error:
     return ret;
 }
 
-static char *vlc_uri_fixup_inner(const char *str, const char *extras)
+static char *mx_uri_fixup_inner(const char *str, const char *extras)
 {
     assert(str && extras);
     
@@ -844,7 +844,7 @@ char *vlc_uri_fixup(const char *str)
     if (mx_uri_component_validate(str, extras))
         return strdup(str);
     
-    return vlc_uri_fixup_inner(str, extras);
+    return mx_uri_fixup_inner(str, extras);
 }
 
 #if defined (HAVE_IDN)
@@ -883,7 +883,7 @@ static int IdnToAscii(DWORD flags, LPCWSTR str, int len, LPWSTR buf, int size)
  * \param idn UTF-8 Internationalized Domain Name to convert
  * \return a heap-allocated string or NULL on error.
  */
-static char *vlc_idna_to_ascii (const char *idn)
+static char *mx_idna_to_ascii (const char *idn)
 {
 #if defined (HAVE_IDN)
     char *adn;

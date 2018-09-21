@@ -7,6 +7,9 @@
 #ifndef MXES_H
 #define MXES_H 1
 
+#include "MxError.h"
+#include "MxTextStyle.h"
+
 /**
  * \file
  * This file defines the elementary streams format types
@@ -431,8 +434,7 @@ public:
      * This function "normalizes" the formats orientation, by switching the a/r according to the orientation,
      * producing a format whose orientation is ORIENT_NORMAL. It makes a shallow copy (pallette is not alloc'ed).
      */
-    void applyRotation(MxVideoFormat * /*restrict*/ out,
-                                            const MxVideoFormat *in);
+    void applyRotation(const MxVideoFormat *in);
     
     /**
      * This function applies the transform operation to fmt.
@@ -613,16 +615,24 @@ struct MXCODEC_API MxEsFormat
      * All descriptive fields are ignored.
      */
     bool isSimilar(const MxEsFormat * );
+    
+    /**
+     * Changes ES format to another category
+     * Format must have been properly initialized
+     */
+    void change( int i_cat, MxFourcc i_codec );
 };
 
-/**
- * Changes ES format to another category
- * Format must have been properly initialized
- */
-static inline void es_format_Change( MxEsFormat *fmt, int i_cat, MxFourcc i_codec )
+static inline video_transform_t transform_Inverse( video_transform_t transform )
 {
-    es_format_Clean( fmt );
-    es_format_Init( fmt, i_cat, i_codec );
+    switch ( transform ) {
+        case TRANSFORM_R90:
+            return TRANSFORM_R270;
+        case TRANSFORM_R270:
+            return TRANSFORM_R90;
+        default:
+            return transform;
+    }
 }
 
 #endif

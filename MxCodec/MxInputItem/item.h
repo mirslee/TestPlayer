@@ -25,10 +25,11 @@
 #define LIBVLC_INPUT_ITEM_H 1
 
 //#include "input_interface.h"
+#include "vlc_input_item.h"
 #include "MxAtomic.h"
 
-/*void input_item_SetErrorWhenReading( input_item_t *p_i, bool b_error );
-void input_item_UpdateTracksInfo( input_item_t *item, const es_format_t *fmt );
+void input_item_SetErrorWhenReading( input_item_t *p_i, bool b_error );
+void input_item_UpdateTracksInfo( input_item_t *item, const MxEsFormat *fmt );
 bool input_item_ShouldPreparseSubItems( input_item_t *p_i );
 
 typedef struct input_item_owner
@@ -37,6 +38,6 @@ typedef struct input_item_owner
     atomic_uint refs;
 } input_item_owner_t;
 
-# define item_owner(item) ((struct input_item_owner *)(item))*/
+# define item_owner(item) ((struct input_item_owner *)(item))
 
 #endif

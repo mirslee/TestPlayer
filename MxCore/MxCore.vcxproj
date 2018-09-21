@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -22,32 +22,32 @@
     <ProjectGuid>{88921253-4275-44E4-B105-DE15EAB7AFF3}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>MxCore</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v100</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -147,14 +147,9 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\include\CMxBlock.h" />
-    <ClInclude Include="..\include\CMxInputItem.h" />
     <ClInclude Include="..\include\CMxLog.h" />
-    <ClInclude Include="..\include\CMxMeta.h" />
-    <ClInclude Include="..\include\CMxObject.h" />
-    <ClInclude Include="..\include\CMxStream.h" />
     <ClInclude Include="..\include\MxAtomic.h" />
-    <ClInclude Include="..\include\CMxBits.h" />
+    <ClInclude Include="..\include\MxBits.h" />
     <ClInclude Include="..\include\MxCharSet.h" />
     <ClInclude Include="..\include\MxCommon.h" />
     <ClInclude Include="..\include\MxConfig.h" />
@@ -162,23 +157,20 @@
     <ClInclude Include="..\include\MxConfig_win.h" />
     <ClInclude Include="..\include\MxCpu.h" />
     <ClInclude Include="..\include\MxError.h" />
-    <ClInclude Include="..\include\MxEs.h" />
     <ClInclude Include="..\include\MxExport.h" />
     <ClInclude Include="..\include\MxFileSystem.h" />
     <ClInclude Include="..\include\MxFixups.h" />
-    <ClInclude Include="..\include\MxFourcc.h" />
     <ClInclude Include="..\include\MxInterface.h" />
     <ClInclude Include="..\include\MxInterrupt.h" />
-    <ClInclude Include="..\include\MxMemStream.h" />
     <ClInclude Include="..\include\MxMessages.h" />
     <ClInclude Include="..\include\MxNetwork.h" />
     <ClInclude Include="..\include\MxPointer.h" />
     <ClInclude Include="..\include\MxSystem.h" />
-    <ClInclude Include="..\include\MxTextStyle.h" />
     <ClInclude Include="..\include\MxThread.h" />
     <ClInclude Include="..\include\MxTypes.h" />
-    <ClInclude Include="..\include\MxUrl.h" />
-    <ClInclude Include="..\include\vlc_input_item.h" />
+    <ClInclude Include="CMxBits.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="ncx_mempool\ncx_core.h" />
     <ClInclude Include="ncx_mempool\ncx_log.h" />
     <ClInclude Include="ncx_mempool\ncx_slab.h" />
@@ -206,7 +198,6 @@
     <ClCompile Include="MxCharSet\unicode.cpp" />
     <ClCompile Include="MxFileSystem\filesystem.cpp" />
     <ClCompile Include="MxFileSystem\filesystem_win32.cpp" />
-    <ClCompile Include="MxThread.cpp" />
     <ClCompile Include="MxThread\thread_win32.cpp" />
     <ClCompile Include="ncx_mempool\ncx_slab.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>

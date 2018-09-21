@@ -16,6 +16,7 @@
  */
 #include "stdafx.h"
 #include "MxConfig.h"
+#include "MxFixups.h"
 #include <string.h>
 
 /*

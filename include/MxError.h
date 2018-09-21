@@ -23,6 +23,15 @@ typedef long MxResult;
 #define MX_E_OUTOFMEMORY                MAKE_RESULT( 0x0003 )            //    ƒ⁄¥Ê≤ª◊„
 #define NOERROR 0
 
+#define MX_EGENERIC       (-1) /**< Unspecified error */
+#define MX_ENOMEM         (-2) /**< Not enough memory */
+#define MX_ETIMEOUT       (-3) /**< Timeout */
+#define MX_ENOMOD         (-4) /**< Module not found */
+#define MX_ENOOBJ         (-5) /**< Object not found */
+#define MX_ENOVAR         (-6) /**< Variable not found */
+#define MX_EBADVAR        (-7) /**< Bad variable value */
+#define MX_ENOITEM        (-8) /**< Item not found */
+
 #define Mx_Failed(hr) ((hr)<0)
 
 

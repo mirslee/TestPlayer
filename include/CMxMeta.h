@@ -4,13 +4,13 @@
  *
  *****************************************************************************/
 
-#ifndef MXMETA_H
-#define MXMETA_H 1
+#ifndef CMXMETA_H
+#define CMXMETA_H 1
 
 #include <map>
 #include <vector>
 #include "CMxObject.h"
-#include "CMxInputItem.h"
+//#include "vlc_input_item.h"
 
 /**
  * \file
@@ -68,21 +68,21 @@ private:
 public:
     CMxMeta();
     
-    void vlc_meta_Set(MxMetaType meta_type, const char *psz_val );
-    std::string vlc_meta_Get(MxMetaType meta_type);
+    void set(MxMetaType meta_type, const char *psz_val );
+    std::string get(MxMetaType meta_type);
 
-    void vlc_meta_AddExtra(const char *psz_name, const char *psz_value);
-    std::string vlc_meta_GetExtra(const char *psz_name);
-    unsigned int vlc_meta_GetExtraCount();
+    void addExtra(const char *psz_name, const char *psz_value);
+    std::string getExtra(const char *psz_name);
+    unsigned int extraCount();
     
     /**
      * Allocate a copy of all extra meta names and a table with it.
      * Be sure to free both the returned pointers and its name.
      */
-    std::vector<std::string> vlc_meta_CopyExtraNames();
-    void vlc_meta_Merge(const CMxMeta * pOther);
-    int vlc_meta_GetStatus();
-    void vlc_meta_SetStatus(int status);
+    std::vector<std::string> copyExtraNames();
+    void merge(const CMxMeta * pOther);
+    int status();
+    void setStatus(int status);
 };
 
 /**
@@ -95,11 +95,11 @@ std::string mxMetaTypeToLocalizedString( MxMetaType meta_type );
 typedef struct meta_export_t
 {
     MX_COMMON_MEMBERS
-    CMxInputItem *p_item;
+    //input_item_t *p_item;
     const char *psz_file;
 } meta_export_t;
 
-MXCORE_API int input_item_WriteMeta(CMxObject *, CMxInputItem *);
+//MXCORE_API int input_item_WriteMeta(CMxObject *, CMxInputItem *);
 
 /* Setters for meta.
  * Warning: Make sure to use the input_item meta setters (defined in vlc_input_item.h)

@@ -26,6 +26,7 @@
 #include "CMxMeta.h"
 #include "MxConfig.h"
 #include "MxCommon.h"
+#include "MxError.h"
 
 #include "MxFixups.h"
 #include <assert.h>
@@ -90,23 +91,23 @@ CMxMeta::CMxMeta() {
  * FIXME - Why don't we merge those two?
  */
 
-void CMxMeta::vlc_meta_Set(MxMetaType meta_type, const char *psz_val )
+void CMxMeta::set(MxMetaType meta_type, const char *psz_val )
 {
     assert( psz_val == NULL || IsUTF8( psz_val ) );
     ppsz_meta[meta_type] = psz_val ? strdup( psz_val ) : "";
 }
 
-string CMxMeta::vlc_meta_Get(MxMetaType meta_type )
+string CMxMeta::get(MxMetaType meta_type )
 {
     return ppsz_meta[meta_type];
 }
 
-void CMxMeta::vlc_meta_AddExtra(const char *psz_name, const char *psz_value)
+void CMxMeta::addExtra(const char *psz_name, const char *psz_value)
 {
     extra_tags.insert(std::pair<string, string>(psz_name, strdup(psz_value)));
 }
 
-string CMxMeta::vlc_meta_GetExtra(const char *psz_name )
+string CMxMeta::getExtra(const char *psz_name )
 {
     std::map<string, string>::iterator iter = extra_tags.find(psz_name);
     if(iter != extra_tags.end())
@@ -115,12 +116,12 @@ string CMxMeta::vlc_meta_GetExtra(const char *psz_name )
     return "";
 }
 
-unsigned int CMxMeta::vlc_meta_GetExtraCount()
+unsigned int CMxMeta::extraCount()
 {
     return extra_tags.size();
 }
 
-std::vector<std::string> CMxMeta::vlc_meta_CopyExtraNames()
+std::vector<std::string> CMxMeta::copyExtraNames()
 {
     std::vector<std::string> vec;
     std::map<std::string, std::string>::iterator iter = extra_tags.begin();
@@ -131,17 +132,17 @@ std::vector<std::string> CMxMeta::vlc_meta_CopyExtraNames()
     return vec;
 }
 
-int CMxMeta::vlc_meta_GetStatus()
+int CMxMeta::status()
 {
     return i_status;
 }
 
-void CMxMeta::vlc_meta_SetStatus(int status )
+void CMxMeta::setStatus(int status )
 {
     this->i_status = status;
 }
 
-void CMxMeta::vlc_meta_Merge(const CMxMeta * pOther)
+void CMxMeta::merge(const CMxMeta * pOther)
 {
     if (this == pOther)
         return;
@@ -206,8 +207,8 @@ void CMxMeta::vlc_meta_Merge(const CMxMeta * pOther)
 //    vlc_input_attachment_Delete( p_attachment );
 //}
 
-int input_item_WriteMeta( CMxObject *obj, CMxInputItem *p_item )
-{
+//int input_item_WriteMeta( CMxObject *obj, CMxInputItem *p_item )
+//{
     /*meta_export_t *p_export = vlc_custom_create( obj, sizeof( *p_export ), "meta writer" );
     if( p_export == NULL )
         return MX_ENOMEM;
@@ -236,8 +237,8 @@ int input_item_WriteMeta( CMxObject *obj, CMxInputItem *p_item )
 
 error:
     vlc_object_release( p_export );*/
-    return VLC_EGENERIC;
-}
+//    return MX_EGENERIC;
+//}
 
 //void vlc_audio_replay_gain_MergeFromMeta( audio_replay_gain_t *p_dst, const vlc_meta_t *p_meta )
 //{

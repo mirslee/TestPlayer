@@ -35,7 +35,7 @@
 
 #include "item.h"
 #include "info.h"
-#include "input_internal.h"
+//#include "input_internal.h"
 
 struct input_item_opaque
 {
@@ -50,23 +50,23 @@ void input_item_SetErrorWhenReading( input_item_t *p_i, bool b_error )
 {
     bool b_changed;
 
-    vlc_mutex_lock( &p_i->lock );
+    mxMutexLock( &p_i->lock );
 
     b_changed = p_i->b_error_when_reading != b_error;
     p_i->b_error_when_reading = b_error;
 
-    vlc_mutex_unlock( &p_i->lock );
+    mxMutexUnlock( &p_i->lock );
 
     if( b_changed )
     {
-        vlc_event_send( &p_i->event_manager, &(vlc_event_t) {
+        mxEventSend( &p_i->event_manager, &(MxEvent) {
             .type = vlc_InputItemErrorWhenReadingChanged,
             .u.input_item_error_when_reading_changed.new_value = b_error } );
     }
 }
 void input_item_SignalPreparseEnded( input_item_t *p_i, int status )
 {
-    vlc_event_send( &p_i->event_manager, &(vlc_event_t) {
+    mxEventSend( &p_i->event_manager, &(MxEvent) {
         .type = vlc_InputItemPreparseEnded,
         .u.input_item_preparse_ended.new_status = status } );
 }
@@ -75,12 +75,12 @@ void input_item_SetPreparsed( input_item_t *p_i, bool b_preparsed )
 {
     bool b_send_event = false;
 
-    vlc_mutex_lock( &p_i->lock );
+    mxMutexLock( &p_i->lock );
 
     if( !p_i->p_meta )
-        p_i->p_meta = vlc_meta_New();
+        p_i->p_meta = new CMxMeta();
 
-    int status = vlc_meta_GetStatus(p_i->p_meta);
+    int status = p_i->p_meta->status();
     int new_status;
     if( b_preparsed )
         new_status = status | ITEM_PREPARSED;
@@ -88,15 +88,15 @@ void input_item_SetPreparsed( input_item_t *p_i, bool b_preparsed )
         new_status = status & ~ITEM_PREPARSED;
     if( status != new_status )
     {
-        vlc_meta_SetStatus(p_i->p_meta, new_status);
+        p_i->p_meta->setStatus(new_status);
         b_send_event = true;
     }
 
-    vlc_mutex_unlock( &p_i->lock );
+    mxMutexUnlock( &p_i->lock );
 
     if( b_send_event )
     {
-        vlc_event_send( &p_i->event_manager, &(vlc_event_t) {
+        mxEventSend( &p_i->event_manager, &(MxEvent) {
             .type = vlc_InputItemPreparsedChanged,
             .u.input_item_preparsed_changed.new_status = new_status } );
     }
@@ -104,52 +104,52 @@ void input_item_SetPreparsed( input_item_t *p_i, bool b_preparsed )
 
 void input_item_SetArtNotFound( input_item_t *p_i, bool b_not_found )
 {
-    vlc_mutex_lock( &p_i->lock );
+    mxMutexLock( &p_i->lock );
 
     if( !p_i->p_meta )
-        p_i->p_meta = vlc_meta_New();
+        p_i->p_meta = new CMxMeta();
 
-    int status = vlc_meta_GetStatus(p_i->p_meta);
+    int status = p_i->p_meta->status();
 
     if( b_not_found )
         status |= ITEM_ART_NOTFOUND;
     else
         status &= ~ITEM_ART_NOTFOUND;
 
-    vlc_meta_SetStatus(p_i->p_meta, status);
+    p_i->p_meta->setStatus(status);
 
-    vlc_mutex_unlock( &p_i->lock );
+    mxMutexUnlock( &p_i->lock );
 }
 
 void input_item_SetArtFetched( input_item_t *p_i, bool b_art_fetched )
 {
-    vlc_mutex_lock( &p_i->lock );
+    mxMutexLock( &p_i->lock );
 
     if( !p_i->p_meta )
-        p_i->p_meta = vlc_meta_New();
+        p_i->p_meta = new CMxMeta();
 
-    int status = vlc_meta_GetStatus(p_i->p_meta);
+    int status = p_i->p_meta->status();
 
     if( b_art_fetched )
         status |= ITEM_ART_FETCHED;
     else
         status &= ~ITEM_ART_FETCHED;
 
-    vlc_meta_SetStatus(p_i->p_meta, status);
+    p_i->p_meta->setStatus(status);
 
-    vlc_mutex_unlock( &p_i->lock );
+    mxMutexUnlock( &p_i->lock );
 }
 
-void input_item_SetMeta( input_item_t *p_i, vlc_meta_type_t meta_type, const char *psz_val )
+void input_item_SetMeta( input_item_t *p_i, MxMetaType meta_type, const char *psz_val )
 {
-    vlc_mutex_lock( &p_i->lock );
+    mxMutexLock( &p_i->lock );
     if( !p_i->p_meta )
-        p_i->p_meta = vlc_meta_New();
-    vlc_meta_Set( p_i->p_meta, meta_type, psz_val );
-    vlc_mutex_unlock( &p_i->lock );
+        p_i->p_meta = new CMxMeta();
+    p_i->p_meta->set(meta_type, psz_val);
+    mxMutexUnlock( &p_i->lock );
 
     /* Notify interested third parties */
-    vlc_event_send( &p_i->event_manager, &(vlc_event_t) {
+    mxEventSend( &p_i->event_manager, &(MxEvent) {
         .type = vlc_InputItemMetaChanged,
         .u.input_item_meta_changed.meta_type = meta_type } );
 }
@@ -163,11 +163,11 @@ void input_item_CopyOptions( input_item_t *p_child,
     char **optv_realloc = NULL;
     uint8_t *flagv_realloc = NULL;
 
-    vlc_mutex_lock( &p_parent->lock );
+    mxMutexLock( &p_parent->lock );
 
     if( p_parent->i_options > 0 )
     {
-        optv = vlc_alloc( p_parent->i_options, sizeof (*optv) );
+        optv = mxAlloc( p_parent->i_options, sizeof (*optv) );
         if( likely(optv) )
             flagv = vlc_alloc( p_parent->i_options, sizeof (*flagv) );
 
@@ -185,21 +185,21 @@ void input_item_CopyOptions( input_item_t *p_child,
         }
     }
 
-    vlc_mutex_unlock( &p_parent->lock );
+    mxMutexUnlock( &p_parent->lock );
 
     if( likely(optv && flagv && optc ) )
     {
-        vlc_mutex_lock( &p_child->lock );
+        mxMutexLock( &p_child->lock );
 
         if( INT_MAX - p_child->i_options >= optc &&
             SIZE_MAX / sizeof (*flagv) >= (size_t) (p_child->i_options + optc) )
-            flagv_realloc = realloc( p_child->optflagv,
+            flagv_realloc = (uint8_t *)realloc( p_child->optflagv,
                                     (p_child->i_options + optc) * sizeof (*flagv) );
         if( likely(flagv_realloc) )
         {
             p_child->optflagv = flagv_realloc;
             if( SIZE_MAX / sizeof (*optv) >= (size_t) (p_child->i_options + optc) )
-                optv_realloc = realloc( p_child->ppsz_options,
+                optv_realloc = (char **)realloc( p_child->ppsz_options,
                                        (p_child->i_options + optc) * sizeof (*optv) );
             if( likely(optv_realloc) )
             {
@@ -213,7 +213,7 @@ void input_item_CopyOptions( input_item_t *p_child,
             }
         }
 
-        vlc_mutex_unlock( &p_child->lock );
+        mxMutexUnlock( &p_child->lock );
     }
 
     if( unlikely(!flagv_realloc || !optv_realloc) )
@@ -229,48 +229,48 @@ void input_item_CopyOptions( input_item_t *p_child,
 
 bool input_item_HasErrorWhenReading( input_item_t *p_item )
 {
-    vlc_mutex_lock( &p_item->lock );
+    mxMutexLock( &p_item->lock );
 
     bool b_error = p_item->b_error_when_reading;
 
-    vlc_mutex_unlock( &p_item->lock );
+    mxMutexUnlock( &p_item->lock );
 
     return b_error;
 }
 
 bool input_item_MetaMatch( input_item_t *p_i,
-                           vlc_meta_type_t meta_type, const char *psz )
+                           MxMetaType meta_type, const char *psz )
 {
-    vlc_mutex_lock( &p_i->lock );
+    mxMutexLock( &p_i->lock );
 
     if( !p_i->p_meta )
     {
-        vlc_mutex_unlock( &p_i->lock );
+        mxMutexUnlock( &p_i->lock );
         return false;
     }
-    const char *psz_meta = vlc_meta_Get( p_i->p_meta, meta_type );
+    const char *psz_meta = p_i->p_meta->get(meta_type).c_str();
     bool b_ret = psz_meta && strcasestr( psz_meta, psz );
 
-    vlc_mutex_unlock( &p_i->lock );
+    mxMutexUnlock( &p_i->lock );
 
     return b_ret;
 }
 
-char *input_item_GetMeta( input_item_t *p_i, vlc_meta_type_t meta_type )
+char *input_item_GetMeta( input_item_t *p_i, MxMetaType meta_type )
 {
-    vlc_mutex_lock( &p_i->lock );
+    mxMutexLock( &p_i->lock );
 
     if( !p_i->p_meta )
     {
-        vlc_mutex_unlock( &p_i->lock );
+        mxMutexUnlock( &p_i->lock );
         return NULL;
     }
 
     char *psz = NULL;
-    if( vlc_meta_Get( p_i->p_meta, meta_type ) )
-        psz = strdup( vlc_meta_Get( p_i->p_meta, meta_type ) );
+    if( p_i->p_meta->get(meta_type).c_str() )
+        psz = strdup( p_i->p_meta->get(meta_type).c_str() );
 
-    vlc_mutex_unlock( &p_i->lock );
+    mxMutexUnlock( &p_i->lock );
     return psz;
 }
 
@@ -278,51 +278,51 @@ char *input_item_GetMeta( input_item_t *p_i, vlc_meta_type_t meta_type )
 char *input_item_GetTitleFbName( input_item_t *p_item )
 {
     char *psz_ret;
-    vlc_mutex_lock( &p_item->lock );
+    mxMutexLock( &p_item->lock );
 
     if( !p_item->p_meta )
     {
         psz_ret = p_item->psz_name ? strdup( p_item->psz_name ) : NULL;
-        vlc_mutex_unlock( &p_item->lock );
+        mxMutexUnlock( &p_item->lock );
         return psz_ret;
     }
 
-    const char *psz_title = vlc_meta_Get( p_item->p_meta, vlc_meta_Title );
+    const char *psz_title = p_item->p_meta->get(MxMetaType_Title).c_str();
     if( !EMPTY_STR( psz_title ) )
         psz_ret = strdup( psz_title );
     else
         psz_ret = p_item->psz_name ? strdup( p_item->psz_name ) : NULL;
 
-    vlc_mutex_unlock( &p_item->lock );
+    mxMutexUnlock( &p_item->lock );
     return psz_ret;
 }
 
 char *input_item_GetName( input_item_t *p_item )
 {
-    vlc_mutex_lock( &p_item->lock );
+    mxMutexLock( &p_item->lock );
 
     char *psz_name = p_item->psz_name ? strdup( p_item->psz_name ) : NULL;
 
-    vlc_mutex_unlock( &p_item->lock );
+    mxMutexUnlock( &p_item->lock );
     return psz_name;
 }
 void input_item_SetName( input_item_t *p_item, const char *psz_name )
 {
-    vlc_mutex_lock( &p_item->lock );
+    mxMutexLock( &p_item->lock );
 
     free( p_item->psz_name );
     p_item->psz_name = strdup( psz_name );
 
-    vlc_mutex_unlock( &p_item->lock );
+    mxMutexUnlock( &p_item->lock );
 }
 
 char *input_item_GetURI( input_item_t *p_i )
 {
-    vlc_mutex_lock( &p_i->lock );
+    mxMutexLock( &p_i->lock );
 
     char *psz_s = p_i->psz_uri ? strdup( p_i->psz_uri ) : NULL;
 
-    vlc_mutex_unlock( &p_i->lock );
+    mxMutexUnlock( &p_i->lock );
     return psz_s;
 }
 
@@ -335,7 +335,7 @@ void input_item_SetURI( input_item_t *p_i, const char *psz_uri )
         fprintf( stderr, "Warning: %s(\"%s\"): file path instead of URL.\n",
                  __func__, psz_uri );
 #endif
-    vlc_mutex_lock( &p_i->lock );
+    mxMutexLock( &p_i->lock );
     free( p_i->psz_uri );
     p_i->psz_uri = strdup( psz_uri );
 
@@ -391,16 +391,16 @@ void input_item_SetURI( input_item_t *p_i, const char *psz_uri )
             p_i->psz_name=NULL; /* recover from undefined value */
     }
 
-    vlc_mutex_unlock( &p_i->lock );
+    mxMutexUnlock( &p_i->lock );
 }
 
 mtime_t input_item_GetDuration( input_item_t *p_i )
 {
-    vlc_mutex_lock( &p_i->lock );
+    mxMutexLock( &p_i->lock );
 
     mtime_t i_duration = p_i->i_duration;
 
-    vlc_mutex_unlock( &p_i->lock );
+    mxMutexUnlock( &p_i->lock );
     return i_duration;
 }
 
@@ -408,17 +408,17 @@ void input_item_SetDuration( input_item_t *p_i, mtime_t i_duration )
 {
     bool b_send_event = false;
 
-    vlc_mutex_lock( &p_i->lock );
+    mxMutexLock( &p_i->lock );
     if( p_i->i_duration != i_duration )
     {
         p_i->i_duration = i_duration;
         b_send_event = true;
     }
-    vlc_mutex_unlock( &p_i->lock );
+    mxMutexUnlock( &p_i->lock );
 
     if( b_send_event )
     {
-        vlc_event_send( &p_i->event_manager, &(vlc_event_t) {
+        mxEventSend( &p_i->event_manager, &(MxEvent) {
             .type = vlc_InputItemDurationChanged,
             .u.input_item_duration_changed.new_duration = i_duration } );
     }
@@ -438,18 +438,18 @@ char *input_item_GetNowPlayingFb( input_item_t *p_item )
 
 bool input_item_IsPreparsed( input_item_t *p_item )
 {
-    vlc_mutex_lock( &p_item->lock );
+    mxMutexLock( &p_item->lock );
     bool b_preparsed = p_item->p_meta ? ( vlc_meta_GetStatus(p_item->p_meta) & ITEM_PREPARSED ) != 0 : false;
-    vlc_mutex_unlock( &p_item->lock );
+    mxMutexUnlock( &p_item->lock );
 
     return b_preparsed;
 }
 
 bool input_item_IsArtFetched( input_item_t *p_item )
 {
-    vlc_mutex_lock( &p_item->lock );
+    mxMutexLock( &p_item->lock );
     bool b_fetched = p_item->p_meta ? ( vlc_meta_GetStatus(p_item->p_meta) & ITEM_ART_FETCHED ) != 0 : false;
-    vlc_mutex_unlock( &p_item->lock );
+    mxMutexUnlock( &p_item->lock );
 
     return b_fetched;
 }
@@ -458,9 +458,9 @@ bool input_item_ShouldPreparseSubItems( input_item_t *p_item )
 {
     bool b_ret;
 
-    vlc_mutex_lock( &p_item->lock );
+    mxMutexLock( &p_item->lock );
     b_ret = p_item->i_preparse_depth == -1 ? true : p_item->i_preparse_depth > 0;
-    vlc_mutex_unlock( &p_item->lock );
+    mxMutexUnlock( &p_item->lock );
 
     return b_ret;
 }
@@ -535,7 +535,7 @@ int input_item_AddOption( input_item_t *p_input, const char *psz_option,
     if( psz_option == NULL )
         return VLC_EGENERIC;
 
-    vlc_mutex_lock( &p_input->lock );
+    mxMutexLock( &p_input->lock );
     if (flags & VLC_INPUT_OPTION_UNIQUE)
     {
         for (int i = 0 ; i < p_input->i_options; i++)
@@ -564,7 +564,7 @@ int input_item_AddOption( input_item_t *p_input, const char *psz_option,
     flagv[p_input->optflagc++] = flags;
 
 out:
-    vlc_mutex_unlock( &p_input->lock );
+    mxMutexUnlock( &p_input->lock );
     return err;
 }
 
@@ -590,16 +590,16 @@ int input_item_AddOpaque(input_item_t *item, const char *name, void *value)
     memcpy(entry->name, name, namelen + 1);
     entry->value = value;
 
-    vlc_mutex_lock(&item->lock);
+    mxMutexLock(&item->lock);
     entry->next = item->opaques;
     item->opaques = entry;
-    vlc_mutex_unlock(&item->lock);
+    mxMutexUnlock(&item->lock);
     return VLC_SUCCESS;
 }
 
 void input_item_ApplyOptions(vlc_object_t *obj, input_item_t *item)
 {
-    vlc_mutex_lock(&item->lock);
+    mxMutexLock(&item->lock);
     assert(item->optflagc == (unsigned)item->i_options);
 
     for (unsigned i = 0; i < (unsigned)item->i_options; i++)
@@ -612,7 +612,7 @@ void input_item_ApplyOptions(vlc_object_t *obj, input_item_t *item)
         var_SetAddress(obj, o->name, o->value);
     }
 
-    vlc_mutex_unlock(&item->lock);
+    mxMutexUnlock(&item->lock);
 }
 
 static int bsearch_strcmp_cb(const void *a, const void *b)
@@ -688,11 +688,11 @@ int input_item_AddSlave(input_item_t *p_item, input_item_slave_t *p_slave)
      || p_slave->i_priority < SLAVE_PRIORITY_MATCH_NONE )
         return VLC_EGENERIC;
 
-    vlc_mutex_lock( &p_item->lock );
+    mxMutexLock( &p_item->lock );
 
     TAB_APPEND(p_item->i_slaves, p_item->pp_slaves, p_slave);
 
-    vlc_mutex_unlock( &p_item->lock );
+    mxMutexUnlock( &p_item->lock );
     return VLC_SUCCESS;
 }
 
@@ -728,7 +728,7 @@ char *input_item_GetInfo( input_item_t *p_i,
                           const char *psz_cat,
                           const char *psz_name )
 {
-    vlc_mutex_lock( &p_i->lock );
+    mxMutexLock( &p_i->lock );
 
     const info_category_t *p_cat = InputItemFindCat( p_i, NULL, psz_cat );
     if( p_cat )
@@ -737,11 +737,11 @@ char *input_item_GetInfo( input_item_t *p_i,
         if( p_info && p_info->psz_value )
         {
             char *psz_ret = strdup( p_info->psz_value );
-            vlc_mutex_unlock( &p_i->lock );
+            mxMutexUnlock( &p_i->lock );
             return psz_ret;
         }
     }
-    vlc_mutex_unlock( &p_i->lock );
+    mxMutexUnlock( &p_i->lock );
     return strdup( "" );
 }
 
@@ -773,17 +773,17 @@ int input_item_AddInfo( input_item_t *p_i,
 {
     va_list args;
 
-    vlc_mutex_lock( &p_i->lock );
+    mxMutexLock( &p_i->lock );
 
     va_start( args, psz_format );
     const int i_ret = InputItemVaAddInfo( p_i, psz_cat, psz_name, psz_format, args );
     va_end( args );
 
-    vlc_mutex_unlock( &p_i->lock );
+    mxMutexUnlock( &p_i->lock );
 
 
     if( !i_ret )
-        vlc_event_send( &p_i->event_manager, &(vlc_event_t) {
+        mxEventSend( &p_i->event_manager, &(MxEvent) {
             .type = vlc_InputItemInfoChanged } );
 
     return i_ret;
@@ -793,12 +793,12 @@ int input_item_DelInfo( input_item_t *p_i,
                         const char *psz_cat,
                         const char *psz_name )
 {
-    vlc_mutex_lock( &p_i->lock );
+    mxMutexLock( &p_i->lock );
     int i_cat;
     info_category_t *p_cat = InputItemFindCat( p_i, &i_cat, psz_cat );
     if( !p_cat )
     {
-        vlc_mutex_unlock( &p_i->lock );
+        mxMutexUnlock( &p_i->lock );
         return VLC_EGENERIC;
     }
 
@@ -808,7 +808,7 @@ int input_item_DelInfo( input_item_t *p_i,
         int i_ret = info_category_DeleteInfo( p_cat, psz_name );
         if( i_ret )
         {
-            vlc_mutex_unlock( &p_i->lock );
+            mxMutexUnlock( &p_i->lock );
             return VLC_EGENERIC;
         }
     }
@@ -818,16 +818,16 @@ int input_item_DelInfo( input_item_t *p_i,
         info_category_Delete( p_cat );
         TAB_ERASE(p_i->i_categories, p_i->pp_categories, i_cat);
     }
-    vlc_mutex_unlock( &p_i->lock );
+    mxMutexUnlock( &p_i->lock );
 
-    vlc_event_send( &p_i->event_manager,
-                    &(vlc_event_t) { .type = vlc_InputItemInfoChanged } );
+    mxEventSend( &p_i->event_manager,
+                    &(MxEvent) { .type = vlc_InputItemInfoChanged } );
 
     return VLC_SUCCESS;
 }
 void input_item_ReplaceInfos( input_item_t *p_item, info_category_t *p_cat )
 {
-    vlc_mutex_lock( &p_item->lock );
+    mxMutexLock( &p_item->lock );
     int i_cat;
     info_category_t *p_old = InputItemFindCat( p_item, &i_cat, p_cat->psz_name );
     if( p_old )
@@ -837,15 +837,15 @@ void input_item_ReplaceInfos( input_item_t *p_item, info_category_t *p_cat )
     }
     else
         TAB_APPEND(p_item->i_categories, p_item->pp_categories, p_cat);
-    vlc_mutex_unlock( &p_item->lock );
+    mxMutexUnlock( &p_item->lock );
 
-    vlc_event_send( &p_item->event_manager,
-                    &(vlc_event_t) { .type = vlc_InputItemInfoChanged } );
+    mxEventSend( &p_item->event_manager,
+                    &(MxEvent) { .type = vlc_InputItemInfoChanged } );
 }
 
 void input_item_MergeInfos( input_item_t *p_item, info_category_t *p_cat )
 {
-    vlc_mutex_lock( &p_item->lock );
+    mxMutexLock( &p_item->lock );
     info_category_t *p_old = InputItemFindCat( p_item, NULL, p_cat->psz_name );
     if( p_old )
     {
@@ -856,16 +856,16 @@ void input_item_MergeInfos( input_item_t *p_item, info_category_t *p_cat )
     }
     else
         TAB_APPEND(p_item->i_categories, p_item->pp_categories, p_cat);
-    vlc_mutex_unlock( &p_item->lock );
+    mxMutexUnlock( &p_item->lock );
 
-    vlc_event_send( &p_item->event_manager,
-                    &(vlc_event_t) { .type = vlc_InputItemInfoChanged } );
+    mxEventSend( &p_item->event_manager,
+                    &(MxEvent) { .type = vlc_InputItemInfoChanged } );
 }
 
 void input_item_SetEpgEvent( input_item_t *p_item, const vlc_epg_event_t *p_epg_evt )
 {
     bool b_changed = false;
-    vlc_mutex_lock( &p_item->lock );
+    mxMutexLock( &p_item->lock );
 
     for( int i = 0; i < p_item->i_epg; i++ )
     {
@@ -888,12 +888,12 @@ void input_item_SetEpgEvent( input_item_t *p_item, const vlc_epg_event_t *p_epg_
             }
         }
     }
-    vlc_mutex_unlock( &p_item->lock );
+    mxMutexUnlock( &p_item->lock );
 
     if ( b_changed )
     {
-        vlc_event_send( &p_item->event_manager,
-                        &(vlc_event_t) { .type = vlc_InputItemInfoChanged } );
+        mxEventSend( &p_item->event_manager,
+                        &(MxEvent) { .type = vlc_InputItemInfoChanged } );
     }
 }
 
@@ -920,7 +920,7 @@ void input_item_SetEpg( input_item_t *p_item, const vlc_epg_t *p_update, bool b_
     if( !p_epg )
         return;
 
-    vlc_mutex_lock( &p_item->lock );
+    mxMutexLock( &p_item->lock );
 
     /* */
     vlc_epg_t **pp_epg = NULL;
@@ -950,7 +950,7 @@ void input_item_SetEpg( input_item_t *p_item, const vlc_epg_t *p_update, bool b_
     if( b_current_source && p_epg->b_present )
         p_item->p_epg_table = p_epg;
 
-    vlc_mutex_unlock( &p_item->lock );
+    mxMutexUnlock( &p_item->lock );
 
 #ifdef EPG_DEBUG
     char *psz_epg;
@@ -959,7 +959,7 @@ void input_item_SetEpg( input_item_t *p_item, const vlc_epg_t *p_update, bool b_
 
     input_item_DelInfo( p_item, psz_epg, NULL );
 
-    vlc_mutex_lock( &p_item->lock );
+    mxMutexLock( &p_item->lock );
     for( size_t i = 0; i < p_epg->i_event; i++ )
     {
         const vlc_epg_event_t *p_evt = p_epg->pp_event[i];
@@ -983,17 +983,17 @@ void input_item_SetEpg( input_item_t *p_item, const vlc_epg_t *p_update, bool b_
                               p_evt->psz_name,
                               p_evt->i_duration/60/60, (p_evt->i_duration/60)%60 );
     }
-    vlc_mutex_unlock( &p_item->lock );
+    mxMutexUnlock( &p_item->lock );
     free( psz_epg );
 signal:
 #endif
-    vlc_event_send( &p_item->event_manager,
-                    &(vlc_event_t){ .type = vlc_InputItemInfoChanged, } );
+    mxEventSend( &p_item->event_manager,
+                    &(MxEvent){ .type = vlc_InputItemInfoChanged, } );
 }
 
 void input_item_ChangeEPGSource( input_item_t *p_item, int i_source_id )
 {
-    vlc_mutex_lock( &p_item->lock );
+    mxMutexLock( &p_item->lock );
     p_item->p_epg_table = NULL;
     if( i_source_id > 0 )
     {
@@ -1008,14 +1008,14 @@ void input_item_ChangeEPGSource( input_item_t *p_item, int i_source_id )
             }
         }
     }
-    vlc_mutex_unlock( &p_item->lock );
+    mxMutexUnlock( &p_item->lock );
 }
 
 void input_item_SetEpgTime( input_item_t *p_item, int64_t i_time )
 {
-    vlc_mutex_lock( &p_item->lock );
+    mxMutexLock( &p_item->lock );
     p_item->i_epg_time = i_time;
-    vlc_mutex_unlock( &p_item->lock );
+    mxMutexUnlock( &p_item->lock );
 }
 
 void input_item_SetEpgOffline( input_item_t *p_item )
@@ -1023,7 +1023,7 @@ void input_item_SetEpgOffline( input_item_t *p_item )
     input_item_ChangeEPGSource( p_item, -1 );
 
 #ifdef EPG_DEBUG
-    vlc_mutex_lock( &p_item->lock );
+    mxMutexLock( &p_item->lock );
     const int i_epg_info = p_item->i_epg;
     if( i_epg_info > 0 )
     {
@@ -1034,7 +1034,7 @@ void input_item_SetEpgOffline( input_item_t *p_item )
             if( asprintf( &ppsz_epg_info[i], "EPG %s", p_epg->psz_name ? p_epg->psz_name : "unknown" ) < 0 )
                 ppsz_epg_info[i] = NULL;
         }
-        vlc_mutex_unlock( &p_item->lock );
+        mxMutexUnlock( &p_item->lock );
 
         for( int i = 0; i < i_epg_info; i++ )
         {
@@ -1045,11 +1045,11 @@ void input_item_SetEpgOffline( input_item_t *p_item )
         }
     }
     else
-        vlc_mutex_unlock( &p_item->lock );
+        mxMutexUnlock( &p_item->lock );
 #endif
 
-    vlc_event_send( &p_item->event_manager,
-                    &(vlc_event_t) { .type = vlc_InputItemInfoChanged } );
+    mxEventSend( &p_item->event_manager,
+                    &(MxEvent) { .type = vlc_InputItemInfoChanged } );
 }
 
 input_item_t *
@@ -1110,7 +1110,7 @@ input_item_t *input_item_Copy( input_item_t *p_input )
     input_item_t *item;
     bool b_net;
 
-    vlc_mutex_lock( &p_input->lock );
+    mxMutexLock( &p_input->lock );
 
     item = input_item_NewExt( p_input->psz_uri, p_input->psz_name,
                               p_input->i_duration, p_input->i_type,
@@ -1121,7 +1121,7 @@ input_item_t *input_item_Copy( input_item_t *p_input )
         vlc_meta_Merge( meta, p_input->p_meta );
     }
     b_net = p_input->b_net;
-    vlc_mutex_unlock( &p_input->lock );
+    mxMutexUnlock( &p_input->lock );
 
     if( likely(item != NULL) )
     {   /* No need to lock; no other thread has seen this new item yet. */
@@ -1269,15 +1269,15 @@ input_item_node_t *input_item_node_AppendItem( input_item_node_t *p_node, input_
     input_item_node_t *p_new_child = input_item_node_Create( p_item );
     if( !p_new_child ) return NULL;
 
-    vlc_mutex_lock( &p_node->p_item->lock );
+    mxMutexLock( &p_node->p_item->lock );
     i_preparse_depth = p_node->p_item->i_preparse_depth;
-    vlc_mutex_unlock( &p_node->p_item->lock );
+    mxMutexUnlock( &p_node->p_item->lock );
 
-    vlc_mutex_lock( &p_item->lock );
+    mxMutexLock( &p_item->lock );
     p_item->i_preparse_depth = i_preparse_depth > 0 ?
                                i_preparse_depth -1 :
                                i_preparse_depth;
-    vlc_mutex_unlock( &p_item->lock );
+    mxMutexUnlock( &p_item->lock );
 
     input_item_node_AppendNode( p_node, p_new_child );
     return p_new_child;
@@ -1299,7 +1299,7 @@ void input_item_node_RemoveNode( input_item_node_t *parent,
 
 void input_item_node_PostAndDelete( input_item_node_t *p_root )
 {
-    vlc_event_send( &p_root->p_item->event_manager, &(vlc_event_t) {
+    mxEventSend( &p_root->p_item->event_manager, &(MxEvent) {
         .type = vlc_InputItemSubItemTreeAdded,
         .u.input_item_subitem_tree_added.p_root = p_root } );
 
@@ -1307,7 +1307,7 @@ void input_item_node_PostAndDelete( input_item_node_t *p_root )
 }
 
 /* Called by es_out when a new Elementary Stream is added or updated. */
-void input_item_UpdateTracksInfo(input_item_t *item, const es_format_t *fmt)
+void input_item_UpdateTracksInfo(input_item_t *item, const MxEsFormat *fmt)
 {
     int i;
     es_format_t *fmt_copy = malloc(sizeof *fmt_copy);
@@ -1316,7 +1316,7 @@ void input_item_UpdateTracksInfo(input_item_t *item, const es_format_t *fmt)
 
     es_format_Copy(fmt_copy, fmt);
 
-    vlc_mutex_lock( &item->lock );
+    mxMutexLock( &item->lock );
 
     for( i = 0; i < item->i_es; i++ )
     {
@@ -1327,13 +1327,13 @@ void input_item_UpdateTracksInfo(input_item_t *item, const es_format_t *fmt)
         es_format_Clean(item->es[i]);
         free(item->es[i]);
         item->es[i] = fmt_copy;
-        vlc_mutex_unlock( &item->lock );
+        mxMutexUnlock( &item->lock );
         return;
     }
 
     /* ES not found, insert it */
     TAB_APPEND(item->i_es, item->es, fmt_copy);
-    vlc_mutex_unlock( &item->lock );
+    mxMutexUnlock( &item->lock );
 }
 
 static int rdh_compar_type(input_item_t *p1, input_item_t *p2)

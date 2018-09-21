@@ -25,11 +25,11 @@
     <Filter Include="MxFileSystem">
       <UniqueIdentifier>{92d33611-978e-439c-b5d5-c70c0d389aa9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="NewFilter2">
+      <UniqueIdentifier>{86acde65-706a-4606-bbbf-2f0a6a61972b}</UniqueIdentifier>
+    </Filter>
     <Filter Include="MxThread">
       <UniqueIdentifier>{f182e06c-0abc-4360-b58f-5546a297187f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="MxCompat">
-      <UniqueIdentifier>{86acde65-706a-4606-bbbf-2f0a6a61972b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -108,41 +108,11 @@
     <ClInclude Include="..\include\MxTypes.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\CMxBits.h">
+    <ClInclude Include="..\include\MxBits.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\CMxBlock.h">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\CMxInputItem.h">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\CMxMeta.h">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\CMxObject.h">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\CMxStream.h">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\MxEs.h">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\MxFourcc.h">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\MxMemStream.h">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\MxTextStyle.h">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\MxUrl.h">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\vlc_input_item.h">
-      <Filter>include</Filter>
+    <ClInclude Include="CMxBits.h">
+      <Filter>源文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -172,9 +142,6 @@
     </ClCompile>
     <ClCompile Include="CMxBits.cpp">
       <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="MxThread.cpp">
-      <Filter>MxThread</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

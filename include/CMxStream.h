@@ -2,6 +2,9 @@
 #define CMXSTREAM_H 1
 
 #include "CMxBlock.h"
+#include "vlc_input_item.h"
+#include "CMxObject.h"
+
 
 /**
  * Possible commands
@@ -64,6 +67,7 @@ public:
     int vlc_stream_FilterDefaultReadDir(input_item_node_t *p_node);
     
 public:
+    MX_COMMON_MEMBERS
     module_t    *p_module;
     
     char        *psz_name;
@@ -73,10 +77,10 @@ public:
     bool         b_preparsing; /**< True if this access is used to preparse */
     
     /* Stream source for stream filter */
-    stream_t *p_source;
+    CMxStream *p_source;
     ssize_t     (*pf_read)(stream_t *, void *buf, size_t len);
     
-    block_t    *(*pf_block)(stream_t *, bool *eof);
+    CMxBlock    *(*pf_block)(stream_t *, bool *eof);
     
     int         (*pf_readdir)(stream_t *, input_item_node_t *);
     

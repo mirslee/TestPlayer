@@ -9,7 +9,7 @@
 void MxEsFormat::init(int i_cat, MxFourcc i_codec )
 {
     memset(&this->data, 0, sizeof(Data));
-    this->data.i_cat                  = i_cat;
+    this->data.i_cat                  = (es_format_category_e)i_cat;
     this->data.i_codec                = i_codec;
     this->data.i_profile              = -1;
     this->data.i_level                = -1;
@@ -29,7 +29,7 @@ void MxEsFormat::init(int i_cat, MxFourcc i_codec )
 void MxEsFormat::initFromVideo(const MxVideoFormat *pVideoFormat )
 {
     init(VIDEO_ES, pVideoFormat->data.i_chroma );
-    copy( &p_es->video, p_fmt );
+    data.video.copy(pVideoFormat);
 }
 
 int MxEsFormat::copy(const MxEsFormat *pOther)
@@ -41,7 +41,7 @@ int MxEsFormat::copy(const MxEsFormat *pOther)
     {
         this->data.psz_language = strdup(pOther->data.psz_language);
         if (unlikely(this->data.psz_language == NULL))
-            ret = VLC_ENOMEM;
+            ret = MX_ENOMEM;
     }
     if (pOther->data.psz_description != NULL)
     {
@@ -88,7 +88,7 @@ int MxEsFormat::copy(const MxEsFormat *pOther)
     if (pOther->data.i_extra_languages > 0)
     {
         assert(pOther->data.p_extra_languages != NULL);
-        this->data.p_extra_languages = calloc(this->data.i_extra_languages,
+        this->data.p_extra_languages = (extra_languages_t*)calloc(this->data.i_extra_languages,
                                         sizeof (*this->data.p_extra_languages));
         if (likely(this->data.p_extra_languages != NULL))
         {
@@ -118,7 +118,7 @@ void MxEsFormat::clean()
     free(this->data.p_extra);
 
     if (this->data.i_cat == VIDEO_ES)
-        video_format_Clean( &this->data.video );
+        this->data.video.clean();
     if (this->data.i_cat == SPU_ES)
     {
         free(this->data.subs.psz_encoding);
@@ -135,22 +135,22 @@ void MxEsFormat::clean()
     free(this->data.p_extra_languages);
 
     /* es_format_Clean can be called multiple times */
-    es_format_Init(UNKNOWN_ES, 0);
+    init(UNKNOWN_ES, 0);
 }
 
 bool MxEsFormat::isSimilar( const MxEsFormat *pOther)
 {
     if( this->data.i_cat != pOther->data.i_cat ||
-        vlc_fourcc_GetCodec( this->data.i_cat, this->data.i_codec ) !=
-        vlc_fourcc_GetCodec( pOther->data.i_cat, pOther->data.i_codec ) )
+        mxFourccGetCodec( this->data.i_cat, this->data.i_codec ) !=
+        mxFourccGetCodec( pOther->data.i_cat, pOther->data.i_codec ) )
         return false;
 
     switch( this->data.i_cat )
     {
     case AUDIO_ES:
     {
-        audio_format_t a1 = this->data.audio;
-        audio_format_t a2 = pOther->data.audio;
+        MxAudioFormat a1 = this->data.audio;
+        MxAudioFormat a2 = pOther->data.audio;
 
         if( a1.i_format && a2.i_format && a1.i_format != a2.i_format )
             return false;
@@ -167,18 +167,23 @@ bool MxEsFormat::isSimilar( const MxEsFormat *pOther)
 
     case VIDEO_ES:
     {
-        video_format_t v1 = this->data.video;
-        video_format_t v2 = pOther->data.video;
-        if( !v1.i_chroma )
-            v1.i_chroma = vlc_fourcc_GetCodec( this->data.i_cat, this->data.i_codec );
-        if( !v2.i_chroma )
-            v2.i_chroma = vlc_fourcc_GetCodec( pOther->data.i_cat, pOther->data.i_codec );
-        return video_format_IsSimilar( &this->data.video, &pOther->data.video );
+        MxVideoFormat v1 = this->data.video;
+        MxVideoFormat v2 = pOther->data.video;
+        if( !v1.data.i_chroma )
+            v1.data.i_chroma = mxFourccGetCodec( this->data.i_cat, this->data.i_codec );
+        if( !v2.data.i_chroma )
+            v2.data.i_chroma = mxFourccGetCodec( pOther->data.i_cat, pOther->data.i_codec );
+        return this->data.video.isSimilar(&pOther->data.video);
     }
 
     case SPU_ES:
     default:
         return true;
     }
+}
+
+void MxEsFormat::change( int i_cat,MxFourcc i_codec ) {
+    clean();
+    init(i_cat, i_codec);
 }
 

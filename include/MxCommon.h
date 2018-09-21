@@ -263,6 +263,18 @@ static inline int64_t GCD ( int64_t a, int64_t b )
     return a;
 }
 
+/* 判断n的二进制中1的个数的奇偶性 */
+static inline unsigned parity(unsigned x)
+{
+#ifdef __GNUC__
+    return __builtin_parity (x);
+#else
+    for (unsigned i = 4 * sizeof (x); i > 0; i /= 2)
+        x ^= x >> i;
+        return x & 1;
+#endif
+}
+
 /** Count leading zeroes */
 MX_USED
 static inline unsigned (clz)(unsigned x)
@@ -288,11 +300,11 @@ static inline unsigned (clz)(unsigned x)
 
 
 //libc.cpp
-typedef void * MxIconv;
+/*typedef void * MxIconv;
 MXCORE_API MxIconv mxIconvOpen( const char *tocode, const char *fromcode );
 MXCORE_API size_t mxIconv( MxIconv cd, const char **inbuf, size_t *inbytesleft,
                char **outbuf, size_t *outbytesleft );
-MXCORE_API int mxIconvClose( MxIconv cd );
+MXCORE_API int mxIconvClose( MxIconv cd );*/
 MXCORE_API bool mxUreduce( unsigned *pi_dst_nom, unsigned *pi_dst_den,
                uint64_t i_nom, uint64_t i_den, uint64_t i_max );
 
@@ -307,6 +319,8 @@ MXCORE_API bool mxUreduce( unsigned *pi_dst_nom, unsigned *pi_dst_den,
 #   define PATH_SEP_CHAR ':'
 #   define PATH_SEP ":"
 #endif
+
+#define EMPTY_STR(str) (!str || !*str)
 
 /*****************************************************************************
  * I18n stuff
@@ -323,5 +337,6 @@ static inline const char *mx_pgettext_aux( const char *ctx, const char *id )
     const char *tr = mxGettext( ctx );
     return (tr == ctx) ? id : tr;
 }
+
 
 #endif //MXCOMMON_H

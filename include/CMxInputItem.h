@@ -12,9 +12,10 @@
  * This file defines functions, structures and enums for input items in vlc
  */
 
-#include <vlc_meta.h>
-#include <vlc_epg.h>
-#include <vlc_events.h>
+#include "CMxMeta.h"
+//#include <vlc_epg.h>
+//#include <vlc_events.h>
+#include "MxEvents.h"
 
 #include <string.h>
 
