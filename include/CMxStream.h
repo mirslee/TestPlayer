@@ -218,10 +218,10 @@ VLC_USED static inline int vlc_stream_GetSize( stream_t *s, uint64_t *size )
 
 
 #define vlc_stream_MemoryNew(a, b, c, d) \
-vlc_stream_MemoryNew(VLC_OBJECT(a), b, c, d)
+vlc_stream_MemoryNew(MX_OBJECT(a), b, c, d)
     
 
-#define vlc_stream_NewURL(a, b) vlc_stream_NewURL(VLC_OBJECT(a), b)
+#define vlc_stream_NewURL(a, b) vlc_stream_NewURL(MX_OBJECT(a), b)
     
 
 

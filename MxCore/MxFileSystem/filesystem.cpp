@@ -193,19 +193,19 @@ int mxScandir( const char *dirname, char ***namelist,
 }
 
 #if defined (_WIN32) || defined (__OS2__)
-# include <vlc_rand.h>
+# include "MxRand.h"
 
-int mxMkstemp( char *template )
+int mxMkstemp( char *tmpl )
 {
     static const char digits[] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     static const int i_digits = sizeof(digits)/sizeof(*digits) - 1;
 
     /* */
-    assert( template );
+    assert(tmpl);
 
     /* Check template validity */
-    const size_t i_length = strlen( template );
-    char *psz_rand = &template[i_length-6];
+    const size_t i_length = strlen(tmpl);
+    char *psz_rand = &tmpl[i_length-6];
 
     if( i_length < 6 || strcmp( psz_rand, "XXXXXX" ) )
     {
@@ -219,12 +219,12 @@ int mxMkstemp( char *template )
         /* Create a pseudo random file name */
         uint8_t pi_rand[6];
 
-        vlc_rand_bytes( pi_rand, sizeof(pi_rand) );
+		mxRandBytes( pi_rand, sizeof(pi_rand) );
         for( int j = 0; j < 6; j++ )
             psz_rand[j] = digits[pi_rand[j] % i_digits];
 
         /* */
-        int fd = vlc_open( template, O_CREAT | O_EXCL | O_RDWR, 0600 );
+        int fd = mxOpen(tmpl, O_CREAT | O_EXCL | O_RDWR, 0600 );
         if( fd >= 0 )
             return fd;
         if( errno != EEXIST )

@@ -41,9 +41,9 @@
 #include "MxCommon.h"
 #include "MxCharSet.h"
 #include "MxFileSystem.h"
+#include "MxFixups.h"
 
 #ifdef _MSC_VER
-# define __STDC__ 1
 # include <io.h> /* _pipe */
 #endif
 
@@ -168,7 +168,7 @@ DIR *mxOpendir (const char *dirname)
     if (wpath == NULL)
         return NULL;
 
-    MX_DIR *p_dir = malloc (sizeof (*p_dir));
+    MX_DIR *p_dir = (MX_DIR*)malloc (sizeof (*p_dir));
     if (unlikely(p_dir == NULL))
     {
         free(wpath);
@@ -183,7 +183,7 @@ DIR *mxOpendir (const char *dirname)
         p_dir->wdir = NULL;
         p_dir->u.drives = GetLogicalDrives ();
         p_dir->entry = NULL;
-        return (void *)p_dir;
+        return (DIR *)p_dir;
     }
 #endif
 
@@ -199,12 +199,12 @@ DIR *mxOpendir (const char *dirname)
     }
     p_dir->wdir = wdir;
     p_dir->entry = NULL;
-    return (void *)p_dir;
+    return (DIR *)p_dir;
 }
 
 const char *mxReaddir (DIR *dir)
 {
-    vlc_DIR *p_dir = (vlc_DIR *)dir;
+    MX_DIR *p_dir = (MX_DIR *)dir;
 
     free(p_dir->entry);
 
@@ -317,7 +317,7 @@ int mxPipe (int fds[2])
 #endif
 }
 
-ssize_t mxWrite(int fd, const void *buf, size_t len)
+/*ssize_t mxWrite(int fd, const void *buf, size_t len)
 {
     return write(fd, buf, len);
 }
@@ -325,7 +325,7 @@ ssize_t mxWrite(int fd, const void *buf, size_t len)
 ssize_t mxWritev(int fd, const struct iovec *iov, int count)
 {
     MX_assert_unreachable();
-}
+}*/
 
 #include "MxNetwork.h"
 
@@ -335,8 +335,9 @@ int mxSocket (int pf, int type, int proto, bool nonblock)
     if (fd == -1)
         return -1;
 
+	unsigned long aaa[] = {1};
     if (nonblock)
-        ioctlsocket (fd, FIONBIO, &(unsigned long){ 1 });
+        ioctlsocket (fd, FIONBIO, aaa);
     return fd;
 }
 
@@ -350,8 +351,10 @@ int mxSocketpair(int pf, int type, int proto, int fds[2], bool nonblock)
 int mxAccept (int lfd, struct sockaddr *addr, socklen_t *alen, bool nonblock)
 {
     int fd = accept (lfd, addr, alen);
+
+	unsigned long aaa[] = { 1 };
     if (fd != -1 && nonblock)
-        ioctlsocket (fd, FIONBIO, &(unsigned long){ 1 });
+        ioctlsocket (fd, FIONBIO, aaa);
     return fd;
 }
 

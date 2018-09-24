@@ -47,11 +47,11 @@
 #endif
 
 #ifndef HAVE_LLDIV
-//    typedef struct
-//    {
-//        long long quot; /* Quotient. */
-//        long long rem;  /* Remainder. */
-//    } lldiv_t;
+    typedef struct
+    {
+        long long quot; /* Quotient. */
+        long long rem;  /* Remainder. */
+    } lldiv_t;
 #endif
 
 #if !defined(HAVE_GETENV) || !defined(HAVE_USELOCALE)
@@ -83,13 +83,8 @@
 # include <dirent.h>
 #endif
 
-#ifdef __cplusplus
-# define VLC_NOTHROW throw ()
-extern "C" {
-#else
-# define VLC_NOTHROW
-#endif
-    
+# define MX_NOTHROW throw ()
+
     /* signal.h */
 #if !defined(HAVE_SIGWAIT) && defined(__native_client__)
     /* NaCl does not define sigwait in signal.h. We need to include it here to
@@ -106,7 +101,7 @@ extern "C" {
         long double ld;
     } max_align_t;
 #endif
-    
+	
     /* stdio.h */
 #ifndef HAVE_ASPRINTF
     int asprintf (char **, const char *, ...);
@@ -239,7 +234,7 @@ extern "C" {
     
     /* unistd.h */
 #ifndef HAVE_GETPID
-    //pid_t getpid (void) VLC_NOTHROW;
+    pid_t getpid (void) MX_NOTHROW;
 #endif
     
 #ifndef HAVE_FSYNC
@@ -257,10 +252,6 @@ extern "C" {
     
 #ifndef HAVE_FDOPENDIR
     DIR *fdopendir (int);
-#endif
-    
-#ifdef __cplusplus
-} /* extern "C" */
 #endif
 
 /* stdlib.h */
@@ -330,13 +321,9 @@ static inline locale_t uselocale(locale_t loc)
 #endif
 
 /* libintl support */
-#define _(str)            vlc_gettext (str)
+#define _(str)            mxGettext (str)
 #define gettext_noop(str) (str)
 #define N_(str)           gettext_noop (str)
-
-#ifdef __cplusplus
-extern "C" {
-#endif
     
 #ifndef HAVE_SWAB
     void swab (const void *, void *, ssize_t);
@@ -442,7 +429,7 @@ extern "C" {
 #endif
     
     /* search.h */
-#ifndef HAVE_SEARCH_H
+//#ifndef HAVE_SEARCH_H
     typedef struct entry {
         char *key;
         void *data;
@@ -463,7 +450,7 @@ extern "C" {
     void *tfind( const void *key, const void **rootp, int(*cmp)(const void *, const void *) );
     void *tdelete( const void *key, void **rootp, int(*cmp)(const void *, const void *) );
     void twalk( const void *root, void(*action)(const void *nodep, VISIT which, int depth) );
-#endif /* HAVE_SEARCH_H */
+//#endif /* HAVE_SEARCH_H */
 #ifndef HAVE_TDESTROY
     void tdestroy( void *root, void (*free_node)(void *nodep) );
 #endif
@@ -628,10 +615,6 @@ extern "C" {
     
 #ifdef __APPLE__
     # define fdatasync fsync
-#endif
-    
-#ifdef __cplusplus
-} /* extern "C" */
 #endif
 
 

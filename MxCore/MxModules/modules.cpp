@@ -1,34 +1,13 @@
 /*****************************************************************************
  * modules.c : Builtin and plugin modules management functions
- *****************************************************************************
- * Copyright (C) 2001-2011 VLC authors and VideoLAN
- * $Id: 3ad50fb39153f3257304f1bad35c172e4b6526a5 $
- *
- * Authors: Sam Hocevar <sam@zoy.org>
- *          Ethan C. Baldridge <BaldridgeE@cadmus.com>
- *          Hans-Peter Jansen <hpj@urpla.net>
- *          Gildas Bazin <gbazin@videolan.org>
- *          Rémi Denis-Courmont
- *
- * This program is free software; you can redistribute it and/or modify it
- * under the terms of the GNU Lesser General Public License as published by
- * the Free Software Foundation; either version 2.1 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public License
- * along with this program; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin Street, Fifth Floor, Boston MA 02110-1301, USA.
  *****************************************************************************/
 #include "stdafx.h"
 #include "MxConfig.h"
 #include "MxCommon.h"
 #include "MxModules.h"
 #include "MxError.h"
+#include "MxFixups.h"
+#include "MxVariables.h"
 #include <stdlib.h>
 #include <string.h>
 #ifdef ENABLE_NLS
@@ -223,7 +202,7 @@ module_t *mx_module_load(CMxObject *obj, const char *capability,
     /* Deal with variables */
     if (name[0] == '$')
     {
-        var = var_InheritString (obj, name + 1);
+        var = var_InheritString(obj, name + 1);
         name = (var != NULL) ? var : "any";
     }
 
@@ -231,12 +210,13 @@ module_t *mx_module_load(CMxObject *obj, const char *capability,
     module_t **mods;
     ssize_t total = module_list_cap (&mods, capability);
 
-    msg_Dbg (obj, "looking for %s module matching \"%s\": %zd candidates",
-             capability, name, total);
+    /*msg_Dbg (obj, "looking for %s module matching \"%s\": %zd candidates",
+             capability, name, total);*/
     if (total <= 0)
     {
-        module_list_free (mods);
-        msg_Dbg (obj, "no %s modules", capability);
+        //module_list_free (mods);
+		free(mods);
+        //msg_Dbg (obj, "no %s modules", capability);
         return NULL;
     }
 
@@ -426,49 +406,49 @@ bool module_exists (const char * psz_name)
  * \param psize the size of the configuration returned
  * \return the configuration as an array
  */
-module_config_t *module_config_get( const module_t *module, unsigned *psize )
-{
-    const mx_plugin_t *plugin = module->plugin;
-
-    if (plugin->module != module)
-    {   /* For backward compatibility, pretend non-first modules have no
-         * configuration items. */
-        *psize = 0;
-        return NULL;
-    }
-
-    unsigned i,j;
-    size_t size = plugin->conf.size;
-    module_config_t *config = vlc_alloc( size, sizeof( *config ) );
-
-    assert( psize != NULL );
-    *psize = 0;
-
-    if( !config )
-        return NULL;
-
-    for( i = 0, j = 0; i < size; i++ )
-    {
-        const module_config_t *item = plugin->conf.items + i;
-        if( item->b_internal /* internal option */
-         || item->b_removed /* removed option */ )
-            continue;
-
-        memcpy( config + j, item, sizeof( *config ) );
-        j++;
-    }
-    *psize = j;
-
-    return config;
-}
-
-/**
- * Release the configuration
- *
- * \param the configuration
- * \return nothing
- */
-void module_config_free( module_config_t *config )
-{
-    free( config );
-}
+//module_config_t *module_config_get( const module_t *module, unsigned *psize )
+//{
+//    const mx_plugin_t *plugin = module->plugin;
+//
+//    if (plugin->module != module)
+//    {   /* For backward compatibility, pretend non-first modules have no
+//         * configuration items. */
+//        *psize = 0;
+//        return NULL;
+//    }
+//
+//    unsigned i,j;
+//    size_t size = plugin->conf.size;
+//    module_config_t *config = vlc_alloc( size, sizeof( *config ) );
+//
+//    assert( psize != NULL );
+//    *psize = 0;
+//
+//    if( !config )
+//        return NULL;
+//
+//    for( i = 0, j = 0; i < size; i++ )
+//    {
+//        const module_config_t *item = plugin->conf.items + i;
+//        if( item->b_internal /* internal option */
+//         || item->b_removed /* removed option */ )
+//            continue;
+//
+//        memcpy( config + j, item, sizeof( *config ) );
+//        j++;
+//    }
+//    *psize = j;
+//
+//    return config;
+//}
+//
+///**
+// * Release the configuration
+// *
+// * \param the configuration
+// * \return nothing
+// */
+//void module_config_free( module_config_t *config )
+//{
+//    free( config );
+//}

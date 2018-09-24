@@ -8,6 +8,27 @@
 
 #ifdef _WIN32
 #include "MxConfig_win.h"
+#define HAVE_SWAB 1
+#define HAVE_STRUCT_POLLFD 1
+#define HAVE_REWIND 1
+#define HAVE_SEARCH_H 1
+#define HAVE_STRDUP 1
+#define HAVE_STRNLEN 1
+#define HAVE_ATOF 1
+#define HAVE_ATOLL 1
+#define HAVE_LLDIV 1
+#define HAVE_STRTOF 1
+#define HAVE_STRTOLL 1
+#define HAVE_INET_PTON 1
+#define HAVE_TIMESPEC_GET 1
+#define HAVE_GETPID 1
+#define HAVE_FDOPENDIR 1
+#define MX_NEED_SLEEP 1
+#define MX_NEED_CONDVAR 1
+#define MX_NEED_RWLOCK 1
+#define MX_NEED_SEMAPHORE 1
+//#define HAVE_TIMEGM 1
+#define HAVE_TIMESPEC_GET 1
 #elif defined(__APPLE__)
 #include "MxConfig_mac.h"
 #endif

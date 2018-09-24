@@ -14,7 +14,6 @@
 #define MX_OK							0
 #define MX_SUCCESS                      0
 #define MX_FAILED					    -1
-#define MX_EGENERIC                     -1
 
 typedef long MxResult;
 #define MX_S_OK                            0

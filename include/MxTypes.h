@@ -17,7 +17,7 @@ typedef int	HVXFILE;
 typedef void* HVXWND;
 #endif
 
-typedef unsigned short  uint_fast16_t;
+//typedef unsigned short  uint_fast16_t;
 
 typedef char int8;
 #ifndef _WIN32
@@ -86,5 +86,23 @@ typedef MxIntegerSizeOf<void*>::UIntegerSize mxuvoidptr;*/
 #define HANDLE void*
 #endif
 
+#ifndef _PID_T_
+#define	_PID_T_
+typedef int	_pid_t;
+
+#ifndef	_NO_OLDNAMES
+typedef _pid_t	pid_t;
+#endif
+#endif	/* Not _PID_T_ */
+
+
+#ifndef _MODE_T_
+#define	_MODE_T_
+typedef unsigned short _mode_t;
+
+#ifndef	_NO_OLDNAMES
+typedef _mode_t	mode_t;
+#endif
+#endif	/* Not _MODE_T_ */
 
 #endif /* MXTYPES_H */

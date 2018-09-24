@@ -42,6 +42,7 @@ MXCORE_API void mxThreadsSetup(libvlc_int_t *vlc);
     # define MX_THREAD_PRIORITY_OUTPUT   THREAD_PRIORITY_ABOVE_NORMAL
     # define MX_THREAD_PRIORITY_HIGHEST  THREAD_PRIORITY_TIME_CRITICAL
 
+# define poll(u,n,t) mxPoll(u, n, t)
     static inline int mxPoll(struct pollfd *fds, unsigned nfds, int timeout)
     {
         int val;
@@ -52,7 +53,7 @@ MXCORE_API void mxThreadsSetup(libvlc_int_t *vlc);
 			mxTestCancel();
         return val;
     }
-    # define poll(u,n,t) mxPoll(u, n, t)
+    
 
 #elif defined (__APPLE__)
     # define _APPLE_C_SOURCE    1 /* Proper pthread semantics on OSX */
@@ -197,7 +198,7 @@ MXCORE_API void mxThreadsSetup(libvlc_int_t *vlc);
 #endif
 
 #ifdef MX_NEED_RWLOCK
-    typedef struct Mx_rwlock
+    typedef struct MxRWLock
     {
         MxMutex   mutex;
         MxCond    wait;
@@ -220,7 +221,7 @@ MXCORE_API void mxMutexUnlock(MxMutex *);
 
 MXCORE_API void mxCondInit(MxCond *);
 
-void mxCondInitDaytime(MxCond *);
+MXCORE_API void mxCondInitDaytime(MxCond *);
 
 MXCORE_API void mxCondDestroy(MxCond *);
 
@@ -233,7 +234,7 @@ MXCORE_API void mxCondWait(MxCond *cond, MxMutex *mutex);
 MXCORE_API int mxCondTimedwait(MxCond *cond, MxMutex *mutex,
                                mtime_t deadline);
 
-int mxCondTimedwaitDaytime(MxCond *, MxMutex *, time_t);
+MXCORE_API int mxCondTimedwaitDaytime(MxCond *, MxMutex *, time_t);
 
 MXCORE_API void mxSemInit(MxSem *, unsigned count);
 
@@ -359,10 +360,10 @@ MXCORE_API unsigned mxGetCPUCount();
 
 enum
 {
-    MX_CLEANUP_PUSH,
-    MX_CLEANUP_POP,
-    MX_CANCEL_ADDR_SET,
-    MX_CANCEL_ADDR_CLEAR,
+	MX_CLEANUP_PUSH,
+	MX_CLEANUP_POP,
+	MX_CANCEL_ADDR_SET,
+	MX_CANCEL_ADDR_CLEAR,
 };
 
 #if defined (MX_USE_PTHREAD_CLEANUP)

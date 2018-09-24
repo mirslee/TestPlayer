@@ -28,6 +28,7 @@
 # include "MxConfig.h"
 
 #include "MxCommon.h"
+#include "MxFixups.h"
 
 //#include "libvlc.h"
 #include "MxCharSet.h"

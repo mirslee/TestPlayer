@@ -47,6 +47,11 @@
 #include "MxCommon.h"
 #include "MxFileSystem.h"
 
+#ifdef _MSC_VER
+# define __STDC__ 1
+# include <io.h> /* _pipe */
+#endif
+
 #if !defined(HAVE_ACCEPT4) || !defined HAVE_MKOSTEMP
 static inline void vlc_cloexec(int fd)
 {

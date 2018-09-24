@@ -1,22 +1,21 @@
 /*
-* Dirent interface for Microsoft Visual Studio
-*
-* Copyright (C) 2006-2012 Toni Ronkko
-* This file is part of dirent.  Dirent may be freely distributed
-* under the MIT license.  For all details and documentation, see
-* https://github.com/tronkko/dirent
-*/
+ * Dirent interface for Microsoft Visual Studio
+ *
+ * Copyright (C) 2006-2012 Toni Ronkko
+ * This file is part of dirent.  Dirent may be freely distributed
+ * under the MIT license.  For all details and documentation, see
+ * https://github.com/tronkko/dirent
+ */
 #ifndef DIRENT_H
 #define DIRENT_H
 
-/*
-* Include windows.h without Windows Sockets 1.1 to prevent conflicts with
-* Windows Sockets 2.0.
-*/
+ /*
+  * Include windows.h without Windows Sockets 1.1 to prevent conflicts with
+  * Windows Sockets 2.0.
+  */
 #ifndef WIN32_LEAN_AND_MEAN
 #   define WIN32_LEAN_AND_MEAN
 #endif
-#include <winsock2.h>
 #include <windows.h>
 
 #include <stdio.h>
@@ -29,7 +28,7 @@
 #include <sys/stat.h>
 #include <errno.h>
 
-/* Indicates that d_type field is available in dirent structure */
+  /* Indicates that d_type field is available in dirent structure */
 #define _DIRENT_HAVE_D_TYPE
 
 /* Indicates that d_namlen field is available in dirent structure */
@@ -171,11 +170,11 @@
 #define DTTOIF(type) (type)
 
 /*
-* File type macros.  Note that block devices, sockets and links cannot be
-* distinguished on Windows and the macros S_ISBLK, S_ISSOCK and S_ISLNK are
-* only defined for compatibility.  These macros should always return false
-* on Windows.
-*/
+ * File type macros.  Note that block devices, sockets and links cannot be
+ * distinguished on Windows and the macros S_ISBLK, S_ISSOCK and S_ISLNK are
+ * only defined for compatibility.  These macros should always return false
+ * on Windows.
+ */
 #if !defined(S_ISFIFO)
 #   define S_ISFIFO(mode) (((mode) & S_IFMT) == S_IFIFO)
 #endif
@@ -198,7 +197,7 @@
 #   define S_ISBLK(mode) (((mode) & S_IFMT) == S_IFBLK)
 #endif
 
-/* Return the exact length of the file name without zero terminator */
+ /* Return the exact length of the file name without zero terminator */
 #define _D_EXACT_NAMLEN(p) ((p)->d_namlen)
 
 /* Return the maximum size of a file name */
@@ -315,7 +314,7 @@ extern "C" {
 #define wrewinddir _wrewinddir
 
 
-	/* Internal utility functions */
+/* Internal utility functions */
 	static WIN32_FIND_DATAW *dirent_first(_WDIR *dirp);
 	static WIN32_FIND_DATAW *dirent_next(_WDIR *dirp);
 
@@ -337,10 +336,10 @@ extern "C" {
 
 
 	/*
-	* Open directory stream DIRNAME for read and return a pointer to the
-	* internal working area that is used to retrieve individual directory
-	* entries.
-	*/
+	 * Open directory stream DIRNAME for read and return a pointer to the
+	 * internal working area that is used to retrieve individual directory
+	 * entries.
+	 */
 	static _WDIR*
 		_wopendir(
 			const wchar_t *dirname)
@@ -365,10 +364,10 @@ extern "C" {
 			dirp->cached = 0;
 
 			/* Compute the length of full path plus zero terminator
-			*
-			* Note that on WinRT there's no way to convert relative paths
-			* into absolute paths, so just assume it is an absolute path.
-			*/
+			 *
+			 * Note that on WinRT there's no way to convert relative paths
+			 * into absolute paths, so just assume it is an absolute path.
+			 */
 #       if defined(WINAPI_FAMILY) && (WINAPI_FAMILY == WINAPI_FAMILY_PHONE_APP)
 			n = wcslen(dirname);
 #       else
@@ -380,13 +379,13 @@ extern "C" {
 			if (dirp->patt) {
 
 				/*
-				* Convert relative directory name to an absolute one.  This
-				* allows rewinddir() to function correctly even when current
-				* working directory is changed between opendir() and rewinddir().
-				*
-				* Note that on WinRT there's no way to convert relative paths
-				* into absolute paths, so just assume it is an absolute path.
-				*/
+				 * Convert relative directory name to an absolute one.  This
+				 * allows rewinddir() to function correctly even when current
+				 * working directory is changed between opendir() and rewinddir().
+				 *
+				 * Note that on WinRT there's no way to convert relative paths
+				 * into absolute paths, so just assume it is an absolute path.
+				 */
 #           if defined(WINAPI_FAMILY) && (WINAPI_FAMILY == WINAPI_FAMILY_PHONE_APP)
 				wcsncpy_s(dirp->patt, n + 1, dirname, n);
 #           else
@@ -454,11 +453,11 @@ extern "C" {
 	}
 
 	/*
-	* Read next directory entry.
-	*
-	* Returns pointer to static directory entry which may be overwritten by
-	* subsequent calls to _wreaddir().
-	*/
+	 * Read next directory entry.
+	 *
+	 * Returns pointer to static directory entry which may be overwritten by
+	 * subsequent calls to _wreaddir().
+	 */
 	static struct _wdirent*
 		_wreaddir(
 			_WDIR *dirp)
@@ -466,9 +465,9 @@ extern "C" {
 		struct _wdirent *entry;
 
 		/*
-		* Read directory entry to buffer.  We can safely ignore the return value
-		* as entry will be set to NULL in case of error.
-		*/
+		 * Read directory entry to buffer.  We can safely ignore the return value
+		 * as entry will be set to NULL in case of error.
+		 */
 		(void)_wreaddir_r(dirp, &dirp->ent, &entry);
 
 		/* Return pointer to statically allocated directory entry */
@@ -476,11 +475,11 @@ extern "C" {
 	}
 
 	/*
-	* Read next directory entry.
-	*
-	* Returns zero on success.  If end of directory stream is reached, then sets
-	* result to NULL and returns zero.
-	*/
+	 * Read next directory entry.
+	 *
+	 * Returns zero on success.  If end of directory stream is reached, then sets
+	 * result to NULL and returns zero.
+	 */
 	static int
 		_wreaddir_r(
 			_WDIR *dirp,
@@ -496,10 +495,10 @@ extern "C" {
 			DWORD attr;
 
 			/*
-			* Copy file name as wide-character string.  If the file name is too
-			* long to fit in to the destination buffer, then truncate file name
-			* to PATH_MAX characters and zero-terminate the buffer.
-			*/
+			 * Copy file name as wide-character string.  If the file name is too
+			 * long to fit in to the destination buffer, then truncate file name
+			 * to PATH_MAX characters and zero-terminate the buffer.
+			 */
 			n = 0;
 			while (n < PATH_MAX  &&  datap->cFileName[n] != 0) {
 				entry->d_name[n] = datap->cFileName[n];
@@ -542,10 +541,10 @@ extern "C" {
 	}
 
 	/*
-	* Close directory stream opened by opendir() function.  This invalidates the
-	* DIR structure as well as any directory entry read previously by
-	* _wreaddir().
-	*/
+	 * Close directory stream opened by opendir() function.  This invalidates the
+	 * DIR structure as well as any directory entry read previously by
+	 * _wreaddir().
+	 */
 	static int
 		_wclosedir(
 			_WDIR *dirp)
@@ -581,9 +580,9 @@ extern "C" {
 	}
 
 	/*
-	* Rewind directory stream such that _wreaddir() returns the very first
-	* file name again.
-	*/
+	 * Rewind directory stream such that _wreaddir() returns the very first
+	 * file name again.
+	 */
 	static void
 		_wrewinddir(
 			_WDIR* dirp)
@@ -628,10 +627,10 @@ extern "C" {
 	}
 
 	/*
-	* Get next directory entry (internal).
-	*
-	* Returns
-	*/
+	 * Get next directory entry (internal).
+	 *
+	 * Returns
+	 */
 	static WIN32_FIND_DATAW*
 		dirent_next(
 			_WDIR *dirp)
@@ -672,8 +671,8 @@ extern "C" {
 	}
 
 	/*
-	* Open directory stream using plain old C-string.
-	*/
+	 * Open directory stream using plain old C-string.
+	 */
 	static DIR*
 		opendir(
 			const char *dirname)
@@ -712,11 +711,11 @@ extern "C" {
 			}
 			else {
 				/*
-				* Cannot convert file name to wide-character string.  This
-				* occurs if the string contains invalid multi-byte sequences or
-				* the output buffer is too small to contain the resulting
-				* string.
-				*/
+				 * Cannot convert file name to wide-character string.  This
+				 * occurs if the string contains invalid multi-byte sequences or
+				 * the output buffer is too small to contain the resulting
+				 * string.
+				 */
 				error = 1;
 			}
 
@@ -736,8 +735,8 @@ extern "C" {
 	}
 
 	/*
-	* Read next directory entry.
-	*/
+	 * Read next directory entry.
+	 */
 	static struct dirent*
 		readdir(
 			DIR *dirp)
@@ -745,9 +744,9 @@ extern "C" {
 		struct dirent *entry;
 
 		/*
-		* Read directory entry to buffer.  We can safely ignore the return value
-		* as entry will be set to NULL in case of error.
-		*/
+		 * Read directory entry to buffer.  We can safely ignore the return value
+		 * as entry will be set to NULL in case of error.
+		 */
 		(void)readdir_r(dirp, &dirp->ent, &entry);
 
 		/* Return pointer to statically allocated directory entry */
@@ -755,11 +754,11 @@ extern "C" {
 	}
 
 	/*
-	* Read next directory entry into called-allocated buffer.
-	*
-	* Returns zero on success.  If the end of directory stream is reached, then
-	* sets result to NULL and returns zero.
-	*/
+	 * Read next directory entry into called-allocated buffer.
+	 *
+	 * Returns zero on success.  If the end of directory stream is reached, then
+	 * sets result to NULL and returns zero.
+	 */
 	static int
 		readdir_r(
 			DIR *dirp,
@@ -779,15 +778,15 @@ extern "C" {
 				&n, entry->d_name, PATH_MAX + 1, datap->cFileName, PATH_MAX + 1);
 
 			/*
-			* If the file name cannot be represented by a multi-byte string,
-			* then attempt to use old 8+3 file name.  This allows traditional
-			* Unix-code to access some file names despite of unicode
-			* characters, although file names may seem unfamiliar to the user.
-			*
-			* Be ware that the code below cannot come up with a short file
-			* name unless the file system provides one.  At least
-			* VirtualBox shared folders fail to do this.
-			*/
+			 * If the file name cannot be represented by a multi-byte string,
+			 * then attempt to use old 8+3 file name.  This allows traditional
+			 * Unix-code to access some file names despite of unicode
+			 * characters, although file names may seem unfamiliar to the user.
+			 *
+			 * Be ware that the code below cannot come up with a short file
+			 * name unless the file system provides one.  At least
+			 * VirtualBox shared folders fail to do this.
+			 */
 			if (error  &&  datap->cAlternateFileName[0] != '\0') {
 				error = dirent_wcstombs_s(
 					&n, entry->d_name, PATH_MAX + 1,
@@ -821,11 +820,11 @@ extern "C" {
 			else {
 
 				/*
-				* Cannot convert file name to multi-byte string so construct
-				* an erroneous directory entry and return that.  Note that
-				* we cannot return NULL as that would stop the processing
-				* of directory entries completely.
-				*/
+				 * Cannot convert file name to multi-byte string so construct
+				 * an erroneous directory entry and return that.  Note that
+				 * we cannot return NULL as that would stop the processing
+				 * of directory entries completely.
+				 */
 				entry->d_name[0] = '?';
 				entry->d_name[1] = '\0';
 				entry->d_namlen = 1;
@@ -851,8 +850,8 @@ extern "C" {
 	}
 
 	/*
-	* Close directory stream.
-	*/
+	 * Close directory stream.
+	 */
 	static int
 		closedir(
 			DIR *dirp)
@@ -879,8 +878,8 @@ extern "C" {
 	}
 
 	/*
-	* Rewind directory stream to beginning.
-	*/
+	 * Rewind directory stream to beginning.
+	 */
 	static void
 		rewinddir(
 			DIR* dirp)
@@ -890,8 +889,8 @@ extern "C" {
 	}
 
 	/*
-	* Scan directory for entries.
-	*/
+	 * Scan directory for entries.
+	 */
 	static int
 		scandir(
 			const char *dirname,
@@ -986,9 +985,9 @@ extern "C" {
 					else {
 
 						/*
-						* End of directory stream reached => sort entries and
-						* exit.
-						*/
+						 * End of directory stream reached => sort entries and
+						 * exit.
+						 */
 						qsort(files, size, sizeof(void*),
 							(int(*) (const void*, const void*)) compare);
 						break;
@@ -1079,9 +1078,9 @@ extern "C" {
 		}
 
 		/*
-		* Determine flags based on the character set.  For more information,
-		* please see https://docs.microsoft.com/fi-fi/windows/desktop/api/stringapiset/nf-stringapiset-multibytetowidechar
-		*/
+		 * Determine flags based on the character set.  For more information,
+		 * please see https://docs.microsoft.com/fi-fi/windows/desktop/api/stringapiset/nf-stringapiset-multibytetowidechar
+		 */
 		switch (cp) {
 		case 42:
 		case 50220:
@@ -1107,9 +1106,9 @@ extern "C" {
 
 		default:
 			/*
-			* Ask MultiByteToWideChar to return an error if a multi-byte
-			* character cannot be converted to a wide-character.
-			*/
+			 * Ask MultiByteToWideChar to return an error if a multi-byte
+			 * character cannot be converted to a wide-character.
+			 */
 			flags = MB_ERR_INVALID_CHARS;
 		}
 
@@ -1178,27 +1177,27 @@ extern "C" {
 		}
 
 		/*
-		* Determine if we can ask WideCharToMultiByte to return information on
-		* broken characters.  For more information, please see
-		* https://docs.microsoft.com/en-us/windows/desktop/api/stringapiset/nf-stringapiset-widechartomultibyte
-		*/
+		 * Determine if we can ask WideCharToMultiByte to return information on
+		 * broken characters.  For more information, please see
+		 * https://docs.microsoft.com/en-us/windows/desktop/api/stringapiset/nf-stringapiset-widechartomultibyte
+		 */
 		switch (cp) {
 		case CP_UTF7:
 		case CP_UTF8:
 			/*
-			* WideCharToMultiByte fails if we request information on default
-			* characters.  This is just a nuisance but doesn't affect the
-			* converion: if Windows is configured to use UTF-8, then the default
-			* character should not be needed anyway.
-			*/
+			 * WideCharToMultiByte fails if we request information on default
+			 * characters.  This is just a nuisance but doesn't affect the
+			 * converion: if Windows is configured to use UTF-8, then the default
+			 * character should not be needed anyway.
+			 */
 			pflag = NULL;
 			break;
 
 		default:
 			/*
-			* Request that WideCharToMultiByte sets the flag if it uses the
-			* default character.
-			*/
+			 * Request that WideCharToMultiByte sets the flag if it uses the
+			 * default character.
+			 */
 			pflag = &flag;
 		}
 

@@ -4,6 +4,7 @@
 #include <sys/types.h>
 #include <dirent.h>
 #include "MxCommon.h"
+#include "MxTypes.h"
 
 struct stat;
 struct iovec;
@@ -40,9 +41,9 @@ MXCORE_API int mxPipe(int [2]) MX_USED;
 
 MXCORE_API int mxMemfd(void) MX_USED;
 
-MXCORE_API ssize_t mxWrite(int, const void *, size_t);
+/*MXCORE_API ssize_t mxWrite(int, const void *, size_t);
 
-MXCORE_API ssize_t mxWritev(int, const struct iovec *, int);
+MXCORE_API ssize_t mxWritev(int, const struct iovec *, int);*/
 
 MXCORE_API int mxClose(int fd);
 

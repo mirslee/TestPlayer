@@ -3,6 +3,7 @@
 #include "MxConfig.h"
 #include "MxCommon.h"
 #include "MxError.h"
+#include "MxFixups.h"
 
 #include "MxAtomic.h"
 #include <stdarg.h>
@@ -16,9 +17,6 @@
 
 #include "MxCpu.h"
 #include "MxFixups.h"
-
-struct vlc_object_t {
-};
 
 /*** Static mutex and condition variable ***/
 static CRITICAL_SECTION super_mutex;
@@ -369,7 +367,7 @@ static BOOL WINAPI WaitOnAddressFallback(void volatile *addr, void *value,
 		val = *(const long long *)value;
 		break;
 	default:
-		vlc_assert_unreachable();
+		MX_assert_unreachable();
 	}
 
 	if (futex == val)
@@ -808,7 +806,7 @@ void (msleep)(mtime_t delay)
 
 static BOOL SelectClockSource(void *data)
 {
-	vlc_object_t *obj = (vlc_object_t*)data;
+	CMxObject *obj = (CMxObject*)data;
 
 #if MX_WINSTORE_APP
 	const char *name = "perf";
@@ -905,7 +903,7 @@ static BOOL SelectClockSource(void *data)
 	return TRUE;
 }
 
-size_t EnumClockSource(vlc_object_t *obj, const char *var,
+size_t EnumClockSource(CMxObject *obj, const char *var,
 	char ***vp, char ***np)
 {
 	const size_t max = 6;
@@ -1003,6 +1001,7 @@ void mxThreadsSetup(libvlc_int_t *vlc)
 #define LOOKUP(s) (((s##_) = (void *)GetProcAddress(h, #s)) != NULL)
 
 extern MxRWLock config_lock;
+MxRWLock config_lock = MX_STATIC_RWLOCK;
 BOOL WINAPI DllMain(HINSTANCE, DWORD, LPVOID);
 
 BOOL WINAPI DllMain(HINSTANCE hinstDll, DWORD fdwReason, LPVOID lpvReserved)

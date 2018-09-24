@@ -7,5 +7,8 @@
 #else
 
 #endif
+
+#pragma comment(lib, "Ws2_32.lib")
+#pragma comment(lib, "Synchronization.lib")
 #endif
 

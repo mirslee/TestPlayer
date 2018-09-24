@@ -1,4 +1,3 @@
-
 #ifndef MXCOMMON_H
 #define MXCOMMON_H
 
@@ -235,21 +234,13 @@ static inline void *xcalloc(size_t n, size_t size)
 
 static inline char *xstrdup(const char *str)
 {
-	char *ptr = strdup(str);
+	char *ptr = /*strdup(str);*/ _strdup(str);
 	if (unlikely(ptr == NULL))
 		abort();
 	return ptr;
 }
 
-#if !defined(__cplusplus)
-# define VLC_OBJECT(x) \
-    _Generic((x)->obj, \
-        struct vlc_common_members: (vlc_object_t *)(&(x)->obj), \
-        const struct vlc_common_members: (const vlc_object_t *)(&(x)->obj) \
-    )
-#else
-# define VLC_OBJECT( x ) ((vlc_object_t *)&(x)->obj)
-#endif
+#define MX_OBJECT( x ) ((CMxObject *)&(x)->obj)
 
 MX_USED /*最大公约数*/
 static inline int64_t GCD ( int64_t a, int64_t b )
@@ -337,6 +328,160 @@ static inline const char *mx_pgettext_aux( const char *ctx, const char *id )
     const char *tr = mxGettext( ctx );
     return (tr == ctx) ? id : tr;
 }
+
+
+// libvlc
+void mx_objres_clear(CMxObject *obj);
+
+/**
+ * Assign a name to an object for vlc_object_find_name().
+ */
+extern int mx_object_set_name(CMxObject *, const char *);
+#define mx_object_set_name(o, n) mx_object_set_name(MX_OBJECT(o), n)
+
+/* Types */
+typedef void(*mx_destructor_t) (struct CMxObject *);
+void mx_object_set_destructor(CMxObject *, mx_destructor_t);
+#define mx_object_set_destructor(a,b) \
+        mx_object_set_destructor (MX_OBJECT(a), b)
+
+/**
+ * VLC value structure
+ */
+struct mx_list_t;
+typedef union
+{
+	int64_t         i_int;
+	bool            b_bool;
+	float           f_float;
+	char *          psz_string;
+	void *          p_address;
+	mx_list_t *    p_list;
+	struct { int32_t x; int32_t y; } coords;
+
+} mx_value_t;
+
+/**
+ * VLC list structure
+ */
+#include <vector>
+struct mx_list_t
+{
+	int          i_type;
+	/*int          i_count;
+	mx_value_t *p_values;*/
+	std::vector<mx_value_t> p_values;
+};
+
+/*****************************************************************************
+ * Prototypes
+ *****************************************************************************/
+MXCORE_API void *mx_object_create(CMxObject *, size_t);
+MXCORE_API CMxObject *mx_object_find_name(CMxObject *, const char *);
+MXCORE_API void * mx_object_hold(CMxObject *);
+MXCORE_API void mx_object_release(CMxObject *);
+MXCORE_API mx_list_t *mx_list_children(CMxObject *);
+MXCORE_API void mx_list_release(mx_list_t *);
+MXCORE_API char *mx_object_get_name(const CMxObject *);
+#define mx_object_get_name(o) mx_object_get_name(MX_OBJECT(o))
+
+#define mx_object_create(a,b) mx_object_create( MX_OBJECT(a), b )
+
+#define mx_object_find_name(a,b) \
+    mx_object_find_name( MX_OBJECT(a),b)
+
+#define mx_object_hold(a) \
+    mx_object_hold( MX_OBJECT(a) )
+
+#define mx_object_release(a) \
+    mx_object_release( MX_OBJECT(a) )
+
+#define mx_list_children(a) \
+    mx_list_children( MX_OBJECT(a) )
+
+MXCORE_API void *mx_obj_malloc(CMxObject *, size_t);
+MXCORE_API void *mx_obj_calloc(CMxObject *, size_t, size_t);
+MXCORE_API void mx_obj_free(CMxObject *, void *);
+
+
+/*****************************************************************************
+ * Variable callbacks: called when the value is modified
+ *****************************************************************************/
+typedef int(*mx_callback_t) (CMxObject *,      /* variable's object */
+	char const *,            /* variable name */
+	mx_value_t,                 /* old value */
+	mx_value_t,                 /* new value */
+	void *);                /* callback data */
+
+/*****************************************************************************
+ * List callbacks: called when elements are added/removed from the list
+ *****************************************************************************/
+typedef int(*mx_list_callback_t) (CMxObject *,      /* variable's object */
+	char const *,            /* variable name */
+	int,                  /* VLC_VAR_* action */
+	mx_value_t *,      /* new/deleted value  */
+	void *);                 /* callback data */
+
+/* Integer overflow */
+static inline bool uadd_overflow(unsigned a, unsigned b, unsigned *res)
+{
+#if MX_GCC_VERSION(5,0) || defined(__clang__)
+	return __builtin_uadd_overflow(a, b, res);
+#else
+	*res = a + b;
+	return (a + b) < a;
+#endif
+}
+
+static inline bool uaddl_overflow(unsigned long a, unsigned long b,
+	unsigned long *res)
+{
+#if MX_GCC_VERSION(5,0) || defined(__clang__)
+	return __builtin_uaddl_overflow(a, b, res);
+#else
+	*res = a + b;
+	return (a + b) < a;
+#endif
+}
+
+static inline bool uaddll_overflow(unsigned long long a, unsigned long long b,
+	unsigned long long *res)
+{
+#if MX_GCC_VERSION(5,0) || defined(__clang__)
+	return __builtin_uaddll_overflow(a, b, res);
+#else
+	*res = a + b;
+	return (a + b) < a;
+#endif
+}
+
+#ifndef __cplusplus
+# define add_overflow(a,b,r) \
+    _Generic(*(r), \
+        unsigned: uadd_overflow(a, b, (unsigned *)(r)), \
+        unsigned long: uaddl_overflow(a, b, (unsigned long *)(r)), \
+        unsigned long long: uaddll_overflow(a, b, (unsigned long long *)(r)))
+#else
+static inline bool add_overflow(unsigned a, unsigned b, unsigned *res)
+{
+	return uadd_overflow(a, b, res);
+}
+
+static inline bool add_overflow(unsigned long a, unsigned long b,
+	unsigned long *res)
+{
+	return uaddl_overflow(a, b, res);
+}
+
+static inline bool add_overflow(unsigned long long a, unsigned long long b,
+	unsigned long long *res)
+{
+	return uaddll_overflow(a, b, res);
+}
+#endif
+
+#define container_of(ptr, type, member) \
+    ((type *)(((char *)(ptr)) - offsetof(type, member)))
 
 
 #endif //MXCOMMON_H

@@ -20,10 +20,8 @@
  * Inc., 51 Franklin Street, Fifth Floor, Boston MA 02110-1301, USA.
  *****************************************************************************/
 #include "stdafx.h"
-#ifdef HAVE_CONFIG_H
-# include "MxConfig.h"
-#endif
-
+#include "MxConfig.h"
+#include "MxFixups.h"
 #include "MxCommon.h"
 #include "MxCharSet.h"
 
@@ -498,7 +496,7 @@ int mxIconvClose( MxIconv cd )
  * reduce a fraction
  *   (adapted from libavcodec, author Michael Niedermayer <michaelni@gmx.at>)
  *****************************************************************************/
-bool vlc_ureduce( unsigned *pi_dst_nom, unsigned *pi_dst_den,
+bool mxUreduce( unsigned *pi_dst_nom, unsigned *pi_dst_den,
                         uint64_t i_nom, uint64_t i_den, uint64_t i_max )
 {
     bool b_exact = 1;

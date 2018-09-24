@@ -31,6 +31,18 @@
     <Filter Include="MxThread">
       <UniqueIdentifier>{f182e06c-0abc-4360-b58f-5546a297187f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MxCompat">
+      <UniqueIdentifier>{645ac5d7-7047-4d4a-b5bf-5fbac16bbc63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MxModules">
+      <UniqueIdentifier>{9f520762-f08c-4f7f-afc9-3b7bebfecddd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MxRand">
+      <UniqueIdentifier>{755d6e32-5194-4d4b-8ab6-ab1f66e027ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="objres">
+      <UniqueIdentifier>{30dc781f-a557-4e26-bfbb-defefda26f89}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -38,15 +50,6 @@
   <ItemGroup>
     <ClInclude Include="stdafx.h">
       <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="ncx_mempool\ncx_core.h">
-      <Filter>mempool</Filter>
-    </ClInclude>
-    <ClInclude Include="ncx_mempool\ncx_log.h">
-      <Filter>mempool</Filter>
-    </ClInclude>
-    <ClInclude Include="ncx_mempool\ncx_slab.h">
-      <Filter>mempool</Filter>
     </ClInclude>
     <ClInclude Include="..\include\CMxLog.h">
       <Filter>include</Filter>
@@ -108,19 +111,67 @@
     <ClInclude Include="..\include\MxTypes.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\MxBits.h">
-      <Filter>include</Filter>
-    </ClInclude>
     <ClInclude Include="CMxBits.h">
       <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MxModules\modules.h">
+      <Filter>MxModules</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\CMxBits.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\CMxBlock.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\CMxInputItem.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\CMxMeta.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\CMxObject.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\CMxStream.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\MxEs.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\MxEvents.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\MxFourcc.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\MxMemStream.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\MxModules.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\MxTextStyle.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\MxUrl.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\vlc_input_item.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\MxRand.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="objres\variables.h">
+      <Filter>objres</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\MxVariables.h">
+      <Filter>include</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="ncx_mempool\ncx_slab.cpp">
-      <Filter>mempool</Filter>
     </ClCompile>
     <ClCompile Include="MxCharSet\charset.cpp">
       <Filter>MxCharSet</Filter>
@@ -141,6 +192,180 @@
       <Filter>MxThread</Filter>
     </ClCompile>
     <ClCompile Include="CMxBits.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MxCompat\memrchr.cpp">
+      <Filter>MxCompat</Filter>
+    </ClCompile>
+    <ClCompile Include="MxCompat\vasprintf.cpp">
+      <Filter>MxCompat</Filter>
+    </ClCompile>
+    <ClCompile Include="MxCompat\strcasecmp.cpp">
+      <Filter>MxCompat</Filter>
+    </ClCompile>
+    <ClCompile Include="MxCompat\aligned_alloc.cpp">
+      <Filter>MxCompat</Filter>
+    </ClCompile>
+    <ClCompile Include="MxCompat\asprintf.cpp">
+      <Filter>MxCompat</Filter>
+    </ClCompile>
+    <ClCompile Include="MxCompat\atof.cpp">
+      <Filter>MxCompat</Filter>
+    </ClCompile>
+    <ClCompile Include="MxCompat\atoll.cpp">
+      <Filter>MxCompat</Filter>
+    </ClCompile>
+    <ClCompile Include="MxCompat\dirfd.cpp">
+      <Filter>MxCompat</Filter>
+    </ClCompile>
+    <ClCompile Include="MxCompat\dummy.cpp">
+      <Filter>MxCompat</Filter>
+    </ClCompile>
+    <ClCompile Include="MxCompat\ffsll.cpp">
+      <Filter>MxCompat</Filter>
+    </ClCompile>
+    <ClCompile Include="MxCompat\flockfile.cpp">
+      <Filter>MxCompat</Filter>
+    </ClCompile>
+    <ClCompile Include="MxCompat\freeaddrinfo.cpp">
+      <Filter>MxCompat</Filter>
+    </ClCompile>
+    <ClCompile Include="MxCompat\fsync.cpp">
+      <Filter>MxCompat</Filter>
+    </ClCompile>
+    <ClCompile Include="MxCompat\gai_strerror.cpp">
+      <Filter>MxCompat</Filter>
+    </ClCompile>
+    <ClCompile Include="MxCompat\getdelim.cpp">
+      <Filter>MxCompat</Filter>
+    </ClCompile>
+    <ClCompile Include="MxCompat\gettimeofday.cpp">
+      <Filter>MxCompat</Filter>
+    </ClCompile>
+    <ClCompile Include="MxCompat\gmtime_r.cpp">
+      <Filter>MxCompat</Filter>
+    </ClCompile>
+    <ClCompile Include="MxCompat\inet_pton.cpp">
+      <Filter>MxCompat</Filter>
+    </ClCompile>
+    <ClCompile Include="MxCompat\localtime_r.cpp">
+      <Filter>MxCompat</Filter>
+    </ClCompile>
+    <ClCompile Include="MxCompat\nrand48.cpp">
+      <Filter>MxCompat</Filter>
+    </ClCompile>
+    <ClCompile Include="MxCompat\pathconf.cpp">
+      <Filter>MxCompat</Filter>
+    </ClCompile>
+    <ClCompile Include="MxCompat\poll.cpp">
+      <Filter>MxCompat</Filter>
+    </ClCompile>
+    <ClCompile Include="MxCompat\realpath.cpp">
+      <Filter>MxCompat</Filter>
+    </ClCompile>
+    <ClCompile Include="MxCompat\recvmsg.cpp">
+      <Filter>MxCompat</Filter>
+    </ClCompile>
+    <ClCompile Include="MxCompat\rewind.cpp">
+      <Filter>MxCompat</Filter>
+    </ClCompile>
+    <ClCompile Include="MxCompat\sendmsg.cpp">
+      <Filter>MxCompat</Filter>
+    </ClCompile>
+    <ClCompile Include="MxCompat\setenv.cpp">
+      <Filter>MxCompat</Filter>
+    </ClCompile>
+    <ClCompile Include="MxCompat\sincos.cpp">
+      <Filter>MxCompat</Filter>
+    </ClCompile>
+    <ClCompile Include="MxCompat\strcasestr.cpp">
+      <Filter>MxCompat</Filter>
+    </ClCompile>
+    <ClCompile Include="MxCompat\strdup.cpp">
+      <Filter>MxCompat</Filter>
+    </ClCompile>
+    <ClCompile Include="MxCompat\strlcpy.cpp">
+      <Filter>MxCompat</Filter>
+    </ClCompile>
+    <ClCompile Include="MxCompat\strndup.cpp">
+      <Filter>MxCompat</Filter>
+    </ClCompile>
+    <ClCompile Include="MxCompat\strnlen.cpp">
+      <Filter>MxCompat</Filter>
+    </ClCompile>
+    <ClCompile Include="MxCompat\strnstr.cpp">
+      <Filter>MxCompat</Filter>
+    </ClCompile>
+    <ClCompile Include="MxCompat\strsep.cpp">
+      <Filter>MxCompat</Filter>
+    </ClCompile>
+    <ClCompile Include="MxCompat\strtof.cpp">
+      <Filter>MxCompat</Filter>
+    </ClCompile>
+    <ClCompile Include="MxCompat\strtok_r.cpp">
+      <Filter>MxCompat</Filter>
+    </ClCompile>
+    <ClCompile Include="MxCompat\strtoll.cpp">
+      <Filter>MxCompat</Filter>
+    </ClCompile>
+    <ClCompile Include="MxCompat\strverscmp.cpp">
+      <Filter>MxCompat</Filter>
+    </ClCompile>
+    <ClCompile Include="MxCompat\swab.cpp">
+      <Filter>MxCompat</Filter>
+    </ClCompile>
+    <ClCompile Include="MxCompat\tdestroy.cpp">
+      <Filter>MxCompat</Filter>
+    </ClCompile>
+    <ClCompile Include="MxCompat\tfind.cpp">
+      <Filter>MxCompat</Filter>
+    </ClCompile>
+    <ClCompile Include="MxCompat\timegm.cpp">
+      <Filter>MxCompat</Filter>
+    </ClCompile>
+    <ClCompile Include="MxCompat\fdopendir.cpp">
+      <Filter>MxCompat</Filter>
+    </ClCompile>
+    <ClCompile Include="MxCompat\getpid.cpp">
+      <Filter>MxCompat</Filter>
+    </ClCompile>
+    <ClCompile Include="MxCompat\lldiv.cpp">
+      <Filter>MxCompat</Filter>
+    </ClCompile>
+    <ClCompile Include="MxCompat\sigwait.cpp">
+      <Filter>MxCompat</Filter>
+    </ClCompile>
+    <ClCompile Include="MxCompat\timespec_get.cpp">
+      <Filter>MxCompat</Filter>
+    </ClCompile>
+    <ClCompile Include="MxModules\modules.cpp">
+      <Filter>MxModules</Filter>
+    </ClCompile>
+    <ClCompile Include="MxModules\textdomain.cpp">
+      <Filter>MxModules</Filter>
+    </ClCompile>
+    <ClCompile Include="MxRand\rand.cpp">
+      <Filter>MxRand</Filter>
+    </ClCompile>
+    <ClCompile Include="MxRand\rand_win32.cpp">
+      <Filter>MxRand</Filter>
+    </ClCompile>
+    <ClCompile Include="objres\variables.cpp">
+      <Filter>objres</Filter>
+    </ClCompile>
+    <ClCompile Include="objres\objres.cpp">
+      <Filter>objres</Filter>
+    </ClCompile>
+    <ClCompile Include="objres\objects.cpp">
+      <Filter>objres</Filter>
+    </ClCompile>
+    <ClCompile Include="bank.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MxThread\threads.cpp">
+      <Filter>MxThread</Filter>
+    </ClCompile>
+    <ClCompile Include="MxCpu.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

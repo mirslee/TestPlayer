@@ -38,7 +38,7 @@ typedef void (*mx_deactivate_t)(void *func, va_list args);
  *****************************************************************************/
 struct module_t;
 struct module_config_t;
-MXCORE_API module_t * mx_module_load( CMxObject *obj, const char *cap, const char *name, bool strict, mx_activate_t probe, ... ) MX_USED;
+MXCORE_API module_t * mx_module_load( CMxObject *obj, const char *cap, const char *name, bool strict, mx_activate_t probe, ... );
 #define mx_module_load(o,c,n,s,...) \
         mx_module_load(MX_OBJECT(o),c,n,s,__VA_ARGS__)
 MXCORE_API void mx_module_unload( CMxObject *obj, module_t *,
@@ -46,40 +46,40 @@ MXCORE_API void mx_module_unload( CMxObject *obj, module_t *,
 #define mx_module_unload(o,m,d,...) \
         mx_module_unload(MX_OBJECT(o),m,d,__VA_ARGS__)
 
-MXCORE_API module_t * module_need( CMxObject *, const char *, const char *, bool ) MX_USED;
+MXCORE_API module_t * module_need( CMxObject *, const char *, const char *, bool ) ;
 #define module_need(a,b,c,d) module_need(MX_OBJECT(a),b,c,d)
 MXCORE_API void module_unneed( CMxObject *, module_t * );
 #define module_unneed(a,b) module_unneed(MX_OBJECT(a),b)
-MXCORE_API bool module_exists(const char *) MX_USED;
-MXCORE_API module_t * module_find(const char *) MX_USED;
+MXCORE_API bool module_exists(const char *) ;
+MXCORE_API module_t * module_find(const char *) ;
 
 int module_start(CMxObject *, const module_t *);
 #define module_start(o, m) module_start(MX_OBJECT(o),m)
 void module_stop(CMxObject *, const module_t *);
 #define module_stop(o, m) module_stop(MX_OBJECT(o),m)
 
-MXCORE_API module_config_t * module_config_get( const module_t *, unsigned * ) MX_USED;
-MXCORE_API void module_config_free( module_config_t * );
+/*MXCORE_API module_config_t * module_config_get( const module_t *, unsigned * ) MX_USED;
+MXCORE_API void module_config_free( module_config_t * );*/
 
 MXCORE_API void module_list_free(module_t **);
-MXCORE_API module_t ** module_list_get(size_t *n) MX_USED;
+MXCORE_API module_t ** module_list_get(size_t *n) ;
 
 MXCORE_API bool module_provides( const module_t *m, const char *cap );
-MXCORE_API const char * module_get_object( const module_t *m ) MX_USED;
-MXCORE_API const char * module_get_name( const module_t *m, bool long_name ) MX_USED;
+MXCORE_API const char * module_get_object( const module_t *m ) ;
+MXCORE_API const char * module_get_name( const module_t *m, bool long_name ) ;
 #define module_GetLongName( m ) module_get_name( m, true )
-MXCORE_API const char * module_get_help( const module_t *m ) MX_USED;
-MXCORE_API const char * module_get_capability( const module_t *m ) MX_USED;
-MXCORE_API int module_get_score( const module_t *m ) MX_USED;
-MXCORE_API const char * module_gettext( const module_t *, const char * ) MX_USED;
+MXCORE_API const char * module_get_help( const module_t *m ) ;
+MXCORE_API const char * module_get_capability( const module_t *m ) ;
+MXCORE_API int module_get_score( const module_t *m ) ;
+MXCORE_API const char * module_gettext( const module_t *, const char * ) ;
 
-MX_USED static inline module_t *module_get_main (void)
+ static inline module_t *module_get_main (void)
 {
     return module_find ("core");
 }
 #define module_get_main(a) module_get_main()
 
-MX_USED static inline bool module_is_main( const module_t * p_module )
+ static inline bool module_is_main( const module_t * p_module )
 {
     return !strcmp( module_get_object( p_module ), "core" );
 }

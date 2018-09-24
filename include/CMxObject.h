@@ -49,7 +49,9 @@ struct MxCommonMembers
 /**
  * Backward compatibility macro
  */
-#define MX_COMMON_MEMBERS struct MxCommonMembers obj;
+#define MX_COMMON_MEMBERS  \
+public:\
+struct MxCommonMembers obj;
 
 class CMxLib
 {
@@ -96,6 +98,7 @@ struct MxViewpoint {
                              FIELD_OF_VIEW_DEGREES_MAX );
     }
 };
+
 
 
 #endif
