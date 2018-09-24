@@ -9,7 +9,7 @@
  * This file defines class for handling streams of bits
  */
 
-class MXCORE_API CMxBits {
+class MXSYSTEM_API CMxBits {
 
 public:
 	CMxBits(uint8_t *p_data, size_t i_data, bool readOnly);

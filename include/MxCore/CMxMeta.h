@@ -20,7 +20,7 @@
 
 enum MxMetaType
 {
-    MxMetaType_Title,
+    MxMetaType_Title = 0,
     MxMetaType_Artist,
     MxMetaType_Genre,
     MxMetaType_Copyright,

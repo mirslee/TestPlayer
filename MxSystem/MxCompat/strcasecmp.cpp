@@ -5,6 +5,7 @@
 #include <string.h>
 #include <ctype.h>
 #include <assert.h>
+#include "MxFixups.h"
 
 int strcasecmp (const char *s1, const char *s2)
 {

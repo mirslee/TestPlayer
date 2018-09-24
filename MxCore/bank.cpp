@@ -25,7 +25,7 @@
  *****************************************************************************/
 #include "stdafx.h"
 #include "MxModules.h"
-#include "MxFixups.h"
+#include "../MxSystem/MxFixups.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>

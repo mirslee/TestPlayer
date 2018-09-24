@@ -4,7 +4,7 @@
 # include <stdarg.h>
 # include <stdio.h>
 
-class MXCORE_API CMxMemStream {
+class MXSYSTEM_API CMxMemStream {
     
 public:
     struct

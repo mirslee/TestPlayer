@@ -28,14 +28,14 @@
 #include "MxCommon.h"
 #include "MxError.h"
 
-#include "MxFixups.h"
+#include "../MxSystem/MxFixups.h"
 #include <assert.h>
 
 //#include <vlc_playlist.h>
-#include "MxUrl.h"
+#include "../MxSystem/MxUrl.h"
 //#include <vlc_arrays.h>
 //#include <vlc_modules.h>
-#include "MxCharSet.h"
+#include "../MxSystem/MxCharSet.h"
 
 //#include "input_internal.h"
 //#include "../playlist/art.h"
@@ -46,38 +46,65 @@
 /* FIXME bad name convention */
 std::string mxMetaTypeToLocalizedString( MxMetaType meta_type )
 {
-    static const char posix_names[][18] =
-    {
-        [MxMetaType_Title]       = N_("Title"),
-        [MxMetaType_Artist]      = N_("Artist"),
-        [MxMetaType_Genre]       = N_("Genre"),
-        [MxMetaType_Copyright]   = N_("Copyright"),
-        [MxMetaType_Album]       = N_("Album"),
-        [MxMetaType_TrackNumber] = N_("Track number"),
-        [MxMetaType_Description] = N_("Description"),
-        [MxMetaType_Rating]      = N_("Rating"),
-        [MxMetaType_Date]        = N_("Date"),
-        [MxMetaType_Setting]     = N_("Setting"),
-        [MxMetaType_URL]         = N_("URL"),
-        [MxMetaType_Language]    = N_("Language"),
-        [MxMetaType_ESNowPlaying]= N_("Now Playing"),
-        [MxMetaType_NowPlaying]  = N_("Now Playing"),
-        [MxMetaType_Publisher]   = N_("Publisher"),
-        [MxMetaType_EncodedBy]   = N_("Encoded by"),
-        [MxMetaType_ArtworkURL]  = N_("Artwork URL"),
-        [MxMetaType_TrackID]     = N_("Track ID"),
-        [MxMetaType_TrackTotal]  = N_("Number of Tracks"),
-        [MxMetaType_Director]    = N_("Director"),
-        [MxMetaType_Season]      = N_("Season"),
-        [MxMetaType_Episode]     = N_("Episode"),
-        [MxMetaType_ShowName]    = N_("Show Name"),
-        [MxMetaType_Actors]      = N_("Actors"),
-        [MxMetaType_AlbumArtist] = N_("Album Artist"),
-        [MxMetaType_DiscNumber]  = N_("Disc number")
-    };
-
-    assert (meta_type < (sizeof(posix_names) / sizeof(posix_names[0])));
-    return mxGettext(posix_names[meta_type]);
+	switch (meta_type)
+	{
+	case MxMetaType_Title:
+		return N_("Title");
+	case MxMetaType_Artist:
+		return N_("Artist");
+	case MxMetaType_Genre:
+		return N_("Genre");
+	case MxMetaType_Copyright:
+		return N_("Copyright");
+	case MxMetaType_Album:
+		return N_("Album");
+	case MxMetaType_TrackNumber:
+		return N_("Track number");
+	case MxMetaType_Description:
+		return N_("Description");
+	case MxMetaType_Rating:
+		return N_("Rating");
+	case MxMetaType_Date:
+		return N_("Date");
+	case MxMetaType_Setting:
+		return N_("Setting");
+	case MxMetaType_URL:
+		return N_("URL");
+	case MxMetaType_Language:
+		return N_("Language");
+	case MxMetaType_NowPlaying:
+		return N_("Now Playing");
+	case MxMetaType_ESNowPlaying:
+		return N_("Now Playing");
+	case MxMetaType_Publisher:
+		return N_("Publisher");
+	case MxMetaType_EncodedBy:
+		return N_("Encoded by");
+	case MxMetaType_ArtworkURL:
+		return N_("Artwork URL");
+	case MxMetaType_TrackID:
+		return N_("Track ID");
+	case MxMetaType_TrackTotal:
+		return N_("Number of Tracks");
+	case MxMetaType_Director:
+		return N_("Director");
+	case MxMetaType_Season:
+		return N_("Season");
+	case MxMetaType_Episode:
+		return N_("Episode");
+	case MxMetaType_ShowName:
+		return N_("Show Name");
+	case MxMetaType_Actors:
+		return N_("");
+	case MxMetaType_AlbumArtist:
+		return N_("Actors");
+	case MxMetaType_DiscNumber:
+		return N_("Album Artist");
+	case MxMetaType_DiscTotal:
+		return N_("Disc number");
+	default:
+		return N_("");
+	}
 };
 
 

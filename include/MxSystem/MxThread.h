@@ -3,8 +3,8 @@
 
 #include "MxCommon.h"
 
-MXCORE_API void mxTestCancel(void);
-MXCORE_API void mxThreadsSetup(libvlc_int_t *vlc);
+MXSYSTEM_API void mxTestCancel(void);
+MXSYSTEM_API void mxThreadsSetup(libvlc_int_t *vlc);
 
 #if defined (_WIN32)
     # include <process.h>
@@ -207,60 +207,60 @@ MXCORE_API void mxThreadsSetup(libvlc_int_t *vlc);
     # define MX_STATIC_RWLOCK { MX_STATIC_MUTEX, MX_STATIC_COND, 0 }
 #endif
 
-MXCORE_API void mxMutexInit(MxMutex *);
+MXSYSTEM_API void mxMutexInit(MxMutex *);
 
-MXCORE_API void mxMutexInitRecursive(MxMutex *);
+MXSYSTEM_API void mxMutexInitRecursive(MxMutex *);
 
-MXCORE_API void mxMutexDestroy(MxMutex *);
+MXSYSTEM_API void mxMutexDestroy(MxMutex *);
 
-MXCORE_API void mxMutexLock(MxMutex *);
+MXSYSTEM_API void mxMutexLock(MxMutex *);
 
-MXCORE_API int mxMutexTrylock( MxMutex * ) MX_USED;
+MXSYSTEM_API int mxMutexTrylock( MxMutex * ) MX_USED;
 
-MXCORE_API void mxMutexUnlock(MxMutex *);
+MXSYSTEM_API void mxMutexUnlock(MxMutex *);
 
-MXCORE_API void mxCondInit(MxCond *);
+MXSYSTEM_API void mxCondInit(MxCond *);
 
-MXCORE_API void mxCondInitDaytime(MxCond *);
+MXSYSTEM_API void mxCondInitDaytime(MxCond *);
 
-MXCORE_API void mxCondDestroy(MxCond *);
+MXSYSTEM_API void mxCondDestroy(MxCond *);
 
-MXCORE_API void mxCondSignal(MxCond *);
+MXSYSTEM_API void mxCondSignal(MxCond *);
 
-MXCORE_API void mxCondBroadcast(MxCond *);
+MXSYSTEM_API void mxCondBroadcast(MxCond *);
 
-MXCORE_API void mxCondWait(MxCond *cond, MxMutex *mutex);
+MXSYSTEM_API void mxCondWait(MxCond *cond, MxMutex *mutex);
 
-MXCORE_API int mxCondTimedwait(MxCond *cond, MxMutex *mutex,
+MXSYSTEM_API int mxCondTimedwait(MxCond *cond, MxMutex *mutex,
                                mtime_t deadline);
 
-MXCORE_API int mxCondTimedwaitDaytime(MxCond *, MxMutex *, time_t);
+MXSYSTEM_API int mxCondTimedwaitDaytime(MxCond *, MxMutex *, time_t);
 
-MXCORE_API void mxSemInit(MxSem *, unsigned count);
+MXSYSTEM_API void mxSemInit(MxSem *, unsigned count);
 
-MXCORE_API void mxSemDestroy(MxSem *);
+MXSYSTEM_API void mxSemDestroy(MxSem *);
 
-MXCORE_API int mxSemPost(MxSem *);
+MXSYSTEM_API int mxSemPost(MxSem *);
 
-MXCORE_API void mxSemWait(MxSem *);
+MXSYSTEM_API void mxSemWait(MxSem *);
 
-MXCORE_API void mxRWLockInit(MxRWLock *);
+MXSYSTEM_API void mxRWLockInit(MxRWLock *);
 
-MXCORE_API void mxRWLockDestroy(MxRWLock *);
+MXSYSTEM_API void mxRWLockDestroy(MxRWLock *);
 
-MXCORE_API void mxRWLockRdlock(MxRWLock *);
+MXSYSTEM_API void mxRWLockRdlock(MxRWLock *);
 
-MXCORE_API void mxRWLockWrlock(MxRWLock *);
+MXSYSTEM_API void mxRWLockWrlock(MxRWLock *);
 
-MXCORE_API void mxRWLockUnlock(MxRWLock *);
+MXSYSTEM_API void mxRWLockUnlock(MxRWLock *);
 
-MXCORE_API int mxThreadvarCreate(MxThreadvar *key, void (*destr) (void *));
+MXSYSTEM_API int mxThreadvarCreate(MxThreadvar *key, void (*destr) (void *));
 
-MXCORE_API void mxThreadvarDelete(MxThreadvar *);
+MXSYSTEM_API void mxThreadvarDelete(MxThreadvar *);
 
-MXCORE_API int mxThreadvarSet(MxThreadvar key, void *value);
+MXSYSTEM_API int mxThreadvarSet(MxThreadvar key, void *value);
 
-MXCORE_API void *mxThreadvarGet(MxThreadvar);
+MXSYSTEM_API void *mxThreadvarGet(MxThreadvar);
 
 void mxAddrWait(void *addr, unsigned val);
 
@@ -270,28 +270,28 @@ void mxAddrSignal(void *addr);
 
 void mxAddrBroadcast(void *addr);
 
-MXCORE_API int mxClone(MxThread *th, void *(*entry)(void *), void *data,
+MXSYSTEM_API int mxClone(MxThread *th, void *(*entry)(void *), void *data,
                       int priority) MX_USED;
 
-MXCORE_API void mxCancel(MxThread);
+MXSYSTEM_API void mxCancel(MxThread);
 
-MXCORE_API void mxJoin(MxThread th, void **result);
+MXSYSTEM_API void mxJoin(MxThread th, void **result);
 
-MXCORE_API int mxSaveCancel(void);
+MXSYSTEM_API int mxSaveCancel(void);
 
-MXCORE_API void mxRestoreCancel(int state);
+MXSYSTEM_API void mxRestoreCancel(int state);
 
-MXCORE_API void mxControlCancel(int cmd, ...);
+MXSYSTEM_API void mxControlCancel(int cmd, ...);
 
-MXCORE_API MxThread mxThreadSelf() MX_USED;
+MXSYSTEM_API MxThread mxThreadSelf() MX_USED;
 
-MXCORE_API unsigned long mxThreadId() MX_USED;
+MXSYSTEM_API unsigned long mxThreadId() MX_USED;
 
-MXCORE_API mtime_t mdate();
+MXSYSTEM_API mtime_t mdate();
 
-MXCORE_API void mwait(mtime_t deadline);
+MXSYSTEM_API void mwait(mtime_t deadline);
 
-MXCORE_API void msleep(mtime_t delay);
+MXSYSTEM_API void msleep(mtime_t delay);
 
 #define MX_HARD_MIN_SLEEP   10000 /* 10 milliseconds = 1 tick at 100Hz */
 #define MX_SOFT_MIN_SLEEP 9000000 /* 9 seconds */
@@ -346,17 +346,17 @@ mtime_t impossible_deadline( mtime_t deadline )
 #define msleep(d) msleep(check_delay(d))
 #define mwait(d) mwait(check_deadline(d))
 
-MXCORE_API int mxTimerCreate(MxTimer *id, void (*func)(void *), void *data)
+MXSYSTEM_API int mxTimerCreate(MxTimer *id, void (*func)(void *), void *data)
 MX_USED;
 
-MXCORE_API void mxTimerDestroy(MxTimer timer);
+MXSYSTEM_API void mxTimerDestroy(MxTimer timer);
 
-MXCORE_API void mxTimerSchedule(MxTimer timer, bool absolute,
+MXSYSTEM_API void mxTimerSchedule(MxTimer timer, bool absolute,
                                 mtime_t value, mtime_t interval);
 
-MXCORE_API unsigned mxTimerGetoverrun(MxTimer) MX_USED;
+MXSYSTEM_API unsigned mxTimerGetoverrun(MxTimer) MX_USED;
 
-MXCORE_API unsigned mxGetCPUCount();
+MXSYSTEM_API unsigned mxGetCPUCount();
 
 enum
 {
@@ -443,7 +443,7 @@ enum
     MX_MAX_MUTEX
 };
 
-MXCORE_API void mxGlobalMutex(unsigned, bool);
+MXSYSTEM_API void mxGlobalMutex(unsigned, bool);
 
 #define mxGlobalLock( n ) mxGlobalMutex(n, true)
 

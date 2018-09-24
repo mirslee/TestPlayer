@@ -10,11 +10,11 @@
  * This file defined random number generator function
  */
 
-MXCORE_API void mxRandBytes(void *buf, size_t len);
+MXSYSTEM_API void mxRandBytes(void *buf, size_t len);
 
 /* Interlocked (but not reproducible) functions for the POSIX PRNG */
-MXCORE_API double mxDrand48(void) MX_USED;
-MXCORE_API long mxLrand48(void) MX_USED;
-MXCORE_API long mxMrand48(void) MX_USED;
+MXSYSTEM_API double mxDrand48(void);
+MXSYSTEM_API long mxLrand48(void);
+MXSYSTEM_API long mxMrand48(void);
 
 #endif

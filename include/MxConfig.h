@@ -23,12 +23,9 @@
 #define HAVE_TIMESPEC_GET 1
 #define HAVE_GETPID 1
 #define HAVE_FDOPENDIR 1
-#define MX_NEED_SLEEP 1
-#define MX_NEED_CONDVAR 1
-#define MX_NEED_RWLOCK 1
-#define MX_NEED_SEMAPHORE 1
 //#define HAVE_TIMEGM 1
 #define HAVE_TIMESPEC_GET 1
+#define HAVE_STRNICMP 1
 #elif defined(__APPLE__)
 #include "MxConfig_mac.h"
 #endif

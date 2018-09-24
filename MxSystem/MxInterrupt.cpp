@@ -541,7 +541,7 @@ static void vlc_poll_i11e_wake(void *opaque)
 
 static void vlc_poll_i11e_cleanup(void *opaque)
 {
-    vlc_interrupt_t *ctx = opaque;
+    vlc_interrupt_t *ctx = (vlc_interrupt_t*)opaque;
     HANDLE th = ctx->data;
     
     vlc_interrupt_finish(ctx);
@@ -552,7 +552,7 @@ int vlc_poll_i11e(struct pollfd *fds, unsigned nfds, int timeout)
 {
     vlc_interrupt_t *ctx = vlc_interrupt_var;
     if (ctx == NULL)
-        return vlc_poll(fds, nfds, timeout);
+        return mxPoll(fds, nfds, timeout);
     
     int ret = -1;
     HANDLE th;
@@ -567,9 +567,9 @@ int vlc_poll_i11e(struct pollfd *fds, unsigned nfds, int timeout)
     
     vlc_interrupt_prepare(ctx, vlc_poll_i11e_wake, th);
     
-    vlc_cleanup_push(vlc_poll_i11e_cleanup, ctx);
-    ret = vlc_poll(fds, nfds, timeout);
-    vlc_cleanup_pop();
+    mxCleanupPush(vlc_poll_i11e_cleanup, ctx);
+    ret = mxPoll(fds, nfds, timeout);
+    mxCleanupPop();
     
     if (vlc_interrupt_finish(ctx))
     {
@@ -584,13 +584,15 @@ int vlc_poll_i11e(struct pollfd *fds, unsigned nfds, int timeout)
 ssize_t vlc_readv_i11e(int fd, struct iovec *iov, int count)
 {
     (void) fd; (void) iov; (void) count;
-    vlc_assert_unreachable();
+    MX_assert_unreachable();
+	return 0;
 }
 
 ssize_t vlc_writev_i11e(int fd, const struct iovec *iov, int count)
 {
     (void) fd; (void) iov; (void) count;
-    vlc_assert_unreachable();
+    MX_assert_unreachable();
+	return 0;
 }
 
 ssize_t vlc_read_i11e(int fd, void *buf, size_t count)
@@ -606,7 +608,8 @@ ssize_t vlc_write_i11e(int fd, const void *buf, size_t count)
 ssize_t vlc_recvmsg_i11e(int fd, struct msghdr *msg, int flags)
 {
     (void) fd; (void) msg; (void) flags;
-    vlc_assert_unreachable();
+    MX_assert_unreachable();
+	return 0;
 }
 
 ssize_t vlc_recvfrom_i11e(int fd, void *buf, size_t len, int flags,
@@ -620,7 +623,7 @@ ssize_t vlc_recvfrom_i11e(int fd, void *buf, size_t len, int flags,
     if (vlc_poll_i11e(&ufd, 1, -1) < 0)
         return -1;
     
-    ssize_t ret = recvfrom(fd, buf, len, flags, addr, addrlen);
+    ssize_t ret = recvfrom(fd, (char *)buf, len, flags, addr, addrlen);
     if (ret < 0 && WSAGetLastError() == WSAEWOULDBLOCK)
         errno = EAGAIN;
     return ret;
@@ -629,7 +632,8 @@ ssize_t vlc_recvfrom_i11e(int fd, void *buf, size_t len, int flags,
 ssize_t vlc_sendmsg_i11e(int fd, const struct msghdr *msg, int flags)
 {
     (void) fd; (void) msg; (void) flags;
-    vlc_assert_unreachable();
+    MX_assert_unreachable();
+	return 0;
 }
 
 ssize_t vlc_sendto_i11e(int fd, const void *buf, size_t len, int flags,
@@ -643,7 +647,7 @@ ssize_t vlc_sendto_i11e(int fd, const void *buf, size_t len, int flags,
     if (vlc_poll_i11e(&ufd, 1, -1) < 0)
         return -1;
     
-    ssize_t ret = sendto(fd, buf, len, flags, addr, addrlen);
+    ssize_t ret = sendto(fd, (const char *)buf, len, flags, addr, addrlen);
     if (ret < 0 && WSAGetLastError() == WSAEWOULDBLOCK)
         errno = EAGAIN;
     return ret;
@@ -660,7 +664,7 @@ int vlc_accept_i11e(int fd, struct sockaddr *addr, socklen_t *addrlen,
     if (vlc_poll_i11e(&ufd, 1, -1) < 0)
         return -1;
     
-    int cfd = vlc_accept(fd, addr, addrlen, blocking);
+    int cfd = mxAccept(fd, addr, addrlen, blocking);
     if (cfd < 0 && WSAGetLastError() == WSAEWOULDBLOCK)
         errno = EAGAIN;
     return cfd;

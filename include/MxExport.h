@@ -32,4 +32,10 @@
 #define MXCODEC_API MX_IMPORT
 #endif
 
+#ifdef MXSYSTEM_EXPORT_DLL
+#define MXSYSTEM_API MX_EXPORT
+#else
+#define MXSYSTEM_API MX_IMPORT
+#endif
+
 #endif //MXEXPORT_H

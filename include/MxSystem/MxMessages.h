@@ -64,18 +64,18 @@ typedef struct vlc_log_t
     unsigned long tid; /**< Emitter thread ID */
 } vlc_log_t;
 
-MXCORE_API void vlc_Log(vlc_object_t *obj, int prio, const char *module,
+MXSYSTEM_API void vlc_Log(CMxObject *obj, int prio, const char *module,
                      const char *file, unsigned line, const char *func,
-                     const char *format, ...) VLC_FORMAT(7, 8);
-MXCORE_API void vlc_vaLog(vlc_object_t *obj, int prio, const char *module,
+                     const char *format, ...) MX_FORMAT(7, 8);
+MXSYSTEM_API void vlc_vaLog(CMxObject *obj, int prio, const char *module,
                        const char *file, unsigned line, const char *func,
                        const char *format, va_list ap);
 #define msg_GenericVa(o, p, fmt, ap) \
-    vlc_vaLog(VLC_OBJECT(o), p, vlc_module_name, __FILE__, __LINE__, \
+    vlc_vaLog(MX_OBJECT(o), p, vlc_module_name, __FILE__, __LINE__, \
               __func__, fmt, ap)
 
 #define msg_Generic(o, p, ...) \
-    vlc_Log(VLC_OBJECT(o), p, vlc_module_name, __FILE__, __LINE__, \
+    vlc_Log(MX_OBJECT(o), p, vlc_module_name, __FILE__, __LINE__, \
             __func__, __VA_ARGS__)
 #define msg_Info(p_this, ...) \
     msg_Generic(p_this, VLC_MSG_INFO, __VA_ARGS__)
@@ -88,8 +88,8 @@ MXCORE_API void vlc_vaLog(vlc_object_t *obj, int prio, const char *module,
 
 extern const char vlc_module_name[];
 
-MXCORE_API const char *vlc_strerror(int);
-MXCORE_API const char *vlc_strerror_c(int);
+MXSYSTEM_API const char *vlc_strerror(int);
+MXSYSTEM_API const char *vlc_strerror_c(int);
 
 /**
  * Message logging callback signature.

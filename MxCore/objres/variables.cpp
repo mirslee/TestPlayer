@@ -35,12 +35,12 @@
 #include <limits.h>
 
 #include "MxCommon.h"
-#include "MxCharSet.h"
+#include "../MxSystem/MxCharSet.h"
 #include "variables.h"
-#include "MxFixups.h"
+#include "../MxSystem/MxFixups.h"
 #include "MxVariables.h"
 #include "MxError.h"
-#include "MxThread.h"
+#include "../MxSystem/MxThread.h"
 //#include "config/configuration.h"
 
 typedef struct callback_entry_t

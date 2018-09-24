@@ -6,7 +6,7 @@
 #include "MxCommon.h"
 #include "MxModules.h"
 #include "MxError.h"
-#include "MxFixups.h"
+#include "../MxSystem/MxFixups.h"
 #include "MxVariables.h"
 #include <stdlib.h>
 #include <string.h>

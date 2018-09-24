@@ -26,7 +26,7 @@
 #define MXEVENTS_H
 
 #include "CMxMeta.h"
-#include "MxThread.h"
+#include "../MxSystem/MxThread.h"
 #include <vector>
 
 /**
@@ -202,7 +202,7 @@ void mxEventSend( MxEventManager * p_em, MxEvent * );
 /*
  * Add a callback for an event.
  */
-MXCORE_API int mxEventAttach( MxEventManager * p_event_manager,
+MXSYSTEM_API int mxEventAttach( MxEventManager * p_event_manager,
                               MxEventType event_type,
                               mx_event_callback_t pf_callback,
                               void *p_user_data );
@@ -210,7 +210,7 @@ MXCORE_API int mxEventAttach( MxEventManager * p_event_manager,
 /*
  * Remove a callback for an event.
  */
-MXCORE_API void mxEventDetach( MxEventManager *p_event_manager,
+MXSYSTEM_API void mxEventDetach( MxEventManager *p_event_manager,
                                MxEventType event_type,
                                mx_event_callback_t pf_callback,
                                void *p_user_data );

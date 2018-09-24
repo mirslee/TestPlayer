@@ -37,7 +37,7 @@
 #include "MxCommon.h"
 #include "variables.h"
 #include "MxError.h"
-#include "MxThread.h"
+#include "../MxSystem/MxThread.h"
 #include "MxVariables.h"
 
 #ifdef HAVE_SEARCH_H

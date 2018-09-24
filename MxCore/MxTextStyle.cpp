@@ -2,6 +2,7 @@
 #include "MxConfig.h"
 #include "MxCommon.h"
 #include "MxTextStyle.h"
+#include "../MxSystem/MxFixups.h"
 #include <ctype.h>
 
 static const struct {

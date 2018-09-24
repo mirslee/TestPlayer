@@ -776,7 +776,7 @@ static mtime_t mdate_default(void)
 
 static mtime_t(*mdate_selected) (void) = mdate_default;
 
-mtime_t mdate(void)
+mtime_t mdate()
 {
 	return mdate_selected();
 }
@@ -903,8 +903,7 @@ static BOOL SelectClockSource(void *data)
 	return TRUE;
 }
 
-size_t EnumClockSource(CMxObject *obj, const char *var,
-	char ***vp, char ***np)
+size_t EnumClockSource(CMxObject *obj, const char *var,char ***vp, char ***np)
 {
 	const size_t max = 6;
 	char **values = (char **)xmalloc(sizeof(*values) * max);
@@ -917,7 +916,7 @@ size_t EnumClockSource(CMxObject *obj, const char *var,
 #endif
 
 	values[n] = xstrdup("");
-	names[n] = xstrdup(_("Auto"));
+	names[n] = xstrdup("Auto");
 	n++;
 #if (_WIN32_WINNT < _WIN32_WINNT_WIN7)
 	if (version >= 0x0601)

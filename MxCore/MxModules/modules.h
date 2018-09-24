@@ -24,8 +24,8 @@
 #ifndef MODULES_H
 #define MODULES_H 1
 
-# include "MxAtomic.h"
-#include "CMxBlock.h"
+#include "../MxSystem/MxAtomic.h"
+#include "../MxSystem/CMxBlock.h"
 
 /** The plugin handle type */
 typedef void *module_handle_t;

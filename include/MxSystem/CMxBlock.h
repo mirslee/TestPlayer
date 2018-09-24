@@ -61,7 +61,7 @@ struct MxBlockFifo
     size_t          i_size;
 };
 
-class MXCODEC_API CMxBlock {
+class MXSYSTEM_API CMxBlock {
 public:
     static CMxBlock* alloc(size_t size);
     static CMxBlock *heapAlloc(void *, size_t);

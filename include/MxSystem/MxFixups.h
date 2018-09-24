@@ -104,12 +104,12 @@
 	
     /* stdio.h */
 #ifndef HAVE_ASPRINTF
-    int asprintf (char **, const char *, ...);
+	MXSYSTEM_API int asprintf (char **, const char *, ...);
 #endif
     
 #ifndef HAVE_FLOCKFILE
-    void flockfile (FILE *);
-    void funlockfile (FILE *);
+	MXSYSTEM_API void flockfile (FILE *);
+	MXSYSTEM_API void funlockfile (FILE *);
     //int getc_unlocked (FILE *);
     //int getchar_unlocked (void);
     //int putc_unlocked (int, FILE *);
@@ -121,109 +121,113 @@
 #endif
 
 #ifndef HAVE_GETDELIM
-    ssize_t getdelim (char **, size_t *, int, FILE *);
-    ssize_t getline (char **, size_t *, FILE *);
+	MXSYSTEM_API ssize_t getdelim (char **, size_t *, int, FILE *);
+	MXSYSTEM_API ssize_t getline (char **, size_t *, FILE *);
 #endif
     
 #ifndef HAVE_REWIND
-    void rewind (FILE *);
+	MXSYSTEM_API void rewind (FILE *);
 #endif
     
 #ifndef HAVE_VASPRINTF
-    int vasprintf (char **, const char *, va_list);
+	MXSYSTEM_API int vasprintf (char **, const char *, va_list);
 #endif
     
     /* string.h */
 #ifndef HAVE_FFSLL
-    int ffsll(long long);
+	MXSYSTEM_API int ffsll(long long);
 #endif
     
 #ifndef HAVE_MEMRCHR
-    void *memrchr(const void *, int, size_t);
+	MXSYSTEM_API void *memrchr(const void *, int, size_t);
 #endif
     
 #ifndef HAVE_STRCASECMP
-    int strcasecmp (const char *, const char *);
+	MXSYSTEM_API int strcasecmp (const char *, const char *);
+#endif
+
+#ifndef HAVE_STRNCASECMP
+	MXSYSTEM_API int strncasecmp(const char *, const char *, size_t n);
 #endif
     
 #ifndef HAVE_STRCASESTR
-    char *strcasestr (const char *, const char *);
+	MXSYSTEM_API char *strcasestr (const char *, const char *);
 #endif
     
 #ifndef HAVE_STRDUP
-    char *strdup (const char *);
+	MXSYSTEM_API char *strdup (const char *);
 #endif
     
 #ifndef HAVE_STRVERSCMP
-    int strverscmp (const char *, const char *);
+	MXSYSTEM_API int strverscmp (const char *, const char *);
 #endif
     
 #ifndef HAVE_STRNLEN
-    size_t strnlen (const char *, size_t);
+	MXSYSTEM_API size_t strnlen (const char *, size_t);
 #endif
     
 #ifndef HAVE_STRNSTR
-    char * strnstr (const char *, const char *, size_t);
+	MXSYSTEM_API char * strnstr (const char *, const char *, size_t);
 #endif
     
 #ifndef HAVE_STRNDUP
-    char *strndup (const char *, size_t);
+	MXSYSTEM_API char *strndup (const char *, size_t);
 #endif
     
 #ifndef HAVE_STRLCPY
-    size_t strlcpy (char *, const char *, size_t);
+	MXSYSTEM_API size_t strlcpy (char *, const char *, size_t);
 #endif
     
 #ifndef HAVE_STRSEP
-    char *strsep (char **, const char *);
+	MXSYSTEM_API char *strsep (char **, const char *);
 #endif
     
 #ifndef HAVE_STRTOK_R
-    char *strtok_r(char *, const char *, char **);
+	MXSYSTEM_API char *strtok_r(char *, const char *, char **);
 #endif
     
     /* stdlib.h */
 #ifndef HAVE_ATOF
 #ifndef __ANDROID__
-    double atof (const char *);
+	MXSYSTEM_API double atof (const char *);
 #endif
 #endif
     
 #ifndef HAVE_ATOLL
-    long long atoll (const char *);
+	MXSYSTEM_API long long atoll (const char *);
 #endif
     
 #ifndef HAVE_LLDIV
-    lldiv_t lldiv (long long, long long);
+	MXSYSTEM_API lldiv_t lldiv (long long, long long);
 #endif
     
 #ifndef HAVE_STRTOF
 #ifndef __ANDROID__
-    float strtof (const char *, char **);
+	MXSYSTEM_API float strtof (const char *, char **);
 #endif
 #endif
     
 #ifndef HAVE_STRTOLL
-    long long int strtoll (const char *, char **, int);
+	MXSYSTEM_API long long int strtoll (const char *, char **, int);
 #endif
     
     /* time.h */
 #ifndef HAVE_GMTIME_R
-    struct tm *gmtime_r (const time_t *, struct tm *);
+	MXSYSTEM_API struct tm *gmtime_r (const time_t *, struct tm *);
 #endif
     
 #ifndef HAVE_LOCALTIME_R
-    struct tm *localtime_r (const time_t *, struct tm *);
+	MXSYSTEM_API struct tm *localtime_r (const time_t *, struct tm *);
 #endif
     
 #ifndef HAVE_TIMEGM
-    time_t timegm(struct tm *);
+	MXSYSTEM_API time_t timegm(struct tm *);
 #endif
     
 #ifndef HAVE_TIMESPEC_GET
 #define TIME_UTC 1
     struct timespec;
-    int timespec_get(struct timespec *, int);
+	MXSYSTEM_API int timespec_get(struct timespec *, int);
 #endif
     
     /* sys/time.h */
@@ -234,20 +238,20 @@
     
     /* unistd.h */
 #ifndef HAVE_GETPID
-    pid_t getpid (void) MX_NOTHROW;
+	MXSYSTEM_API pid_t getpid (void) MX_NOTHROW;
 #endif
     
 #ifndef HAVE_FSYNC
-    int fsync (int fd);
+	MXSYSTEM_API int fsync (int fd);
 #endif
     
 #ifndef HAVE_PATHCONF
-    long pathconf (const char *path, int name);
+	MXSYSTEM_API long pathconf (const char *path, int name);
 #endif
     
     /* dirent.h */
 #ifndef HAVE_DIRFD
-    int (dirfd) (DIR *);
+	MXSYSTEM_API int (dirfd) (DIR *);
 #endif
     
 #ifndef HAVE_FDOPENDIR
@@ -446,20 +450,20 @@ static inline locale_t uselocale(locale_t loc)
         leaf
     } VISIT;
     
-    void *tsearch( const void *key, void **rootp, int(*cmp)(const void *, const void *) );
-    void *tfind( const void *key, const void **rootp, int(*cmp)(const void *, const void *) );
-    void *tdelete( const void *key, void **rootp, int(*cmp)(const void *, const void *) );
-    void twalk( const void *root, void(*action)(const void *nodep, VISIT which, int depth) );
+	MXSYSTEM_API void *tsearch( const void *key, void **rootp, int(*cmp)(const void *, const void *) );
+	MXSYSTEM_API void *tfind( const void *key, const void **rootp, int(*cmp)(const void *, const void *) );
+	MXSYSTEM_API void *tdelete( const void *key, void **rootp, int(*cmp)(const void *, const void *) );
+	MXSYSTEM_API void twalk( const void *root, void(*action)(const void *nodep, VISIT which, int depth) );
 //#endif /* HAVE_SEARCH_H */
 #ifndef HAVE_TDESTROY
-    void tdestroy( void *root, void (*free_node)(void *nodep) );
+	MXSYSTEM_API void tdestroy( void *root, void (*free_node)(void *nodep) );
 #endif
     
     /* Random numbers */
 #ifndef HAVE_NRAND48
-    double erand48 (unsigned short subi[3]);
-    long jrand48 (unsigned short subi[3]);
-    long nrand48 (unsigned short subi[3]);
+	MXSYSTEM_API double erand48 (unsigned short subi[3]);
+	MXSYSTEM_API long jrand48 (unsigned short subi[3]);
+	MXSYSTEM_API long nrand48 (unsigned short subi[3]);
 #endif
     
 #ifdef __OS2__

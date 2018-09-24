@@ -27,6 +27,6 @@
 
 #include "MxCommon.h"
 
-MXCORE_API int mxAccept(int lfd, struct sockaddr *addr, socklen_t *alen, bool nonblock) MX_USED;
+MXSYSTEM_API int mxAccept(int lfd, struct sockaddr *addr, socklen_t *alen, bool nonblock) MX_USED;
 
 #endif /* MXNETWORK_H */

@@ -17,6 +17,9 @@
 /** Initial reserved header and footer size. */
 #define BLOCK_PADDING      32
 
+CMxBlock::CMxBlock() {
+
+}
 CMxBlock* CMxBlock::alloc(size_t size) {
     if (unlikely(size >> 27))
     {

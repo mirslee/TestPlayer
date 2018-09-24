@@ -35,7 +35,7 @@ struct MxUrl
  * @return a heap-allocated URI string on success
  * or NULL in case of error (errno will be set accordingly)
  */
-MXCORE_API char *mxPath2uri(const char *path, const char *scheme) MX_MALLOC;
+MXSYSTEM_API char *mxPath2uri(const char *path, const char *scheme) MX_MALLOC;
 
 /**
  * Converts a URI to a local path.
@@ -47,7 +47,7 @@ MXCORE_API char *mxPath2uri(const char *path, const char *scheme) MX_MALLOC;
  * @return a heap-allocated string or success
  * or NULL on error
  */
-MXCORE_API char *mxUri2path(const char *url) MX_MALLOC;
+MXSYSTEM_API char *mxUri2path(const char *url) MX_MALLOC;
 
 /**
  * Decodes an URI component in place.
@@ -69,7 +69,7 @@ MXCORE_API char *mxUri2path(const char *url) MX_MALLOC;
  * \param str null-terminated component
  * \return str is returned on success. NULL if str was not properly encoded.
  */
-MXCORE_API char *mxUriDecode(char *str);
+MXSYSTEM_API char *mxUriDecode(char *str);
 
 /**
  * Decodes an URI component.
@@ -78,7 +78,7 @@ MXCORE_API char *mxUriDecode(char *str);
  *
  * \return a heap-allocated string on success or NULL on error.
  */
-MXCORE_API char *mxUriDecodeDuplicate(const char *str) MX_MALLOC;
+MXSYSTEM_API char *mxUriDecodeDuplicate(const char *str) MX_MALLOC;
 
 /**
  * Encodes a URI component.
@@ -90,7 +90,7 @@ MXCORE_API char *mxUriDecodeDuplicate(const char *str) MX_MALLOC;
  * @note Obviously, a URI containing nul bytes cannot be passed.
  * @return heap-allocated string, or NULL if out of memory.
  */
-MXCORE_API char *mxUriEncode(const char *str) MX_MALLOC;
+MXSYSTEM_API char *mxUriEncode(const char *str) MX_MALLOC;
 
 /**
  * Composes an URI.
@@ -104,7 +104,7 @@ MXCORE_API char *mxUriEncode(const char *str) MX_MALLOC;
  *
  * \return a heap-allocated nul-terminated string or NULL if out of memory
  */
-MXCORE_API char *mxUriCompose(const MxUrl *) MX_MALLOC;
+MXSYSTEM_API char *mxUriCompose(const MxUrl *) MX_MALLOC;
 
 /**
  * Resolves an URI reference.
@@ -119,7 +119,7 @@ MXCORE_API char *mxUriCompose(const MxUrl *) MX_MALLOC;
  * \return a heap-allocated nul-terminated string representing the resolved
  * absolute URI, or NULL if out of memory.
  */
-MXCORE_API char *mxUriResolve(const char *base, const char *ref) MX_MALLOC;
+MXSYSTEM_API char *mxUriResolve(const char *base, const char *ref) MX_MALLOC;
 
 /**
  * Fixes up a URI string.
@@ -132,7 +132,7 @@ MXCORE_API char *mxUriResolve(const char *base, const char *ref) MX_MALLOC;
  *
  * @return a heap-allocated string, or NULL if on out of memory.
  */
-MXCORE_API char *mxUriFixup(const char *) MX_MALLOC;
+MXSYSTEM_API char *mxUriFixup(const char *) MX_MALLOC;
 
 /**
  * Parses an URI or IRI.
@@ -168,7 +168,7 @@ MXCORE_API char *mxUriFixup(const char *) MX_MALLOC;
  * \retval 0 success
  * \retval -1 failure
  */
-MXCORE_API int mxUrlParse(MxUrl *url, const char *str);
+MXSYSTEM_API int mxUrlParse(MxUrl *url, const char *str);
 
 /**
  * Parses an URI or IRI and fix up the path part.
@@ -176,12 +176,12 @@ MXCORE_API int mxUrlParse(MxUrl *url, const char *str);
  * \see vlc_UrlParse
  * \see vlc_uri_fixup
  */
-MXCORE_API int mxUrlParseFixup(MxUrl *url, const char *str);
+MXSYSTEM_API int mxUrlParseFixup(MxUrl *url, const char *str);
 
 /**
  * Releases resources allocated by vlc_UrlParse().
  */
-MXCORE_API void mxUrlClean(MxUrl *);
+MXSYSTEM_API void mxUrlClean(MxUrl *);
 
 
 #endif /* MXURL_H */

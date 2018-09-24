@@ -145,7 +145,7 @@ char *mxPath2uri (const char *path, const char *scheme)
                       path[0]) == -1)
             buf = NULL;
         path += 2;
-# warning Drive letter-relative path not implemented!
+//# warning Drive letter-relative path not implemented!
         if (path[0] != DIR_SEP_CHAR)
         {
             errno = ENOTSUP;
@@ -255,10 +255,10 @@ char *mxUri2path (const char *url)
         
         /* Leading backslash => local path */
         if (*path == '\\')
-            return memmove (path, path + 1, strlen (path + 1) + 1);
+            return (char *)memmove (path, path + 1, strlen (path + 1) + 1);
         /* Local path disguised as a remote one */
         if (!strncasecmp (path, "localhost\\", 10))
-            return memmove (path, path + 10, strlen (path + 10) + 1);
+            return (char *)memmove (path, path + 10, strlen (path + 10) + 1);
         /* UNC path */
         if (*path && asprintf (&ret, "\\\\%s", path) == -1)
             ret = NULL;
@@ -851,7 +851,7 @@ char *vlc_uri_fixup(const char *str)
 # include <idna.h>
 #elif defined (_WIN32)
 # include <windows.h>
-# include <vlc_charset.h>
+# include "MxCharSet.h"
 
 # if (_WIN32_WINNT < _WIN32_WINNT_VISTA)
 #  define IDN_ALLOW_UNASSIGNED 0x01
@@ -920,7 +920,7 @@ static char *mx_idna_to_ascii (const char *idn)
         goto error;
     }
     
-    wchar_t *buf = vlc_alloc (len, sizeof (*buf));
+    wchar_t *buf = (wchar_t *)vlc_alloc (len, sizeof (*buf));
     if (unlikely(buf == NULL))
         goto error;
     if (!IdnToAscii (IDN_ALLOW_UNASSIGNED, wide, -1, buf, len))

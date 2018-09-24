@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{F6DF28B7-BE0F-46F1-A97C-5BE32E4101D6}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>MxSystem</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
+    <TargetName>$(ProjectName)D</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>false</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;MXSYSTEM_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>false</ConformanceMode>
+      <AdditionalIncludeDirectories>..\include;..\include\win;..\include\MxSystem;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ImportLibrary>$(SolutionDir)\lib\$(Platform)\$(Configuration)\$(TargetName).lib</ImportLibrary>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;MXSYSTEM_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;MXSYSTEM_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;MXSYSTEM_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\MxExport.h" />
+    <ClInclude Include="..\include\MxSystem\CMxBits.h" />
+    <ClInclude Include="..\include\MxSystem\CMxBlock.h" />
+    <ClInclude Include="..\include\MxSystem\CMxLog.h" />
+    <ClInclude Include="..\include\MxSystem\MxAtomic.h" />
+    <ClInclude Include="..\include\MxSystem\MxCharSet.h" />
+    <ClInclude Include="..\include\MxSystem\MxCpu.h" />
+    <ClInclude Include="..\include\MxSystem\MxError.h" />
+    <ClInclude Include="..\include\MxSystem\MxFileSystem.h" />
+    <ClInclude Include="..\include\MxSystem\MxFixups.h" />
+    <ClInclude Include="..\include\MxSystem\MxInterrupt.h" />
+    <ClInclude Include="..\include\MxSystem\MxMemStream.h" />
+    <ClInclude Include="..\include\MxSystem\MxMessages.h" />
+    <ClInclude Include="..\include\MxSystem\MxNetwork.h" />
+    <ClInclude Include="..\include\MxSystem\MxPointer.h" />
+    <ClInclude Include="..\include\MxSystem\MxRand.h" />
+    <ClInclude Include="..\include\MxSystem\MxSystem.h" />
+    <ClInclude Include="..\include\MxSystem\MxThread.h" />
+    <ClInclude Include="..\include\MxSystem\MxUrl.h" />
+    <ClInclude Include="stdafx.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CMxBits.cpp" />
+    <ClCompile Include="CMxBlock.cpp" />
+    <ClCompile Include="MxCharSet\charset.cpp" />
+    <ClCompile Include="MxCharSet\libc.cpp" />
+    <ClCompile Include="MxCharSet\unicode.cpp" />
+    <ClCompile Include="MxCompat\aligned_alloc.cpp" />
+    <ClCompile Include="MxCompat\asprintf.cpp" />
+    <ClCompile Include="MxCompat\atof.cpp" />
+    <ClCompile Include="MxCompat\atoll.cpp" />
+    <ClCompile Include="MxCompat\dirfd.cpp" />
+    <ClCompile Include="MxCompat\dummy.cpp" />
+    <ClCompile Include="MxCompat\fdopendir.cpp" />
+    <ClCompile Include="MxCompat\ffsll.cpp" />
+    <ClCompile Include="MxCompat\flockfile.cpp" />
+    <ClCompile Include="MxCompat\freeaddrinfo.cpp" />
+    <ClCompile Include="MxCompat\fsync.cpp" />
+    <ClCompile Include="MxCompat\gai_strerror.cpp" />
+    <ClCompile Include="MxCompat\getdelim.cpp" />
+    <ClCompile Include="MxCompat\getpid.cpp" />
+    <ClCompile Include="MxCompat\gettimeofday.cpp" />
+    <ClCompile Include="MxCompat\gmtime_r.cpp" />
+    <ClCompile Include="MxCompat\inet_pton.cpp" />
+    <ClCompile Include="MxCompat\lldiv.cpp" />
+    <ClCompile Include="MxCompat\localtime_r.cpp" />
+    <ClCompile Include="MxCompat\memrchr.cpp" />
+    <ClCompile Include="MxCompat\nrand48.cpp" />
+    <ClCompile Include="MxCompat\pathconf.cpp" />
+    <ClCompile Include="MxCompat\poll.cpp" />
+    <ClCompile Include="MxCompat\realpath.cpp" />
+    <ClCompile Include="MxCompat\recvmsg.cpp" />
+    <ClCompile Include="MxCompat\rewind.cpp" />
+    <ClCompile Include="MxCompat\sendmsg.cpp" />
+    <ClCompile Include="MxCompat\setenv.cpp" />
+    <ClCompile Include="MxCompat\sigwait.cpp" />
+    <ClCompile Include="MxCompat\sincos.cpp" />
+    <ClCompile Include="MxCompat\strcasecmp.cpp" />
+    <ClCompile Include="MxCompat\strcasestr.cpp" />
+    <ClCompile Include="MxCompat\strdup.cpp" />
+    <ClCompile Include="MxCompat\strlcpy.cpp" />
+    <ClCompile Include="MxCompat\strncasecmp.cpp" />
+    <ClCompile Include="MxCompat\strndup.cpp" />
+    <ClCompile Include="MxCompat\strnlen.cpp" />
+    <ClCompile Include="MxCompat\strnstr.cpp" />
+    <ClCompile Include="MxCompat\strsep.cpp" />
+    <ClCompile Include="MxCompat\strtof.cpp" />
+    <ClCompile Include="MxCompat\strtok_r.cpp" />
+    <ClCompile Include="MxCompat\strtoll.cpp" />
+    <ClCompile Include="MxCompat\strverscmp.cpp" />
+    <ClCompile Include="MxCompat\swab.cpp" />
+    <ClCompile Include="MxCompat\tdestroy.cpp" />
+    <ClCompile Include="MxCompat\tfind.cpp" />
+    <ClCompile Include="MxCompat\timegm.cpp" />
+    <ClCompile Include="MxCompat\timespec_get.cpp" />
+    <ClCompile Include="MxCompat\vasprintf.cpp" />
+    <ClCompile Include="MxCpu.cpp" />
+    <ClCompile Include="MxFileSystem\filesystem.cpp" />
+    <ClCompile Include="MxFileSystem\filesystem_win32.cpp" />
+    <ClCompile Include="MxFixups.cpp" />
+    <ClCompile Include="MxInterrupt.cpp" />
+    <ClCompile Include="MxMemStream.cpp" />
+    <ClCompile Include="MxNetwork.cpp" />
+    <ClCompile Include="MxRand\rand.cpp" />
+    <ClCompile Include="MxRand\rand_win32.cpp" />
+    <ClCompile Include="MxThread\threads.cpp" />
+    <ClCompile Include="MxThread\thread_win32.cpp" />
+    <ClCompile Include="MxUrl.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
