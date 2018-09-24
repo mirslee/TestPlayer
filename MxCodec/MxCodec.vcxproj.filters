@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="源文件\MxEs">
+      <UniqueIdentifier>{2898af30-0f72-4630-80bb-00057918b7ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\MxFourcc">
+      <UniqueIdentifier>{ed18d1eb-230f-437d-8a4c-b34198fc3bd0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MxFourcc\fourcc_list.h">
+      <Filter>源文件\MxFourcc</Filter>
+    </ClInclude>
+    <ClInclude Include="MxFourcc\fourcc_tables.h">
+      <Filter>源文件\MxFourcc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\MxCodec\CMxStream.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\MxCodec\MxFourcc.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\MxCodec\MxEs.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\MxCodec\CMxBoxes.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\MxCodec\CMxCodec.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\MxCodec\MxCodecs.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MxEs\es_format.cpp">
+      <Filter>源文件\MxEs</Filter>
+    </ClCompile>
+    <ClCompile Include="MxEs\video_format.cpp">
+      <Filter>源文件\MxEs</Filter>
+    </ClCompile>
+    <ClCompile Include="MxFourcc\fourcc.cpp">
+      <Filter>源文件\MxFourcc</Filter>
+    </ClCompile>
+    <ClCompile Include="MxFourcc\fourcc_gen.cpp">
+      <Filter>源文件\MxFourcc</Filter>
+    </ClCompile>
+    <ClCompile Include="CMxStream.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

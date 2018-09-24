@@ -1,7 +1,7 @@
 #ifndef CMXSTREAM_H
 #define CMXSTREAM_H 1
 
-#include "CMxBlock.h"
+#include "../MxSystem/CMxBlock.h"
 #include "vlc_input_item.h"
 #include "CMxObject.h"
 
