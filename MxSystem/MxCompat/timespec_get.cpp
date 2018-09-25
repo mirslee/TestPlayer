@@ -5,6 +5,7 @@
 
 #ifndef HAVE_TIMESPEC_GET
 
+#include "MxFixups.h"
 #include <time.h>
 #include <unistd.h> /* _POSIX_TIMERS */
 #ifndef _POSIX_TIMERS

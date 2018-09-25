@@ -5,7 +5,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#ifdef _WIN32
 typedef int ssize_t;
+#endif
 ssize_t getdelim (char ** lineptr, size_t * n, int delimiter, FILE * stream)
 {
     char *ptr = *lineptr;

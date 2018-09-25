@@ -236,13 +236,6 @@ int mxPipe (int fds[2])
 #endif
 }
 
-ssize_t mxWrite(int fd, const void *buf, size_t len)
-{
-    struct iovec iov = { .iov_base = (void *)buf, .iov_len = len };
-
-    return mxWritev(fd, &iov, 1);
-}
-
 ssize_t mxWritev(int fd, const struct iovec *iov, int count)
 {
     sigset_t set, oset;
@@ -278,6 +271,13 @@ ssize_t mxWritev(int fd, const struct iovec *iov, int count)
     if (!sigismember(&oset, SIGPIPE)) /* Restore the signal mask if changed */
         pthread_sigmask(SIG_SETMASK, &oset, NULL);
     return val;
+}
+
+ssize_t mxWrite(int fd, const void *buf, size_t len)
+{
+    struct iovec iov = { .iov_base = (void *)buf, .iov_len = len };
+    
+    return mxWritev(fd, &iov, 1);
 }
 
 #include "MxNetwork.h"

@@ -110,5 +110,5 @@ ssize_t sendmsg(int fd, const struct msghdr *msg, int flags)
 }
 
 #else
-#error sendmsg not implemented on your platform!
+//#error sendmsg not implemented on your platform!
 #endif

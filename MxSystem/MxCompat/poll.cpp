@@ -10,6 +10,7 @@
 # include <sys/time.h>
 # include <sys/select.h>
 # include <fcntl.h>
+#include "MxFixups.h"
 
 int (poll) (struct pollfd *fds, unsigned nfds, int timeout)
 {

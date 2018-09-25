@@ -33,7 +33,14 @@
 #ifdef _WIN32
 #include "MxConfig_win.h"
 #elif defined(__APPLE__)
-#define HAVE_USELOCALE
+#define HAVE_USELOCALE 1
+#define HAVE_LLDIV 1
+#define HAVE_VASPRINTF 1
+#define HAVE_GETPID 1
+#define HAVE_POSIX_MEMALIGN 1
+#define HAVE_PATHCONF 1
+#define HAVE_FSYNC 1
+#define HAVE_NANF 1
 #endif
 
 #endif //MXCONFIG_H

@@ -67,6 +67,13 @@
 			remoteGlobalIDString = 544650802152322D00C41A3F;
 			remoteInfo = MxFileAccess;
 		};
+		544651622159D22300C41A3F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5446515B2159D22200C41A3F /* MxSystem.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5446514D2159D22200C41A3F;
+			remoteInfo = MxSystem;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -95,6 +102,7 @@
 		54464FE42151EB7000C41A3F /* QtWidgets.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QtWidgets.framework; path = ../../../../../usr/local/Cellar/qt/5.11.1/Frameworks/QtWidgets.framework; sourceTree = "<group>"; };
 		54464FE62151EBDB00C41A3F /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		544650942152326000C41A3F /* MxFileAccess.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MxFileAccess.xcodeproj; path = ../plugin/access/MxFileAccess/MxFileAccess.xcodeproj; sourceTree = "<group>"; };
+		5446515B2159D22200C41A3F /* MxSystem.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MxSystem.xcodeproj; path = ../MxSystem/MxSystem.xcodeproj; sourceTree = "<group>"; };
 		87CD42F8CACCA8EA3AE0BB18 /* MxPlayerD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MxPlayerD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D9815BDB5BD9F90D2BC05C5 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
 		A1A67BEAA744704B29168D39 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
@@ -170,6 +178,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		5446515C2159D22200C41A3F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				544651632159D22300C41A3F /* libMxSystem.dylib */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		74B182DB50CB5611B5C1C297 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -204,6 +220,7 @@
 		E8C543AB96796ECAA2E65C57 /* MxPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				5446515B2159D22200C41A3F /* MxSystem.xcodeproj */,
 				544650942152326000C41A3F /* MxFileAccess.xcodeproj */,
 				54464FDD2151E9B200C41A3F /* MxCore.xcodeproj */,
 				54464FD72151E9A600C41A3F /* MxCodec.xcodeproj */,
@@ -278,6 +295,10 @@
 					ProductGroup = 544650952152326000C41A3F /* Products */;
 					ProjectRef = 544650942152326000C41A3F /* MxFileAccess.xcodeproj */;
 				},
+				{
+					ProductGroup = 5446515C2159D22200C41A3F /* Products */;
+					ProjectRef = 5446515B2159D22200C41A3F /* MxSystem.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -305,8 +326,15 @@
 		544650992152326000C41A3F /* libMxFileAccess.dylib */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
-			path = libMxFileAccess.dylib;
+			path = MxFileAccessD.dylib;
 			remoteRef = 544650982152326000C41A3F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		544651632159D22300C41A3F /* libMxSystem.dylib */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.dylib";
+			path = libMxSystem.dylib;
+			remoteRef = 544651622159D22300C41A3F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */

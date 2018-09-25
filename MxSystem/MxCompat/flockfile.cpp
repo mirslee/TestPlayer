@@ -46,10 +46,11 @@ void funlockfile (FILE *stream)
     _funlockfile(stream);
 }
 #else
-# error flockfile not implemented on your platform!
+//# error flockfile not implemented on your platform!
 #endif
 
-int getchar_unlocked (void)
+#ifdef _WIN32
+int getchar_unlocked ()
 {
     return getc_unlocked (stdin);
 }
@@ -58,3 +59,4 @@ int putchar_unlocked (int c)
 {
     return putc_unlocked (c, stdout);
 }
+#endif

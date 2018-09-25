@@ -526,7 +526,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = stdafx.h;
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
-				HEADER_SEARCH_PATHS = ../include;
+				HEADER_SEARCH_PATHS = (
+					../include,
+					../include/MxCore,
+				);
 				INSTALL_PATH = "@rpath";
 				OBJROOT = "$SRCROOT/../../MxPlayer-build/$PROJECT_NAME/build";
 				PRODUCT_NAME = "$(TARGET_NAME)D";
@@ -547,7 +550,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = stdafx.h;
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
-				HEADER_SEARCH_PATHS = ../include;
+				HEADER_SEARCH_PATHS = (
+					../include,
+					../include/MxCore,
+				);
 				INSTALL_PATH = "@rpath";
 				OBJROOT = "$SRCROOT/../../MxPlayer-build/$PROJECT_NAME/build";
 				PRODUCT_NAME = "$(TARGET_NAME)";

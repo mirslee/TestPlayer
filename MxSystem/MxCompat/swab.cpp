@@ -5,7 +5,9 @@
 #include <stdlib.h>
 #include <stdint.h>
 
+#ifdef _WIN32
 typedef int ssize_t;
+#endif
 void swab( const void *p_src_, void *p_dst_, ssize_t n )
 {
     const uint8_t *p_src = (const uint8_t *)p_src_;

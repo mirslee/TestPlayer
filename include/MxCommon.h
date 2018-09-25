@@ -234,7 +234,7 @@ static inline void *xcalloc(size_t n, size_t size)
 
 static inline char *xstrdup(const char *str)
 {
-	char *ptr = /*strdup(str);*/ _strdup(str);
+	char *ptr = strdup(str);
 	if (unlikely(ptr == NULL))
 		abort();
 	return ptr;

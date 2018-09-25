@@ -138,5 +138,5 @@ ssize_t recvmsg(int fd, struct msghdr *msg, int flags)
 }
 
 #else
-#error recvmsg not implemented on your platform!
+//#error recvmsg not implemented on your platform!
 #endif

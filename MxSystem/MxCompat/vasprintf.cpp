@@ -9,6 +9,7 @@
 #include <stdarg.h>
 #include <assert.h>
 
+#ifndef HAVE_VASPRINTF
 int vasprintf (char **strp, const char *fmt, va_list ap)
 {
     va_list args;
@@ -38,3 +39,4 @@ int vasprintf (char **strp, const char *fmt, va_list ap)
     *strp = str;
     return len;
 }
+#endif
