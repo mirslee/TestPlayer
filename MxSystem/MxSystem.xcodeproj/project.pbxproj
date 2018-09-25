@@ -100,7 +100,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5446514D2159D22200C41A3F /* libMxSystemD.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libMxSystemD.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		5446514D2159D22200C41A3F /* MxSystemD.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = MxSystemD.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		5446516B2159D2C700C41A3F /* threads.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = threads.cpp; path = MxThread/threads.cpp; sourceTree = "<group>"; };
 		5446516C2159D2C700C41A3F /* thread_darwin.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = thread_darwin.cpp; path = MxThread/thread_darwin.cpp; sourceTree = "<group>"; };
 		5446516F2159D2DE00C41A3F /* rand.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = rand.cpp; path = MxRand/rand.cpp; sourceTree = "<group>"; };
@@ -218,7 +218,7 @@
 		5446514E2159D22200C41A3F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5446514D2159D22200C41A3F /* libMxSystemD.dylib */,
+				5446514D2159D22200C41A3F /* MxSystemD.dylib */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -417,7 +417,7 @@
 			);
 			name = MxSystem;
 			productName = MxSystem;
-			productReference = 5446514D2159D22200C41A3F /* libMxSystemD.dylib */;
+			productReference = 5446514D2159D22200C41A3F /* MxSystemD.dylib */;
 			productType = "com.apple.product-type.library.dynamic";
 		};
 /* End PBXNativeTarget section */
@@ -642,7 +642,7 @@
 				CONFIGURATION_BUILD_DIR = "$SRCROOT/../../MxPlayer-build/bin/$CONFIGURATION";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_PREFIX = "";
 				GCC_ENABLE_CPP_EXCEPTIONS = YES;
 				GCC_ENABLE_CPP_RTTI = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -666,7 +666,7 @@
 				CONFIGURATION_BUILD_DIR = "$SRCROOT/../../MxPlayer-build/bin/$CONFIGURATION";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_PREFIX = "";
 				GCC_ENABLE_CPP_EXCEPTIONS = YES;
 				GCC_ENABLE_CPP_RTTI = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
