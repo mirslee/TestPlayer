@@ -21,13 +21,13 @@
  * Inc., 51 Franklin Street, Fifth Floor, Boston MA 02110-1301, USA.
  *****************************************************************************/
 
-#ifndef VLC_CODEC_H
-#define VLC_CODEC_H 1
+#ifndef MXCODEC_H
+#define MXCODEC_H 1
 
 #include <assert.h>
 
-#include <vlc_block.h>
-#include <vlc_es.h>
+#include "CMxBlock.h"
+#include "MxEs.h"
 #include <vlc_picture.h>
 #include <vlc_subpicture.h>
 
@@ -52,6 +52,21 @@ typedef struct decoder_cc_desc_t decoder_cc_desc_t;
  * and decoder_t to be the same, so if you have anything to add, do it
  * at the end of the structure.
  */
+class CMxDecoder {
+	MX_COMMON_MEMBERS;
+
+public:
+	MxEsFormat			fmt_in;
+	MxEsFormat			fmt_out;
+	bool                b_frame_drop_allowed;
+
+#   define VLCDEC_SUCCESS   VLC_SUCCESS
+#   define VLCDEC_ECRITICAL VLC_EGENERIC
+#   define VLCDEC_RELOAD    (-100)
+
+	CMxMeta* p_description;
+};
+
 struct decoder_t
 {
     VLC_COMMON_MEMBERS
@@ -419,4 +434,4 @@ VLC_API int decoder_GetDisplayRate( decoder_t * ) VLC_USED;
 
 /** @} */
 /** @} */
-#endif /* _VLC_CODEC_H */
+#endif /* MXCODEC_H */
