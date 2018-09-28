@@ -39,6 +39,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		54210174215DC5D000507FEF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 54210170215DC5CF00507FEF /* MxDemuxer.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 54210162215DC5CF00507FEF;
+			remoteInfo = MxDemuxer;
+		};
 		54464FD62151E98800C41A3F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6DB9C3763D02B1415CD9D565 /* Project object */;
@@ -97,6 +104,7 @@
 		34C3CC745F9A46849F0F12A2 /* QtGui.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QtGui.framework; path = /usr/local/Cellar/qt/5.11.1/lib/QtGui.framework; sourceTree = "<absolute>"; };
 		517C67A6EA328F641FFC21CA /* stdafx.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = stdafx.h; path = /Users/ws/work/TestPlayer/MxPlayer/stdafx.h; sourceTree = "<absolute>"; };
 		53A1666EF2EC8D8B83CC35FC /* QtCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QtCore.framework; path = /usr/local/Cellar/qt/5.11.1/lib/QtCore.framework; sourceTree = "<absolute>"; };
+		54210170215DC5CF00507FEF /* MxDemuxer.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MxDemuxer.xcodeproj; path = ../plugin/muxer/MxDemuxer/MxDemuxer.xcodeproj; sourceTree = "<group>"; };
 		54464FD72151E9A600C41A3F /* MxCodec.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MxCodec.xcodeproj; path = ../MxCodec/MxCodec.xcodeproj; sourceTree = "<group>"; };
 		54464FDD2151E9B200C41A3F /* MxCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MxCore.xcodeproj; path = ../MxCore/MxCore.xcodeproj; sourceTree = "<group>"; };
 		54464FE42151EB7000C41A3F /* QtWidgets.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QtWidgets.framework; path = ../../../../../usr/local/Cellar/qt/5.11.1/Frameworks/QtWidgets.framework; sourceTree = "<group>"; };
@@ -154,6 +162,14 @@
 			name = Sources;
 			sourceTree = "<group>";
 		};
+		54210171215DC5CF00507FEF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				54210175215DC5D000507FEF /* libMxDemuxer.dylib */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		54464FD82151E9A600C41A3F /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -173,7 +189,7 @@
 		544650952152326000C41A3F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				544650992152326000C41A3F /* libMxFileAccess.dylib */,
+				544650992152326000C41A3F /* MxFileAccessD.dylib */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -181,7 +197,7 @@
 		5446515C2159D22200C41A3F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				544651632159D22300C41A3F /* libMxSystem.dylib */,
+				544651632159D22300C41A3F /* MxSystemD.dylib */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -220,6 +236,7 @@
 		E8C543AB96796ECAA2E65C57 /* MxPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				54210170215DC5CF00507FEF /* MxDemuxer.xcodeproj */,
 				5446515B2159D22200C41A3F /* MxSystem.xcodeproj */,
 				544650942152326000C41A3F /* MxFileAccess.xcodeproj */,
 				54464FDD2151E9B200C41A3F /* MxCore.xcodeproj */,
@@ -292,6 +309,10 @@
 					ProjectRef = 54464FDD2151E9B200C41A3F /* MxCore.xcodeproj */;
 				},
 				{
+					ProductGroup = 54210171215DC5CF00507FEF /* Products */;
+					ProjectRef = 54210170215DC5CF00507FEF /* MxDemuxer.xcodeproj */;
+				},
+				{
 					ProductGroup = 544650952152326000C41A3F /* Products */;
 					ProjectRef = 544650942152326000C41A3F /* MxFileAccess.xcodeproj */;
 				},
@@ -309,6 +330,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		54210175215DC5D000507FEF /* libMxDemuxer.dylib */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.dylib";
+			path = libMxDemuxer.dylib;
+			remoteRef = 54210174215DC5D000507FEF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		54464FDC2151E9A700C41A3F /* MxCodecD.dylib */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
@@ -323,17 +351,17 @@
 			remoteRef = 54464FE12151E9B200C41A3F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		544650992152326000C41A3F /* libMxFileAccess.dylib */ = {
+		544650992152326000C41A3F /* MxFileAccessD.dylib */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
 			path = MxFileAccessD.dylib;
 			remoteRef = 544650982152326000C41A3F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		544651632159D22300C41A3F /* libMxSystem.dylib */ = {
+		544651632159D22300C41A3F /* MxSystemD.dylib */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
-			path = libMxSystem.dylib;
+			path = MxSystemD.dylib;
 			remoteRef = 544651622159D22300C41A3F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};

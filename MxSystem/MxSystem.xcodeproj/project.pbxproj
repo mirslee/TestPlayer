@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5421017E215DCEC300507FEF /* MxMessages.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5421017D215DCEC300507FEF /* MxMessages.cpp */; };
 		5446516D2159D2C700C41A3F /* threads.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5446516B2159D2C700C41A3F /* threads.cpp */; };
 		5446516E2159D2C700C41A3F /* thread_darwin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5446516C2159D2C700C41A3F /* thread_darwin.cpp */; };
 		544651712159D2DE00C41A3F /* rand.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5446516F2159D2DE00C41A3F /* rand.cpp */; };
@@ -100,6 +101,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5421017D215DCEC300507FEF /* MxMessages.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MxMessages.cpp; sourceTree = "<group>"; };
 		5446514D2159D22200C41A3F /* MxSystemD.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = MxSystemD.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		5446516B2159D2C700C41A3F /* threads.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = threads.cpp; path = MxThread/threads.cpp; sourceTree = "<group>"; };
 		5446516C2159D2C700C41A3F /* thread_darwin.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = thread_darwin.cpp; path = MxThread/thread_darwin.cpp; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 		544651652159D27300C41A3F /* source */ = {
 			isa = PBXGroup;
 			children = (
+				5421017D215DCEC300507FEF /* MxMessages.cpp */,
 				544652252159E11F00C41A3F /* MxMd5.cpp */,
 				5446521E2159DD3000C41A3F /* stdafx.cpp */,
 				544651E22159D34C00C41A3F /* CMxBits.cpp */,
@@ -461,6 +464,7 @@
 				544651C02159D31000C41A3F /* fdopendir.cpp in Sources */,
 				544651AF2159D31000C41A3F /* strverscmp.cpp in Sources */,
 				544651D32159D31000C41A3F /* strdup.cpp in Sources */,
+				5421017E215DCEC300507FEF /* MxMessages.cpp in Sources */,
 				544651CD2159D31000C41A3F /* strncasecmp.cpp in Sources */,
 				544651CF2159D31000C41A3F /* realpath.cpp in Sources */,
 				544652262159E11F00C41A3F /* MxMd5.cpp in Sources */,

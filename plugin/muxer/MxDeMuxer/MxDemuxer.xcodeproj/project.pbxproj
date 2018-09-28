@@ -1,0 +1,316 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5421017A215DC73800507FEF /* avi.c in Sources */ = {isa = PBXBuildFile; fileRef = 54210177215DC73800507FEF /* avi.c */; };
+		5421017B215DC73800507FEF /* libavi.c in Sources */ = {isa = PBXBuildFile; fileRef = 54210178215DC73800507FEF /* libavi.c */; };
+		5421017C215DC73800507FEF /* libavi.h in Headers */ = {isa = PBXBuildFile; fileRef = 54210179215DC73800507FEF /* libavi.h */; };
+		54210180215DD01C00507FEF /* MxSystemD.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 54210181215DD01C00507FEF /* MxSystemD.dylib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		54210162215DC5CF00507FEF /* MxDemuxerD.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = MxDemuxerD.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		54210177215DC73800507FEF /* avi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = avi.c; sourceTree = "<group>"; };
+		54210178215DC73800507FEF /* libavi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = libavi.c; sourceTree = "<group>"; };
+		54210179215DC73800507FEF /* libavi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libavi.h; sourceTree = "<group>"; };
+		54210181215DD01C00507FEF /* MxSystemD.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = MxSystemD.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5421015F215DC5CF00507FEF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				54210180215DD01C00507FEF /* MxSystemD.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		54210159215DC5CF00507FEF = {
+			isa = PBXGroup;
+			children = (
+				54210176215DC73800507FEF /* avi */,
+				54210163215DC5CF00507FEF /* Products */,
+				5421017F215DD01C00507FEF /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		54210163215DC5CF00507FEF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				54210162215DC5CF00507FEF /* MxDemuxerD.dylib */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		54210176215DC73800507FEF /* avi */ = {
+			isa = PBXGroup;
+			children = (
+				54210177215DC73800507FEF /* avi.c */,
+				54210178215DC73800507FEF /* libavi.c */,
+				54210179215DC73800507FEF /* libavi.h */,
+			);
+			path = avi;
+			sourceTree = "<group>";
+		};
+		5421017F215DD01C00507FEF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				54210181215DD01C00507FEF /* MxSystemD.dylib */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		54210160215DC5CF00507FEF /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5421017C215DC73800507FEF /* libavi.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		54210161215DC5CF00507FEF /* MxDemuxer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5421016D215DC5CF00507FEF /* Build configuration list for PBXNativeTarget "MxDemuxer" */;
+			buildPhases = (
+				5421015E215DC5CF00507FEF /* Sources */,
+				5421015F215DC5CF00507FEF /* Frameworks */,
+				54210160215DC5CF00507FEF /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MxDemuxer;
+			productName = MxDemuxer;
+			productReference = 54210162215DC5CF00507FEF /* MxDemuxerD.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5421015A215DC5CF00507FEF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = lixiaopeng;
+				TargetAttributes = {
+					54210161215DC5CF00507FEF = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 5421015D215DC5CF00507FEF /* Build configuration list for PBXProject "MxDemuxer" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 54210159215DC5CF00507FEF;
+			productRefGroup = 54210163215DC5CF00507FEF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				54210161215DC5CF00507FEF /* MxDemuxer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5421015E215DC5CF00507FEF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5421017B215DC73800507FEF /* libavi.c in Sources */,
+				5421017A215DC73800507FEF /* avi.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		5421016B215DC5CF00507FEF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		5421016C215DC5CF00507FEF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		5421016E215DC5CF00507FEF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CONFIGURATION_BUILD_DIR = "$SRCROOT/../../../../MxPlayer-build/bin/$CONFIGURATION/plugin/access";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_PREFIX = "";
+				GCC_ENABLE_CPP_EXCEPTIONS = YES;
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = stdafx.h;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				HEADER_SEARCH_PATHS = ../../../include;
+				INSTALL_PATH = "@rpath";
+				OBJROOT = "$SRCROOT/../../../../MxPlayer-build/plugin/access/$PROJECT_NAME/build";
+				PRODUCT_NAME = "$(TARGET_NAME)D";
+				SYMROOT = "$SRCROOT/../../../../MxPlayer-build/bin/$CONFIGURATION/plugin/access";
+			};
+			name = Debug;
+		};
+		5421016F215DC5CF00507FEF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CONFIGURATION_BUILD_DIR = "$SRCROOT/../../../../MxPlayer-build/bin/$CONFIGURATION/plugin/access";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_PREFIX = "";
+				GCC_ENABLE_CPP_EXCEPTIONS = YES;
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = stdafx.h;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				HEADER_SEARCH_PATHS = ../../../include;
+				INSTALL_PATH = "@rpath";
+				OBJROOT = "$SRCROOT/../../../../MxPlayer-build/plugin/access/$PROJECT_NAME/build";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SYMROOT = "$SRCROOT/../../../../MxPlayer-build/bin/$CONFIGURATION/plugin/access";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5421015D215DC5CF00507FEF /* Build configuration list for PBXProject "MxDemuxer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5421016B215DC5CF00507FEF /* Debug */,
+				5421016C215DC5CF00507FEF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5421016D215DC5CF00507FEF /* Build configuration list for PBXNativeTarget "MxDemuxer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5421016E215DC5CF00507FEF /* Debug */,
+				5421016F215DC5CF00507FEF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5421015A215DC5CF00507FEF /* Project object */;
+}

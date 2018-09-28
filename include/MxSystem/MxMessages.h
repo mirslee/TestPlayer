@@ -2,32 +2,13 @@
  * vlc_messages.h: messages interface
  * This library provides basic functions for threads to interact with user
  * interface, such as message output.
- *****************************************************************************
- * Copyright (C) 1999, 2000, 2001, 2002 VLC authors and VideoLAN
- * $Id: 63f9476cd5e6d6d4e274b4d4a7b947ec59d2843e $
- *
- * Authors: Vincent Seguin <seguin@via.ecp.fr>
- *          Samuel Hocevar <sam@zoy.org>
- *
- * This program is free software; you can redistribute it and/or modify it
- * under the terms of the GNU Lesser General Public License as published by
- * the Free Software Foundation; either version 2.1 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public License
- * along with this program; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin Street, Fifth Floor, Boston MA 02110-1301, USA.
  *****************************************************************************/
 
 #ifndef MXMESSAGES_H
 #define MXMESSAGES_H
 
 #include <stdarg.h>
+#include "MxCommon.h"
 
 /**
  * \defgroup messages Logging
@@ -41,18 +22,18 @@
  */
 
 /** Message types */
-enum vlc_log_type
+enum MxLogType
 {
-    VLC_MSG_INFO=0, /**< Important information */
-    VLC_MSG_ERR,    /**< Error */
-    VLC_MSG_WARN,   /**< Warning */
-    VLC_MSG_DBG,    /**< Debug */
+    MxLogType_INFO=0, /**< Important information */
+    MxLogType_ERR,    /**< Error */
+    MxLogType_WARN,   /**< Warning */
+    MxLogType_DBG,    /**< Debug */
 };
 
 /**
  * Log message
  */
-typedef struct vlc_log_t
+typedef struct MxLog
 {
     uintptr_t   i_object_id; /**< Emitter (temporarily) unique object ID or 0 */
     const char *psz_object_type; /**< Emitter object type name */
@@ -62,34 +43,34 @@ typedef struct vlc_log_t
     int line; /**< Source code file line number or -1 */
     const char *func; /**< Source code calling function name or NULL */
     unsigned long tid; /**< Emitter thread ID */
-} vlc_log_t;
+} MxLog;
 
-MXSYSTEM_API void vlc_Log(CMxObject *obj, int prio, const char *module,
+MXSYSTEM_API void mxLog(CMxObject *obj, int prio, const char *module,
                      const char *file, unsigned line, const char *func,
                      const char *format, ...) MX_FORMAT(7, 8);
-MXSYSTEM_API void vlc_vaLog(CMxObject *obj, int prio, const char *module,
+MXSYSTEM_API void mxVaLog(CMxObject *obj, int prio, const char *module,
                        const char *file, unsigned line, const char *func,
                        const char *format, va_list ap);
-#define msg_GenericVa(o, p, fmt, ap) \
-    vlc_vaLog(MX_OBJECT(o), p, vlc_module_name, __FILE__, __LINE__, \
+#define MX_msgGenericVa(o, p, fmt, ap) \
+    mxVaLog(MX_OBJECT(o), p, mx_module_name, __FILE__, __LINE__, \
               __func__, fmt, ap)
 
-#define msg_Generic(o, p, ...) \
-    vlc_Log(MX_OBJECT(o), p, vlc_module_name, __FILE__, __LINE__, \
+#define MX_msgGeneric(o, p, ...) \
+    mxVaLog(MX_OBJECT(o), p, mx_module_name, __FILE__, __LINE__, \
             __func__, __VA_ARGS__)
-#define msg_Info(p_this, ...) \
-    msg_Generic(p_this, VLC_MSG_INFO, __VA_ARGS__)
-#define msg_Err(p_this, ...) \
-    msg_Generic(p_this, VLC_MSG_ERR, __VA_ARGS__)
-#define msg_Warn(p_this, ...) \
-    msg_Generic(p_this, VLC_MSG_WARN, __VA_ARGS__)
-#define msg_Dbg(p_this, ...) \
-    msg_Generic(p_this, VLC_MSG_DBG, __VA_ARGS__)
+#define MX_msgInfo(p_this, ...) \
+    MX_msgGeneric(p_this, MxLogType_INFO, __VA_ARGS__)
+#define MX_msgErr(p_this, ...) \
+    MX_msgGeneric(p_this, MxLogType_ERR, __VA_ARGS__)
+#define MX_msgWarn(p_this, ...) \
+    MX_msgGeneric(p_this, MxLogType_WARN, __VA_ARGS__)
+#define MX_msgDbg(p_this, ...) \
+    MX_msgGeneric(p_this, MxLogType_DBG, __VA_ARGS__)
 
-extern const char vlc_module_name[];
+extern const char mx_module_name[];
 
-MXSYSTEM_API const char *vlc_strerror(int);
-MXSYSTEM_API const char *vlc_strerror_c(int);
+MXSYSTEM_API const char *mxStrerror(int);
+MXSYSTEM_API const char *mxStrerror_c(int);
 
 /**
  * Message logging callback signature.
@@ -99,8 +80,7 @@ MXSYSTEM_API const char *vlc_strerror_c(int);
  * \param fmt format string
  * \param args format string arguments
  */
-typedef void (*vlc_log_cb) (void *data, int type, const vlc_log_t *item,
-                            const char *fmt, va_list args);
+typedef void (*MxLogCallback) (void *data, int type, const MxLog *item, const char *fmt, va_list args);
 
 /**
  * @}
