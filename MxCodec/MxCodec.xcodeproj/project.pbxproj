@@ -14,6 +14,8 @@
 		54210131215B7FCC00507FEF /* CMxBoxes.h in Headers */ = {isa = PBXBuildFile; fileRef = 5421012A215B7FCB00507FEF /* CMxBoxes.h */; };
 		54210132215B7FCC00507FEF /* CMxDemux.h in Headers */ = {isa = PBXBuildFile; fileRef = 5421012B215B7FCC00507FEF /* CMxDemux.h */; };
 		54210133215B7FCC00507FEF /* CMxStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 5421012C215B7FCC00507FEF /* CMxStream.h */; };
+		5421018D215F7D8500507FEF /* CMxBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 5421018C215F7D8500507FEF /* CMxBlock.h */; };
+		5421018F215F7DA400507FEF /* CMxBlock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5421018E215F7DA400507FEF /* CMxBlock.cpp */; };
 		54464FA22150E7FF00C41A3F /* fourcc_tables.h in Headers */ = {isa = PBXBuildFile; fileRef = 54464FA12150E7FF00C41A3F /* fourcc_tables.h */; };
 		54464FA82150F13A00C41A3F /* CMxStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54464FA72150F13A00C41A3F /* CMxStream.cpp */; };
 		544650A4215247EB00C41A3F /* es_format.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 544650A3215247EB00C41A3F /* es_format.cpp */; };
@@ -35,6 +37,8 @@
 		5421012A215B7FCB00507FEF /* CMxBoxes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMxBoxes.h; path = ../include/MxCodec/CMxBoxes.h; sourceTree = "<group>"; };
 		5421012B215B7FCC00507FEF /* CMxDemux.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMxDemux.h; path = ../include/MxCodec/CMxDemux.h; sourceTree = "<group>"; };
 		5421012C215B7FCC00507FEF /* CMxStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMxStream.h; path = ../include/MxCodec/CMxStream.h; sourceTree = "<group>"; };
+		5421018C215F7D8500507FEF /* CMxBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMxBlock.h; path = ../include/MxCodec/CMxBlock.h; sourceTree = "<group>"; };
+		5421018E215F7DA400507FEF /* CMxBlock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CMxBlock.cpp; sourceTree = "<group>"; };
 		54464FA12150E7FF00C41A3F /* fourcc_tables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fourcc_tables.h; path = MxFourcc/fourcc_tables.h; sourceTree = "<group>"; };
 		54464FA72150F13A00C41A3F /* CMxStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CMxStream.cpp; sourceTree = "<group>"; };
 		544650A3215247EB00C41A3F /* es_format.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = es_format.cpp; sourceTree = "<group>"; };
@@ -92,7 +96,6 @@
 			isa = PBXGroup;
 			children = (
 				54A0A5EF21509DBE00B9A0C5 /* include */,
-				54A0A5F021509DC700B9A0C5 /* header */,
 				54A0A5F121509DD200B9A0C5 /* sources */,
 				54A0A5D62150993C00B9A0C5 /* Products */,
 				5446512F2154CF6300C41A3F /* Frameworks */,
@@ -110,6 +113,8 @@
 		54A0A5EF21509DBE00B9A0C5 /* include */ = {
 			isa = PBXGroup;
 			children = (
+				54A0A5F42150A69800B9A0C5 /* stdafx.h */,
+				5421018C215F7D8500507FEF /* CMxBlock.h */,
 				5421012A215B7FCB00507FEF /* CMxBoxes.h */,
 				54210129215B7FCB00507FEF /* CMxCodec.h */,
 				5421012B215B7FCC00507FEF /* CMxDemux.h */,
@@ -121,17 +126,10 @@
 			name = include;
 			sourceTree = "<group>";
 		};
-		54A0A5F021509DC700B9A0C5 /* header */ = {
-			isa = PBXGroup;
-			children = (
-				54A0A5F42150A69800B9A0C5 /* stdafx.h */,
-			);
-			name = header;
-			sourceTree = "<group>";
-		};
 		54A0A5F121509DD200B9A0C5 /* sources */ = {
 			isa = PBXGroup;
 			children = (
+				5421018E215F7DA400507FEF /* CMxBlock.cpp */,
 				544651322154D5FA00C41A3F /* MxInputItem */,
 				544650A2215247BF00C41A3F /* MxEs */,
 				54464FA72150F13A00C41A3F /* CMxStream.cpp */,
@@ -164,6 +162,7 @@
 				54210131215B7FCC00507FEF /* CMxBoxes.h in Headers */,
 				5421012F215B7FCC00507FEF /* MxFourcc.h in Headers */,
 				5421012E215B7FCC00507FEF /* MxCodecs.h in Headers */,
+				5421018D215F7D8500507FEF /* CMxBlock.h in Headers */,
 				54210133215B7FCC00507FEF /* CMxStream.h in Headers */,
 				54210130215B7FCC00507FEF /* CMxCodec.h in Headers */,
 				54A0A5F62150A69800B9A0C5 /* stdafx.h in Headers */,
@@ -234,6 +233,7 @@
 				544650A4215247EB00C41A3F /* es_format.cpp in Sources */,
 				54A0A5F72150A69800B9A0C5 /* stdafx.cpp in Sources */,
 				54A0A6082150CABD00B9A0C5 /* fourcc.cpp in Sources */,
+				5421018F215F7DA400507FEF /* CMxBlock.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

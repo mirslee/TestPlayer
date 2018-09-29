@@ -20,6 +20,9 @@
 CMxBlock::CMxBlock() {
 
 }
+CMxBlock::~CMxBlock() {
+    this->release();
+}
 CMxBlock* CMxBlock::alloc(size_t size) {
     if (unlikely(size >> 27))
     {

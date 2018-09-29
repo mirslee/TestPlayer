@@ -70,10 +70,8 @@
 		544651EE2159D34E00C41A3F /* MxInterrupt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 544651E12159D34C00C41A3F /* MxInterrupt.cpp */; };
 		544651EF2159D34E00C41A3F /* CMxBits.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 544651E22159D34C00C41A3F /* CMxBits.cpp */; };
 		544651F02159D34E00C41A3F /* MxMemStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 544651E32159D34C00C41A3F /* MxMemStream.cpp */; };
-		544651F12159D34E00C41A3F /* CMxBlock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 544651E42159D34D00C41A3F /* CMxBlock.cpp */; };
 		544651F22159D34E00C41A3F /* MxUrl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 544651E72159D34D00C41A3F /* MxUrl.cpp */; };
 		544651F42159D34E00C41A3F /* MxNetwork.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 544651E92159D34D00C41A3F /* MxNetwork.cpp */; };
-		544652082159D38800C41A3F /* CMxBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 544651F72159D38700C41A3F /* CMxBlock.h */; };
 		544652092159D38800C41A3F /* MxFileSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = 544651F82159D38700C41A3F /* MxFileSystem.h */; };
 		5446520A2159D38800C41A3F /* CMxBits.h in Headers */ = {isa = PBXBuildFile; fileRef = 544651F92159D38700C41A3F /* CMxBits.h */; };
 		5446520B2159D38800C41A3F /* CMxLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 544651FA2159D38700C41A3F /* CMxLog.h */; };
@@ -165,10 +163,8 @@
 		544651E12159D34C00C41A3F /* MxInterrupt.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MxInterrupt.cpp; sourceTree = "<group>"; };
 		544651E22159D34C00C41A3F /* CMxBits.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CMxBits.cpp; sourceTree = "<group>"; };
 		544651E32159D34C00C41A3F /* MxMemStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MxMemStream.cpp; sourceTree = "<group>"; };
-		544651E42159D34D00C41A3F /* CMxBlock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CMxBlock.cpp; sourceTree = "<group>"; };
 		544651E72159D34D00C41A3F /* MxUrl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MxUrl.cpp; sourceTree = "<group>"; };
 		544651E92159D34D00C41A3F /* MxNetwork.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MxNetwork.cpp; sourceTree = "<group>"; };
-		544651F72159D38700C41A3F /* CMxBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMxBlock.h; path = ../include/MxSystem/CMxBlock.h; sourceTree = "<group>"; };
 		544651F82159D38700C41A3F /* MxFileSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MxFileSystem.h; path = ../include/MxSystem/MxFileSystem.h; sourceTree = "<group>"; };
 		544651F92159D38700C41A3F /* CMxBits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMxBits.h; path = ../include/MxSystem/CMxBits.h; sourceTree = "<group>"; };
 		544651FA2159D38700C41A3F /* CMxLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMxLog.h; path = ../include/MxSystem/CMxLog.h; sourceTree = "<group>"; };
@@ -233,7 +229,6 @@
 				544652232159DFDC00C41A3F /* MxMd5.h */,
 				5446521C2159DCEE00C41A3F /* MxConfig.h */,
 				544651F92159D38700C41A3F /* CMxBits.h */,
-				544651F72159D38700C41A3F /* CMxBlock.h */,
 				544651FA2159D38700C41A3F /* CMxLog.h */,
 				544651FE2159D38800C41A3F /* MxAtomic.h */,
 				544652072159D38800C41A3F /* MxCharSet.h */,
@@ -262,7 +257,6 @@
 				544652252159E11F00C41A3F /* MxMd5.cpp */,
 				5446521E2159DD3000C41A3F /* stdafx.cpp */,
 				544651E22159D34C00C41A3F /* CMxBits.cpp */,
-				544651E42159D34D00C41A3F /* CMxBlock.cpp */,
 				544651DF2159D34C00C41A3F /* MxCpu.cpp */,
 				544651E02159D34C00C41A3F /* MxFixups.cpp */,
 				544651E12159D34C00C41A3F /* MxInterrupt.cpp */,
@@ -394,7 +388,6 @@
 				544652162159D38800C41A3F /* MxRand.h in Headers */,
 				5446520A2159D38800C41A3F /* CMxBits.h in Headers */,
 				5446520D2159D38800C41A3F /* MxPointer.h in Headers */,
-				544652082159D38800C41A3F /* CMxBlock.h in Headers */,
 				5446522D215A077300C41A3F /* MxConfig_mac.h in Headers */,
 				544652182159D38800C41A3F /* MxCharSet.h in Headers */,
 				5446520C2159D38800C41A3F /* MxMessages.h in Headers */,
@@ -513,7 +506,6 @@
 				544651CB2159D31000C41A3F /* recvmsg.cpp in Sources */,
 				544651B42159D31000C41A3F /* timespec_get.cpp in Sources */,
 				544651BB2159D31000C41A3F /* strsep.cpp in Sources */,
-				544651F12159D34E00C41A3F /* CMxBlock.cpp in Sources */,
 				544651762159D2EF00C41A3F /* filesystem_posix.cpp in Sources */,
 				544651C82159D31000C41A3F /* gai_strerror.cpp in Sources */,
 				544651DC2159D32600C41A3F /* unicode.cpp in Sources */,

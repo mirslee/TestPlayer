@@ -1,9 +1,10 @@
 #ifndef CMXSTREAM_H
 #define CMXSTREAM_H 1
 
-#include "../MxSystem/CMxBlock.h"
-#include "vlc_input_item.h"
+#include "MxSystem/CMxBlock.h"
+#include "MxCore/vlc_input_item.h"
 #include "CMxObject.h"
+#include "MxSystem/MxCharSet.h"
 
 
 /**
@@ -42,8 +43,12 @@ enum stream_query_e
     STREAM_GET_PRIVATE_ID_STATE,          /* arg1=int i_private_data arg2=bool *          res=can fail */
 };
 
+struct module_t;
+struct input_thread_t;
 class CMxStream {
 public:
+    CMxStream();
+    virtual ~CMxStream();
     ssize_t vlc_stream_Read(void *buf, size_t len);
     ssize_t vlc_stream_ReadPartial(void *buf, size_t len);
     ssize_t vlc_stream_Peek(const uint8_t **, size_t);
@@ -55,8 +60,6 @@ public:
     CMxBlock *vlc_stream_Block(size_t);
     char *vlc_stream_ReadLine();
     int vlc_stream_ReadDir(input_item_node_t *);
-    void vlc_stream_Delete();
-    CMxStream *vlc_stream_CommonNew(CMxObject *, void (*)(CMxStream *));
     CMxStream *vlc_stream_MemoryNew(CMxObject *obj, uint8_t *base,size_t size, bool preserve);
     CMxStream * vlc_stream_NewURL(CMxObject *obj, const char *url);
     CMxStream *vlc_stream_fifo_New(CMxObject *parent);
@@ -78,159 +81,34 @@ public:
     
     /* Stream source for stream filter */
     CMxStream *p_source;
-    ssize_t     (*pf_read)(stream_t *, void *buf, size_t len);
     
-    CMxBlock    *(*pf_block)(stream_t *, bool *eof);
+    virtual ssize_t read(void *buf, size_t len) = 0;
+    virtual CMxBlock* readBlock(bool *eof);
+    virtual int readdir(input_item_node_t *);
+    virtual int seek(uint64_t);
+    virtual void control(int i_query, va_list);
     
-    int         (*pf_readdir)(stream_t *, input_item_node_t *);
-    
-    int         (*pf_seek)(stream_t *, uint64_t);
-    
-    int         (*pf_control)(stream_t *, int i_query, va_list);
     
     void *p_sys;
     
     input_thread_t *p_input;
+    
+protected:
+    CMxBlock *block;
+    CMxBlock *peek;
+    uint64_t offset;
+    bool eof;
+    
+    /* UTF-16 and UTF-32 file reading */
+    struct {
+        MxIconv   conv;
+        unsigned char char_width;
+        bool          little_endian;
+    } text;
+    
+private:
+    ssize_t copyBlock(CMxBlock** ppBlock,void *buf, size_t len);
+    ssize_t readRaw(void *buf, size_t len);
 };
-
-    /**
-     * \defgroup stream Stream
-     * \ingroup input
-     * Buffered input byte streams
-     * @{
-     * \file
-     * Byte streams and byte stream filter modules interface
-     */
-    
-    /**
-     * stream_t definition
-     */
-    
-    struct stream_t
-    {
-        MX_COMMON_MEMBERS
-        
-        /* Module properties for stream filter */
-        module_t    *p_module;
-        
-        char        *psz_name;
-        char        *psz_url; /**< Full URL or MRL (can be NULL) */
-        const char  *psz_location; /**< Location (URL with the scheme stripped) */
-        char        *psz_filepath; /**< Local file path (if applicable) */
-        bool         b_preparsing; /**< True if this access is used to preparse */
-        
-        /* Stream source for stream filter */
-        stream_t *p_source;
-        ssize_t     (*pf_read)(stream_t *, void *buf, size_t len);
-
-        block_t    *(*pf_block)(stream_t *, bool *eof);
-
-        int         (*pf_readdir)(stream_t *, input_item_node_t *);
-
-        int         (*pf_seek)(stream_t *, uint64_t);
-
-        int         (*pf_control)(stream_t *, int i_query, va_list);
-
-        void *p_sys;
-        
-        /* Weak link to parent input */
-        input_thread_t *p_input;
-    };
-    
-
-    
-
-
-    
-    static inline int vlc_stream_Control(stream_t *s, int query, ...)
-    {
-        va_list ap;
-        int ret;
-        
-        va_start(ap, query);
-        ret = vlc_stream_vaControl(s, query, ap);
-        va_end(ap);
-        return ret;
-    }
-
-/**
- * Get the size of the stream.
- */
-VLC_USED static inline int vlc_stream_GetSize( stream_t *s, uint64_t *size )
-{
-    return vlc_stream_Control( s, STREAM_GET_SIZE, size );
-}
-    
-    static inline int64_t stream_Size( stream_t *s )
-    {
-        uint64_t i_pos;
-        
-        if( vlc_stream_GetSize( s, &i_pos ) )
-            return 0;
-        if( i_pos >> 62 )
-            return (int64_t)1 << 62;
-        return i_pos;
-    }
-    
-    VLC_USED
-    static inline bool stream_HasExtension( stream_t *s, const char *extension )
-    {
-        const char *name = (s->psz_filepath != NULL) ? s->psz_filepath
-        : s->psz_url;
-        const char *ext = strrchr( name, '.' );
-        return ext != NULL && !strcasecmp( ext, extension );
-    }
-    
-    /**
-     * Get the Content-Type of a stream, or NULL if unknown.
-     * Result must be free()'d.
-     */
-    static inline char *stream_ContentType( stream_t *s )
-    {
-        char *res;
-        if( vlc_stream_Control( s, STREAM_GET_CONTENT_TYPE, &res ) )
-            return NULL;
-        return res;
-    }
-
-    VLC_USED
-    static inline char *stream_MimeType( stream_t *s )
-    {
-        char* mime_type = stream_ContentType( s );
-        
-        if( mime_type ) /* strip parameters */
-            mime_type[strcspn( mime_type, " ;" )] = '\0';
-        
-        return mime_type;
-    }
-
-    VLC_USED
-    static inline bool stream_IsMimeType(stream_t *s, const char *type)
-    {
-        char *mime = stream_MimeType(s);
-        if (mime == NULL)
-            return false;
-        
-        bool ok = !strcasecmp(mime, type);
-        free(mime);
-        return ok;
-    }
-
-
-#define vlc_stream_MemoryNew(a, b, c, d) \
-vlc_stream_MemoryNew(MX_OBJECT(a), b, c, d)
-    
-
-#define vlc_stream_NewURL(a, b) vlc_stream_NewURL(MX_OBJECT(a), b)
-    
-
-
-#define stream_FilterSetDefaultReadDir(stream) \
-do { \
-(stream)->pf_readdir = vlc_stream_FilterDefaultReadDir; \
-} while (0)
-
-
-
 
 #endif

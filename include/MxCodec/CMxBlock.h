@@ -63,6 +63,9 @@ struct MxBlockFifo
 
 class MXSYSTEM_API CMxBlock {
 public:
+    CMxBlock();
+    virtual ~CMxBlock();
+    
     static CMxBlock* alloc(size_t size);
     static CMxBlock *heapAlloc(void *, size_t);
     void init(void* buf, size_t size);
@@ -94,7 +97,6 @@ public:
     void release();
     
 private:
-    CMxBlock();
     void check();
     void invalidate();
     void heapRelease();

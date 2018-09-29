@@ -28,9 +28,9 @@
 #include <ctype.h>
 
 #include "MxCommon.h"
-#include "MxUrl.h"
+#include "MxSystem/MxUrl.h"
 //#include <vlc_interface.h>
-#include "MxCharSet.h"
+#include "MxSystem/MxCharSet.h"
 //#include <vlc_strings.h>
 
 #include "item.h"

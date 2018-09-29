@@ -85,14 +85,6 @@
 		54AA19C0214F3DA400D4C7FC /* header */ = {
 			isa = PBXGroup;
 			children = (
-				54C3C5E7212A6D90009736A1 /* stdafx.h */,
-			);
-			name = header;
-			sourceTree = "<group>";
-		};
-		54AA19C1214F3DB900D4C7FC /* include */ = {
-			isa = PBXGroup;
-			children = (
 				54464FAF21511DC000C41A3F /* CMxObject.h */,
 				54AA19E9214F45E300D4C7FC /* MxExport.h */,
 				54AA19C3214F41D800D4C7FC /* MxCommon.h */,
@@ -102,8 +94,9 @@
 				54AA19C4214F41D800D4C7FC /* MxInterface.h */,
 				54AA19CC214F41D800D4C7FC /* MxPointer.h */,
 				54AA19D0214F41D800D4C7FC /* MxTypes.h */,
+				54C3C5E7212A6D90009736A1 /* stdafx.h */,
 			);
-			name = include;
+			name = header;
 			sourceTree = "<group>";
 		};
 		54AA19C2214F3DBF00D4C7FC /* sources */ = {
@@ -122,7 +115,6 @@
 		54C3C598212A5C62009736A1 = {
 			isa = PBXGroup;
 			children = (
-				54AA19C1214F3DB900D4C7FC /* include */,
 				54AA19C0214F3DA400D4C7FC /* header */,
 				54AA19C2214F3DBF00D4C7FC /* sources */,
 				54C3C5A2212A5C62009736A1 /* Products */,

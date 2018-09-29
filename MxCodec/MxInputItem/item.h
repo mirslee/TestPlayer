@@ -25,8 +25,8 @@
 #define LIBVLC_INPUT_ITEM_H 1
 
 //#include "input_interface.h"
-#include "vlc_input_item.h"
-#include "MxAtomic.h"
+#include "MxCore/vlc_input_item.h"
+#include "MxSystem/MxAtomic.h"
 
 void input_item_SetErrorWhenReading( input_item_t *p_i, bool b_error );
 void input_item_UpdateTracksInfo( input_item_t *item, const MxEsFormat *fmt );
