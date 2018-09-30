@@ -25,7 +25,7 @@
  *****************************************************************************/
 #include "stdafx.h"
 #include "MxModules.h"
-#include "../MxSystem/MxFixups.h"
+#include "MxSystem/MxFixups.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -113,10 +113,12 @@ static int vlc_module_store(module_t *mod)
     cap->modv = NULL;
     cap->modc = 0;
 
+    module_t **modv = NULL;
+    vlc_modcap_t **cp = NULL;
     if (unlikely(cap->name == NULL))
         goto error;
 
-    vlc_modcap_t **cp = (vlc_modcap_t **)tsearch(cap, &modules.caps_tree, vlc_modcap_cmp);
+    cp = (vlc_modcap_t **)tsearch(cap, &modules.caps_tree, vlc_modcap_cmp);
     if (unlikely(cp == NULL))
         goto error;
 
@@ -126,7 +128,7 @@ static int vlc_module_store(module_t *mod)
         cap = *cp;
     }
 
-    module_t **modv = (module_t **)realloc(cap->modv, sizeof (*modv) * (cap->modc + 1));
+    modv = (module_t **)realloc(cap->modv, sizeof (*modv) * (cap->modc + 1));
     if (unlikely(modv == NULL))
         return -1;
 

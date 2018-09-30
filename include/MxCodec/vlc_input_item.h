@@ -58,26 +58,34 @@ struct info_category_t
 /**
  * Describes an input and is used to spawn input_thread_t objects.
  */
+#include <vector>
+#include <string>
 struct input_stats_t;
 struct input_item_t
 {
     char       *psz_name;            /**< text describing this item */
     char       *psz_uri;             /**< mrl of this item */
     
-    int        i_options;            /**< Number of input options */
-    char       **ppsz_options;       /**< Array of input options */
-    uint8_t    *optflagv;            /**< Some flags of input options */
-    unsigned   optflagc;
+//    int        i_options;            /**< Number of input options */
+//    char       **ppsz_options;       /**< Array of input options */
+    std::vector<std::string> ppsz_options;
+    
+//    uint8_t    *optflagv;            /**< Some flags of input options */
+//    unsigned   optflagc;
+    std::vector<uint8_t> optflagv;
+    
     input_item_opaque_t *opaques;    /**< List of opaque pointer values */
     
     mtime_t    i_duration;           /**< Duration in microseconds */
     
     
-    int        i_categories;         /**< Number of info categories */
-    info_category_t **pp_catevgories; /**< Pointer to the first info category */
+//    int        i_categories;         /**< Number of info categories */
+//    info_category_t **pp_catevgories; /**< Pointer to the first info category */
+    std::vector<info_category_t*> pp_catevgories;
     
-    int         i_es;                /**< Number of es format descriptions */
-    MxEsFormat **es;                /**< Es formats */
+    //int         i_es;                /**< Number of es format descriptions */
+    //MxEsFormat **es;                /**< Es formats */
+    std::vector<MxEsFormat*> es;
     
     input_stats_t *p_stats;          /**< Statistics */
     
@@ -88,9 +96,10 @@ struct input_item_t
     //int64_t     i_epg_time;          /** EPG timedate as epoch time */
     //const vlc_epg_t *p_epg_table;    /** running/selected program cur/next EPG table */
     
-    int         i_slaves;            /**< Number of slaves */
-    input_item_slave_t **pp_slaves;  /**< Slave entries that will be loaded by
-                                      the input_thread */
+    //int         i_slaves;            /**< Number of slaves */
+    //input_item_slave_t **pp_slaves;  /**< Slave entries that will be loaded by
+    //                                  the input_thread */
+    std::vector<input_item_slave_t*> pp_slaves;
     
     MxEventManager event_manager;
     
@@ -184,8 +193,9 @@ struct input_item_slave
 struct input_item_node_t
 {
     input_item_t *         p_item;
-    int                    i_children;
-    input_item_node_t      **pp_children;
+    //int                    i_children;
+    //input_item_node_t      **pp_children;
+    std::vector<input_item_node_t*> pp_children;
 };
 
 MXCODEC_API void input_item_CopyOptions( input_item_t *p_child, input_item_t *p_parent );
@@ -436,10 +446,12 @@ struct input_stats_t
 struct vlc_readdir_helper
 {
     input_item_node_t *p_node;
-    void **pp_slaves;
-    size_t i_slaves;
-    void **pp_dirs;
-    size_t i_dirs;
+    //void **pp_slaves;
+    //size_t i_slaves;
+    std::vector<void *> pp_slaves;
+    //void **pp_dirs;*/
+    //size_t i_dirs;
+    std::vector<void *> pp_dirs;
     int i_sub_autodetect_fuzzy;
     bool b_show_hiddenfiles;
     bool b_flatten;

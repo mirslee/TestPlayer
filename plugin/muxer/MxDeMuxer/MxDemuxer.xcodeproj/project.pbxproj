@@ -10,7 +10,7 @@
 		5421017A215DC73800507FEF /* avi.c in Sources */ = {isa = PBXBuildFile; fileRef = 54210177215DC73800507FEF /* avi.c */; };
 		5421017B215DC73800507FEF /* libavi.c in Sources */ = {isa = PBXBuildFile; fileRef = 54210178215DC73800507FEF /* libavi.c */; };
 		5421017C215DC73800507FEF /* libavi.h in Headers */ = {isa = PBXBuildFile; fileRef = 54210179215DC73800507FEF /* libavi.h */; };
-		54210180215DD01C00507FEF /* MxSystemD.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 54210181215DD01C00507FEF /* MxSystemD.dylib */; };
+		542101F62160C6B300507FEF /* MxSystemD.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 542101F72160C6B300507FEF /* MxSystemD.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +19,7 @@
 		54210178215DC73800507FEF /* libavi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = libavi.c; sourceTree = "<group>"; };
 		54210179215DC73800507FEF /* libavi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libavi.h; sourceTree = "<group>"; };
 		54210181215DD01C00507FEF /* MxSystemD.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = MxSystemD.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		542101F72160C6B300507FEF /* MxSystemD.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = MxSystemD.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,7 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				54210180215DD01C00507FEF /* MxSystemD.dylib in Frameworks */,
+				542101F62160C6B300507FEF /* MxSystemD.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +64,7 @@
 		5421017F215DD01C00507FEF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				542101F72160C6B300507FEF /* MxSystemD.dylib */,
 				54210181215DD01C00507FEF /* MxSystemD.dylib */,
 			);
 			name = Frameworks;

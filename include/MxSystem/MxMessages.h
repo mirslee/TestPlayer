@@ -56,7 +56,7 @@ MXSYSTEM_API void mxVaLog(CMxObject *obj, int prio, const char *module,
               __func__, fmt, ap)
 
 #define MX_msgGeneric(o, p, ...) \
-    mxVaLog(MX_OBJECT(o), p, mx_module_name, __FILE__, __LINE__, \
+    mxLog(MX_OBJECT(o), p, mx_module_name, __FILE__, __LINE__, \
             __func__, __VA_ARGS__)
 #define MX_msgInfo(p_this, ...) \
     MX_msgGeneric(p_this, MxLogType_INFO, __VA_ARGS__)

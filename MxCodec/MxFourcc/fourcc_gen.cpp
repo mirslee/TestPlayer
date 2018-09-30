@@ -28,10 +28,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include "fourcc_list.h"
-#define MX_API
-#define MX_USED
-typedef uint32_t MxFourcc;
-typedef struct { unsigned num, den; } MxRational;
 #include "MxFourcc.h"
 
 #define MX_FOURCC(a,b,c,d) { a, b, c, d }

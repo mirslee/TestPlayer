@@ -8,7 +8,7 @@
 #define MXES_H 1
 
 #include "MxError.h"
-#include "../MxCore/MxTextStyle.h"
+#include "MxTextStyle.h"
 
 /**
  * \file

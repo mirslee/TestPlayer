@@ -579,4 +579,10 @@ static inline void *realloc_or_free( void *p, size_t sz )
     return n;
 }
 
+#if (defined (LIBVLC_USE_PTHREAD) || defined(__ANDROID__)) && !defined (NDEBUG)
+void vlc_assert_locked (vlc_mutex_t *);
+#else
+# define vlc_assert_locked( m ) (void)m
+#endif
+
 #endif //MXCOMMON_H

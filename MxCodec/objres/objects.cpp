@@ -37,7 +37,8 @@
 #include "MxCommon.h"
 #include "variables.h"
 #include "MxError.h"
-#include "../MxSystem/MxThread.h"
+#include "MxSystem/MxThread.h"
+#include "MxSystem/MxAtomic.h"
 #include "MxVariables.h"
 
 #ifdef HAVE_SEARCH_H
@@ -186,7 +187,7 @@ void *mx_custom_create (CMxObject *parent, size_t length,
     priv->var_root = NULL;
     mxMutexInit (&priv->var_lock);
     mxCondInit (&priv->var_wait);
-    atomic_init (&priv->refs, 1);
+    atomic_init<unsigned int> (&priv->refs, 1);
     priv->pf_destructor = NULL;
     priv->prev = NULL;
     priv->first = NULL;
@@ -385,8 +386,11 @@ CMxObject *mx_object_find_name(CMxObject *p_this, const char *psz_name )
         "rotate", "sharpen", "transform", "v4l2", "wall" };
     static const char poor[][13] = { "invert", "magnify", "motiondetect",
         "psychedelic", "ripple", "wave" };
-    if( bsearch( psz_name, bad, 15, 11, (_CoreCrtNonSecureSearchSortCompareFunction)strcmp ) == NULL
-     && bsearch( psz_name, poor, 6, 13, (_CoreCrtNonSecureSearchSortCompareFunction)strcmp ) == NULL )
+    
+    typedef int (* compareFun)(const void *, const void *);
+    
+    if( bsearch( psz_name, bad, 15, 11, (compareFun)strcmp ) == NULL
+     && bsearch( psz_name, poor, 6, 13, (compareFun)strcmp ) == NULL )
         return NULL;
     //msg_Err( p_this, "looking for object \"%s\"... FIXME XXX", psz_name );
 #endif
@@ -405,7 +409,7 @@ void * mx_object_hold(CMxObject *p_this )
 {
     mx_object_internals_t *internals = mx_internals( p_this );
 #ifndef NDEBUG
-    unsigned refs = atomic_fetch_add (&internals->refs, 1);
+    unsigned refs = atomic_fetch_add<unsigned int> (&internals->refs, 1);
     assert (refs > 0); /* Avoid obvious freed object uses */
 #else
     atomic_fetch_add (&internals->refs, 1);
@@ -436,7 +440,7 @@ void mx_object_release (CMxObject *obj)
 
     if (unlikely(parent == NULL))
     {   /* Destroying the root object */
-        refs = atomic_fetch_sub (&priv->refs, 1);
+        refs = atomic_fetch_sub<unsigned int> (&priv->refs, 1);
         assert (refs == 1); /* nobody to race against in this case */
 
         assert (priv->first == NULL); /* no children can be left */
@@ -451,7 +455,7 @@ void mx_object_release (CMxObject *obj)
     mx_object_internals_t *papriv = mx_internals (parent);
 
     mxMutexLock (&papriv->tree_lock);
-    refs = atomic_fetch_sub (&priv->refs, 1);
+    refs = atomic_fetch_sub<unsigned int> (&priv->refs, 1);
     assert (refs > 0);
 
     if (likely(refs == 1))

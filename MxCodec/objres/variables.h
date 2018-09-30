@@ -24,8 +24,8 @@
 #define LIBVLC_VARIABLES_H 1
 
 //#include <stdalign.h>
-#include "../MxSystem/MxAtomic.h"
-#include "../MxSystem/MxThread.h"
+#include "MxSystem/MxAtomic.h"
+#include "MxSystem/MxThread.h"
 
 struct mx_res;
 

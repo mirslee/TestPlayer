@@ -35,12 +35,12 @@
 #include <limits.h>
 
 #include "MxCommon.h"
-#include "../MxSystem/MxCharSet.h"
+#include "MxSystem/MxCharSet.h"
 #include "variables.h"
-#include "../MxSystem/MxFixups.h"
+#include "MxSystem/MxFixups.h"
 #include "MxVariables.h"
 #include "MxError.h"
-#include "../MxSystem/MxThread.h"
+#include "MxSystem/MxThread.h"
 //#include "config/configuration.h"
 
 typedef struct callback_entry_t
@@ -1233,12 +1233,13 @@ int (var_InheritURational)(CMxObject *object,
                            const char *var)
 {
     char *str = var_InheritString(object, var);
+    char *sep;
+    unsigned n = 0;
+    unsigned d;
     if (str == NULL)
         goto error;
 
-    char *sep;
-    unsigned n = strtoul(str, &sep, 10);
-    unsigned d;
+    n = strtoul(str, &sep, 10);
 
     switch (*sep) {
         case '\0':
@@ -1354,8 +1355,8 @@ static void DumpVariable(const void *data, const VISIT which, const int depth)
         fputs(", has choices", stdout);
     if (var->i_type & MX_VAR_ISCOMMAND)
         fputs(", command", stdout);
-    if (/*var->value_callbacks.i_entries*/var->value_callbacks.p_entries.size() > 0)
-        printf(", %d callbacks", var->value_callbacks.p_entries);
+//    if (/*var->value_callbacks.i_entries*/var->value_callbacks.p_entries.size() > 0)
+//        printf(", %d callbacks", var->value_callbacks.p_entries);
 
     switch (var->i_type & MX_VAR_CLASS)
     {

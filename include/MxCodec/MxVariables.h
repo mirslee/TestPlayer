@@ -118,33 +118,33 @@ enum {
 /*****************************************************************************
  * Prototypes
  *****************************************************************************/
-MXCORE_API int var_Create( CMxObject *, const char *, int );
+MXCODEC_API int var_Create( CMxObject *, const char *, int );
 #define var_Create(a,b,c) var_Create( MX_OBJECT(a), b, c )
 
-MXCORE_API void var_Destroy( CMxObject *, const char * );
+MXCODEC_API void var_Destroy( CMxObject *, const char * );
 #define var_Destroy(a,b) var_Destroy( MX_OBJECT(a), b )
 
-MXCORE_API int var_Change( CMxObject *, const char *, int, mx_value_t *, mx_value_t * );
+MXCODEC_API int var_Change( CMxObject *, const char *, int, mx_value_t *, mx_value_t * );
 #define var_Change(a,b,c,d,e) var_Change( MX_OBJECT(a), b, c, d, e )
 
-MXCORE_API int var_Type( CMxObject *, const char * ) MX_USED;
+MXCODEC_API int var_Type( CMxObject *, const char * ) MX_USED;
 #define var_Type(a,b) var_Type( MX_OBJECT(a), b )
 
-MXCORE_API int var_Set( CMxObject *, const char *, mx_value_t );
+MXCODEC_API int var_Set( CMxObject *, const char *, mx_value_t );
 #define var_Set(a,b,c) var_Set( MX_OBJECT(a), b, c )
 
-MXCORE_API int var_Get( CMxObject *, const char *, mx_value_t * );
+MXCODEC_API int var_Get( CMxObject *, const char *, mx_value_t * );
 #define var_Get(a,b,c) var_Get( MX_OBJECT(a), b, c )
 
-MXCORE_API int var_SetChecked( CMxObject *, const char *, int, mx_value_t );
+MXCODEC_API int var_SetChecked( CMxObject *, const char *, int, mx_value_t );
 #define var_SetChecked(o,n,t,v) var_SetChecked(MX_OBJECT(o),n,t,v)
-MXCORE_API int var_GetChecked( CMxObject *, const char *, int, mx_value_t * );
+MXCODEC_API int var_GetChecked( CMxObject *, const char *, int, mx_value_t * );
 #define var_GetChecked(o,n,t,v) var_GetChecked(MX_OBJECT(o),n,t,v)
-MXCORE_API int var_GetAndSet( CMxObject *, const char *, int, mx_value_t * );
+MXCODEC_API int var_GetAndSet( CMxObject *, const char *, int, mx_value_t * );
 
-MXCORE_API int var_Inherit( CMxObject *, const char *, int, mx_value_t * );
+MXCODEC_API int var_Inherit( CMxObject *, const char *, int, mx_value_t * );
 
-MXCORE_API void var_FreeList( mx_value_t *, mx_value_t * );
+MXCODEC_API void var_FreeList( mx_value_t *, mx_value_t * );
 
 
 /*****************************************************************************
@@ -156,12 +156,12 @@ MXCORE_API void var_FreeList( mx_value_t *, mx_value_t * );
  *                 mx_value_t newvalue,
  *                 void *p_data);
  *****************************************************************************/
-MXCORE_API void var_AddCallback( CMxObject *, const char *, mx_callback_t, void * );
-MXCORE_API void var_DelCallback( CMxObject *, const char *, mx_callback_t, void * );
-MXCORE_API void var_TriggerCallback( CMxObject *, const char * );
+MXCODEC_API void var_AddCallback( CMxObject *, const char *, mx_callback_t, void * );
+MXCODEC_API void var_DelCallback( CMxObject *, const char *, mx_callback_t, void * );
+MXCODEC_API void var_TriggerCallback( CMxObject *, const char * );
 
-MXCORE_API void var_AddListCallback( CMxObject *, const char *, mx_list_callback_t, void * );
-MXCORE_API void var_DelListCallback( CMxObject *, const char *, mx_list_callback_t, void * );
+MXCODEC_API void var_AddListCallback( CMxObject *, const char *, mx_list_callback_t, void * );
+MXCODEC_API void var_DelListCallback( CMxObject *, const char *, mx_list_callback_t, void * );
 
 #define var_AddCallback(a,b,c,d) var_AddCallback( MX_OBJECT(a), b, c, d )
 #define var_DelCallback(a,b,c,d) var_DelCallback( MX_OBJECT(a), b, c, d )
@@ -652,7 +652,7 @@ static inline void *var_InheritAddress( CMxObject *obj, const char *name )
 }
 #define var_InheritAddress(o, n) var_InheritAddress(MX_OBJECT(o), n)
 
-MXCORE_API int var_InheritURational( CMxObject *, unsigned *num, unsigned *den, const char *var );
+MXCODEC_API int var_InheritURational( CMxObject *, unsigned *num, unsigned *den, const char *var );
 #define var_InheritURational(a,b,c,d) var_InheritURational(MX_OBJECT(a), b, c, d)
 
 #define var_GetInteger(a,b)   var_GetInteger( MX_OBJECT(a),b)
@@ -662,8 +662,13 @@ MXCORE_API int var_InheritURational( CMxObject *, unsigned *num, unsigned *den, 
 #define var_GetNonEmptyString(a,b)   var_GetNonEmptyString( MX_OBJECT(a),b)
 #define var_GetAddress(a,b)  var_GetAddress( MX_OBJECT(a),b)
 
-MXCORE_API int var_LocationParse(CMxObject *, const char *mrl, const char *prefix);
+MXCODEC_API int var_LocationParse(CMxObject *, const char *mrl, const char *prefix);
 #define var_LocationParse(o, m, p) var_LocationParse(MX_OBJECT(o), m, p)
+
+/*
+ * Variables stuff
+ */
+MXCODEC_API void var_OptionParse (CMxObject *, const char *, bool trusted);
 
 /**
  * @}

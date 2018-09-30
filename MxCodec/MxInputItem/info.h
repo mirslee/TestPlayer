@@ -24,7 +24,7 @@
 #ifndef LIBVLC_INPUT_INFO_H
 #define LIBVLC_INPUT_INFO_H 1
 
-#include "MxCore/vlc_input_item.h"
+#include "vlc_input_item.h"
 
 static inline info_t *info_New(const char *name, const char *value )
 {

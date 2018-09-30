@@ -7,7 +7,7 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include "MxCommon.h"
-#include "MxFileSystem.h"
+#include "MxSystem/MxFileSystem.h"
 
 /** Initial memory alignment of data block.
  * @note This must be a multiple of sizeof(void*) and a power of two.

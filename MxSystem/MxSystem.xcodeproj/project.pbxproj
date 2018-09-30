@@ -650,6 +650,7 @@
 				);
 				INSTALL_PATH = "@rpath";
 				OBJROOT = "$SRCROOT/../../MxPlayer-build/$PROJECT_NAME/build";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)D";
 				SYMROOT = "$SRCROOT/../../MxPlayer-build/bin/$CONFIGURATION";
 			};
@@ -674,6 +675,7 @@
 				);
 				INSTALL_PATH = "@rpath";
 				OBJROOT = "$SRCROOT/../../MxPlayer-build/$PROJECT_NAME/build";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SYMROOT = "$SRCROOT/../../MxPlayer-build/bin/$CONFIGURATION";
 			};

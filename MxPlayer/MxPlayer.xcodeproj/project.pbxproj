@@ -23,10 +23,9 @@
 
 /* Begin PBXBuildFile section */
 		46277AFBBE64D3ED05B09536 /* stdafx.cpp in Compile Sources */ = {isa = PBXBuildFile; fileRef = 1EE15236BE8D23B0112BEE19 /* stdafx.cpp */; settings = {ATTRIBUTES = (); }; };
+		542101F32160C43C00507FEF /* MxSystemD.dylib in Link Binary With Libraries */ = {isa = PBXBuildFile; fileRef = 544651632159D22300C41A3F /* MxSystemD.dylib */; };
 		54464FE52151EB7000C41A3F /* QtWidgets.framework in Link Binary With Libraries */ = {isa = PBXBuildFile; fileRef = 54464FE42151EB7000C41A3F /* QtWidgets.framework */; };
 		54464FE72151EBDB00C41A3F /* main.cpp in Compile Sources */ = {isa = PBXBuildFile; fileRef = 54464FE62151EBDB00C41A3F /* main.cpp */; };
-		54464FEB2151F1C600C41A3F /* MxCoreD.dylib in Link Binary With Libraries */ = {isa = PBXBuildFile; fileRef = 54464FE22151E9B200C41A3F /* MxCoreD.dylib */; };
-		54464FED2151F30700C41A3F /* MxCoreD.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 54464FE22151E9B200C41A3F /* MxCoreD.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		8771A8C96E9C391044035D99 /* OpenGL.framework in Link Binary With Libraries */ = {isa = PBXBuildFile; fileRef = D4B32C2222F82AC56BADEB21 /* OpenGL.framework */; };
 		8D267F2E4776F0ECA2F49DC8 /* IOKit.framework in Link Binary With Libraries */ = {isa = PBXBuildFile; fileRef = A1A67BEAA744704B29168D39 /* IOKit.framework */; };
 		994A1BD1E426A09088330BE9 /* QtCore.framework in Link Binary With Libraries */ = {isa = PBXBuildFile; fileRef = 53A1666EF2EC8D8B83CC35FC /* QtCore.framework */; };
@@ -34,7 +33,6 @@
 		B07889C7F41764965C901BA2 /* dummy.cpp in Compile Sources */ = {isa = PBXBuildFile; fileRef = 12A9559A7F50D57FB891AC7C /* dummy.cpp */; settings = {ATTRIBUTES = (); }; };
 		C21018B3553C3BF64ECA6651 /* QtGui.framework in Link Binary With Libraries */ = {isa = PBXBuildFile; fileRef = 34C3CC745F9A46849F0F12A2 /* QtGui.framework */; };
 		CBA03B06DA687D2722E48FF7 /* MainWidget.cpp in Compile Sources */ = {isa = PBXBuildFile; fileRef = E03EB9FCB4B63F9A950E4B13 /* MainWidget.cpp */; settings = {ATTRIBUTES = (); }; };
-		E45E51A644D5FC9F942ECE55 /* AGL.framework in Link Binary With Libraries */ = {isa = PBXBuildFile; fileRef = 8D9815BDB5BD9F90D2BC05C5 /* AGL.framework */; };
 		E8B75271FDF0EED99DB62565 /* moc_MainWidget.cpp in Compile Sources */ = {isa = PBXBuildFile; fileRef = C7A453180C054E030C959F7A /* moc_MainWidget.cpp */; settings = {ATTRIBUTES = (); }; };
 /* End PBXBuildFile section */
 
@@ -90,7 +88,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				54464FED2151F30700C41A3F /* MxCoreD.dylib in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -133,8 +130,7 @@
 				A99B2AA0F9CBBDD12BA126A4 /* DiskArbitration.framework in Link Binary With Libraries */,
 				8D267F2E4776F0ECA2F49DC8 /* IOKit.framework in Link Binary With Libraries */,
 				8771A8C96E9C391044035D99 /* OpenGL.framework in Link Binary With Libraries */,
-				E45E51A644D5FC9F942ECE55 /* AGL.framework in Link Binary With Libraries */,
-				54464FEB2151F1C600C41A3F /* MxCoreD.dylib in Link Binary With Libraries */,
+				542101F32160C43C00507FEF /* MxSystemD.dylib in Link Binary With Libraries */,
 			);
 			name = "Link Binary With Libraries";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -165,7 +161,7 @@
 		54210171215DC5CF00507FEF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				54210175215DC5D000507FEF /* libMxDemuxer.dylib */,
+				54210175215DC5D000507FEF /* MxDemuxerD.dylib */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -330,10 +326,10 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		54210175215DC5D000507FEF /* libMxDemuxer.dylib */ = {
+		54210175215DC5D000507FEF /* MxDemuxerD.dylib */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
-			path = libMxDemuxer.dylib;
+			path = MxDemuxerD.dylib;
 			remoteRef = 54210174215DC5D000507FEF /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};

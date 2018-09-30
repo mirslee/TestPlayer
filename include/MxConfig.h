@@ -6,6 +6,14 @@
 #define MX_TS_INVALID INT64_C(0)
 #define MX_TS_0 INT64_C(1)
 
+/*****************************************************************************
+ * Messages and console interfaces configuration
+ *****************************************************************************/
+
+/* Maximal depth of the object tree output by vlc_dumpstructure */
+#define MAX_DUMPSTRUCTURE_DEPTH         100
+
+
 #ifdef _WIN32
 #include "MxConfig_win.h"
 #define HAVE_SWAB 1

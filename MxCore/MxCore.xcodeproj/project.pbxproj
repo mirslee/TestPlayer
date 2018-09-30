@@ -7,10 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		542101A221606F0800507FEF /* vlc_input_item.h in Headers */ = {isa = PBXBuildFile; fileRef = 5421019B21606F0700507FEF /* vlc_input_item.h */; };
+		542101A421606F0800507FEF /* MxTextStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 5421019D21606F0700507FEF /* MxTextStyle.h */; };
+		542101A521606F0800507FEF /* CMxInputItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 5421019E21606F0700507FEF /* CMxInputItem.h */; };
+		542101A621606F0800507FEF /* MxModules.h in Headers */ = {isa = PBXBuildFile; fileRef = 5421019F21606F0700507FEF /* MxModules.h */; };
+		542101A721606F0800507FEF /* MxVariables.h in Headers */ = {isa = PBXBuildFile; fileRef = 542101A021606F0700507FEF /* MxVariables.h */; };
+		542101A821606F0800507FEF /* CMxMeta.h in Headers */ = {isa = PBXBuildFile; fileRef = 542101A121606F0800507FEF /* CMxMeta.h */; };
 		54464FB021511DC000C41A3F /* CMxObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 54464FAF21511DC000C41A3F /* CMxObject.h */; };
 		5446510F2153476C00C41A3F /* MxTextStyle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5446510E2153476C00C41A3F /* MxTextStyle.cpp */; };
 		5446511E2153982200C41A3F /* CMxMeta.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5446511D2153982200C41A3F /* CMxMeta.cpp */; };
-		544651252154938900C41A3F /* MxEvents.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 544651242154938900C41A3F /* MxEvents.cpp */; };
 		5446512E2154C03300C41A3F /* textdomain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5446512D2154C03300C41A3F /* textdomain.cpp */; };
 		5446513D2154E96000C41A3F /* modules.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5446513B2154E96000C41A3F /* modules.cpp */; };
 		5446513E2154E96000C41A3F /* modules.h in Headers */ = {isa = PBXBuildFile; fileRef = 5446513C2154E96000C41A3F /* modules.h */; };
@@ -33,10 +38,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5421019B21606F0700507FEF /* vlc_input_item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = vlc_input_item.h; path = ../include/MxCore/vlc_input_item.h; sourceTree = "<group>"; };
+		5421019D21606F0700507FEF /* MxTextStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MxTextStyle.h; path = ../include/MxCore/MxTextStyle.h; sourceTree = "<group>"; };
+		5421019E21606F0700507FEF /* CMxInputItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMxInputItem.h; path = ../include/MxCore/CMxInputItem.h; sourceTree = "<group>"; };
+		5421019F21606F0700507FEF /* MxModules.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MxModules.h; path = ../include/MxCore/MxModules.h; sourceTree = "<group>"; };
+		542101A021606F0700507FEF /* MxVariables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MxVariables.h; path = ../include/MxCore/MxVariables.h; sourceTree = "<group>"; };
+		542101A121606F0800507FEF /* CMxMeta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMxMeta.h; path = ../include/MxCore/CMxMeta.h; sourceTree = "<group>"; };
 		54464FAF21511DC000C41A3F /* CMxObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMxObject.h; path = ../include/CMxObject.h; sourceTree = "<group>"; };
 		5446510E2153476C00C41A3F /* MxTextStyle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MxTextStyle.cpp; sourceTree = "<group>"; };
 		5446511D2153982200C41A3F /* CMxMeta.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CMxMeta.cpp; sourceTree = "<group>"; };
-		544651242154938900C41A3F /* MxEvents.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MxEvents.cpp; sourceTree = "<group>"; };
 		5446512D2154C03300C41A3F /* textdomain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = textdomain.cpp; sourceTree = "<group>"; };
 		5446513B2154E96000C41A3F /* modules.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = modules.cpp; sourceTree = "<group>"; };
 		5446513C2154E96000C41A3F /* modules.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = modules.h; sourceTree = "<group>"; };
@@ -85,6 +95,12 @@
 		54AA19C0214F3DA400D4C7FC /* header */ = {
 			isa = PBXGroup;
 			children = (
+				5421019E21606F0700507FEF /* CMxInputItem.h */,
+				542101A121606F0800507FEF /* CMxMeta.h */,
+				5421019F21606F0700507FEF /* MxModules.h */,
+				5421019D21606F0700507FEF /* MxTextStyle.h */,
+				542101A021606F0700507FEF /* MxVariables.h */,
+				5421019B21606F0700507FEF /* vlc_input_item.h */,
 				54464FAF21511DC000C41A3F /* CMxObject.h */,
 				54AA19E9214F45E300D4C7FC /* MxExport.h */,
 				54AA19C3214F41D800D4C7FC /* MxCommon.h */,
@@ -104,7 +120,6 @@
 			children = (
 				54F286DA215A185C006F8CC5 /* objres */,
 				5446512C2154BFFC00C41A3F /* MxModules */,
-				544651242154938900C41A3F /* MxEvents.cpp */,
 				5446511D2153982200C41A3F /* CMxMeta.cpp */,
 				5446510E2153476C00C41A3F /* MxTextStyle.cpp */,
 				54C3C5E6212A6D90009736A1 /* stdafx.cpp */,
@@ -159,6 +174,8 @@
 			files = (
 				54AA19DE214F41D900D4C7FC /* MxPointer.h in Headers */,
 				54AA19EA214F45E300D4C7FC /* MxExport.h in Headers */,
+				542101A621606F0800507FEF /* MxModules.h in Headers */,
+				542101A721606F0800507FEF /* MxVariables.h in Headers */,
 				54AA19E2214F41D900D4C7FC /* MxTypes.h in Headers */,
 				54AA19D9214F41D900D4C7FC /* MxConfig_mac.h in Headers */,
 				54AA19E1214F41D900D4C7FC /* MxConfig.h in Headers */,
@@ -167,7 +184,11 @@
 				54464FB021511DC000C41A3F /* CMxObject.h in Headers */,
 				54F286DF215A1872006F8CC5 /* variables.h in Headers */,
 				54AA19D6214F41D900D4C7FC /* MxInterface.h in Headers */,
+				542101A521606F0800507FEF /* CMxInputItem.h in Headers */,
 				54AA19D7214F41D900D4C7FC /* MxError.h in Headers */,
+				542101A421606F0800507FEF /* MxTextStyle.h in Headers */,
+				542101A821606F0800507FEF /* CMxMeta.h in Headers */,
+				542101A221606F0800507FEF /* vlc_input_item.h in Headers */,
 				54C3C5E9212A6D90009736A1 /* stdafx.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -237,7 +258,6 @@
 				54F286E0215A1872006F8CC5 /* variables.cpp in Sources */,
 				5446511E2153982200C41A3F /* CMxMeta.cpp in Sources */,
 				54C3C5E8212A6D90009736A1 /* stdafx.cpp in Sources */,
-				544651252154938900C41A3F /* MxEvents.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

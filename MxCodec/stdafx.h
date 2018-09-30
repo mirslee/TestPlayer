@@ -5,6 +5,7 @@
 #define MXCODEC_EXPORT_DLL
 #endif
 
+#include "MxConfig.h"
 #include "MxExport.h"
 
 #ifdef _WIN32

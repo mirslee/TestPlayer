@@ -28,14 +28,14 @@
 #include "MxCommon.h"
 #include "MxError.h"
 
-#include "../MxSystem/MxFixups.h"
+#include "MxSystem/MxFixups.h"
 #include <assert.h>
 
 //#include <vlc_playlist.h>
-#include "../MxSystem/MxUrl.h"
+#include "MxSystem/MxUrl.h"
 //#include <vlc_arrays.h>
 //#include <vlc_modules.h>
-#include "../MxSystem/MxCharSet.h"
+#include "MxSystem/MxCharSet.h"
 
 //#include "input_internal.h"
 //#include "../playlist/art.h"

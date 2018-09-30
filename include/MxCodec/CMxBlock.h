@@ -48,7 +48,7 @@
 #define BLOCK_FLAG_PRIVATE_MASK  0xff000000
 #define BLOCK_FLAG_PRIVATE_SHIFT 24
 
-#include "MxThread.h"
+#include "MxSystem/MxThread.h"
 
 class CMxBlock;
 struct MxBlockFifo

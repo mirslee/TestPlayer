@@ -1,8 +1,8 @@
 #ifndef CMXSTREAM_H
 #define CMXSTREAM_H 1
 
-#include "MxSystem/CMxBlock.h"
-#include "MxCore/vlc_input_item.h"
+#include "CMxBlock.h"
+#include "vlc_input_item.h"
 #include "CMxObject.h"
 #include "MxSystem/MxCharSet.h"
 
@@ -83,10 +83,10 @@ public:
     CMxStream *p_source;
     
     virtual ssize_t read(void *buf, size_t len) = 0;
-    virtual CMxBlock* readBlock(bool *eof);
-    virtual int readdir(input_item_node_t *);
-    virtual int seek(uint64_t);
-    virtual void control(int i_query, va_list);
+    virtual CMxBlock* readBlock(bool *eof) = 0;
+    virtual int readdir(input_item_node_t *) = 0;
+    virtual int seek(uint64_t) = 0;
+    virtual int control(int i_query, va_list) = 0;
     
     
     void *p_sys;

@@ -413,11 +413,11 @@ char* CMxStream::vlc_stream_ReadLine() {
             /* Open the converter if we need it */
             if( psz_encoding != NULL )
             {
-                MX_msgDbg(NULL, "UTF-16 BOM detected" );
+                MX_msgDbg((CMxObject*)NULL, "UTF-16 BOM detected" );
                 this->text.conv = mxIconvOpen( "UTF-8", psz_encoding );
                 if( unlikely(this->text.conv == (MxIconv)-1) )
                 {
-                    MX_msgErr( NULL, "iconv_open failed" );
+                    MX_msgErr( (CMxObject*)NULL, "iconv_open failed" );
                     goto error;
                 }
                 this->text.char_width = 2;
@@ -428,7 +428,7 @@ char* CMxStream::vlc_stream_ReadLine() {
         {
             /* keep i_char_width boundary */
             i_data = i_data - ( i_data % this->text.char_width );
-            MX_msgWarn( NULL, "the read is not i_char_width compatible");
+            MX_msgWarn( (CMxObject*)NULL, "the read is not i_char_width compatible");
         }
         
         if( i_data == 0 )
@@ -525,8 +525,8 @@ char* CMxStream::vlc_stream_ReadLine() {
             
             if( mxIconv( this->text.conv, &p_in, &i_in, &p_out, &i_out ) == (size_t)-1 )
             {
-                MX_msgErr( NULL, "conversion error: %s", mxStrerror_c( errno ) );
-                MX_msgDbg( NULL, "original: %d, in %zu, out %zu", i_line, i_in, i_out );
+                MX_msgErr( (CMxObject*)NULL, "conversion error: %s", mxStrerror_c( errno ) );
+                MX_msgDbg( (CMxObject*)NULL, "original: %d, in %zu, out %zu", i_line, i_in, i_out );
             }
             free( p_line );
             p_line = psz_new_line;
@@ -599,27 +599,27 @@ int CMxStream::vlc_stream_ReadDir(input_item_node_t *p_node) {
 //
 //    return s;
 //}
-CMxStream* CMxStream::vlc_stream_MemoryNew(vlc_object_t *obj, uint8_t *base,size_t size, bool preserve) {
-    
+CMxStream* CMxStream::vlc_stream_MemoryNew(CMxObject *obj, uint8_t *base,size_t size, bool preserve) {
+    return NULL;
 }
-CMxStream* CMxStream::vlc_stream_NewURL(vlc_object_t *obj, const char *url) {
-    
+CMxStream* CMxStream::vlc_stream_NewURL(CMxObject *obj, const char *url) {
+    return NULL;
 }
-CMxStream*v CMxStream::lc_stream_fifo_New(vlc_object_t *parent) {
-    
+CMxStream* CMxStream::vlc_stream_fifo_New(CMxObject *parent) {
+    return NULL;
 }
-int CMxStream::vlc_stream_fifo_Queue(CMxStream *s, block_t *block) {
-    
+int CMxStream::vlc_stream_fifo_Queue(CMxStream *s, CMxBlock *block) {
+    return 0;
 }
 ssize_t CMxStream::vlc_stream_fifo_Write(const void *buf,size_t len) {
-    
+    return 0;
 }
 void CMxStream::vlc_stream_fifo_Close() {
     
 }
 CMxStream* CMxStream::vlc_stream_FilterNew( CMxStream *p_source, const char *psz_stream_filter ) {
-    
+    return NULL;
 }
 int CMxStream::vlc_stream_FilterDefaultReadDir(input_item_node_t *p_node) {
-    
+    return 0;
 }

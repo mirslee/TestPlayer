@@ -685,7 +685,7 @@ typedef struct {
  * It returns a MxChroma describing the requested fourcc or NULL
  * if not found.
  */
-MXCODEC_API const MxChromaDescription * mxFourccGetChromaDescription( MxFourcc fourcc ) MX_USED;
+MXCODEC_API const MxChromaDescription * mxFourccGetChromaDescription( MxFourcc fourcc );
 
 #endif /* MXFOURCC_H */
 
