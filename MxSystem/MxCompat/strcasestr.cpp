@@ -5,6 +5,7 @@
 #include <string.h>
 #include <ctype.h>
 #include <assert.h>
+#include "MxFixups.h"
 
 char *strcasestr (const char *psz_big, const char *psz_little)
 {

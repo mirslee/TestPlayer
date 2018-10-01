@@ -4,7 +4,11 @@
 #include "MxError.h"
 #include "MxCommon.h"
 #include <assert.h>
+#include <limits.h>
 
+#ifdef _WIN32
+#define SSIZE_MAX LONG_MAX
+#endif
 
 CMxStream::CMxStream() {
     p_module = NULL;
@@ -95,8 +99,10 @@ ssize_t CMxStream::readRaw(void *buf, size_t len) {
         if (unlikely(len == 0))
             return 0;
         
-        char dummy[(len <= 256 ? len : 256)];
+        //char dummy[(len <= 256 ? len : 256)];
+		char *dummy = new char[len <= 256 ? len : 256];
         ret = read(dummy, sizeof (dummy));
+		delete[] dummy;
     }
     else
         ret = read(buf, len);

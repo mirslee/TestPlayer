@@ -58,7 +58,7 @@ enum MxMetaType
 /**
  * Basic function to deal with meta
  */
-class MXCORE_API CMxMeta
+class MXCODEC_API CMxMeta
 {
 private:
     std::string ppsz_meta[MX_META_TYPE_COUNT];

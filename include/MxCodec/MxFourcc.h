@@ -671,7 +671,7 @@ typedef struct {
     unsigned num, den;
 } MxRational;
 
-typedef struct {
+struct MxChromaDescription  {
     unsigned plane_count;
     struct {
         MxRational w;
@@ -679,7 +679,76 @@ typedef struct {
     } p[4];
     unsigned pixel_size;        /* Number of bytes per pixel for a plane */
     unsigned pixel_bits;        /* Number of bits actually used bits per pixel for a plane */
-} MxChromaDescription;
+
+	static MxChromaDescription SEMIPLANAR(unsigned w_den, unsigned h_den, unsigned size, unsigned bits) {
+		MxChromaDescription des;
+		des.plane_count = 2;
+		des.p[0].w.num = 1;
+		des.p[0].w.den = 1;
+		des.p[0].h.num = 1;
+		des.p[0].h.den = 1;
+		des.p[1].w.num = 2;
+		des.p[1].w.den = w_den;
+		des.p[1].h.num = 2;
+		des.p[1].h.den = h_den;
+		des.pixel_size = size;
+		des.pixel_bits = bits;
+		return des;
+	}
+	static MxChromaDescription PACKED_FMT(unsigned size, unsigned bits) {
+		MxChromaDescription des;
+		des.plane_count = 1;
+		des.p[0].w.num = 1;
+		des.p[0].w.den = 1;
+		des.p[0].h.num = 1;
+		des.p[0].h.den = 1;
+		des.pixel_size = size;
+		des.pixel_bits = bits;
+		return des;
+	}
+	static MxChromaDescription FAKE_FMT() {
+		MxChromaDescription des;
+		des.plane_count = 0;
+		des.p[0].w.num = 1;
+		des.p[0].w.den = 1;
+		des.p[0].h.num = 1;
+		des.p[0].h.den = 1;
+		des.pixel_size = 0;
+		des.pixel_bits = 0;
+		return des;
+	}
+	void PLANAR(unsigned n, unsigned w_den, unsigned h_den, unsigned size, unsigned bits) {
+		plane_count = n;
+		p[0].w.num = 1;
+		p[0].w.den = 1;
+		p[0].h.num = 1;
+		p[0].h.den = 1;
+		p[1].w.num = 1;
+		p[1].w.den = w_den;
+		p[1].h.num = 1;
+		p[1].h.den = h_den;
+		p[2].w.num = 1;
+		p[2].w.den = w_den;
+		p[2].h.num = 1;
+		p[2].h.den = h_den;
+		p[3].w.num = 1;
+		p[3].w.den = 1;
+		p[3].h.num = 1;
+		p[3].h.den = 1;
+		pixel_size = size;
+		pixel_bits = bits;
+	}
+	static MxChromaDescription PLANAR_8(unsigned n, unsigned w_den, unsigned h_den) {
+		MxChromaDescription des;
+		des.PLANAR(n, w_den, h_den, 1, 8);
+		return des;
+	}
+	static MxChromaDescription PLANAR_16(unsigned n, unsigned w_den, unsigned h_den, unsigned bits) {
+		MxChromaDescription des;
+		des.PLANAR(n, w_den, h_den, 2, bits);
+		return des;
+	}
+} ;
 
 /**
  * It returns a MxChroma describing the requested fourcc or NULL

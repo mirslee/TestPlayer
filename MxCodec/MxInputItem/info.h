@@ -25,6 +25,7 @@
 #define LIBVLC_INPUT_INFO_H 1
 
 #include "vlc_input_item.h"
+#include "MxSystem/MxFixups.h"
 
 static inline info_t *info_New(const char *name, const char *value )
 {

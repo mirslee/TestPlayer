@@ -2,6 +2,7 @@
 #include <string.h>
 #include <ctype.h>
 #include <assert.h>
+#include "MxFixups.h"
 
 int strncasecmp (const char *s1, const char *s2, size_t n)			// sunqueen modify
 {

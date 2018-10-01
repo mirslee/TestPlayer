@@ -35,6 +35,7 @@
 //#include <vlc_strings.h>
 #include "MxVariables.h"
 #include "vlc_input_item.h"
+#include "MxSystem/MxFixups.h"
 
 #include "item.h"
 #include "info.h"

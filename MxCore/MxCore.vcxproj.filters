@@ -16,92 +16,12 @@
     <Filter Include="mempool">
       <UniqueIdentifier>{03dc44d2-e829-4ecc-aa46-a48be06765f0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="NewFilter2">
-      <UniqueIdentifier>{86acde65-706a-4606-bbbf-2f0a6a61972b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="MxModules">
-      <UniqueIdentifier>{9f520762-f08c-4f7f-afc9-3b7bebfecddd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="objres">
-      <UniqueIdentifier>{30dc781f-a557-4e26-bfbb-defefda26f89}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="stdafx.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="MxModules\modules.h">
-      <Filter>MxModules</Filter>
-    </ClInclude>
-    <ClInclude Include="objres\variables.h">
-      <Filter>objres</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\MxCore\CMxInputItem.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\MxCore\CMxMeta.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\MxCore\CMxStream.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\MxCore\MxEs.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\MxCore\MxEvents.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\MxCore\MxFourcc.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\MxCore\MxModules.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\MxCore\MxTextStyle.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\MxCore\MxVariables.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\vlc_input_item.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\MxCore\vlc_input_item.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="stdafx.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="MxModules\modules.cpp">
-      <Filter>MxModules</Filter>
-    </ClCompile>
-    <ClCompile Include="MxModules\textdomain.cpp">
-      <Filter>MxModules</Filter>
-    </ClCompile>
-    <ClCompile Include="objres\variables.cpp">
-      <Filter>objres</Filter>
-    </ClCompile>
-    <ClCompile Include="objres\objres.cpp">
-      <Filter>objres</Filter>
-    </ClCompile>
-    <ClCompile Include="objres\objects.cpp">
-      <Filter>objres</Filter>
-    </ClCompile>
-    <ClCompile Include="bank.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="CMxMeta.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="MxTextStyle.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="MxEvents.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

@@ -287,10 +287,16 @@
     <ClCompile Include="CMxBits.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="CMxBlock.cpp">
+    <ClCompile Include="MxInterrupt.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="MxInterrupt.cpp">
+    <ClCompile Include="MxMd5.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MxMessages.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MxMTime.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

@@ -152,22 +152,47 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\include\MxCodec\CMxBlock.h" />
     <ClInclude Include="..\include\MxCodec\CMxBoxes.h" />
     <ClInclude Include="..\include\MxCodec\CMxCodec.h" />
+    <ClInclude Include="..\include\MxCodec\CMxDemux.h" />
+    <ClInclude Include="..\include\MxCodec\CMxDemux2.h" />
+    <ClInclude Include="..\include\MxCodec\CMxInputItem.h" />
+    <ClInclude Include="..\include\MxCodec\CMxMeta.h" />
     <ClInclude Include="..\include\MxCodec\CMxStream.h" />
     <ClInclude Include="..\include\MxCodec\MxCodecs.h" />
     <ClInclude Include="..\include\MxCodec\MxEs.h" />
+    <ClInclude Include="..\include\MxCodec\MxEvents.h" />
     <ClInclude Include="..\include\MxCodec\MxFourcc.h" />
+    <ClInclude Include="..\include\MxCodec\MxModules.h" />
+    <ClInclude Include="..\include\MxCodec\MxTextStyle.h" />
+    <ClInclude Include="..\include\MxCodec\MxVariables.h" />
+    <ClInclude Include="..\include\MxCodec\vlc_input_item.h" />
     <ClInclude Include="MxFourcc\fourcc_list.h" />
     <ClInclude Include="MxFourcc\fourcc_tables.h" />
+    <ClInclude Include="MxInputItem\info.h" />
+    <ClInclude Include="MxInputItem\item.h" />
+    <ClInclude Include="MxModules\modules.h" />
+    <ClInclude Include="objres\variables.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="bank.cpp" />
+    <ClCompile Include="CMxBlock.cpp" />
+    <ClCompile Include="CMxMeta.cpp" />
     <ClCompile Include="CMxStream.cpp" />
     <ClCompile Include="MxEs\es_format.cpp" />
     <ClCompile Include="MxEs\video_format.cpp" />
+    <ClCompile Include="MxEvents.cpp" />
     <ClCompile Include="MxFourcc\fourcc.cpp" />
     <ClCompile Include="MxFourcc\fourcc_gen.cpp" />
+    <ClCompile Include="MxInputItem\item.cpp" />
+    <ClCompile Include="MxModules\modules.cpp" />
+    <ClCompile Include="MxModules\textdomain.cpp" />
+    <ClCompile Include="MxTextStyle.cpp" />
+    <ClCompile Include="objres\objects.cpp" />
+    <ClCompile Include="objres\objres.cpp" />
+    <ClCompile Include="objres\variables.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

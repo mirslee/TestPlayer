@@ -148,31 +148,6 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\include\MxCore\CMxInputItem.h" />
-    <ClInclude Include="..\include\MxCore\CMxMeta.h" />
-    <ClInclude Include="..\include\MxCore\CMxStream.h" />
-    <ClInclude Include="..\include\MxCore\MxEs.h" />
-    <ClInclude Include="..\include\MxCore\MxEvents.h" />
-    <ClInclude Include="..\include\MxCore\MxFourcc.h" />
-    <ClInclude Include="..\include\MxCore\MxModules.h" />
-    <ClInclude Include="..\include\MxCore\MxTextStyle.h" />
-    <ClInclude Include="..\include\MxCore\MxVariables.h" />
-    <ClInclude Include="..\include\MxCore\vlc_input_item.h" />
-    <ClInclude Include="..\include\vlc_input_item.h" />
-    <ClInclude Include="MxModules\modules.h" />
-    <ClInclude Include="objres\variables.h" />
-    <ClInclude Include="stdafx.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="bank.cpp" />
-    <ClCompile Include="CMxMeta.cpp" />
-    <ClCompile Include="MxEvents.cpp" />
-    <ClCompile Include="MxModules\modules.cpp" />
-    <ClCompile Include="MxModules\textdomain.cpp" />
-    <ClCompile Include="MxTextStyle.cpp" />
-    <ClCompile Include="objres\objects.cpp" />
-    <ClCompile Include="objres\objres.cpp" />
-    <ClCompile Include="objres\variables.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
     </ClCompile>

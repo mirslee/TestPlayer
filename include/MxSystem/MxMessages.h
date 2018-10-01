@@ -30,6 +30,8 @@ enum MxLogType
     MxLogType_DBG,    /**< Debug */
 };
 
+MXSYSTEM_API extern const char mx_module_name[];
+
 /**
  * Log message
  */
@@ -66,8 +68,6 @@ MXSYSTEM_API void mxVaLog(CMxObject *obj, int prio, const char *module,
     MX_msgGeneric(p_this, MxLogType_WARN, __VA_ARGS__)
 #define MX_msgDbg(p_this, ...) \
     MX_msgGeneric(p_this, MxLogType_DBG, __VA_ARGS__)
-
-extern const char mx_module_name[];
 
 MXSYSTEM_API const char *mxStrerror(int);
 MXSYSTEM_API const char *mxStrerror_c(int);

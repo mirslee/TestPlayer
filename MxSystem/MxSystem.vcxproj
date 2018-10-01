@@ -175,7 +175,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CMxBits.cpp" />
-    <ClCompile Include="CMxBlock.cpp" />
     <ClCompile Include="MxCharSet\charset.cpp" />
     <ClCompile Include="MxCharSet\libc.cpp" />
     <ClCompile Include="MxCharSet\unicode.cpp" />
@@ -233,7 +232,10 @@
     <ClCompile Include="MxFileSystem\filesystem_win32.cpp" />
     <ClCompile Include="MxFixups.cpp" />
     <ClCompile Include="MxInterrupt.cpp" />
+    <ClCompile Include="MxMd5.cpp" />
     <ClCompile Include="MxMemStream.cpp" />
+    <ClCompile Include="MxMessages.cpp" />
+    <ClCompile Include="MxMTime.cpp" />
     <ClCompile Include="MxNetwork.cpp" />
     <ClCompile Include="MxRand\rand.cpp" />
     <ClCompile Include="MxRand\rand_win32.cpp" />

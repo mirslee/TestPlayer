@@ -61,7 +61,7 @@ struct MxBlockFifo
     size_t          i_size;
 };
 
-class MXSYSTEM_API CMxBlock {
+class MXCODEC_API CMxBlock {
 public:
     CMxBlock();
     virtual ~CMxBlock();

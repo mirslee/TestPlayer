@@ -19,7 +19,7 @@
  *****************************************************************************/
 
 /* DO NOT include "config.h" here */
-
+#include "stdafx.h"
 #include <assert.h>
 #include <stdbool.h>
 #include <stddef.h>

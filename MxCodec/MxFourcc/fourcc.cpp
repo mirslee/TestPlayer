@@ -647,121 +647,123 @@ bool mxFourccIsYUV(MxFourcc fcc)
     return false;
 }
 
-#define PLANAR(n, w_den, h_den, size, bits) \
-    { .plane_count = n, \
-      .p = { {.w = {1,    1}, .h = {1,    1}}, \
-             {.w = {1,w_den}, .h = {1,h_den}}, \
-             {.w = {1,w_den}, .h = {1,h_den}}, \
-             {.w = {1,    1}, .h = {1,    1}} }, \
-      .pixel_size = size, \
-      .pixel_bits = bits }
+//#define PLANAR(n, w_den, h_den, size, bits) \
+//    { .plane_count = n, \
+//      .p = { {.w = {1,    1}, .h = {1,    1}}, \
+//             {.w = {1,w_den}, .h = {1,h_den}}, \
+//             {.w = {1,w_den}, .h = {1,h_den}}, \
+//             {.w = {1,    1}, .h = {1,    1}} }, \
+//      .pixel_size = size, \
+//      .pixel_bits = bits }
+//
+//#define PLANAR_8(n, w_den, h_den)        PLANAR(n, w_den, h_den, 1, 8)
+//#define PLANAR_16(n, w_den, h_den, bits) PLANAR(n, w_den, h_den, 2, bits)
+//
+//#define SEMIPLANAR(w_den, h_den, size, bits) \
+//    { .plane_count = 2, \
+//      .p = { {.w = {1,    1}, .h = {1,    1}}, \
+//             {.w = {2,w_den}, .h = {1,h_den}} }, \
+//      .pixel_size = size, \
+//      .pixel_bits = bits }
+//
+//#define PACKED_FMT(size, bits) \
+//    { .plane_count = 1, \
+//      .p = { {.w = {1,1}, .h = {1,1}} }, \
+//      .pixel_size = size, \
+//      .pixel_bits = bits }
+//
+///* Zero planes for hardware picture handles. Cannot be manipulated directly. */
+//#define FAKE_FMT() \
+//    { .plane_count = 0, \
+//      .p = { {.w = {1,1}, .h = {1,1}} }, \
+//      .pixel_size = 0, \
+//      .pixel_bits = 0 }
 
-#define PLANAR_8(n, w_den, h_den)        PLANAR(n, w_den, h_den, 1, 8)
-#define PLANAR_16(n, w_den, h_den, bits) PLANAR(n, w_den, h_den, 2, bits)
-
-#define SEMIPLANAR(w_den, h_den, size, bits) \
-    { .plane_count = 2, \
-      .p = { {.w = {1,    1}, .h = {1,    1}}, \
-             {.w = {2,w_den}, .h = {1,h_den}} }, \
-      .pixel_size = size, \
-      .pixel_bits = bits }
-
-#define PACKED_FMT(size, bits) \
-    { .plane_count = 1, \
-      .p = { {.w = {1,1}, .h = {1,1}} }, \
-      .pixel_size = size, \
-      .pixel_bits = bits }
-
-/* Zero planes for hardware picture handles. Cannot be manipulated directly. */
-#define FAKE_FMT() \
-    { .plane_count = 0, \
-      .p = { {.w = {1,1}, .h = {1,1}} }, \
-      .pixel_size = 0, \
-      .pixel_bits = 0 }
-
-static const struct
+struct p_list_chroma_description_t
 {
     MxFourcc             p_fourcc[4];
     MxChromaDescription description;
-} p_list_chroma_description[] = {
-    { { MX_CODEC_I411 },                      PLANAR_8(3, 4, 1) },
-    { { MX_CODEC_YUV_PLANAR_410 },            PLANAR_8(3, 4, 4) },
-    { { MX_CODEC_YUV_PLANAR_420 },            PLANAR_8(3, 2, 2) },
-    { { MX_CODEC_NV12, MX_CODEC_NV21 },      SEMIPLANAR(2, 2, 1, 8) },
-    { { MX_CODEC_YUV_PLANAR_422 },            PLANAR_8(3, 2, 1) },
-    { { MX_CODEC_NV16, MX_CODEC_NV61 },      PLANAR_8(2, 1, 1) },
-    { { MX_CODEC_YUV_PLANAR_440 },            PLANAR_8(3, 1, 2) },
-    { { MX_CODEC_YUV_PLANAR_444 },            PLANAR_8(3, 1, 1) },
-    { { MX_CODEC_YUVA },                      PLANAR_8(4, 1, 1) },
-    { { MX_CODEC_YUV420A },                   PLANAR_8(4, 2, 2) },
-    { { MX_CODEC_YUV422A },                   PLANAR_8(4, 2, 1) },
+};
 
-    { { MX_CODEC_GBR_PLANAR },                PLANAR_8(3, 1, 1) },
+static const p_list_chroma_description_t p_list_chroma_description[] = {
+	{ { MX_CODEC_I411 },                      MxChromaDescription().PLANAR_8(3, 4, 1) },
+    { { MX_CODEC_YUV_PLANAR_410 },            MxChromaDescription().PLANAR_8(3, 4, 4) },
+    { { MX_CODEC_YUV_PLANAR_420 },            MxChromaDescription().PLANAR_8(3, 2, 2) },
+    { { MX_CODEC_NV12, MX_CODEC_NV21 },      MxChromaDescription().SEMIPLANAR(2, 2, 1, 8) },
+    { { MX_CODEC_YUV_PLANAR_422 },            MxChromaDescription().PLANAR_8(3, 2, 1) },
+    { { MX_CODEC_NV16, MX_CODEC_NV61 },      MxChromaDescription().PLANAR_8(2, 1, 1) },
+    { { MX_CODEC_YUV_PLANAR_440 },            MxChromaDescription().PLANAR_8(3, 1, 2) },
+    { { MX_CODEC_YUV_PLANAR_444 },            MxChromaDescription().PLANAR_8(3, 1, 1) },
+    { { MX_CODEC_YUVA },                      MxChromaDescription().PLANAR_8(4, 1, 1) },
+    { { MX_CODEC_YUV420A },                   MxChromaDescription().PLANAR_8(4, 2, 2) },
+    { { MX_CODEC_YUV422A },                   MxChromaDescription().PLANAR_8(4, 2, 1) },
+
+    { { MX_CODEC_GBR_PLANAR },                MxChromaDescription().PLANAR_8(3, 1, 1) },
     { { MX_CODEC_GBR_PLANAR_9L,
-        MX_CODEC_GBR_PLANAR_9B },             PLANAR_16(3, 1, 1, 9) },
+        MX_CODEC_GBR_PLANAR_9B },             MxChromaDescription().PLANAR_16(3, 1, 1, 9) },
     { { MX_CODEC_GBR_PLANAR_10L,
-        MX_CODEC_GBR_PLANAR_10B },            PLANAR_16(3, 1, 1, 10) },
+        MX_CODEC_GBR_PLANAR_10B },            MxChromaDescription().PLANAR_16(3, 1, 1, 10) },
 
     { { MX_CODEC_I420_16L,
-        MX_CODEC_I420_16B },                  PLANAR_16(3, 2, 2, 16) },
+        MX_CODEC_I420_16B },                  MxChromaDescription().PLANAR_16(3, 2, 2, 16) },
     { { MX_CODEC_I420_12L,
-        MX_CODEC_I420_12B },                  PLANAR_16(3, 2, 2, 12) },
+        MX_CODEC_I420_12B },                  MxChromaDescription().PLANAR_16(3, 2, 2, 12) },
     { { MX_CODEC_I420_10L,
-        MX_CODEC_I420_10B },                  PLANAR_16(3, 2, 2, 10) },
+        MX_CODEC_I420_10B },                  MxChromaDescription().PLANAR_16(3, 2, 2, 10) },
     { { MX_CODEC_I420_9L,
-        MX_CODEC_I420_9B },                   PLANAR_16(3, 2, 2,  9) },
+        MX_CODEC_I420_9B },                   MxChromaDescription().PLANAR_16(3, 2, 2,  9) },
     { { MX_CODEC_I422_12L,
-        MX_CODEC_I422_12B },                  PLANAR_16(3, 2, 1, 12) },
+        MX_CODEC_I422_12B },                  MxChromaDescription().PLANAR_16(3, 2, 1, 12) },
     { { MX_CODEC_I422_10L,
-        MX_CODEC_I422_10B },                  PLANAR_16(3, 2, 1, 10) },
+        MX_CODEC_I422_10B },                  MxChromaDescription().PLANAR_16(3, 2, 1, 10) },
     { { MX_CODEC_I422_9L,
-        MX_CODEC_I422_9B },                   PLANAR_16(3, 2, 1,  9) },
+        MX_CODEC_I422_9B },                   MxChromaDescription().PLANAR_16(3, 2, 1,  9) },
     { { MX_CODEC_I444_12L,
-        MX_CODEC_I444_12B },                  PLANAR_16(3, 1, 1, 12) },
+        MX_CODEC_I444_12B },                  MxChromaDescription().PLANAR_16(3, 1, 1, 12) },
     { { MX_CODEC_I444_10L,
-        MX_CODEC_I444_10B },                  PLANAR_16(3, 1, 1, 10) },
+        MX_CODEC_I444_10B },                  MxChromaDescription().PLANAR_16(3, 1, 1, 10) },
     { { MX_CODEC_I444_9L,
-        MX_CODEC_I444_9B },                   PLANAR_16(3, 1, 1,  9) },
+        MX_CODEC_I444_9B },                   MxChromaDescription().PLANAR_16(3, 1, 1,  9) },
     { { MX_CODEC_I444_16L,
-        MX_CODEC_I444_16B },                  PLANAR_16(3, 1, 1, 16) },
+        MX_CODEC_I444_16B },                  MxChromaDescription().PLANAR_16(3, 1, 1, 16) },
     { { MX_CODEC_YUVA_444_10L,
-        MX_CODEC_YUVA_444_10B },              PLANAR_16(4, 1, 1, 10) },
-    { { MX_CODEC_P010 },                      SEMIPLANAR(2, 2, 2, 10) },
+        MX_CODEC_YUVA_444_10B },              MxChromaDescription().PLANAR_16(4, 1, 1, 10) },
+    { { MX_CODEC_P010 },                      MxChromaDescription().SEMIPLANAR(2, 2, 2, 10) },
 
-    { { MX_CODEC_YUV_PACKED },                PACKED_FMT(2, 16) },
+    { { MX_CODEC_YUV_PACKED },                MxChromaDescription().PACKED_FMT(2, 16) },
     { { MX_CODEC_RGB8, MX_CODEC_GREY,
-        MX_CODEC_YUVP, MX_CODEC_RGBP },      PACKED_FMT(1, 8) },
+        MX_CODEC_YUVP, MX_CODEC_RGBP },      MxChromaDescription().PACKED_FMT(1, 8) },
 
-    { { MX_CODEC_RGB15, 0 },                  PACKED_FMT(2, 15) },
-    { { MX_CODEC_RGB12, 0 },                  PACKED_FMT(2, 12) },
-    { { MX_CODEC_RGB16, 0 },                  PACKED_FMT(2, 16) },
-    { { MX_CODEC_RGB24, 0 },                  PACKED_FMT(3, 24) },
-    { { MX_CODEC_RGB32, 0 },                  PACKED_FMT(4, 24) },
+    { { MX_CODEC_RGB15, 0 },                  MxChromaDescription().PACKED_FMT(2, 15) },
+    { { MX_CODEC_RGB12, 0 },                  MxChromaDescription().PACKED_FMT(2, 12) },
+    { { MX_CODEC_RGB16, 0 },                  MxChromaDescription().PACKED_FMT(2, 16) },
+    { { MX_CODEC_RGB24, 0 },                  MxChromaDescription().PACKED_FMT(3, 24) },
+    { { MX_CODEC_RGB32, 0 },                  MxChromaDescription().PACKED_FMT(4, 24) },
     { { MX_CODEC_RGBA, MX_CODEC_ARGB,
-        MX_CODEC_BGRA, },                     PACKED_FMT(4, 32) },
+        MX_CODEC_BGRA, },                     MxChromaDescription().PACKED_FMT(4, 32) },
 
     { { MX_CODEC_Y211, 0 },                   { 1, { {{1,4}, {1,1}} }, 4, 32 } },
-    { { MX_CODEC_XYZ12,  0 },                 PACKED_FMT(6, 48) },
+    { { MX_CODEC_XYZ12,  0 },                 MxChromaDescription().PACKED_FMT(6, 48) },
 
     { { MX_CODEC_VDPAU_VIDEO_420, MX_CODEC_VDPAU_VIDEO_422,
         MX_CODEC_VDPAU_VIDEO_444, MX_CODEC_VDPAU_OUTPUT },
-                                               FAKE_FMT() },
+											   MxChromaDescription().FAKE_FMT() },
     { { MX_CODEC_ANDROID_OPAQUE, MX_CODEC_MMAL_OPAQUE,
         MX_CODEC_D3D9_OPAQUE,    MX_CODEC_D3D11_OPAQUE },
-                                               FAKE_FMT() },
+											   MxChromaDescription().FAKE_FMT() },
     { { MX_CODEC_D3D11_OPAQUE_10B, MX_CODEC_D3D9_OPAQUE_10B },
-                                               FAKE_FMT() },
+											   MxChromaDescription().FAKE_FMT() },
 
     { { MX_CODEC_CVPX_NV12, MX_CODEC_CVPX_UYVY,
         MX_CODEC_CVPX_I420, MX_CODEC_CVPX_BGRA },
-                                               FAKE_FMT() },
+											   MxChromaDescription().FAKE_FMT() },
 
-    { { MX_CODEC_CVPX_P010, 0 },              FAKE_FMT() },
+    { { MX_CODEC_CVPX_P010, 0 },              MxChromaDescription().FAKE_FMT() },
 
     { { MX_CODEC_VAAPI_420, MX_CODEC_VAAPI_420_10BPP },
-                                               FAKE_FMT() },
+											   MxChromaDescription().FAKE_FMT() },
 
-    { { 0 },                                   FAKE_FMT() }
+	{ { 0 },                                   MxChromaDescription().FAKE_FMT() }
 };
 
 #undef PACKED_FMT
