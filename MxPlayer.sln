@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MxSystem", "MxSystem\MxSyst
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MxCodec", "MxCodec\MxCodec.vcxproj", "{5F4F85CB-E487-40CA-BFB0-84D691ED6BDA}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MxDemuxer", "plugin\muxer\MxDemuxer\MxDemuxer.vcxproj", "{40D396E6-3DE3-4E73-A0C8-4358AA1AB586}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,20 @@ Global
 		{5F4F85CB-E487-40CA-BFB0-84D691ED6BDA}.Release|Win32.Build.0 = Release|Win32
 		{5F4F85CB-E487-40CA-BFB0-84D691ED6BDA}.Release|x64.ActiveCfg = Release|x64
 		{5F4F85CB-E487-40CA-BFB0-84D691ED6BDA}.Release|x64.Build.0 = Release|x64
+		{40D396E6-3DE3-4E73-A0C8-4358AA1AB586}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{40D396E6-3DE3-4E73-A0C8-4358AA1AB586}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{40D396E6-3DE3-4E73-A0C8-4358AA1AB586}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{40D396E6-3DE3-4E73-A0C8-4358AA1AB586}.Debug|Win32.ActiveCfg = Debug|Win32
+		{40D396E6-3DE3-4E73-A0C8-4358AA1AB586}.Debug|Win32.Build.0 = Debug|Win32
+		{40D396E6-3DE3-4E73-A0C8-4358AA1AB586}.Debug|x64.ActiveCfg = Debug|x64
+		{40D396E6-3DE3-4E73-A0C8-4358AA1AB586}.Debug|x64.Build.0 = Debug|x64
+		{40D396E6-3DE3-4E73-A0C8-4358AA1AB586}.Release|Any CPU.ActiveCfg = Release|Win32
+		{40D396E6-3DE3-4E73-A0C8-4358AA1AB586}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{40D396E6-3DE3-4E73-A0C8-4358AA1AB586}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{40D396E6-3DE3-4E73-A0C8-4358AA1AB586}.Release|Win32.ActiveCfg = Release|Win32
+		{40D396E6-3DE3-4E73-A0C8-4358AA1AB586}.Release|Win32.Build.0 = Release|Win32
+		{40D396E6-3DE3-4E73-A0C8-4358AA1AB586}.Release|x64.ActiveCfg = Release|x64
+		{40D396E6-3DE3-4E73-A0C8-4358AA1AB586}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
